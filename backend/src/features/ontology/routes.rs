@@ -46,7 +46,9 @@ pub async fn health_check() -> Json<HealthResponse> {
         (status = 200, description = "List of frameworks", body = Vec<Framework>)
     )
 )]
-pub async fn list_frameworks(State(state): State<AppState>) -> Result<Json<Vec<Framework>>, StatusCode> {
+pub async fn list_frameworks(
+    State(state): State<AppState>,
+) -> Result<Json<Vec<Framework>>, StatusCode> {
     let frameworks = sqlx::query_as::<_, Framework>(
         r#"SELECT id, name, version, description, source_url, created_at, updated_at FROM frameworks ORDER BY name"#
     )
@@ -105,44 +107,41 @@ pub async fn list_concepts(
     let offset = (query.page - 1) * query.limit;
 
     // Build WHERE clause
-    let (where_clause, framework_param, type_param) = match (&query.framework_id, &query.concept_type) {
-        (Some(fw), Some(ct)) => ("WHERE framework_id = ? AND concept_type = ?", Some(fw.clone()), Some(ct.clone())),
-        (Some(fw), None) => ("WHERE framework_id = ?", Some(fw.clone()), None),
-        (None, Some(ct)) => ("WHERE concept_type = ?", None, Some(ct.clone())),
-        (None, None) => ("", None, None),
-    };
+    let (where_clause, framework_param, type_param) =
+        match (&query.framework_id, &query.concept_type) {
+            (Some(fw), Some(ct)) => (
+                "WHERE framework_id = ? AND concept_type = ?",
+                Some(fw.clone()),
+                Some(ct.clone()),
+            ),
+            (Some(fw), None) => ("WHERE framework_id = ?", Some(fw.clone()), None),
+            (None, Some(ct)) => ("WHERE concept_type = ?", None, Some(ct.clone())),
+            (None, None) => ("", None, None),
+        };
 
     // Count total
     let count_query = format!("SELECT COUNT(*) as count FROM concepts {}", where_clause);
     let total: i64 = match (&framework_param, &type_param) {
-        (Some(fw), Some(ct)) => {
-            sqlx::query_scalar(&count_query)
-                .bind(fw)
-                .bind(ct)
-                .fetch_one(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
-        (Some(fw), None) => {
-            sqlx::query_scalar(&count_query)
-                .bind(fw)
-                .fetch_one(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
-        (None, Some(ct)) => {
-            sqlx::query_scalar(&count_query)
-                .bind(ct)
-                .fetch_one(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
-        (None, None) => {
-            sqlx::query_scalar(&count_query)
-                .fetch_one(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
+        (Some(fw), Some(ct)) => sqlx::query_scalar(&count_query)
+            .bind(fw)
+            .bind(ct)
+            .fetch_one(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
+        (Some(fw), None) => sqlx::query_scalar(&count_query)
+            .bind(fw)
+            .fetch_one(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
+        (None, Some(ct)) => sqlx::query_scalar(&count_query)
+            .bind(ct)
+            .fetch_one(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
+        (None, None) => sqlx::query_scalar(&count_query)
+            .fetch_one(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
     };
 
     // Fetch concepts
@@ -152,42 +151,34 @@ pub async fn list_concepts(
     );
 
     let concepts: Vec<Concept> = match (&framework_param, &type_param) {
-        (Some(fw), Some(ct)) => {
-            sqlx::query_as(&concepts_query)
-                .bind(fw)
-                .bind(ct)
-                .bind(query.limit)
-                .bind(offset)
-                .fetch_all(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
-        (Some(fw), None) => {
-            sqlx::query_as(&concepts_query)
-                .bind(fw)
-                .bind(query.limit)
-                .bind(offset)
-                .fetch_all(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
-        (None, Some(ct)) => {
-            sqlx::query_as(&concepts_query)
-                .bind(ct)
-                .bind(query.limit)
-                .bind(offset)
-                .fetch_all(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
-        (None, None) => {
-            sqlx::query_as(&concepts_query)
-                .bind(query.limit)
-                .bind(offset)
-                .fetch_all(&state.db)
-                .await
-                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
-        }
+        (Some(fw), Some(ct)) => sqlx::query_as(&concepts_query)
+            .bind(fw)
+            .bind(ct)
+            .bind(query.limit)
+            .bind(offset)
+            .fetch_all(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
+        (Some(fw), None) => sqlx::query_as(&concepts_query)
+            .bind(fw)
+            .bind(query.limit)
+            .bind(offset)
+            .fetch_all(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
+        (None, Some(ct)) => sqlx::query_as(&concepts_query)
+            .bind(ct)
+            .bind(query.limit)
+            .bind(offset)
+            .fetch_all(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
+        (None, None) => sqlx::query_as(&concepts_query)
+            .bind(query.limit)
+            .bind(offset)
+            .fetch_all(&state.db)
+            .await
+            .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
     };
 
     Ok(Json(PaginatedResponse::new(
@@ -408,7 +399,9 @@ pub async fn search_concepts(
         (status = 200, description = "List of relationships", body = Vec<Relationship>)
     )
 )]
-pub async fn list_relationships(State(state): State<AppState>) -> Result<Json<Vec<Relationship>>, StatusCode> {
+pub async fn list_relationships(
+    State(state): State<AppState>,
+) -> Result<Json<Vec<Relationship>>, StatusCode> {
     let relationships = sqlx::query_as::<_, Relationship>(
         r#"SELECT id, source_concept_id, target_concept_id, relationship_type, description, created_at FROM relationships"#
     )
@@ -426,6 +419,9 @@ pub fn router() -> Router<AppState> {
         .route("/concepts", get(list_concepts))
         .route("/concepts/search", get(search_concepts))
         .route("/concepts/:id", get(get_concept))
-        .route("/concepts/:id/relationships", get(get_concept_relationships))
+        .route(
+            "/concepts/:id/relationships",
+            get(get_concept_relationships),
+        )
         .route("/relationships", get(list_relationships))
 }

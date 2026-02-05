@@ -73,7 +73,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             tracing::info!("Ontology data already loaded ({} concepts)", count.0);
         }
     } else {
-        tracing::warn!("Ontology data directory not found at {:?}", ontology_data_dir);
+        tracing::warn!(
+            "Ontology data directory not found at {:?}",
+            ontology_data_dir
+        );
     }
 
     // Create application state

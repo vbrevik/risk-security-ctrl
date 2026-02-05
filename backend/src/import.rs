@@ -53,7 +53,10 @@ pub struct RelationshipsFile {
 }
 
 /// Import a framework and its concepts from a JSON file
-pub async fn import_ontology_file(db: &SqlitePool, file_path: &Path) -> Result<(), Box<dyn std::error::Error>> {
+pub async fn import_ontology_file(
+    db: &SqlitePool,
+    file_path: &Path,
+) -> Result<(), Box<dyn std::error::Error>> {
     info!("Importing ontology from: {}", file_path.display());
 
     // Read and parse JSON file
@@ -61,7 +64,10 @@ pub async fn import_ontology_file(db: &SqlitePool, file_path: &Path) -> Result<(
     let ontology: OntologyFile = serde_json::from_str(&content)?;
 
     // Insert framework
-    info!("Inserting framework: {} ({})", ontology.framework.name, ontology.framework.id);
+    info!(
+        "Inserting framework: {} ({})",
+        ontology.framework.name, ontology.framework.id
+    );
     sqlx::query!(
         r#"
         INSERT INTO frameworks (id, name, version, description, source_url)
@@ -122,12 +128,19 @@ pub async fn import_ontology_file(db: &SqlitePool, file_path: &Path) -> Result<(
         .await?;
     }
 
-    info!("Successfully imported {} concepts from {}", ontology.concepts.len(), ontology.framework.name);
+    info!(
+        "Successfully imported {} concepts from {}",
+        ontology.concepts.len(),
+        ontology.framework.name
+    );
     Ok(())
 }
 
 /// Import relationships from the relationships.json file
-pub async fn import_relationships(db: &SqlitePool, file_path: &Path) -> Result<(), Box<dyn std::error::Error>> {
+pub async fn import_relationships(
+    db: &SqlitePool,
+    file_path: &Path,
+) -> Result<(), Box<dyn std::error::Error>> {
     info!("Importing relationships from: {}", file_path.display());
 
     // Read and parse JSON file
@@ -135,7 +148,10 @@ pub async fn import_relationships(db: &SqlitePool, file_path: &Path) -> Result<(
     let relationships_file: RelationshipsFile = serde_json::from_str(&content)?;
 
     // Insert relationships
-    info!("Inserting {} relationships", relationships_file.relationships.len());
+    info!(
+        "Inserting {} relationships",
+        relationships_file.relationships.len()
+    );
     for relationship in &relationships_file.relationships {
         let result = sqlx::query!(
             r#"
@@ -157,7 +173,10 @@ pub async fn import_relationships(db: &SqlitePool, file_path: &Path) -> Result<(
         .await;
 
         if let Err(e) = result {
-            warn!("Failed to insert relationship {}: {}. Skipping (likely missing concept).", relationship.id, e);
+            warn!(
+                "Failed to insert relationship {}: {}. Skipping (likely missing concept).",
+                relationship.id, e
+            );
         }
     }
 
@@ -166,7 +185,10 @@ pub async fn import_relationships(db: &SqlitePool, file_path: &Path) -> Result<(
 }
 
 /// Import all ontology data from the ontology-data directory
-pub async fn import_all_ontologies(db: &SqlitePool, data_dir: &Path) -> Result<(), Box<dyn std::error::Error>> {
+pub async fn import_all_ontologies(
+    db: &SqlitePool,
+    data_dir: &Path,
+) -> Result<(), Box<dyn std::error::Error>> {
     info!("Starting full ontology import from: {}", data_dir.display());
 
     // Import framework files
@@ -195,7 +217,10 @@ pub async fn import_all_ontologies(db: &SqlitePool, data_dir: &Path) -> Result<(
     if relationships_path.exists() {
         import_relationships(db, &relationships_path).await?;
     } else {
-        warn!("Relationships file not found: {}", relationships_path.display());
+        warn!(
+            "Relationships file not found: {}",
+            relationships_path.display()
+        );
     }
 
     info!("Full ontology import completed");

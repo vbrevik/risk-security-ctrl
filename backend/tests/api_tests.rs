@@ -279,7 +279,10 @@ async fn test_search_concepts() {
             || name_nb.to_lowercase().contains("risk")
             || def_en.to_lowercase().contains("risk")
             || def_nb.to_lowercase().contains("risk");
-        assert!(has_term, "Search result should contain 'risk' in at least one field");
+        assert!(
+            has_term,
+            "Search result should contain 'risk' in at least one field"
+        );
     }
 }
 
