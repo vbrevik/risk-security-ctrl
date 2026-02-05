@@ -1,0 +1,431 @@
+{
+  "relationships": [
+    {
+      "id": "rel-iso31000-nist-risk-assessment",
+      "source_concept_id": "iso31000-proc3-risk-assessment",
+      "target_concept_id": "nist-csf-id-ra",
+      "relationship_type": "maps_to",
+      "description": "ISO 31000 Risk Assessment process maps to NIST CSF Risk Assessment category. Both address identifying, analyzing, and evaluating risks."
+    },
+    {
+      "id": "rel-iso31000-nist-identification",
+      "source_concept_id": "iso31000-proc3a-identification",
+      "target_concept_id": "nist-csf-id-ra-01",
+      "relationship_type": "maps_to",
+      "description": "ISO 31000 Risk Identification maps to NIST CSF Vulnerability Identification. Both focus on finding potential risks/vulnerabilities."
+    },
+    {
+      "id": "rel-iso31000-nist-asset-management",
+      "source_concept_id": "iso31000-proc2-scope-context",
+      "target_concept_id": "nist-csf-id-am",
+      "relationship_type": "related_to",
+      "description": "ISO 31000 Scope, context and criteria relates to NIST CSF Asset Management. Understanding context includes knowing what assets exist."
+    },
+    {
+      "id": "rel-iso31000-nist-communication",
+      "source_concept_id": "iso31000-proc1-communication",
+      "target_concept_id": "nist-csf-rs-co",
+      "relationship_type": "related_to",
+      "description": "ISO 31000 Communication and consultation relates to NIST CSF Incident Response Communication. Both emphasize stakeholder communication."
+    },
+    {
+      "id": "rel-iso31000-nist-monitoring",
+      "source_concept_id": "iso31000-proc5-monitoring-review",
+      "target_concept_id": "nist-csf-de-cm",
+      "relationship_type": "maps_to",
+      "description": "ISO 31000 Monitoring and review maps to NIST CSF Continuous Monitoring. Both address ongoing surveillance of risk environment."
+    },
+    {
+      "id": "rel-iso31000-nist-treatment-protect",
+      "source_concept_id": "iso31000-proc4-treatment",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "maps_to",
+      "description": "ISO 31000 Risk Treatment maps to NIST CSF Protect function. Risk treatment includes implementing protective safeguards."
+    },
+    {
+      "id": "rel-iso31000-nist-continual-improvement",
+      "source_concept_id": "iso31000-p8-continual-improvement",
+      "target_concept_id": "nist-csf-id-im",
+      "relationship_type": "maps_to",
+      "description": "ISO 31000 Continual improvement principle maps to NIST CSF Improvement category. Both emphasize ongoing enhancement."
+    },
+    {
+      "id": "rel-iso31000-nist-governance",
+      "source_concept_id": "iso31000-f1-leadership",
+      "target_concept_id": "nist-csf-govern",
+      "relationship_type": "maps_to",
+      "description": "ISO 31000 Leadership and commitment maps to NIST CSF Govern function. Both address organizational governance of risk management."
+    },
+    {
+      "id": "rel-iso31000-nist-framework-design",
+      "source_concept_id": "iso31000-f3-design",
+      "target_concept_id": "nist-csf-gv-rm",
+      "relationship_type": "related_to",
+      "description": "ISO 31000 Framework Design relates to NIST CSF Risk Management Strategy. Both involve establishing risk management approaches."
+    },
+    {
+      "id": "rel-iso31010-iso31000-identification",
+      "source_concept_id": "iso31010-brainstorming",
+      "target_concept_id": "iso31000-proc3a-identification",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Brainstorming technique supports ISO 31000 Risk Identification process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-checklists",
+      "source_concept_id": "iso31010-checklists",
+      "target_concept_id": "iso31000-proc3a-identification",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Checklists technique supports ISO 31000 Risk Identification process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-fmea",
+      "source_concept_id": "iso31010-fmea",
+      "target_concept_id": "iso31000-proc3b-analysis",
+      "relationship_type": "supports",
+      "description": "ISO 31010 FMEA technique supports ISO 31000 Risk Analysis process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-fault-tree",
+      "source_concept_id": "iso31010-fault-tree",
+      "target_concept_id": "iso31000-proc3b-analysis",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Fault Tree Analysis supports ISO 31000 Risk Analysis process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-event-tree",
+      "source_concept_id": "iso31010-event-tree",
+      "target_concept_id": "iso31000-proc3b-analysis",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Event Tree Analysis supports ISO 31000 Risk Analysis process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-bow-tie",
+      "source_concept_id": "iso31010-bow-tie",
+      "target_concept_id": "iso31000-proc3-risk-assessment",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Bow-tie Analysis supports ISO 31000 Risk Assessment process."
+    },
+    {
+      "id": "rel-iso31010-iso31000-rca",
+      "source_concept_id": "iso31010-root-cause",
+      "target_concept_id": "iso31000-proc3b-analysis",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Root Cause Analysis supports ISO 31000 Risk Analysis process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-monte-carlo",
+      "source_concept_id": "iso31010-monte-carlo",
+      "target_concept_id": "iso31000-proc3b-analysis",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Monte Carlo simulation supports ISO 31000 Risk Analysis process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-hazop",
+      "source_concept_id": "iso31010-hazop",
+      "target_concept_id": "iso31000-proc3a-identification",
+      "relationship_type": "supports",
+      "description": "ISO 31010 HAZOP supports ISO 31000 Risk Identification process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-delphi",
+      "source_concept_id": "iso31010-delphi",
+      "target_concept_id": "iso31000-p4-inclusive",
+      "relationship_type": "implements",
+      "description": "ISO 31010 Delphi technique implements ISO 31000 Inclusive principle through expert consultation."
+    },
+    {
+      "id": "rel-iso31010-iso31000-swot",
+      "source_concept_id": "iso31010-swot",
+      "target_concept_id": "iso31000-proc2-scope-context",
+      "relationship_type": "supports",
+      "description": "ISO 31010 SWOT Analysis supports ISO 31000 Scope, context and criteria process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-cba",
+      "source_concept_id": "iso31010-cost-benefit",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Cost-benefit analysis supports ISO 31000 Risk Treatment process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-mcda",
+      "source_concept_id": "iso31010-mcda",
+      "target_concept_id": "iso31000-proc3c-evaluation",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Multi-criteria decision analysis supports ISO 31000 Risk Evaluation process step."
+    },
+    {
+      "id": "rel-iso31010-iso31000-bia",
+      "source_concept_id": "iso31010-bcp-bia",
+      "target_concept_id": "iso31000-proc3b-analysis",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Business Impact Analysis supports ISO 31000 Risk Analysis process step."
+    },
+    {
+      "id": "rel-iso31010-nist-bia-recovery",
+      "source_concept_id": "iso31010-bcp-bia",
+      "target_concept_id": "nist-csf-recover",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Business Impact Analysis supports NIST CSF Recover function planning."
+    },
+    {
+      "id": "rel-iso31010-nist-rca-analysis",
+      "source_concept_id": "iso31010-root-cause",
+      "target_concept_id": "nist-csf-rs-an",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Root Cause Analysis supports NIST CSF Incident Analysis category."
+    },
+    {
+      "id": "rel-iso31010-nist-bow-tie-protect",
+      "source_concept_id": "iso31010-bow-tie",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "supports",
+      "description": "ISO 31010 Bow-tie Analysis supports NIST CSF Protect function by identifying barriers and controls."
+    },
+    {
+      "id": "rel-nist-govern-iso31000-framework",
+      "source_concept_id": "nist-csf-gv-oc",
+      "target_concept_id": "iso31000-f3-design",
+      "relationship_type": "related_to",
+      "description": "NIST CSF Organizational Context relates to ISO 31000 Framework Design. Both involve understanding organizational context."
+    },
+    {
+      "id": "rel-nist-detect-iso31000-monitoring",
+      "source_concept_id": "nist-csf-de-ae",
+      "target_concept_id": "iso31000-proc5-monitoring-review",
+      "relationship_type": "related_to",
+      "description": "NIST CSF Adverse Event Analysis relates to ISO 31000 Monitoring and review process step."
+    },
+    {
+      "id": "rel-nist-respond-iso31000-treatment",
+      "source_concept_id": "nist-csf-rs-mi",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "related_to",
+      "description": "NIST CSF Incident Mitigation relates to ISO 31000 Risk Treatment. Incident mitigation is a form of risk treatment."
+    },
+    {
+      "id": "rel-nist-data-security-iso31000-treatment",
+      "source_concept_id": "nist-csf-pr-ds",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "implements",
+      "description": "NIST CSF Data Security implements ISO 31000 Risk Treatment for data-related risks."
+    },
+    {
+      "id": "rel-nist-access-control-iso31000-treatment",
+      "source_concept_id": "nist-csf-pr-aa",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "implements",
+      "description": "NIST CSF Identity Management and Access Control implements ISO 31000 Risk Treatment for access-related risks."
+    },
+    {
+      "id": "rel-iso9000-iso31000-risk-planning",
+      "source_concept_id": "iso9000-planning",
+      "target_concept_id": "iso31000-f3-design",
+      "relationship_type": "maps_to",
+      "description": "ISO 9000 Planning for QMS addresses risks and opportunities, mapping to ISO 31000 Risk Management Framework Design."
+    },
+    {
+      "id": "rel-iso9000-iso31000-improvement",
+      "source_concept_id": "iso9000-p5-improvement",
+      "target_concept_id": "iso31000-p8-continual-improvement",
+      "relationship_type": "maps_to",
+      "description": "ISO 9000 Improvement principle maps to ISO 31000 Continual improvement principle."
+    },
+    {
+      "id": "rel-iso9000-iso31000-process-approach",
+      "source_concept_id": "iso9000-p4-process-approach",
+      "target_concept_id": "iso31000-p2-structured",
+      "relationship_type": "related_to",
+      "description": "ISO 9000 Process approach relates to ISO 31000 Structured and comprehensive principle."
+    },
+    {
+      "id": "rel-iso9000-iso31000-evidence",
+      "source_concept_id": "iso9000-p6-evidence-based",
+      "target_concept_id": "iso31000-p6-best-info",
+      "relationship_type": "maps_to",
+      "description": "ISO 9000 Evidence-based decision making maps to ISO 31000 Best available information principle."
+    },
+    {
+      "id": "rel-iso27000-iso31000-risk-assessment",
+      "source_concept_id": "iso27000-operation",
+      "target_concept_id": "iso31000-proc3-risk-assessment",
+      "relationship_type": "implements",
+      "description": "ISO 27000 Operation (information security risk assessment) implements ISO 31000 Risk Assessment process."
+    },
+    {
+      "id": "rel-iso27000-iso31000-planning",
+      "source_concept_id": "iso27000-planning",
+      "target_concept_id": "iso31000-f3-design",
+      "relationship_type": "maps_to",
+      "description": "ISO 27000 Planning (actions to address risks) maps to ISO 31000 Risk Management Framework Design."
+    },
+    {
+      "id": "rel-iso27000-iso31000-improvement",
+      "source_concept_id": "iso27000-improvement",
+      "target_concept_id": "iso31000-f6-improvement",
+      "relationship_type": "maps_to",
+      "description": "ISO 27000 Improvement maps to ISO 31000 Framework Improvement, both emphasizing continual enhancement."
+    },
+    {
+      "id": "rel-iso27000-nist-isms-governance",
+      "source_concept_id": "iso27000-isms",
+      "target_concept_id": "nist-csf-govern",
+      "relationship_type": "implements",
+      "description": "ISO 27000 ISMS implements NIST CSF Govern function for information security."
+    },
+    {
+      "id": "rel-iso27000-nist-controls-protect",
+      "source_concept_id": "iso27000-controls",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "implements",
+      "description": "ISO 27000 Information Security Controls implement NIST CSF Protect function."
+    },
+    {
+      "id": "rel-iso27000-nist-physical",
+      "source_concept_id": "iso27000-physical",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "implements",
+      "description": "ISO 27000 Physical controls implement NIST CSF Protect function."
+    },
+    {
+      "id": "rel-iso27000-nist-technological",
+      "source_concept_id": "iso27000-technological",
+      "target_concept_id": "nist-csf-pr-ds",
+      "relationship_type": "implements",
+      "description": "ISO 27000 Technological controls implement NIST CSF Data Security category."
+    },
+    {
+      "id": "rel-iso27000-iso9000-management-systems",
+      "source_concept_id": "iso27000-isms",
+      "target_concept_id": "iso9000-qms",
+      "relationship_type": "related_to",
+      "description": "ISO 27000 ISMS and ISO 9000 QMS are both management system standards with similar structures."
+    },
+    {
+      "id": "rel-fmn-iso27000-identity",
+      "source_concept_id": "fmn-identity",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "implements",
+      "description": "FMN Federated Identity Management implements ISO 27000 Technological controls for identity and access."
+    },
+    {
+      "id": "rel-fmn-iso27000-security",
+      "source_concept_id": "fmn-p3-security",
+      "target_concept_id": "iso27000-isms",
+      "relationship_type": "related_to",
+      "description": "FMN Multilevel security principle relates to ISO 27000 ISMS security requirements."
+    },
+    {
+      "id": "rel-fmn-nist-identity",
+      "source_concept_id": "fmn-identity",
+      "target_concept_id": "nist-csf-pr-aa",
+      "relationship_type": "implements",
+      "description": "FMN Federated Identity Management implements NIST CSF Identity Management and Access Control."
+    },
+    {
+      "id": "rel-fmn-nist-information-sharing",
+      "source_concept_id": "fmn-isa",
+      "target_concept_id": "nist-csf-pr-ds",
+      "relationship_type": "implements",
+      "description": "FMN Information Sharing Agreements implement NIST CSF Data Security for shared information."
+    },
+    {
+      "id": "rel-fmn-iso31000-isa-risk",
+      "source_concept_id": "fmn-isa",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "implements",
+      "description": "FMN Information Sharing Agreements implement ISO 31000 Risk Treatment for information sharing risks."
+    },
+    {
+      "id": "rel-dca-iso27000-data-protection",
+      "source_concept_id": "dca-p2-data-protection",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "implements",
+      "description": "Data Centric data-level protection implements ISO 27000 Technological controls."
+    },
+    {
+      "id": "rel-dca-nist-data-security",
+      "source_concept_id": "dca-encryption",
+      "target_concept_id": "nist-csf-pr-ds",
+      "relationship_type": "implements",
+      "description": "Data Centric encryption implements NIST CSF Data Security category."
+    },
+    {
+      "id": "rel-dca-iso31000-data-awareness",
+      "source_concept_id": "dca-p1-data-aware",
+      "target_concept_id": "iso31000-proc2-scope-context",
+      "relationship_type": "implements",
+      "description": "Data awareness (knowing what data you have) implements ISO 31000 Scope and context establishment."
+    },
+    {
+      "id": "rel-dca-nist-asset-management",
+      "source_concept_id": "dca-discovery",
+      "target_concept_id": "nist-csf-id-am",
+      "relationship_type": "implements",
+      "description": "Data discovery and inventory implements NIST CSF Asset Management for data assets."
+    },
+    {
+      "id": "rel-dca-classification-iso27000",
+      "source_concept_id": "dca-classification",
+      "target_concept_id": "iso27000-organizational",
+      "relationship_type": "implements",
+      "description": "Data classification implements ISO 27000 Organizational controls for information classification."
+    },
+    {
+      "id": "rel-zt-iso27000-access-control",
+      "source_concept_id": "zt-p2-least-privilege",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "implements",
+      "description": "Zero Trust least privilege access implements ISO 27000 Technological controls for access management."
+    },
+    {
+      "id": "rel-zt-nist-identity",
+      "source_concept_id": "zt-p1-verify-explicitly",
+      "target_concept_id": "nist-csf-pr-aa",
+      "relationship_type": "implements",
+      "description": "Zero Trust verify explicitly principle implements NIST CSF Identity Management and Access Control."
+    },
+    {
+      "id": "rel-zt-nist-detect",
+      "source_concept_id": "zt-t5-device-security",
+      "target_concept_id": "nist-csf-de-cm",
+      "relationship_type": "implements",
+      "description": "Zero Trust device monitoring implements NIST CSF Continuous Monitoring."
+    },
+    {
+      "id": "rel-zt-iso31000-assume-breach",
+      "source_concept_id": "zt-p3-assume-breach",
+      "target_concept_id": "iso31000-p5-dynamic",
+      "relationship_type": "related_to",
+      "description": "Zero Trust assume breach principle relates to ISO 31000 Dynamic principle - both recognize changing threat landscape."
+    },
+    {
+      "id": "rel-zt-fmn-identity",
+      "source_concept_id": "zt-pep",
+      "target_concept_id": "fmn-identity",
+      "relationship_type": "implements",
+      "description": "Zero Trust Policy Enforcement Point can implement FMN Federated Identity Management."
+    },
+    {
+      "id": "rel-zt-dca-policy-driven",
+      "source_concept_id": "zt-t4-dynamic-policy",
+      "target_concept_id": "dca-p3-policy-driven",
+      "relationship_type": "maps_to",
+      "description": "Zero Trust dynamic policy maps to Data Centric policy-driven access - both embed policy with data/resources."
+    },
+    {
+      "id": "rel-zt-iso27000-evaluation",
+      "source_concept_id": "zt-t6-dynamic-authentication",
+      "target_concept_id": "iso27000-evaluation",
+      "relationship_type": "implements",
+      "description": "Zero Trust continuous authentication implements ISO 27000 Performance evaluation requirements."
+    },
+    {
+      "id": "rel-dca-zt-data-protection",
+      "source_concept_id": "dca-p4-persistent-protection",
+      "target_concept_id": "zt-t2-secure-communication",
+      "relationship_type": "supports",
+      "description": "Data Centric persistent protection supports Zero Trust secure communication requirements."
+    }
+  ]
+}
