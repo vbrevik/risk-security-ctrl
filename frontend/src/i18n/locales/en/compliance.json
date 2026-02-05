@@ -1,0 +1,24 @@
+{
+  "title": "Compliance Tracking",
+  "assessments": {
+    "title": "Assessments",
+    "new": "New Assessment",
+    "status": {
+      "draft": "Draft",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    }
+  },
+  "items": {
+    "title": "Compliance Items",
+    "compliant": "Compliant",
+    "nonCompliant": "Non-Compliant",
+    "partial": "Partial",
+    "notAssessed": "Not Assessed"
+  },
+  "evidence": {
+    "title": "Evidence",
+    "upload": "Upload Evidence",
+    "link": "Add Link"
+  }
+}

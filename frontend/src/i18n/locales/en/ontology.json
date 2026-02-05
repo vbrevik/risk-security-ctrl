@@ -1,0 +1,54 @@
+{
+  "title": "Ontology Explorer",
+  "frameworks": {
+    "title": "Frameworks",
+    "iso31000": "ISO 31000:2018 - Risk Management",
+    "iso31010": "ISO 31010 - Risk Assessment Techniques",
+    "nistCsf": "NIST Cybersecurity Framework"
+  },
+  "concepts": {
+    "title": "Concepts",
+    "search": "Search all concepts...",
+    "filter": "Filter...",
+    "properties": "Properties",
+    "relationships": "Relationships",
+    "noResults": "No concepts found"
+  },
+  "graph": {
+    "title": "Concept Graph",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "resetView": "Reset View",
+    "fitToScreen": "Fit to Screen",
+    "toggleMinimap": "Toggle Minimap"
+  },
+  "detail": {
+    "backToGraph": "Back to Graph",
+    "definition": "Definition",
+    "source": "Source",
+    "hierarchy": "Hierarchy",
+    "viewInGraph": "View in Graph"
+  },
+  "compare": {
+    "title": "Compare Frameworks",
+    "selectFramework": "Select framework...",
+    "mappings": "mappings"
+  },
+  "export": {
+    "title": "Export Graph",
+    "format": "Format",
+    "size": "Size",
+    "currentView": "Current view",
+    "fullGraph": "Full graph",
+    "include": "Include",
+    "legend": "Legend",
+    "exportTitle": "Title",
+    "cancel": "Cancel",
+    "export": "Export"
+  },
+  "status": {
+    "selected": "Selected",
+    "noSelection": "No selection",
+    "connections": "connections"
+  }
+}

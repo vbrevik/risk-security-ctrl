@@ -1,0 +1,13 @@
+{
+  "title": "Rapporter",
+  "generate": "Generer rapport",
+  "types": {
+    "complianceSummary": "Sammendrag av samsvar",
+    "riskAssessment": "Risikovurdering",
+    "auditTrail": "Revisjonslogg"
+  },
+  "export": {
+    "pdf": "Eksporter som PDF",
+    "csv": "Eksporter som CSV"
+  }
+}

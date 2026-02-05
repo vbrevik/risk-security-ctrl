@@ -1,0 +1,54 @@
+{
+  "title": "Ontologi-utforsker",
+  "frameworks": {
+    "title": "Rammeverk",
+    "iso31000": "ISO 31000:2018 - Risikostyring",
+    "iso31010": "ISO 31010 - Risikovurderingsteknikker",
+    "nistCsf": "NIST Cybersikkerhetsrammeverk"
+  },
+  "concepts": {
+    "title": "Konsepter",
+    "search": "Sok i alle konsepter...",
+    "filter": "Filtrer...",
+    "properties": "Egenskaper",
+    "relationships": "Relasjoner",
+    "noResults": "Ingen konsepter funnet"
+  },
+  "graph": {
+    "title": "Konseptgraf",
+    "zoomIn": "Zoom inn",
+    "zoomOut": "Zoom ut",
+    "resetView": "Tilbakestill visning",
+    "fitToScreen": "Tilpass til skjerm",
+    "toggleMinimap": "Vis/skjul minikart"
+  },
+  "detail": {
+    "backToGraph": "Tilbake til graf",
+    "definition": "Definisjon",
+    "source": "Kilde",
+    "hierarchy": "Hierarki",
+    "viewInGraph": "Vis i graf"
+  },
+  "compare": {
+    "title": "Sammenlign rammeverk",
+    "selectFramework": "Velg rammeverk...",
+    "mappings": "koblinger"
+  },
+  "export": {
+    "title": "Eksporter graf",
+    "format": "Format",
+    "size": "Storrelse",
+    "currentView": "Navarende visning",
+    "fullGraph": "Full graf",
+    "include": "Inkluder",
+    "legend": "Forklaring",
+    "exportTitle": "Tittel",
+    "cancel": "Avbryt",
+    "export": "Eksporter"
+  },
+  "status": {
+    "selected": "Valgt",
+    "noSelection": "Ingen valgt",
+    "connections": "koblinger"
+  }
+}

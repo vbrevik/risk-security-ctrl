@@ -1,0 +1,24 @@
+{
+  "title": "Samsvarssporing",
+  "assessments": {
+    "title": "Vurderinger",
+    "new": "Ny vurdering",
+    "status": {
+      "draft": "Utkast",
+      "inProgress": "Pågår",
+      "completed": "Fullført"
+    }
+  },
+  "items": {
+    "title": "Samsvarselementer",
+    "compliant": "I samsvar",
+    "nonCompliant": "Ikke i samsvar",
+    "partial": "Delvis",
+    "notAssessed": "Ikke vurdert"
+  },
+  "evidence": {
+    "title": "Dokumentasjon",
+    "upload": "Last opp dokumentasjon",
+    "link": "Legg til lenke"
+  }
+}

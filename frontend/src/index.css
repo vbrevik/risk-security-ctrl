@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Technical Cartography Theme - Deep Slate with Amber Accents */
+  --color-background: oklch(0.98 0.005 240);
+  --color-foreground: oklch(0.25 0.015 240);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.25 0.015 240);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.25 0.015 240);
+  --color-primary: oklch(0.35 0.08 240);
+  --color-primary-foreground: oklch(0.98 0.005 240);
+  --color-secondary: oklch(0.92 0.01 240);
+  --color-secondary-foreground: oklch(0.35 0.08 240);
+  --color-muted: oklch(0.94 0.008 240);
+  --color-muted-foreground: oklch(0.55 0.02 240);
+  --color-accent: oklch(0.65 0.15 60);
+  --color-accent-foreground: oklch(0.98 0.005 240);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-destructive-foreground: oklch(0.985 0 0);
+  --color-border: oklch(0.88 0.01 240);
+  --color-input: oklch(0.92 0.01 240);
+  --color-ring: oklch(0.65 0.15 60);
+  --radius: 0.375rem;
+
+  /* Custom variables for Technical Cartography */
+  --grid-color: oklch(0.92 0.008 240);
+  --topo-line: oklch(0.88 0.01 240);
+  --accent-glow: oklch(0.65 0.15 60 / 0.15);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+    background-image:
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  code, pre {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+/* Topographic grid background */
+.topo-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  position: relative;
+}
+
+.topo-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 70%);
+  pointer-events: none;
+}
+
+/* Animated gradient mesh */
+@keyframes mesh-shift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(2%, -2%) scale(1.05); }
+  66% { transform: translate(-2%, 2%) scale(0.95); }
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse at 20% 30%, oklch(0.65 0.15 60 / 0.08), transparent 50%),
+    radial-gradient(ellipse at 80% 70%, oklch(0.35 0.08 240 / 0.06), transparent 50%),
+    radial-gradient(ellipse at 50% 50%, oklch(0.92 0.01 240), transparent 80%);
+  animation: mesh-shift 20s ease-in-out infinite;
+}
+
+/* Staggered reveal animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px var(--accent-glow);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Feature cards with technical styling */
+.feature-card {
+  position: relative;
+  border: 1px solid var(--topo-line);
+  background: linear-gradient(to bottom right, oklch(1 0 0), oklch(0.99 0.005 240));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, var(--accent-glow) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.feature-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Technical badge styling */
+.tech-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--topo-line);
+  background: oklch(0.96 0.008 240);
+  color: var(--color-muted-foreground);
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+/* Stat counter styling */
+.stat-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Connection lines SVG */
+.connection-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Blueprint-style corner markers */
+.blueprint-frame {
+  position: relative;
+}
+
+.blueprint-frame::before,
+.blueprint-frame::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border);
+}
+
+.blueprint-frame::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.blueprint-frame::after {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* Additional corner markers using pseudo-elements on children */
+.corner-markers {
+  position: relative;
+}
+
+.corner-markers::before,
+.corner-markers::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--color-accent);
+  opacity: 0.4;
+}
+
+.corner-markers::before {
+  bottom: -6px;
+  left: -6px;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-markers::after {
+  bottom: -6px;
+  right: -6px;
+  border-left: none;
+  border-top: none;
+}
+
+.dark {
+  --color-background: oklch(0.15 0.015 240);
+  --color-foreground: oklch(0.95 0.005 240);
+  --color-card: oklch(0.18 0.015 240);
+  --color-card-foreground: oklch(0.95 0.005 240);
+  --color-popover: oklch(0.18 0.015 240);
+  --color-popover-foreground: oklch(0.95 0.005 240);
+  --color-primary: oklch(0.75 0.08 240);
+  --color-primary-foreground: oklch(0.15 0.015 240);
+  --color-secondary: oklch(0.22 0.015 240);
+  --color-secondary-foreground: oklch(0.95 0.005 240);
+  --color-muted: oklch(0.22 0.015 240);
+  --color-muted-foreground: oklch(0.65 0.02 240);
+  --color-accent: oklch(0.70 0.18 60);
+  --color-accent-foreground: oklch(0.15 0.015 240);
+  --grid-color: oklch(0.22 0.015 240);
+  --topo-line: oklch(0.28 0.015 240);
+  --accent-glow: oklch(0.70 0.18 60 / 0.2);
+}

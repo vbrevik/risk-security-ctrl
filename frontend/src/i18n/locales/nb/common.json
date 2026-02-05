@@ -1,0 +1,29 @@
+{
+  "appName": "Utforsker for rammeverk for risikostyring",
+  "nav": {
+    "home": "Hjem",
+    "ontology": "Ontologiutforsker",
+    "compliance": "Samsvarssporing",
+    "reports": "Rapporter"
+  },
+  "actions": {
+    "save": "Lagre",
+    "cancel": "Avbryt",
+    "delete": "Slett",
+    "edit": "Rediger",
+    "create": "Opprett",
+    "search": "Søk",
+    "filter": "Filter",
+    "export": "Eksporter"
+  },
+  "status": {
+    "loading": "Laster...",
+    "error": "Det oppstod en feil",
+    "success": "Suksess",
+    "notFound": "Ikke funnet"
+  },
+  "language": {
+    "en": "Engelsk",
+    "nb": "Norsk"
+  }
+}

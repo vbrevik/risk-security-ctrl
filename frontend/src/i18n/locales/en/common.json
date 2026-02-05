@@ -1,0 +1,29 @@
+{
+  "appName": "Risk Management Framework Explorer",
+  "nav": {
+    "home": "Home",
+    "ontology": "Ontology Explorer",
+    "compliance": "Compliance Tracking",
+    "reports": "Reports"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export"
+  },
+  "status": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "notFound": "Not found"
+  },
+  "language": {
+    "en": "English",
+    "nb": "Norwegian"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Reports",
+  "generate": "Generate Report",
+  "types": {
+    "complianceSummary": "Compliance Summary",
+    "riskAssessment": "Risk Assessment",
+    "auditTrail": "Audit Trail"
+  },
+  "export": {
+    "pdf": "Export as PDF",
+    "csv": "Export as CSV"
+  }
+}
