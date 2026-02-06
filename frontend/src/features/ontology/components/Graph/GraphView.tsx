@@ -1,12 +1,15 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { useConcepts, useRelationships } from "../../api";
+import { useQueries } from "@tanstack/react-query";
+import { api } from "@/lib/api";
+import { useFrameworks, useRelationships } from "../../api";
+import { ontologyKeys } from "../../api";
 import { useExplorer } from "../../context";
 import { buildGraphData } from "../../utils/graphTransform";
 import { useD3Graph } from "../../hooks/useD3Graph";
 import { GraphControls } from "./GraphControls";
 import { Minimap } from "./Minimap";
-import type { GraphNode } from "../../types";
+import type { GraphNode, Framework, Concept, PaginatedResponse } from "../../types";
 
 export function GraphView() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,23 +18,51 @@ export function GraphView() {
   const { i18n } = useTranslation();
   const { state, selectConcept, setViewMode } = useExplorer();
 
-  // Fetch all concepts from all frameworks for now
-  // In production, you might want to paginate or filter
-  const { data: iso31000Concepts } = useConcepts("iso31000");
-  const { data: iso31010Concepts } = useConcepts("iso31010");
-  const { data: nistCsfConcepts } = useConcepts("nist-csf");
+  // Load all frameworks dynamically
+  const { data: frameworks } = useFrameworks();
+
+  // Determine which frameworks to show
+  const visibleFrameworkIds = useMemo(() => {
+    if (!frameworks) return [];
+    if (state.activeFrameworks.length > 0) return state.activeFrameworks;
+    return frameworks.map((fw: Framework) => fw.id);
+  }, [frameworks, state.activeFrameworks]);
+
+  // Fetch concepts for all visible frameworks using useQueries (avoids rules-of-hooks violation)
+  const frameworkQueries = useQueries({
+    queries: visibleFrameworkIds.map((frameworkId) => ({
+      queryKey: ontologyKeys.concepts(frameworkId),
+      queryFn: async () => {
+        const params = new URLSearchParams();
+        params.set("framework_id", frameworkId);
+        params.set("limit", "500");
+        const { data } = await api.get<PaginatedResponse<Concept>>(
+          `/ontology/concepts?${params}`
+        );
+        return data.data;
+      },
+      staleTime: 1000 * 60 * 5,
+    })),
+  });
+
   const { data: relationships } = useRelationships();
 
-  // Combine concepts from different frameworks
+  // Combine concepts from all visible frameworks
   const allConcepts = useMemo(() => {
-    const concepts = [
-      ...(iso31000Concepts ?? []),
-      ...(iso31010Concepts ?? []),
-      ...(nistCsfConcepts ?? []),
-    ];
-    // Limit to top-level concepts for initial view
-    return concepts.filter((c) => !c.parent_id).slice(0, 50);
-  }, [iso31000Concepts, iso31010Concepts, nistCsfConcepts]);
+    const concepts = frameworkQueries.flatMap((q) => q.data ?? []);
+
+    // Filter by concept type if active
+    const typeFiltered = state.activeConceptType
+      ? concepts.filter((c) => c.concept_type === state.activeConceptType)
+      : concepts;
+
+    // Show top-level concepts + one level of children, up to 200 nodes
+    const roots = typeFiltered.filter((c) => !c.parent_id);
+    const rootIds = new Set(roots.map((c) => c.id));
+    const children = typeFiltered.filter((c) => c.parent_id && rootIds.has(c.parent_id));
+
+    return [...roots, ...children].slice(0, 200);
+  }, [frameworkQueries, state.activeConceptType]);
 
   const graphData = useMemo(() => {
     const language = i18n.language.startsWith("nb") ? "nb" : "en";
@@ -56,6 +87,7 @@ export function GraphView() {
     onNodeClick: handleNodeClick,
     onNodeDoubleClick: handleNodeDoubleClick,
     selectedNodeId: state.selectedConceptId,
+    highlightedNodeIds: state.searchHighlightIds,
     width: dimensions.width,
     height: dimensions.height,
   });

@@ -12,7 +12,10 @@
     "filter": "Filtrer...",
     "properties": "Egenskaper",
     "relationships": "Relasjoner",
-    "noResults": "Ingen konsepter funnet"
+    "noResults": "Ingen konsepter funnet",
+    "notFound": "Konsept ikke funnet",
+    "selectToView": "Velg et konsept for a se detaljer",
+    "loading": "Laster..."
   },
   "graph": {
     "title": "Konseptgraf",
@@ -21,6 +24,12 @@
     "resetView": "Tilbakestill visning",
     "fitToScreen": "Tilpass til skjerm",
     "toggleMinimap": "Vis/skjul minikart"
+  },
+  "views": {
+    "graph": "Graf",
+    "detail": "Detalj",
+    "compare": "Sammenlign",
+    "tree": "Tre"
   },
   "detail": {
     "backToGraph": "Tilbake til graf",
@@ -32,7 +41,26 @@
   "compare": {
     "title": "Sammenlign rammeverk",
     "selectFramework": "Velg rammeverk...",
-    "mappings": "koblinger"
+    "mappings": "koblinger",
+    "loadingConcepts": "Laster konsepter...",
+    "selectAFramework": "Velg et rammeverk",
+    "nMore": "+{{count}} til"
+  },
+  "sidebar": {
+    "expand": "Utvid sidepanel",
+    "collapse": "Skjul sidepanel",
+    "noMatches": "Ingen treff",
+    "noConcepts": "Ingen konsepter"
+  },
+  "keyboard": {
+    "title": "Tastatursnarveier",
+    "zoomIn": "Zoom inn",
+    "zoomOut": "Zoom ut",
+    "resetView": "Tilbakestill visning",
+    "clearSelection": "Fjern valg",
+    "search": "Sok",
+    "save": "Lagre",
+    "exportShortcut": "Eksporter"
   },
   "export": {
     "title": "Eksporter graf",
@@ -44,11 +72,20 @@
     "legend": "Forklaring",
     "exportTitle": "Tittel",
     "cancel": "Avbryt",
-    "export": "Eksporter"
+    "export": "Eksporter",
+    "exporting": "Eksporterer..."
   },
   "status": {
     "selected": "Valgt",
     "noSelection": "Ingen valgt",
-    "connections": "koblinger"
+    "connections": "koblinger",
+    "nSelected": "{{count}} valgt"
+  },
+  "filters": {
+    "title": "Filtre",
+    "frameworks": "Rammeverk",
+    "conceptType": "Konsepttype",
+    "allTypes": "Alle typer",
+    "clearAll": "Fjern alle"
   }
 }

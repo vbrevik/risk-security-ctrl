@@ -100,7 +100,7 @@ export interface GraphData {
 }
 
 // UI State Types
-export type ViewMode = "graph" | "detail" | "compare";
+export type ViewMode = "graph" | "tree" | "detail" | "compare";
 
 export interface ExplorerState {
   selectedConceptId: string | null;
@@ -108,6 +108,9 @@ export interface ExplorerState {
   viewMode: ViewMode;
   sidebarCollapsed: boolean;
   compareFrameworks: [string | null, string | null];
+  activeFrameworks: string[];
+  activeConceptType: string | null;
+  searchHighlightIds: string[];
 }
 
 // Layout Persistence Types

@@ -30,7 +30,7 @@ export function DetailView() {
   if (!selectedId) {
     return (
       <div className="flex items-center justify-center h-full text-muted-foreground">
-        Select a concept to view details
+        {t("concepts.selectToView")}
       </div>
     );
   }
@@ -38,7 +38,7 @@ export function DetailView() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full text-muted-foreground">
-        Loading...
+        {t("concepts.loading")}
       </div>
     );
   }
@@ -46,7 +46,7 @@ export function DetailView() {
   if (!conceptData) {
     return (
       <div className="flex items-center justify-center h-full text-muted-foreground">
-        Concept not found
+        {t("concepts.notFound")}
       </div>
     );
   }
@@ -77,7 +77,7 @@ export function DetailView() {
             onClick={() => setViewMode("graph")}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Graph
+            {t("detail.backToGraph")}
           </Button>
           <div className="flex gap-2">
             <Button
@@ -125,7 +125,7 @@ export function DetailView() {
             {definition && (
               <div>
                 <h3 className="font-medium text-sm text-muted-foreground mb-2">
-                  Definition
+                  {t("detail.definition")}
                 </h3>
                 <p className="text-sm leading-relaxed">{definition}</p>
               </div>
@@ -135,7 +135,7 @@ export function DetailView() {
             {conceptData.source_reference && (
               <div>
                 <h3 className="font-medium text-sm text-muted-foreground mb-2">
-                  Source
+                  {t("detail.source")}
                 </h3>
                 <p className="text-sm">{conceptData.source_reference}</p>
               </div>
@@ -149,7 +149,7 @@ export function DetailView() {
                     {t("concepts.relationships")}
                   </h3>
                   <Button variant="ghost" size="sm" onClick={handleViewInGraph}>
-                    View <ExternalLink className="h-3 w-3 ml-1" />
+                    {t("detail.viewInGraph")} <ExternalLink className="h-3 w-3 ml-1" />
                   </Button>
                 </div>
                 <div className="space-y-1">
@@ -163,7 +163,7 @@ export function DetailView() {
                       )}
                     >
                       <span className="text-muted-foreground">
-                        {rel.direction === "outgoing" ? "→" : "←"}
+                        {rel.direction === "outgoing" ? "\u2192" : "\u2190"}
                       </span>
                       <span className="text-muted-foreground text-xs">
                         {rel.relationship_type}
@@ -183,7 +183,7 @@ export function DetailView() {
             {breadcrumbPath.length > 0 && (
               <div>
                 <h3 className="font-medium text-sm text-muted-foreground mb-2">
-                  Hierarchy
+                  {t("detail.hierarchy")}
                 </h3>
                 <div className="flex items-center flex-wrap gap-1 text-sm">
                   <span className="text-muted-foreground">

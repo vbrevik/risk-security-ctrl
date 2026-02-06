@@ -8,7 +8,7 @@ import { TreeNode } from "../Sidebar/TreeNode";
 import type { Relationship } from "../../types";
 
 export function CompareView() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation("ontology");
   const { state, setCompareLeft, setCompareRight } = useExplorer();
   const [leftFrameworkId, rightFrameworkId] = state.compareFrameworks;
 
@@ -58,7 +58,7 @@ export function CompareView() {
           onChange={(e) => setCompareLeft(e.target.value || null)}
           className="px-3 py-2 border rounded-md bg-background"
         >
-          <option value="">Select framework...</option>
+          <option value="">{t("compare.selectFramework")}</option>
           {frameworks?.map((fw) => (
             <option key={fw.id} value={fw.id}>
               {fw.name}
@@ -66,14 +66,14 @@ export function CompareView() {
           ))}
         </select>
         <div className="text-muted-foreground">
-          ←→
+          \u2194
         </div>
         <select
           value={rightFrameworkId ?? ""}
           onChange={(e) => setCompareRight(e.target.value || null)}
           className="px-3 py-2 border rounded-md bg-background"
         >
-          <option value="">Select framework...</option>
+          <option value="">{t("compare.selectFramework")}</option>
           {frameworks?.map((fw) => (
             <option key={fw.id} value={fw.id}>
               {fw.name}
@@ -113,12 +113,12 @@ export function CompareView() {
               </div>
             ) : (
               <div className="p-4 text-muted-foreground text-sm">
-                Loading concepts...
+                {t("compare.loadingConcepts")}
               </div>
             )
           ) : (
             <div className="p-4 text-muted-foreground text-sm">
-              Select a framework
+              {t("compare.selectAFramework")}
             </div>
           )}
         </div>
@@ -126,7 +126,7 @@ export function CompareView() {
         {/* Center mappings column */}
         <div className="w-24 bg-muted/30 flex flex-col items-center justify-center">
           <div className="text-xs text-muted-foreground text-center p-2">
-            {crossMappings.length} mappings
+            {crossMappings.length} {t("compare.mappings")}
           </div>
           {crossMappings.slice(0, 10).map((rel) => (
             <div
@@ -137,7 +137,7 @@ export function CompareView() {
           ))}
           {crossMappings.length > 10 && (
             <div className="text-xs text-muted-foreground">
-              +{crossMappings.length - 10} more
+              {t("compare.nMore", { count: crossMappings.length - 10 })}
             </div>
           )}
         </div>
@@ -171,12 +171,12 @@ export function CompareView() {
               </div>
             ) : (
               <div className="p-4 text-muted-foreground text-sm">
-                Loading concepts...
+                {t("compare.loadingConcepts")}
               </div>
             )
           ) : (
             <div className="p-4 text-muted-foreground text-sm">
-              Select a framework
+              {t("compare.selectAFramework")}
             </div>
           )}
         </div>

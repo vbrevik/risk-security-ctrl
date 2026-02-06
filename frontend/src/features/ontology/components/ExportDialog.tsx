@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Download } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
@@ -9,6 +10,7 @@ interface ExportDialogProps {
 }
 
 export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
+  const { t } = useTranslation("ontology");
   const [format, setFormat] = useState<"png" | "svg">("png");
   const [size, setSize] = useState<"current" | "full">("current");
   const [includeLegend, setIncludeLegend] = useState(true);
@@ -66,7 +68,7 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
       <div className="absolute inset-0 bg-black/50" onClick={onClose} />
       <Card className="relative z-10 w-80">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-lg">Export Graph</CardTitle>
+          <CardTitle className="text-lg">{t("export.title")}</CardTitle>
           <button onClick={onClose} className="p-1 hover:bg-accent rounded">
             <X className="h-4 w-4" />
           </button>
@@ -74,7 +76,7 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
         <CardContent className="space-y-4">
           {/* Format */}
           <div>
-            <label className="text-sm font-medium">Format</label>
+            <label className="text-sm font-medium">{t("export.format")}</label>
             <div className="flex gap-4 mt-2">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -101,7 +103,7 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
 
           {/* Size */}
           <div>
-            <label className="text-sm font-medium">Size</label>
+            <label className="text-sm font-medium">{t("export.size")}</label>
             <div className="flex gap-4 mt-2">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -111,7 +113,7 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
                   onChange={() => setSize("current")}
                   className="w-4 h-4"
                 />
-                <span className="text-sm">Current view</span>
+                <span className="text-sm">{t("export.currentView")}</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -121,14 +123,14 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
                   onChange={() => setSize("full")}
                   className="w-4 h-4"
                 />
-                <span className="text-sm">Full graph</span>
+                <span className="text-sm">{t("export.fullGraph")}</span>
               </label>
             </div>
           </div>
 
           {/* Include options */}
           <div>
-            <label className="text-sm font-medium">Include</label>
+            <label className="text-sm font-medium">{t("export.include")}</label>
             <div className="space-y-2 mt-2">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -137,7 +139,7 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
                   onChange={(e) => setIncludeLegend(e.target.checked)}
                   className="w-4 h-4 rounded"
                 />
-                <span className="text-sm">Legend</span>
+                <span className="text-sm">{t("export.legend")}</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -146,7 +148,7 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
                   onChange={(e) => setIncludeTitle(e.target.checked)}
                   className="w-4 h-4 rounded"
                 />
-                <span className="text-sm">Title</span>
+                <span className="text-sm">{t("export.exportTitle")}</span>
               </label>
             </div>
           </div>
@@ -154,11 +156,11 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
           {/* Actions */}
           <div className="flex justify-end gap-2 pt-2">
             <Button variant="outline" onClick={onClose}>
-              Cancel
+              {t("export.cancel")}
             </Button>
             <Button onClick={handleExport} disabled={isExporting}>
               <Download className="h-4 w-4 mr-2" />
-              {isExporting ? "Exporting..." : "Export"}
+              {isExporting ? t("export.exporting") : t("export.export")}
             </Button>
           </div>
         </CardContent>

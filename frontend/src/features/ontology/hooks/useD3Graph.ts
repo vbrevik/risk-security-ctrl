@@ -5,9 +5,10 @@ import { getFrameworkColor } from "../utils/graphTransform";
 
 interface UseD3GraphOptions {
   data: GraphData;
-  onNodeClick?: (node: GraphNode) => void;
+  onNodeClick?: (node: GraphNode | null) => void;
   onNodeDoubleClick?: (node: GraphNode) => void;
   selectedNodeId?: string | null;
+  highlightedNodeIds?: string[];
   width: number;
   height: number;
 }
@@ -17,6 +18,7 @@ export function useD3Graph({
   onNodeClick,
   onNodeDoubleClick,
   selectedNodeId,
+  highlightedNodeIds = [],
   width,
   height,
 }: UseD3GraphOptions) {
@@ -80,6 +82,7 @@ export function useD3Graph({
   }, [data.nodes, width, height]);
 
   useEffect(() => {
+    const highlightedSet = new Set(highlightedNodeIds);
     if (!svgRef.current || !data.nodes.length) return;
 
     const svg = d3.select(svgRef.current);
@@ -151,7 +154,6 @@ export function useD3Graph({
           })
           .on("end", (event) => {
             if (!event.active) simulationRef.current?.alphaTarget(0);
-            // Keep position fixed after drag
           })
       );
 
@@ -162,16 +164,28 @@ export function useD3Graph({
       .attr("x", -70)
       .attr("y", -18)
       .attr("rx", 6)
-      .attr("fill", "white")
-      .attr("stroke", (d) => getFrameworkColor(d.frameworkId))
-      .attr("stroke-width", 2);
+      .attr("fill", (d) => {
+        if (d.id === selectedNodeId) return getFrameworkColor(d.frameworkId);
+        if (highlightedSet.has(d.id)) return "#fef3c7"; // amber-100 highlight
+        return "white";
+      })
+      .attr("stroke", (d) => {
+        if (highlightedSet.has(d.id)) return "#f59e0b"; // amber-500 border
+        return getFrameworkColor(d.frameworkId);
+      })
+      .attr("stroke-width", (d) => {
+        if (d.id === selectedNodeId) return 3;
+        if (highlightedSet.has(d.id)) return 3;
+        return 2;
+      });
 
     // Node text
     node.append("text")
       .attr("text-anchor", "middle")
       .attr("dominant-baseline", "middle")
       .attr("font-size", 11)
-      .attr("fill", "#1e293b")
+      .attr("font-weight", (d) => highlightedSet.has(d.id) ? "bold" : "normal")
+      .attr("fill", (d) => d.id === selectedNodeId ? "white" : "#1e293b")
       .text((d) => {
         const text = d.code ? `${d.code} ${d.name}` : d.name;
         return text.length > 18 ? text.slice(0, 16) + "..." : text;
@@ -199,13 +213,10 @@ export function useD3Graph({
         link.attr("opacity", 0.6);
       });
 
-    // Highlight selected node
-    node.select("rect")
-      .attr("fill", (d) => d.id === selectedNodeId ? getFrameworkColor(d.frameworkId) : "white")
-      .attr("stroke-width", (d) => d.id === selectedNodeId ? 3 : 2);
-
-    node.select("text")
-      .attr("fill", (d) => d.id === selectedNodeId ? "white" : "#1e293b");
+    // Dim non-highlighted nodes when search is active
+    if (highlightedSet.size > 0) {
+      node.attr("opacity", (d) => highlightedSet.has(d.id) ? 1 : 0.3);
+    }
 
     // Setup simulation
     const simulation = d3.forceSimulation(data.nodes)
@@ -244,12 +255,12 @@ export function useD3Graph({
     });
 
     // Click on background to deselect
-    svg.on("click", () => onNodeClick?.(null as unknown as GraphNode));
+    svg.on("click", () => onNodeClick?.(null));
 
     return () => {
       simulation.stop();
     };
-  }, [data, width, height, selectedNodeId, onNodeClick, onNodeDoubleClick]);
+  }, [data, width, height, selectedNodeId, highlightedNodeIds, onNodeClick, onNodeDoubleClick]);
 
   return {
     svgRef,

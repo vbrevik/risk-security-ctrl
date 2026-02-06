@@ -12,7 +12,10 @@
     "filter": "Filter...",
     "properties": "Properties",
     "relationships": "Relationships",
-    "noResults": "No concepts found"
+    "noResults": "No concepts found",
+    "notFound": "Concept not found",
+    "selectToView": "Select a concept to view details",
+    "loading": "Loading..."
   },
   "graph": {
     "title": "Concept Graph",
@@ -21,6 +24,12 @@
     "resetView": "Reset View",
     "fitToScreen": "Fit to Screen",
     "toggleMinimap": "Toggle Minimap"
+  },
+  "views": {
+    "graph": "Graph",
+    "detail": "Detail",
+    "compare": "Compare",
+    "tree": "Tree"
   },
   "detail": {
     "backToGraph": "Back to Graph",
@@ -32,7 +41,26 @@
   "compare": {
     "title": "Compare Frameworks",
     "selectFramework": "Select framework...",
-    "mappings": "mappings"
+    "mappings": "mappings",
+    "loadingConcepts": "Loading concepts...",
+    "selectAFramework": "Select a framework",
+    "nMore": "+{{count}} more"
+  },
+  "sidebar": {
+    "expand": "Expand sidebar",
+    "collapse": "Collapse sidebar",
+    "noMatches": "No matches",
+    "noConcepts": "No concepts"
+  },
+  "keyboard": {
+    "title": "Keyboard Shortcuts",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "resetView": "Reset view",
+    "clearSelection": "Clear selection",
+    "search": "Search",
+    "save": "Save",
+    "exportShortcut": "Export"
   },
   "export": {
     "title": "Export Graph",
@@ -44,11 +72,20 @@
     "legend": "Legend",
     "exportTitle": "Title",
     "cancel": "Cancel",
-    "export": "Export"
+    "export": "Export",
+    "exporting": "Exporting..."
   },
   "status": {
     "selected": "Selected",
     "noSelection": "No selection",
-    "connections": "connections"
+    "connections": "connections",
+    "nSelected": "{{count}} selected"
+  },
+  "filters": {
+    "title": "Filters",
+    "frameworks": "Frameworks",
+    "conceptType": "Concept type",
+    "allTypes": "All types",
+    "clearAll": "Clear all"
   }
 }

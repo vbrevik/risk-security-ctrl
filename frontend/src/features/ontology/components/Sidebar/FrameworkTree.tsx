@@ -15,7 +15,7 @@ interface FrameworkTreeProps {
 
 export function FrameworkTree({ framework, filterQuery }: FrameworkTreeProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation("ontology");
   const { data: concepts, isLoading } = useConcepts(
     isExpanded ? framework.id : undefined
   );
@@ -51,7 +51,7 @@ export function FrameworkTree({ framework, filterQuery }: FrameworkTreeProps) {
         <div className="pb-2">
           {tree.length === 0 && !isLoading && (
             <div className="px-4 py-2 text-sm text-muted-foreground">
-              {filterQuery ? "No matches" : "No concepts"}
+              {filterQuery ? t("sidebar.noMatches") : t("sidebar.noConcepts")}
             </div>
           )}
           {tree.map((node) => (
