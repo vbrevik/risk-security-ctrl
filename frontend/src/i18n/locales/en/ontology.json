@@ -76,6 +76,9 @@
     "export": "Export",
     "exporting": "Exporting..."
   },
+  "panel": {
+    "close": "Close panel"
+  },
   "status": {
     "selected": "Selected",
     "noSelection": "No selection",

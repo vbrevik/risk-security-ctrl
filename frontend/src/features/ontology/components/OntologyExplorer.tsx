@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { ExplorerProvider, useExplorer } from "../context";
 import { Sidebar } from "./Sidebar";
 import { GraphView } from "./Graph";
-import { DetailView } from "./Detail";
 import { CompareView } from "./Compare";
 import { TreeView } from "./Tree";
+import { ContextPanel } from "./ContextPanel";
 import { ExportDialog } from "./ExportDialog";
 import type { ViewMode } from "../types";
 
@@ -25,7 +25,8 @@ function ExplorerContent() {
   // Initialize state from URL on first render
   useEffect(() => {
     if (initialized) return;
-    if (search.view) setViewMode(search.view);
+    // "detail" view was removed — redirect to graph (panel shows automatically)
+    if (search.view && search.view !== "detail") setViewMode(search.view as ViewMode);
     if (search.concept) selectConcept(search.concept);
     if (search.frameworks) setActiveFrameworks(search.frameworks.split(","));
     if (search.type) setConceptType(search.type);
@@ -56,7 +57,6 @@ function ExplorerContent() {
   const viewModes: { mode: ViewMode; label: string }[] = [
     { mode: "graph", label: t("views.graph") },
     { mode: "tree", label: t("views.tree") },
-    { mode: "detail", label: t("views.detail") },
     { mode: "compare", label: t("views.compare") },
   ];
 
@@ -135,12 +135,14 @@ function ExplorerContent() {
           </div>
         )}
 
-        {/* Main content area */}
-        <div className="flex-1 min-h-0 relative">
-          {state.viewMode === "graph" && <GraphView />}
-          {state.viewMode === "tree" && <TreeView />}
-          {state.viewMode === "detail" && <DetailView />}
-          {state.viewMode === "compare" && <CompareView />}
+        {/* Main content area + context panel */}
+        <div className="flex-1 min-h-0 flex relative">
+          <div className="flex-1 min-w-0 relative">
+            {state.viewMode === "graph" && <GraphView />}
+            {state.viewMode === "tree" && <TreeView />}
+            {state.viewMode === "compare" && <CompareView />}
+          </div>
+          {state.selectedConceptId && <ContextPanel />}
         </div>
 
         {/* Status bar */}

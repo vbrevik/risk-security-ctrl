@@ -76,6 +76,9 @@
     "export": "Eksporter",
     "exporting": "Eksporterer..."
   },
+  "panel": {
+    "close": "Lukk panel"
+  },
   "status": {
     "selected": "Valgt",
     "noSelection": "Ingen valgt",

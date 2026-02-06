@@ -14,7 +14,7 @@ export function SearchBox() {
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const { state, selectConcept, setViewMode, setSearchHighlights } = useExplorer();
+  const { selectConcept, setSearchHighlights } = useExplorer();
   const { data: results, isLoading } = useSearchConcepts(debouncedQuery);
   const debounceRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -45,9 +45,6 @@ export function SearchBox() {
 
   const handleSelect = (conceptId: string) => {
     selectConcept(conceptId);
-    if (state.viewMode !== "graph") {
-      setViewMode("detail");
-    }
     setQuery("");
     setIsOpen(false);
     setSearchHighlights([]);

@@ -53,6 +53,25 @@ export function useD3Graph({
     }
   }, []);
 
+  const panToNode = useCallback((nodeId: string) => {
+    if (!svgRef.current || !zoomRef.current) return;
+    const node = data.nodes.find((n) => n.id === nodeId);
+    if (!node || node.x == null || node.y == null) return;
+
+    const svg = d3.select(svgRef.current);
+    const scale = 1.2;
+    const translateX = width / 2 - node.x * scale;
+    const translateY = height / 2 - node.y * scale;
+
+    svg
+      .transition()
+      .duration(300)
+      .call(
+        zoomRef.current.transform,
+        d3.zoomIdentity.translate(translateX, translateY).scale(scale)
+      );
+  }, [data.nodes, width, height]);
+
   const fitToScreen = useCallback(() => {
     if (!svgRef.current || !data.nodes.length) return;
 
@@ -268,5 +287,6 @@ export function useD3Graph({
     zoomOut,
     resetView,
     fitToScreen,
+    panToNode,
   };
 }

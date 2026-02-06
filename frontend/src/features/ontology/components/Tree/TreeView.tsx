@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useFrameworks, useConcepts } from "../../api";
 import { useExplorer } from "../../context";
-import { buildTree } from "../../utils";
+import { buildTree, findNodePath } from "../../utils";
 import { getFrameworkColor } from "../../utils/graphTransform";
 import { TreeNode } from "../Sidebar/TreeNode";
 import type { Framework, TreeNode as TreeNodeType } from "../../types";
@@ -25,9 +25,11 @@ function filterByConceptType(nodes: TreeNodeType[], conceptType: string): TreeNo
 function FrameworkSection({
   framework,
   conceptType,
+  selectedConceptId,
 }: {
   framework: Framework;
   conceptType: string | null;
+  selectedConceptId: string | null;
 }) {
   const { i18n } = useTranslation();
   const { data: concepts } = useConcepts(framework.id);
@@ -42,6 +44,14 @@ function FrameworkSection({
     }
     return result;
   }, [concepts, language, conceptType]);
+
+  // Compute ancestor IDs for auto-expanding to the selected concept
+  const autoExpandIds = useMemo(() => {
+    if (!selectedConceptId || tree.length === 0) return new Set<string>();
+    const path = findNodePath(tree, selectedConceptId);
+    // All nodes except the last (the selected one) should be expanded
+    return new Set(path.slice(0, -1).map((n) => n.id));
+  }, [tree, selectedConceptId]);
 
   const borderColor = getFrameworkColor(framework.id);
 
@@ -64,7 +74,7 @@ function FrameworkSection({
       </div>
       <div className="py-1">
         {tree.map((node) => (
-          <TreeNode key={node.id} node={node} level={0} />
+          <TreeNode key={node.id} node={node} level={0} autoExpandIds={autoExpandIds} />
         ))}
       </div>
     </div>
@@ -99,6 +109,7 @@ export function TreeView() {
             key={framework.id}
             framework={framework}
             conceptType={state.activeConceptType}
+            selectedConceptId={state.selectedConceptId}
           />
         ))}
       </div>

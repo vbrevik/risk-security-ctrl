@@ -16,7 +16,7 @@ export function GraphView() {
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [showMinimap, setShowMinimap] = useState(true);
   const { i18n } = useTranslation();
-  const { state, selectConcept, setViewMode } = useExplorer();
+  const { state, selectConcept } = useExplorer();
 
   // Load all frameworks dynamically
   const { data: frameworks } = useFrameworks();
@@ -79,10 +79,9 @@ export function GraphView() {
 
   const handleNodeDoubleClick = (node: GraphNode) => {
     selectConcept(node.id);
-    setViewMode("detail");
   };
 
-  const { svgRef, zoomIn, zoomOut, resetView, fitToScreen } = useD3Graph({
+  const { svgRef, zoomIn, zoomOut, resetView, fitToScreen, panToNode } = useD3Graph({
     data: graphData,
     onNodeClick: handleNodeClick,
     onNodeDoubleClick: handleNodeDoubleClick,
@@ -92,20 +91,27 @@ export function GraphView() {
     height: dimensions.height,
   });
 
-  // Handle resize
+  // Auto-pan to selected concept when it changes from outside the graph
+  const prevSelectedRef = useRef(state.selectedConceptId);
   useEffect(() => {
-    const handleResize = () => {
-      if (containerRef.current) {
-        setDimensions({
-          width: containerRef.current.clientWidth,
-          height: containerRef.current.clientHeight,
-        });
-      }
-    };
+    if (
+      state.selectedConceptId &&
+      state.selectedConceptId !== prevSelectedRef.current
+    ) {
+      panToNode(state.selectedConceptId);
+    }
+    prevSelectedRef.current = state.selectedConceptId;
+  }, [state.selectedConceptId, panToNode]);
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+  // Handle resize (both window and container changes e.g. context panel open/close)
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const el = containerRef.current;
+    const observer = new ResizeObserver(() => {
+      setDimensions({ width: el.clientWidth, height: el.clientHeight });
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   // Keyboard shortcuts

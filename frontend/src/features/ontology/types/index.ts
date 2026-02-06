@@ -101,7 +101,7 @@ export interface GraphData {
 }
 
 // UI State Types
-export type ViewMode = "graph" | "tree" | "detail" | "compare";
+export type ViewMode = "graph" | "tree" | "compare";
 
 export interface ExplorerState {
   selectedConceptId: string | null;
@@ -112,6 +112,7 @@ export interface ExplorerState {
   activeFrameworks: string[];
   activeConceptType: string | null;
   searchHighlightIds: string[];
+  navigationHistory: string[];
 }
 
 // Layout Persistence Types

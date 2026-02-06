@@ -49,6 +49,15 @@ export function CompareView() {
     );
   };
 
+  // Mappings involving the selected concept
+  const selectedMappingIds = useMemo(() => {
+    if (!state.selectedConceptId) return new Set<string>();
+    return new Set(
+      getMappingsForConcept(state.selectedConceptId).map((r) => r.id)
+    );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.selectedConceptId, crossMappings]);
+
   return (
     <div className="h-full flex flex-col">
       {/* Framework selectors */}
@@ -100,9 +109,15 @@ export function CompareView() {
                         {getMappingsForConcept(node.id).map((rel) => (
                           <div
                             key={rel.id}
-                            className="flex items-center gap-2 text-xs text-muted-foreground"
+                            className={`flex items-center gap-2 text-xs ${
+                              selectedMappingIds.has(rel.id)
+                                ? "text-amber-600 font-medium"
+                                : "text-muted-foreground"
+                            }`}
                           >
-                            <span className="w-2 h-px bg-amber-500" />
+                            <span className={`w-2 h-px ${
+                              selectedMappingIds.has(rel.id) ? "bg-amber-500" : "bg-amber-500/50"
+                            }`} />
                             <span>{rel.relationship_type}</span>
                           </div>
                         ))}
@@ -128,13 +143,25 @@ export function CompareView() {
           <div className="text-xs text-muted-foreground text-center p-2">
             {crossMappings.length} {t("compare.mappings")}
           </div>
-          {crossMappings.slice(0, 10).map((rel) => (
-            <div
-              key={rel.id}
-              className="w-full h-px bg-amber-500/50 my-1"
-              title={rel.relationship_type}
-            />
-          ))}
+          {crossMappings.slice(0, 10).map((rel) => {
+            const isHighlighted = selectedMappingIds.has(rel.id);
+            const hasSomeSelected = state.selectedConceptId && selectedMappingIds.size > 0;
+            return (
+              <div
+                key={rel.id}
+                className="w-full my-1 transition-all"
+                style={{
+                  height: isHighlighted ? 2 : 1,
+                  backgroundColor: isHighlighted
+                    ? "#f59e0b"
+                    : hasSomeSelected
+                      ? "rgba(245, 158, 11, 0.15)"
+                      : "rgba(245, 158, 11, 0.5)",
+                }}
+                title={rel.relationship_type}
+              />
+            );
+          })}
           {crossMappings.length > 10 && (
             <div className="text-xs text-muted-foreground">
               {t("compare.nMore", { count: crossMappings.length - 10 })}
@@ -158,9 +185,15 @@ export function CompareView() {
                         {getMappingsForConcept(node.id).map((rel) => (
                           <div
                             key={rel.id}
-                            className="flex items-center gap-2 text-xs text-muted-foreground"
+                            className={`flex items-center gap-2 text-xs ${
+                              selectedMappingIds.has(rel.id)
+                                ? "text-amber-600 font-medium"
+                                : "text-muted-foreground"
+                            }`}
                           >
-                            <span className="w-2 h-px bg-amber-500" />
+                            <span className={`w-2 h-px ${
+                              selectedMappingIds.has(rel.id) ? "bg-amber-500" : "bg-amber-500/50"
+                            }`} />
                             <span>{rel.relationship_type}</span>
                           </div>
                         ))}

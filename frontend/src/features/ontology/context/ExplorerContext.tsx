@@ -12,7 +12,8 @@ type ExplorerAction =
   | { type: "SET_ACTIVE_FRAMEWORKS"; frameworkIds: string[] }
   | { type: "TOGGLE_FRAMEWORK"; frameworkId: string }
   | { type: "SET_CONCEPT_TYPE"; conceptType: string | null }
-  | { type: "SET_SEARCH_HIGHLIGHTS"; ids: string[] };
+  | { type: "SET_SEARCH_HIGHLIGHTS"; ids: string[] }
+  | { type: "NAVIGATE_BACK"; conceptId: string };
 
 const initialState: ExplorerState = {
   selectedConceptId: null,
@@ -23,16 +24,22 @@ const initialState: ExplorerState = {
   activeFrameworks: [],
   activeConceptType: null,
   searchHighlightIds: [],
+  navigationHistory: [],
 };
 
 function explorerReducer(state: ExplorerState, action: ExplorerAction): ExplorerState {
   switch (action.type) {
-    case "SELECT_CONCEPT":
+    case "SELECT_CONCEPT": {
+      const newHistory = action.conceptId
+        ? [...state.navigationHistory, action.conceptId]
+        : state.navigationHistory;
       return {
         ...state,
         selectedConceptId: action.conceptId,
         selectedConcepts: action.conceptId ? [action.conceptId] : [],
+        navigationHistory: newHistory,
       };
+    }
     case "TOGGLE_CONCEPT": {
       const isSelected = state.selectedConcepts.includes(action.conceptId);
       return {
@@ -48,6 +55,7 @@ function explorerReducer(state: ExplorerState, action: ExplorerAction): Explorer
         ...state,
         selectedConceptId: null,
         selectedConcepts: [],
+        navigationHistory: [],
       };
     case "SET_VIEW_MODE":
       return { ...state, viewMode: action.mode };
@@ -78,6 +86,18 @@ function explorerReducer(state: ExplorerState, action: ExplorerAction): Explorer
       return { ...state, activeConceptType: action.conceptType };
     case "SET_SEARCH_HIGHLIGHTS":
       return { ...state, searchHighlightIds: action.ids };
+    case "NAVIGATE_BACK": {
+      const idx = state.navigationHistory.lastIndexOf(action.conceptId);
+      const truncated = idx >= 0
+        ? state.navigationHistory.slice(0, idx + 1)
+        : state.navigationHistory;
+      return {
+        ...state,
+        selectedConceptId: action.conceptId,
+        selectedConcepts: [action.conceptId],
+        navigationHistory: truncated,
+      };
+    }
     default:
       return state;
   }
@@ -96,6 +116,7 @@ interface ExplorerContextValue {
   toggleFramework: (frameworkId: string) => void;
   setConceptType: (conceptType: string | null) => void;
   setSearchHighlights: (ids: string[]) => void;
+  navigateBack: (conceptId: string) => void;
 }
 
 const ExplorerContext = createContext<ExplorerContextValue | null>(null);
@@ -116,6 +137,7 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
     toggleFramework: (frameworkId) => dispatch({ type: "TOGGLE_FRAMEWORK", frameworkId }),
     setConceptType: (conceptType) => dispatch({ type: "SET_CONCEPT_TYPE", conceptType }),
     setSearchHighlights: (ids) => dispatch({ type: "SET_SEARCH_HIGHLIGHTS", ids }),
+    navigateBack: (conceptId) => dispatch({ type: "NAVIGATE_BACK", conceptId }),
   };
 
   return (

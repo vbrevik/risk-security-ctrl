@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronRight, Folder, Diamond, ArrowRight, Cog } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { TreeNode as TreeNodeType } from "../../types";
@@ -7,6 +7,7 @@ import { useExplorer } from "../../context";
 interface TreeNodeProps {
   node: TreeNodeType;
   level: number;
+  autoExpandIds?: Set<string>;
 }
 
 const typeIcons: Record<string, typeof Folder> = {
@@ -19,13 +20,32 @@ const typeIcons: Record<string, typeof Folder> = {
   subcategory: Folder,
 };
 
-export function TreeNode({ node, level }: TreeNodeProps) {
-  const [isExpanded, setIsExpanded] = useState(node.isExpanded);
+export function TreeNode({ node, level, autoExpandIds }: TreeNodeProps) {
+  const shouldAutoExpand = autoExpandIds?.has(node.id) ?? false;
+  const [manualExpanded, setManualExpanded] = useState<boolean | null>(null);
   const { state, selectConcept } = useExplorer();
   const isSelected = state.selectedConceptId === node.id;
   const hasChildren = node.children.length > 0;
+  const nodeRef = useRef<HTMLDivElement>(null);
+
+  // Expansion priority: manual toggle > auto-expand from selection > initial state
+  const isExpanded = manualExpanded ?? (shouldAutoExpand || node.isExpanded);
 
   const Icon = typeIcons[node.type] ?? Folder;
+
+  // Reset manual override when auto-expand changes (new concept selected)
+  const prevAutoExpand = useRef(shouldAutoExpand);
+  if (shouldAutoExpand !== prevAutoExpand.current) {
+    prevAutoExpand.current = shouldAutoExpand;
+    if (shouldAutoExpand) setManualExpanded(null);
+  }
+
+  // Scroll into view when selected
+  useEffect(() => {
+    if (isSelected && nodeRef.current) {
+      nodeRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [isSelected]);
 
   const handleClick = () => {
     selectConcept(node.id);
@@ -33,18 +53,19 @@ export function TreeNode({ node, level }: TreeNodeProps) {
 
   const handleDoubleClick = () => {
     if (hasChildren) {
-      setIsExpanded(!isExpanded);
+      setManualExpanded(!isExpanded);
     }
   };
 
   const handleChevronClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsExpanded(!isExpanded);
+    setManualExpanded(!isExpanded);
   };
 
   return (
     <div>
       <div
+        ref={nodeRef}
         className={cn(
           "flex items-center gap-1 py-1 px-2 cursor-pointer rounded text-sm",
           "hover:bg-accent/50 transition-colors",
@@ -80,7 +101,12 @@ export function TreeNode({ node, level }: TreeNodeProps) {
       {isExpanded && hasChildren && (
         <div>
           {node.children.map((child) => (
-            <TreeNode key={child.id} node={child} level={level + 1} />
+            <TreeNode
+              key={child.id}
+              node={child}
+              level={level + 1}
+              autoExpandIds={autoExpandIds}
+            />
           ))}
         </div>
       )}

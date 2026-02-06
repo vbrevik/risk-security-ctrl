@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { OntologyExplorer } from "@/features/ontology/components";
 
 export interface OntologySearch {
-  view?: "graph" | "tree" | "detail" | "compare";
+  view?: "graph" | "tree" | "compare";
   concept?: string;
   frameworks?: string;
   type?: string;
