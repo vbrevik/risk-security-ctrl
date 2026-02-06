@@ -1,5 +1,5 @@
 use axum::{
-    extract::{Path, Query, State},
+    extract::{Multipart, Path, Query, State},
     http::StatusCode,
     routing::{delete, get, post, put},
     Json, Router,
@@ -84,7 +84,7 @@ pub async fn create_assessment(
         let item_id = Uuid::new_v4().to_string();
         sqlx::query(
             r#"INSERT INTO compliance_items (id, assessment_id, concept_id, status, updated_at)
-               VALUES (?, ?, ?, 'not_started', ?)"#,
+               VALUES (?, ?, ?, 'not_assessed', ?)"#,
         )
         .bind(&item_id)
         .bind(&assessment_id)
@@ -501,6 +501,7 @@ struct ComplianceItemWithConceptRow {
     concept_name_nb: Option<String>,
     concept_code: Option<String>,
     concept_type: String,
+    #[allow(dead_code)]
     parent_id: Option<String>,
 }
 
@@ -1181,6 +1182,173 @@ pub async fn delete_evidence(
     Ok(StatusCode::NO_CONTENT)
 }
 
+/// Upload a file as evidence for a compliance item
+///
+/// Accepts multipart/form-data with a file field. Stores the file to the
+/// uploads directory and creates an evidence record.
+#[utoipa::path(
+    post,
+    path = "/api/compliance/assessments/{assessment_id}/items/{item_id}/evidence/upload",
+    tag = "compliance",
+    params(
+        ("assessment_id" = String, Path, description = "Assessment ID"),
+        ("item_id" = String, Path, description = "Compliance item ID")
+    ),
+    responses(
+        (status = 201, description = "File uploaded and evidence created", body = Evidence),
+        (status = 400, description = "No file provided or invalid request"),
+        (status = 404, description = "Assessment or compliance item not found")
+    )
+)]
+pub async fn upload_evidence(
+    State(state): State<AppState>,
+    Path((assessment_id, item_id)): Path<(String, String)>,
+    mut multipart: Multipart,
+) -> AppResult<(StatusCode, Json<Evidence>)> {
+    // Verify compliance item exists and belongs to assessment
+    let item_exists: Option<String> =
+        sqlx::query_scalar("SELECT id FROM compliance_items WHERE id = ? AND assessment_id = ?")
+            .bind(&item_id)
+            .bind(&assessment_id)
+            .fetch_optional(&state.db)
+            .await?;
+
+    if item_exists.is_none() {
+        return Err(AppError::NotFound(format!(
+            "Compliance item with id '{}' not found in assessment '{}'",
+            item_id, assessment_id
+        )));
+    }
+
+    // Create uploads directory if it doesn't exist
+    let upload_dir = std::path::Path::new("uploads").join("evidence");
+    tokio::fs::create_dir_all(&upload_dir).await.map_err(|e| {
+        AppError::Internal(format!("Failed to create upload directory: {}", e))
+    })?;
+
+    let mut file_name: Option<String> = None;
+    let mut file_path: Option<String> = None;
+    let mut mime_type: Option<String> = None;
+    let mut file_size: Option<i64> = None;
+    let mut title: Option<String> = None;
+    let mut description: Option<String> = None;
+
+    while let Some(field) = multipart.next_field().await.map_err(|e| {
+        AppError::BadRequest(format!("Failed to read multipart field: {}", e))
+    })? {
+        let field_name = field.name().unwrap_or("").to_string();
+
+        match field_name.as_str() {
+            "file" => {
+                let original_name = field
+                    .file_name()
+                    .unwrap_or("unnamed")
+                    .to_string();
+                let content_type = field
+                    .content_type()
+                    .unwrap_or("application/octet-stream")
+                    .to_string();
+
+                let data = field.bytes().await.map_err(|e| {
+                    AppError::BadRequest(format!("Failed to read file data: {}", e))
+                })?;
+
+                // Generate unique filename to avoid collisions
+                let extension = std::path::Path::new(&original_name)
+                    .extension()
+                    .and_then(|e| e.to_str())
+                    .unwrap_or("bin");
+                let unique_name = format!("{}.{}", Uuid::new_v4(), extension);
+                let dest_path = upload_dir.join(&unique_name);
+
+                tokio::fs::write(&dest_path, &data).await.map_err(|e| {
+                    AppError::Internal(format!("Failed to write file: {}", e))
+                })?;
+
+                file_size = Some(data.len() as i64);
+                mime_type = Some(content_type);
+                file_name = Some(original_name);
+                file_path = Some(dest_path.to_string_lossy().to_string());
+            }
+            "title" => {
+                title = Some(
+                    field
+                        .text()
+                        .await
+                        .map_err(|e| AppError::BadRequest(format!("Invalid title: {}", e)))?,
+                );
+            }
+            "description" => {
+                description = Some(
+                    field
+                        .text()
+                        .await
+                        .map_err(|e| AppError::BadRequest(format!("Invalid description: {}", e)))?,
+                );
+            }
+            _ => {} // Ignore unknown fields
+        }
+    }
+
+    let stored_path = file_path.ok_or_else(|| {
+        AppError::BadRequest("No file field provided in multipart request".to_string())
+    })?;
+    let actual_title = title.unwrap_or_else(|| file_name.clone().unwrap_or_else(|| "Untitled".to_string()));
+
+    let evidence_id = Uuid::new_v4().to_string();
+    let now = chrono::Utc::now().format("%Y-%m-%d %H:%M:%S").to_string();
+
+    // Insert evidence record
+    sqlx::query(
+        r#"INSERT INTO evidence (id, compliance_item_id, evidence_type, title, description, file_path, mime_type, file_size, created_at, updated_at)
+           VALUES (?, ?, 'document', ?, ?, ?, ?, ?, ?, ?)"#,
+    )
+    .bind(&evidence_id)
+    .bind(&item_id)
+    .bind(&actual_title)
+    .bind(&description)
+    .bind(&stored_path)
+    .bind(&mime_type)
+    .bind(file_size)
+    .bind(&now)
+    .bind(&now)
+    .execute(&state.db)
+    .await?;
+
+    // Log to audit_log
+    let audit_id = Uuid::new_v4().to_string();
+    let new_value = serde_json::json!({
+        "id": evidence_id,
+        "compliance_item_id": item_id,
+        "evidence_type": "document",
+        "title": actual_title,
+        "file_name": file_name,
+        "mime_type": mime_type,
+        "file_size": file_size
+    });
+    sqlx::query(
+        r#"INSERT INTO audit_log (id, user_id, action, entity_type, entity_id, new_value, created_at)
+           VALUES (?, NULL, 'upload', 'evidence', ?, ?, ?)"#,
+    )
+    .bind(&audit_id)
+    .bind(&evidence_id)
+    .bind(new_value.to_string())
+    .bind(&now)
+    .execute(&state.db)
+    .await?;
+
+    // Fetch and return the created evidence
+    let row = sqlx::query_as::<_, EvidenceRow>(
+        r#"SELECT id, compliance_item_id, evidence_type, title, description, file_path, url, uploaded_by, created_at, updated_at
+           FROM evidence WHERE id = ?"#,
+    )
+    .bind(&evidence_id)
+    .fetch_one(&state.db)
+    .await?;
+
+    Ok((StatusCode::CREATED, Json(Evidence::from(row))))
+}
+
 // ============================================================================
 // Scoring Handlers
 // ============================================================================
@@ -1423,6 +1591,10 @@ pub fn router() -> Router<AppState> {
         .route(
             "/assessments/:assessment_id/items/:item_id/evidence",
             get(get_evidence).post(add_evidence),
+        )
+        .route(
+            "/assessments/:assessment_id/items/:item_id/evidence/upload",
+            post(upload_evidence),
         )
         .route("/evidence/:id", delete(delete_evidence))
 }

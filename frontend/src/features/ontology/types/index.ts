@@ -38,6 +38,7 @@ export interface RelatedConcept {
   relationship_id: string;
   relationship_type: string;
   concept_id: string;
+  concept_framework_id: string;
   concept_name_en: string;
   concept_name_nb: string | null;
   direction: "incoming" | "outgoing";

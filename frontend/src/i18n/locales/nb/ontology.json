@@ -36,7 +36,8 @@
     "definition": "Definisjon",
     "source": "Kilde",
     "hierarchy": "Hierarki",
-    "viewInGraph": "Vis i graf"
+    "viewInGraph": "Vis i graf",
+    "crossFrameworkMappings": "Koblinger på tvers av rammeverk"
   },
   "compare": {
     "title": "Sammenlign rammeverk",

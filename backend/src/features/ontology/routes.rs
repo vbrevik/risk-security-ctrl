@@ -252,6 +252,7 @@ pub async fn get_concept_relationships(
             r.id as relationship_id,
             r.relationship_type,
             c.id as concept_id,
+            c.framework_id as concept_framework_id,
             c.name_en as concept_name_en,
             c.name_nb as concept_name_nb,
             'outgoing' as direction
@@ -272,6 +273,7 @@ pub async fn get_concept_relationships(
             r.id as relationship_id,
             r.relationship_type,
             c.id as concept_id,
+            c.framework_id as concept_framework_id,
             c.name_en as concept_name_en,
             c.name_nb as concept_name_nb,
             'incoming' as direction

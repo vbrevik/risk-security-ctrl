@@ -179,6 +179,49 @@ export function DetailView() {
               </div>
             )}
 
+            {/* Cross-framework mappings */}
+            {(() => {
+              const crossMappings = conceptData.related_concepts.filter(
+                (rel) => rel.concept_framework_id !== conceptData.framework_id
+              );
+              if (crossMappings.length === 0) return null;
+              return (
+                <div>
+                  <h3 className="font-medium text-sm text-muted-foreground mb-2">
+                    {t("detail.crossFrameworkMappings")}
+                  </h3>
+                  <div className="space-y-1">
+                    {crossMappings.map((rel) => (
+                      <button
+                        key={rel.relationship_id}
+                        onClick={() => handleRelationshipClick(rel.concept_id)}
+                        className={cn(
+                          "w-full flex items-center gap-2 p-2 text-sm rounded",
+                          "hover:bg-accent transition-colors text-left"
+                        )}
+                      >
+                        <span
+                          className="w-2 h-2 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: getFrameworkColor(rel.concept_framework_id) }}
+                        />
+                        <span className="text-muted-foreground text-xs">
+                          {rel.relationship_type}
+                        </span>
+                        <span className="flex-1">
+                          {language === "nb" && rel.concept_name_nb
+                            ? rel.concept_name_nb
+                            : rel.concept_name_en}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {rel.concept_framework_id}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+
             {/* Breadcrumb */}
             {breadcrumbPath.length > 0 && (
               <div>

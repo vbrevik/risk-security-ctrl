@@ -57,6 +57,7 @@ pub struct RelatedConcept {
     pub relationship_id: String,
     pub relationship_type: String,
     pub concept_id: String,
+    pub concept_framework_id: String,
     pub concept_name_en: String,
     pub concept_name_nb: Option<String>,
     pub direction: String, // "outgoing" or "incoming"

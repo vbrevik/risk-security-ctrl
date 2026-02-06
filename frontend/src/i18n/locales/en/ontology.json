@@ -36,7 +36,8 @@
     "definition": "Definition",
     "source": "Source",
     "hierarchy": "Hierarchy",
-    "viewInGraph": "View in Graph"
+    "viewInGraph": "View in Graph",
+    "crossFrameworkMappings": "Cross-Framework Mappings"
   },
   "compare": {
     "title": "Compare Frameworks",

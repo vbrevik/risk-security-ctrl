@@ -1,5 +1,7 @@
 use axum::Router;
+use sqlx::sqlite::SqliteConnectOptions;
 use sqlx::SqlitePool;
+use std::str::FromStr;
 
 // Re-export the necessary types from the main crate
 use ontology_backend::{AppState, Config};
@@ -9,7 +11,11 @@ pub async fn create_test_app() -> Router {
     // In a production setup, you'd create a separate test database
     let config = Config::from_env();
 
-    let pool = SqlitePool::connect(&config.database_url)
+    let options = SqliteConnectOptions::from_str(&config.database_url)
+        .expect("Invalid database URL")
+        .create_if_missing(true);
+
+    let pool = SqlitePool::connect_with(options)
         .await
         .expect("Failed to connect to test database");
 
