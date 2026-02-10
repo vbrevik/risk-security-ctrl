@@ -3,11 +3,39 @@
   "assessments": {
     "title": "Vurderinger",
     "new": "Ny vurdering",
+    "score": "Samsvar",
+    "created": "Opprettet",
+    "due": "Frist",
+    "emptyTitle": "Ingen vurderinger ennå",
+    "emptyDescription": "Opprett din første vurdering for å begynne å spore samsvar mot et rammeverk.",
+    "error": "Kunne ikke laste vurderinger. Prøv igjen.",
     "status": {
       "draft": "Utkast",
-      "inProgress": "Pågår",
-      "completed": "Fullført"
+      "in_progress": "Pågår",
+      "under_review": "Til gjennomgang",
+      "completed": "Fullført",
+      "archived": "Arkivert"
     }
+  },
+  "filters": {
+    "status": "Status",
+    "framework": "Rammeverk",
+    "allStatuses": "Alle statuser",
+    "allFrameworks": "Alle rammeverk"
+  },
+  "create": {
+    "title": "Ny vurdering",
+    "description": "Opprett en ny samsvarsvurdering for et rammeverk.",
+    "nameLabel": "Navn",
+    "namePlaceholder": "f.eks. Q1 2026 ISO 9001-vurdering",
+    "frameworkLabel": "Rammeverk",
+    "frameworkPlaceholder": "Velg et rammeverk",
+    "descriptionLabel": "Beskrivelse",
+    "descriptionPlaceholder": "Valgfri beskrivelse",
+    "dueDateLabel": "Fristdato",
+    "cancel": "Avbryt",
+    "submit": "Opprett vurdering",
+    "creating": "Oppretter..."
   },
   "items": {
     "title": "Samsvarselementer",

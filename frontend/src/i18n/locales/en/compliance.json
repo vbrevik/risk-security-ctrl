@@ -3,11 +3,39 @@
   "assessments": {
     "title": "Assessments",
     "new": "New Assessment",
+    "score": "Compliance",
+    "created": "Created",
+    "due": "Due",
+    "emptyTitle": "No assessments yet",
+    "emptyDescription": "Create your first assessment to start tracking compliance against a framework.",
+    "error": "Failed to load assessments. Please try again.",
     "status": {
       "draft": "Draft",
-      "inProgress": "In Progress",
-      "completed": "Completed"
+      "in_progress": "In Progress",
+      "under_review": "Under Review",
+      "completed": "Completed",
+      "archived": "Archived"
     }
+  },
+  "filters": {
+    "status": "Status",
+    "framework": "Framework",
+    "allStatuses": "All statuses",
+    "allFrameworks": "All frameworks"
+  },
+  "create": {
+    "title": "New Assessment",
+    "description": "Create a new compliance assessment for a framework.",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. Q1 2026 ISO 9001 Assessment",
+    "frameworkLabel": "Framework",
+    "frameworkPlaceholder": "Select a framework",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Optional description",
+    "dueDateLabel": "Due date",
+    "cancel": "Cancel",
+    "submit": "Create Assessment",
+    "creating": "Creating..."
   },
   "items": {
     "title": "Compliance Items",
