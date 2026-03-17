@@ -36,18 +36,6 @@ function RootLayout() {
                   {t("nav.home")}
                 </Link>
                 <Link
-                  to="/frameworks"
-                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
-                >
-                  Frameworks
-                </Link>
-                <Link
-                  to="/crosswalk"
-                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
-                >
-                  Crosswalk
-                </Link>
-                <Link
                   to="/ontology"
                   className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
                 >
@@ -74,6 +62,32 @@ function RootLayout() {
               </Button>
             </div>
           </div>
+          <nav className="container flex h-8 items-center space-x-4 px-6 border-t border-border overflow-x-auto whitespace-nowrap">
+            <Link
+              to="/frameworks"
+              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
+            >
+              Frameworks
+            </Link>
+            <Link
+              to="/crosswalk"
+              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
+            >
+              Crosswalk
+            </Link>
+            <Link
+              to="/landscape"
+              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
+            >
+              Landscape
+            </Link>
+            <Link
+              to="/concepts/search"
+              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
+            >
+              Search
+            </Link>
+          </nav>
         </header>
         <main className="container py-6 px-6">
           <Outlet />

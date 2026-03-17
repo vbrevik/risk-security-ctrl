@@ -111,5 +111,19 @@
     "allTypes": "Alle typer",
     "clearAll": "Fjern alle",
     "topics": "Emner"
+  },
+  "crosswalk": {
+    "title": "Rammeverk-kryssreferanse",
+    "description": "Utforsk koblinger mellom rammeverk for risikostyring og KI-styring pa ulike abstraksjonsniva.",
+    "sourceFramework": "Kilderammeverk",
+    "targetFramework": "Malrammeverk",
+    "allLevels": "Alle niva",
+    "noMappings": "Ingen koblinger funnet",
+    "noMappingsHint": "Disse rammeverkene har kanskje ikke definerte kryssreferanser enna.",
+    "selectBoth": "Velg to rammeverk for sammenligning",
+    "selectBothHint": "Velg et kilde- og malrammeverk for a se kryssreferansene mellom dem.",
+    "mappingDetail": "Koblingsdetaljer",
+    "rationale": "Begrunnelse",
+    "level": "Niva"
   }
 }

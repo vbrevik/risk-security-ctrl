@@ -3,6 +3,7 @@
   "nav": {
     "home": "Home",
     "ontology": "Ontology Explorer",
+    "crosswalk": "Crosswalk",
     "compliance": "Compliance Tracking",
     "reports": "Reports"
   },

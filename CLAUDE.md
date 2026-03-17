@@ -94,3 +94,8 @@ The ontology covers:
 - **NIST CSF** - Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover)
 
 Cross-framework mappings link equivalent concepts between standards.
+
+## Gotchas
+
+### Ontology Concept ID Naming
+NIST AI RMF concept IDs use abbreviated prefixes: `gv-` (Govern), `mp-` (Map), `ms-` (Measure), `mg-` (Manage) — not full words. Always verify actual IDs from the JSON before writing cross-framework relationships.

@@ -111,5 +111,19 @@
     "allTypes": "All types",
     "clearAll": "Clear all",
     "topics": "Topics"
+  },
+  "crosswalk": {
+    "title": "Framework Crosswalk",
+    "description": "Explore cross-framework mappings between risk management and AI governance standards at different abstraction levels.",
+    "sourceFramework": "Source framework",
+    "targetFramework": "Target framework",
+    "allLevels": "All levels",
+    "noMappings": "No mappings found",
+    "noMappingsHint": "These frameworks may not have cross-framework relationships defined yet.",
+    "selectBoth": "Select two frameworks to compare",
+    "selectBothHint": "Choose a source and target framework to view their cross-framework mappings.",
+    "mappingDetail": "Mapping Detail",
+    "rationale": "Rationale",
+    "level": "Level"
   }
 }
