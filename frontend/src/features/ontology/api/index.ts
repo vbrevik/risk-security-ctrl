@@ -1,4 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueries } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { api } from "@/lib/api";
 import type {
   Framework,
@@ -7,6 +8,7 @@ import type {
   ConceptWithRelationships,
   PaginatedResponse,
   Topic,
+  FrameworkStats,
 } from "../types";
 
 // Query keys
@@ -135,4 +137,125 @@ export function useSearchConcepts(query: string, frameworkId?: string) {
     staleTime: 1000 * 30, // 30 seconds
     enabled: query.length >= 2,
   });
+}
+
+// Fetch all pages of concepts for a single framework
+async function fetchAllConceptsForFramework(
+  frameworkId: string
+): Promise<Concept[]> {
+  const allConcepts: Concept[] = [];
+  let page = 1;
+
+  while (true) {
+    const params = new URLSearchParams();
+    params.set("framework_id", frameworkId);
+    params.set("limit", "500");
+    params.set("page", String(page));
+    const { data } = await api.get<PaginatedResponse<Concept>>(
+      `/ontology/concepts?${params}`
+    );
+    allConcepts.push(...data.data);
+    if (page >= data.total_pages) break;
+    page++;
+  }
+
+  return allConcepts;
+}
+
+// Fetch all concepts across all frameworks
+export function useAllConcepts(): {
+  data: Concept[];
+  conceptToFramework: Map<string, string>;
+  isLoading: boolean;
+  errors: Error[];
+} {
+  const { data: frameworks, isLoading: fwsLoading } = useFrameworks();
+
+  const queries = useQueries({
+    queries: (frameworks ?? []).map((fw) => ({
+      queryKey: [...ontologyKeys.concepts(fw.id), "all"],
+      queryFn: () => fetchAllConceptsForFramework(fw.id),
+      staleTime: 1000 * 60 * 5,
+    })),
+  });
+
+  const queryDataKeys = queries.map((q) => q.dataUpdatedAt).join(",");
+
+  const data = useMemo(
+    () => queries.flatMap((q) => q.data ?? []),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [queryDataKeys]
+  );
+
+  const conceptToFramework = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const concept of data) {
+      map.set(concept.id, concept.framework_id);
+    }
+    return map;
+  }, [data]);
+
+  const errors = useMemo(
+    () =>
+      queries
+        .filter((q) => q.error != null)
+        .map((q) => q.error as Error),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [queryDataKeys]
+  );
+
+  const isLoading = fwsLoading || queries.some((q) => q.isPending);
+
+  return { data, conceptToFramework, isLoading, errors };
+}
+
+// Compute per-framework statistics from concepts and relationships
+export function useFrameworkStats(): {
+  data: Map<string, FrameworkStats>;
+  isLoading: boolean;
+} {
+  const { data: frameworks, isLoading: fwLoading } = useFrameworks();
+  const { data: allConcepts, conceptToFramework, isLoading: conceptsLoading } = useAllConcepts();
+  const { data: relationships, isLoading: relsLoading } = useRelationships();
+
+  const isLoading = fwLoading || conceptsLoading || relsLoading;
+
+  const data = useMemo(() => {
+    const stats = new Map<string, FrameworkStats>();
+    if (!frameworks) return stats;
+
+    for (const fw of frameworks) {
+      const fwConcepts = allConcepts.filter((c) => c.framework_id === fw.id);
+      const conceptTypes: Record<string, number> = {};
+      for (const c of fwConcepts) {
+        conceptTypes[c.concept_type] = (conceptTypes[c.concept_type] || 0) + 1;
+      }
+
+      const fwConceptIds = new Set(fwConcepts.map((c) => c.id));
+      const fwRelationships = (relationships ?? []).filter(
+        (r) =>
+          fwConceptIds.has(r.source_concept_id) ||
+          fwConceptIds.has(r.target_concept_id)
+      );
+
+      const connectedFws = new Set<string>();
+      for (const rel of fwRelationships) {
+        const sourceFw = conceptToFramework.get(rel.source_concept_id);
+        const targetFw = conceptToFramework.get(rel.target_concept_id);
+        if (sourceFw && sourceFw !== fw.id) connectedFws.add(sourceFw);
+        if (targetFw && targetFw !== fw.id) connectedFws.add(targetFw);
+      }
+
+      stats.set(fw.id, {
+        conceptCount: fwConcepts.length,
+        conceptTypes,
+        connectedFrameworks: connectedFws.size,
+        relationshipCount: fwRelationships.length,
+      });
+    }
+
+    return stats;
+  }, [frameworks, allConcepts, relationships, conceptToFramework]);
+
+  return { data, isLoading };
 }

@@ -140,3 +140,24 @@ export interface SavedLayout {
   expandedNodes: string[];
   timestamp: number;
 }
+
+// Framework Explorer Page Types
+export interface FrameworkStats {
+  conceptCount: number;
+  conceptTypes: Record<string, number>;
+  connectedFrameworks: number;
+  relationshipCount: number;
+}
+
+export interface CrosswalkCell {
+  sourceFrameworkId: string;
+  targetFrameworkId: string;
+  count: number;
+  relationships: Relationship[];
+}
+
+export interface LandscapeProfile {
+  sector: string;
+  activities: string[];
+  applicableFrameworks: string[];
+}

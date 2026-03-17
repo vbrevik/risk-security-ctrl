@@ -2689,6 +2689,331 @@
       "target_concept_id": "iso27000-isms",
       "relationship_type": "related_to",
       "description": "CISA ZTMM Governance relates to ISO 27000 ISMS for information security governance alignment."
+    },
+
+    {
+      "id": "rel-rmf-prepare-ai-govern",
+      "source_concept_id": "nist-rmf-prepare",
+      "target_concept_id": "nist-ai-govern",
+      "relationship_type": "maps_to",
+      "description": "NIST RMF Prepare step maps to NIST AI RMF Govern function. Both establish organizational risk posture, roles, strategy, and risk tolerance before system-level activities begin."
+    },
+    {
+      "id": "rel-rmf-categorize-ai-map",
+      "source_concept_id": "nist-rmf-categorize",
+      "target_concept_id": "nist-ai-map",
+      "relationship_type": "maps_to",
+      "description": "NIST RMF Categorize step maps to NIST AI RMF Map function. Both contextualize systems, assess impact levels, and characterize how the system will be used."
+    },
+    {
+      "id": "rel-rmf-select-ai-manage",
+      "source_concept_id": "nist-rmf-select",
+      "target_concept_id": "nist-ai-manage",
+      "relationship_type": "maps_to",
+      "description": "NIST RMF Select step maps to NIST AI RMF Manage function. RMF selects and tailors controls; AI RMF plans and implements risk treatments."
+    },
+    {
+      "id": "rel-rmf-assess-ai-measure",
+      "source_concept_id": "nist-rmf-assess",
+      "target_concept_id": "nist-ai-measure",
+      "relationship_type": "maps_to",
+      "description": "NIST RMF Assess step maps to NIST AI RMF Measure function. Both evaluate whether controls and safeguards are implemented correctly and producing desired outcomes."
+    },
+    {
+      "id": "rel-rmf-authorize-ai-govern",
+      "source_concept_id": "nist-rmf-authorize",
+      "target_concept_id": "nist-ai-govern",
+      "relationship_type": "related_to",
+      "description": "NIST RMF Authorize step relates to NIST AI RMF Govern function. Authorization is a governance decision requiring senior officials to accept risk."
+    },
+    {
+      "id": "rel-rmf-monitor-ai-measure",
+      "source_concept_id": "nist-rmf-monitor",
+      "target_concept_id": "nist-ai-measure",
+      "relationship_type": "maps_to",
+      "description": "NIST RMF Monitor step maps to NIST AI RMF Measure function. Both track ongoing risk posture and control effectiveness over time."
+    },
+
+    {
+      "id": "rel-rmf-p1-ai-gv2",
+      "source_concept_id": "nist-rmf-p-1",
+      "target_concept_id": "nist-ai-gv-2",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Management Roles (P-1) maps to AI RMF Accountability Structures (GOVERN 2). Both establish who is responsible for risk management activities."
+    },
+    {
+      "id": "rel-rmf-p2-ai-gv4",
+      "source_concept_id": "nist-rmf-p-2",
+      "target_concept_id": "nist-ai-gv-4",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Management Strategy (P-2) maps to AI RMF Organizational Risk Tolerances (GOVERN 4). Both define risk appetite and tolerance levels."
+    },
+    {
+      "id": "rel-rmf-p3-ai-map5",
+      "source_concept_id": "nist-rmf-p-3",
+      "target_concept_id": "nist-ai-mp-5",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Assessment — Organization (P-3) maps to AI RMF Likelihood and Impact Assessment (MAP 5). Both assess organizational risk through likelihood and severity estimation."
+    },
+    {
+      "id": "rel-rmf-p5-ai-gv5",
+      "source_concept_id": "nist-rmf-p-5",
+      "target_concept_id": "nist-ai-gv-5",
+      "relationship_type": "related_to",
+      "description": "RMF Common Control Identification (P-5) relates to AI RMF Third-Party Risk Management (GOVERN 5). Common controls often involve third-party and shared services."
+    },
+    {
+      "id": "rel-rmf-p7-ai-meas3",
+      "source_concept_id": "nist-rmf-p-7",
+      "target_concept_id": "nist-ai-ms-3",
+      "relationship_type": "maps_to",
+      "description": "RMF Continuous Monitoring Strategy — Organization (P-7) maps to AI RMF Tracking Mechanisms (MEASURE 3). Both establish strategies for ongoing tracking of risk indicators."
+    },
+    {
+      "id": "rel-rmf-p9-ai-map2",
+      "source_concept_id": "nist-rmf-p-9",
+      "target_concept_id": "nist-ai-mp-2",
+      "relationship_type": "maps_to",
+      "description": "RMF System Stakeholders (P-9) maps to AI RMF Interdisciplinary AI Actors (MAP 2). Both identify stakeholders with interest in system design, development, and operation."
+    },
+    {
+      "id": "rel-rmf-p14-ai-map4",
+      "source_concept_id": "nist-rmf-p-14",
+      "target_concept_id": "nist-ai-mp-4",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Assessment — System (P-14) maps to AI RMF Risks and Impacts (MAP 4). Both conduct system-level risk assessment identifying internal and external risks."
+    },
+    {
+      "id": "rel-rmf-p15-ai-map1",
+      "source_concept_id": "nist-rmf-p-15",
+      "target_concept_id": "nist-ai-mp-1",
+      "relationship_type": "related_to",
+      "description": "RMF Requirements Definition (P-15) relates to AI RMF Intended Purpose and Context (MAP 1). Defining security requirements aligns with documenting the AI system's intended purpose."
+    },
+    {
+      "id": "rel-rmf-c2-ai-map5",
+      "source_concept_id": "nist-rmf-c-2",
+      "target_concept_id": "nist-ai-mp-5",
+      "relationship_type": "related_to",
+      "description": "RMF Security Categorization (C-2) relates to AI RMF Likelihood and Impact Assessment (MAP 5). Security categorization is a form of impact-based assessment."
+    },
+    {
+      "id": "rel-rmf-s1-ai-man1",
+      "source_concept_id": "nist-rmf-s-1",
+      "target_concept_id": "nist-ai-mg-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Control Selection (S-1) maps to AI RMF Risk Prioritization (MANAGE 1). Both prioritize risks and select appropriate controls or treatments."
+    },
+    {
+      "id": "rel-rmf-a3-ai-meas2",
+      "source_concept_id": "nist-rmf-a-3",
+      "target_concept_id": "nist-ai-ms-2",
+      "relationship_type": "maps_to",
+      "description": "RMF Control Assessment (A-3) maps to AI RMF Trustworthiness Evaluation (MEASURE 2). Both evaluate whether safeguards meet their intended outcomes."
+    },
+    {
+      "id": "rel-rmf-a5-ai-man2",
+      "source_concept_id": "nist-rmf-a-5",
+      "target_concept_id": "nist-ai-mg-2",
+      "relationship_type": "maps_to",
+      "description": "RMF Remediation Actions (A-5) maps to AI RMF Risk Treatment Strategies (MANAGE 2). Both plan and implement corrective actions for identified deficiencies."
+    },
+    {
+      "id": "rel-rmf-a6-ai-man1",
+      "source_concept_id": "nist-rmf-a-6",
+      "target_concept_id": "nist-ai-mg-1",
+      "relationship_type": "related_to",
+      "description": "RMF Plan of Action and Milestones (A-6) relates to AI RMF Risk Prioritization (MANAGE 1). Both prioritize risk remediation based on assessment findings."
+    },
+    {
+      "id": "rel-rmf-r2-ai-man1",
+      "source_concept_id": "nist-rmf-r-2",
+      "target_concept_id": "nist-ai-mg-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Analysis and Determination (R-2) maps to AI RMF Risk Prioritization (MANAGE 1). Both analyze risk to determine if it is acceptable."
+    },
+    {
+      "id": "rel-rmf-r3-ai-man3",
+      "source_concept_id": "nist-rmf-r-3",
+      "target_concept_id": "nist-ai-mg-3",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Response (R-3) maps to AI RMF Risk Response and Recovery (MANAGE 3). Both implement preferred courses of action in response to determined risks."
+    },
+    {
+      "id": "rel-rmf-m1-ai-meas3",
+      "source_concept_id": "nist-rmf-m-1",
+      "target_concept_id": "nist-ai-ms-3",
+      "relationship_type": "maps_to",
+      "description": "RMF System and Environment Changes (M-1) maps to AI RMF Tracking Mechanisms (MEASURE 3). Both monitor changes that impact the risk posture."
+    },
+    {
+      "id": "rel-rmf-m2-ai-meas4",
+      "source_concept_id": "nist-rmf-m-2",
+      "target_concept_id": "nist-ai-ms-4",
+      "relationship_type": "maps_to",
+      "description": "RMF Ongoing Assessments (M-2) maps to AI RMF Feedback and Evaluation (MEASURE 4). Both conduct periodic reassessment and incorporate lessons learned."
+    },
+    {
+      "id": "rel-rmf-m3-ai-man3",
+      "source_concept_id": "nist-rmf-m-3",
+      "target_concept_id": "nist-ai-mg-3",
+      "relationship_type": "maps_to",
+      "description": "RMF Ongoing Risk Response (M-3) maps to AI RMF Risk Response and Recovery (MANAGE 3). Both respond to evolving risks with predefined response and recovery plans."
+    },
+    {
+      "id": "rel-rmf-m7-ai-man2-3",
+      "source_concept_id": "nist-rmf-m-7",
+      "target_concept_id": "nist-ai-mg-2-3",
+      "relationship_type": "maps_to",
+      "description": "RMF System Disposal (M-7) maps to AI RMF Decommissioning Procedures (MANAGE 2.3). Both address end-of-life activities when a system is removed from operation."
+    },
+
+    {
+      "id": "rel-rmf-p1-ai-gv2-1",
+      "source_concept_id": "nist-rmf-p-1",
+      "target_concept_id": "nist-ai-gv-2-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Management Roles (P-1) maps to AI RMF Roles and Responsibilities (GOVERN 2.1). Both assign individuals to specific risk management roles."
+    },
+    {
+      "id": "rel-rmf-p2-ai-gv4-1",
+      "source_concept_id": "nist-rmf-p-2",
+      "target_concept_id": "nist-ai-gv-4-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Management Strategy (P-2) maps to AI RMF Define AI Risk Tolerances (GOVERN 4.1). Both establish risk tolerance as part of organizational risk strategy."
+    },
+    {
+      "id": "rel-rmf-p3-ai-map5-1",
+      "source_concept_id": "nist-rmf-p-3",
+      "target_concept_id": "nist-ai-mp-5-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Assessment — Organization (P-3) maps to AI RMF Estimate Likelihood and Severity (MAP 5.1). Both assess risk through likelihood and impact estimation."
+    },
+    {
+      "id": "rel-rmf-p5-ai-gv5-1",
+      "source_concept_id": "nist-rmf-p-5",
+      "target_concept_id": "nist-ai-gv-5-1",
+      "relationship_type": "related_to",
+      "description": "RMF Common Control Identification (P-5) relates to AI RMF Third-Party AI Risk Policies (GOVERN 5.1). Common controls often involve shared services requiring third-party risk policies."
+    },
+    {
+      "id": "rel-rmf-p7-ai-meas3-1",
+      "source_concept_id": "nist-rmf-p-7",
+      "target_concept_id": "nist-ai-ms-3-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Continuous Monitoring Strategy — Organization (P-7) maps to AI RMF Apply Risk Tracking (MEASURE 3.1). Both establish tracking and monitoring mechanisms."
+    },
+    {
+      "id": "rel-rmf-p9-ai-map2-2",
+      "source_concept_id": "nist-rmf-p-9",
+      "target_concept_id": "nist-ai-mp-2-2",
+      "relationship_type": "maps_to",
+      "description": "RMF System Stakeholders (P-9) maps to AI RMF Diverse Stakeholder Participation (MAP 2.2). Both ensure relevant stakeholders are identified and engaged."
+    },
+    {
+      "id": "rel-rmf-p14-ai-map4-2",
+      "source_concept_id": "nist-rmf-p-14",
+      "target_concept_id": "nist-ai-mp-4-2",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Assessment — System (P-14) maps to AI RMF Map Internal Risks (MAP 4.2). Both conduct system-level identification of internal risks."
+    },
+    {
+      "id": "rel-rmf-p15-ai-map1-1",
+      "source_concept_id": "nist-rmf-p-15",
+      "target_concept_id": "nist-ai-mp-1-1",
+      "relationship_type": "related_to",
+      "description": "RMF Requirements Definition (P-15) relates to AI RMF Define Intended Purpose (MAP 1.1). Security requirements should align with the AI system's documented intended purpose."
+    },
+    {
+      "id": "rel-rmf-s5-ai-meas3-2",
+      "source_concept_id": "nist-rmf-s-5",
+      "target_concept_id": "nist-ai-ms-3-2",
+      "relationship_type": "maps_to",
+      "description": "RMF Continuous Monitoring Strategy — System (S-5) maps to AI RMF Monitor Performance Over Time (MEASURE 3.2). Both monitor system-level performance and control effectiveness over time."
+    },
+    {
+      "id": "rel-rmf-a3-ai-meas2-1",
+      "source_concept_id": "nist-rmf-a-3",
+      "target_concept_id": "nist-ai-ms-2-1",
+      "relationship_type": "related_to",
+      "description": "RMF Control Assessment (A-3) relates to AI RMF Test Validity and Reliability (MEASURE 2.1). Control assessment includes testing whether AI safeguards produce valid and reliable outcomes."
+    },
+    {
+      "id": "rel-rmf-a5-ai-man2-1",
+      "source_concept_id": "nist-rmf-a-5",
+      "target_concept_id": "nist-ai-mg-2-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Remediation Actions (A-5) maps to AI RMF Plan Risk Treatment Strategies (MANAGE 2.1). Both plan and execute treatment strategies for identified deficiencies."
+    },
+    {
+      "id": "rel-rmf-r3-ai-man3-1",
+      "source_concept_id": "nist-rmf-r-3",
+      "target_concept_id": "nist-ai-mg-3-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Response (R-3) maps to AI RMF Pre-Defined Response Plans (MANAGE 3.1). Both implement predefined response plans in response to risk determinations."
+    },
+    {
+      "id": "rel-rmf-m3-ai-man3-3",
+      "source_concept_id": "nist-rmf-m-3",
+      "target_concept_id": "nist-ai-mg-3-3",
+      "relationship_type": "related_to",
+      "description": "RMF Ongoing Risk Response (M-3) relates to AI RMF Recovery Plans for AI Incidents (MANAGE 3.3). Ongoing risk response includes recovery planning for AI-specific incidents."
+    },
+    {
+      "id": "rel-rmf-p4-ai-gv6",
+      "source_concept_id": "nist-rmf-p-4",
+      "target_concept_id": "nist-ai-gv-6",
+      "relationship_type": "related_to",
+      "description": "RMF Organizationally-Tailored Control Baselines (P-4) relates to AI RMF Policies and Procedures (GOVERN 6). Both establish and maintain organizational policies for risk management."
+    },
+    {
+      "id": "rel-rmf-s4-ai-man2-4",
+      "source_concept_id": "nist-rmf-s-4",
+      "target_concept_id": "nist-ai-mg-2-4",
+      "relationship_type": "maps_to",
+      "description": "RMF Documentation of Planned Controls (S-4) maps to AI RMF Document Risk Treatments (MANAGE 2.4). Both require documenting planned control implementations and risk treatments."
+    },
+    {
+      "id": "rel-rmf-r5-ai-man4-1",
+      "source_concept_id": "nist-rmf-r-5",
+      "target_concept_id": "nist-ai-mg-4-1",
+      "relationship_type": "maps_to",
+      "description": "RMF Authorization Reporting (R-5) maps to AI RMF Document and Communicate Residual Risk (MANAGE 4.1). Both report remaining risk and authorization decisions to relevant stakeholders."
+    },
+    {
+      "id": "rel-rmf-m5-ai-man4-1",
+      "source_concept_id": "nist-rmf-m-5",
+      "target_concept_id": "nist-ai-mg-4-1",
+      "relationship_type": "related_to",
+      "description": "RMF Security and Privacy Reporting (M-5) relates to AI RMF Document and Communicate Residual Risk (MANAGE 4.1). Both communicate ongoing risk posture to organizational officials."
+    },
+    {
+      "id": "rel-rmf-i1-ai-man2-1",
+      "source_concept_id": "nist-rmf-i-1",
+      "target_concept_id": "nist-ai-mg-2-1",
+      "relationship_type": "related_to",
+      "description": "RMF Control Implementation (I-1) relates to AI RMF Plan Risk Treatment Strategies (MANAGE 2.1). Implementing controls is a form of executing risk treatment strategies."
+    },
+    {
+      "id": "rel-rmf-a4-ai-man4",
+      "source_concept_id": "nist-rmf-a-4",
+      "target_concept_id": "nist-ai-mg-4",
+      "relationship_type": "maps_to",
+      "description": "RMF Assessment Reports (A-4) maps to AI RMF Residual Risk Communication (MANAGE 4). Both produce documentation of assessment findings and residual risk for decision-makers."
+    },
+    {
+      "id": "rel-rmf-p1-ai-gv1-7",
+      "source_concept_id": "nist-rmf-p-1",
+      "target_concept_id": "nist-ai-gv-1-7",
+      "relationship_type": "related_to",
+      "description": "RMF Risk Management Roles (P-1) relates to AI RMF AI Risk Management Accountability (GOVERN 1.7). Assigning risk management roles establishes accountability for AI risk management."
+    },
+    {
+      "id": "rel-rmf-p3-ai-gv1-3",
+      "source_concept_id": "nist-rmf-p-3",
+      "target_concept_id": "nist-ai-gv-1-3",
+      "relationship_type": "maps_to",
+      "description": "RMF Risk Assessment — Organization (P-3) maps to AI RMF AI Risk Mapped to Organizational Risk (GOVERN 1.3). Both integrate system-specific risk assessment into broader enterprise risk management."
     }
   ]
 }

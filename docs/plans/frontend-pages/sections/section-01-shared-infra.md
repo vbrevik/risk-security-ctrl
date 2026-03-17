@@ -312,3 +312,29 @@ Files to modify:
 ## Dependencies
 
 This section has no dependencies on other sections. All subsequent sections (02 through 06) depend on this section being complete.
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Deviations from Plan
+
+1. **Pagination support in useAllConcepts:** The plan specified `limit=500` per request. Code review identified silent data loss for frameworks with >500 concepts. Implemented `fetchAllConceptsForFramework()` helper that loops through all pages.
+
+2. **useMemo stability fix:** `useQueries` returns a new array reference on every render. Used `queries.map(q => q.dataUpdatedAt).join(",")` as a stable dependency key for `useMemo` on data and errors.
+
+3. **errors array wrapped in useMemo:** Originally computed inline (new ref each render). Wrapped in `useMemo` for stable identity.
+
+4. **parseCommaSeparated trim:** Added `.map(s => s.trim())` for defensive whitespace handling.
+
+5. **Vitest config standalone:** Plan said to extend vite config. Implemented standalone `vitest.config.ts` with manual `@` alias — simpler and sufficient.
+
+### Test Summary
+
+- 18 tests across 4 test files, all passing
+- 3 utility test files (14 pure function tests)
+- 1 hook test file (4 async hook tests with mocked API)
+
+### Actual Files Created/Modified
+
+All files match the plan's File Summary, with no additional files created.
