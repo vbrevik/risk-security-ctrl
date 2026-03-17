@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronRight, Folder, Diamond, ArrowRight, Cog } from "lucide-react";
+import { ChevronRight, Folder, Diamond, ArrowRight, Cog, CircleCheck, Shield, BookOpen, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { TreeNode as TreeNodeType } from "../../types";
 import { useExplorer } from "../../context";
@@ -18,6 +18,10 @@ const typeIcons: Record<string, typeof Folder> = {
   framework_component: Folder,
   function: Folder,
   subcategory: Folder,
+  action: CircleCheck,
+  control: Shield,
+  requirement: BookOpen,
+  tactic: AlertTriangle,
 };
 
 export function TreeNode({ node, level, autoExpandIds }: TreeNodeProps) {

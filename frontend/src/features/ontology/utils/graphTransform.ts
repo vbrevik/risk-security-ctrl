@@ -68,6 +68,7 @@ export const frameworkColors: Record<string, string> = {
   "gdpr": "#84cc16", // lime
   "cer-directive": "#c084fc", // purple-400
   "iso42001": "#2dd4bf", // teal-400
+  "iso42005": "#e879f9", // fuchsia-400
   "iso23894": "#fbbf24", // yellow-400
 };
 

@@ -36,6 +36,18 @@ function RootLayout() {
                   {t("nav.home")}
                 </Link>
                 <Link
+                  to="/frameworks"
+                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
+                >
+                  Frameworks
+                </Link>
+                <Link
+                  to="/crosswalk"
+                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
+                >
+                  Crosswalk
+                </Link>
+                <Link
                   to="/ontology"
                   className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
                 >

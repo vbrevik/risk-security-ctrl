@@ -8,6 +8,7 @@ import { useExplorer } from "../../context";
 import { buildGraphData } from "../../utils/graphTransform";
 import { useD3Graph } from "../../hooks/useD3Graph";
 import { GraphControls } from "./GraphControls";
+import { FrameworkFilter } from "./FrameworkFilter";
 import { Minimap } from "./Minimap";
 import type { GraphNode, Framework, Concept, PaginatedResponse } from "../../types";
 
@@ -151,6 +152,7 @@ export function GraphView() {
         height={dimensions.height}
         className="w-full h-full"
       />
+      <FrameworkFilter frameworks={frameworks ?? []} />
       <GraphControls
         onZoomIn={zoomIn}
         onZoomOut={zoomOut}
