@@ -80,25 +80,28 @@ export function CrosswalkView({ initialSource, initialTarget, initialLevel }: Pr
   const { data: relationships } = useRelationships();
 
   // Build concept lookup from both frameworks
+  const sourceList = Array.isArray(sourceConcepts) ? sourceConcepts : [];
+  const targetList = Array.isArray(targetConcepts) ? targetConcepts : [];
+
   const conceptMap = useMemo(() => {
     const map = new Map<string, Concept>();
-    for (const c of sourceConcepts ?? []) map.set(c.id, c);
-    for (const c of targetConcepts ?? []) map.set(c.id, c);
+    for (const c of sourceList) map.set(c.id, c);
+    for (const c of targetList) map.set(c.id, c);
     return map;
-  }, [sourceConcepts, targetConcepts]);
+  }, [sourceList, targetList]);
 
   // Get cross-framework relationships
   const crossRelationships = useMemo(() => {
     if (!relationships || !sourceId || !targetId) return [];
-    const sourceIds = new Set(sourceConcepts?.map((c) => c.id) ?? []);
-    const targetIds = new Set(targetConcepts?.map((c) => c.id) ?? []);
+    const sourceIds = new Set(sourceList.map((c) => c.id));
+    const targetIds = new Set(targetList.map((c) => c.id));
 
     return relationships.filter(
       (rel) =>
         (sourceIds.has(rel.source_concept_id) && targetIds.has(rel.target_concept_id)) ||
         (targetIds.has(rel.source_concept_id) && sourceIds.has(rel.target_concept_id))
     );
-  }, [relationships, sourceId, targetId, sourceConcepts, targetConcepts]);
+  }, [relationships, sourceId, targetId, sourceList, targetList]);
 
   // Classify and filter by level
   const classifiedRels = useMemo(() => {

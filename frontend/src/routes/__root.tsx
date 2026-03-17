@@ -20,74 +20,72 @@ function RootLayout() {
     <div className="min-h-screen bg-background p-4 md:p-6 lg:p-8">
       <div className="min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-3rem)] lg:min-h-[calc(100vh-4rem)] border-2 border-border rounded-lg overflow-hidden bg-background shadow-lg">
         <header className="sticky top-0 z-50 w-full border-b-2 border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="container flex h-16 items-center px-6">
-            <div className="mr-4 flex">
-              <Link to="/" className="mr-6 flex items-center space-x-2">
-                <div className="w-6 h-6 border-2 border-primary rounded flex items-center justify-center">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                </div>
-                <span className="font-bold font-mono tracking-tight">{t("appName")}</span>
+          <div className="container flex h-12 items-center px-6 overflow-x-auto">
+            <Link to="/" className="mr-6 flex items-center space-x-2 flex-shrink-0">
+              <div className="w-5 h-5 border-2 border-primary rounded flex items-center justify-center">
+                <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+              </div>
+              <span className="font-bold font-mono text-sm tracking-tight">{t("appName")}</span>
+            </Link>
+            <nav className="flex items-center text-xs font-medium font-mono whitespace-nowrap">
+              <Link
+                to="/"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.home")}
               </Link>
-              <nav className="flex items-center space-x-6 text-sm font-medium">
-                <Link
-                  to="/"
-                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
-                >
-                  {t("nav.home")}
-                </Link>
-                <Link
-                  to="/ontology"
-                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
-                >
-                  {t("nav.ontology")}
-                </Link>
-                <Link
-                  to="/compliance"
-                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
-                >
-                  {t("nav.compliance")}
-                </Link>
-                <Link
-                  to="/reports"
-                  className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground font-mono"
-                >
-                  {t("nav.reports")}
-                </Link>
-              </nav>
-            </div>
-            <div className="flex flex-1 items-center justify-end space-x-2">
-              <Button variant="ghost" size="icon" onClick={toggleLanguage}>
-                <Globe className="h-4 w-4" />
+              <Link
+                to="/ontology"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.ontology")}
+              </Link>
+              <span className="text-border mx-1.5">·</span>
+              <Link
+                to="/frameworks"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.frameworks")}
+              </Link>
+              <Link
+                to="/crosswalk"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.crosswalk")}
+              </Link>
+              <Link
+                to="/landscape"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.landscape")}
+              </Link>
+              <Link
+                to="/concepts/search"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.search")}
+              </Link>
+              <span className="text-border mx-1.5">·</span>
+              <Link
+                to="/compliance"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.compliance")}
+              </Link>
+              <Link
+                to="/reports"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.reports")}
+              </Link>
+            </nav>
+            <div className="flex flex-1 items-center justify-end space-x-2 flex-shrink-0">
+              <Button variant="ghost" size="icon" onClick={toggleLanguage} className="h-7 w-7">
+                <Globe className="h-3.5 w-3.5" />
                 <span className="sr-only">Toggle language</span>
               </Button>
             </div>
           </div>
-          <nav className="container flex h-8 items-center space-x-4 px-6 border-t border-border overflow-x-auto whitespace-nowrap">
-            <Link
-              to="/frameworks"
-              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
-            >
-              Frameworks
-            </Link>
-            <Link
-              to="/crosswalk"
-              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
-            >
-              Crosswalk
-            </Link>
-            <Link
-              to="/landscape"
-              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
-            >
-              Landscape
-            </Link>
-            <Link
-              to="/concepts/search"
-              className="transition-colors text-xs font-medium font-mono text-foreground/40 hover:text-foreground/60 [&.active]:text-foreground"
-            >
-              Search
-            </Link>
-          </nav>
         </header>
         <main className="container py-6 px-6">
           <Outlet />

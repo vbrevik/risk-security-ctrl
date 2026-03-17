@@ -4,8 +4,11 @@
     "home": "Home",
     "ontology": "Ontology Explorer",
     "crosswalk": "Crosswalk",
-    "compliance": "Compliance Tracking",
-    "reports": "Reports"
+    "compliance": "Compliance",
+    "reports": "Reports",
+    "frameworks": "Frameworks",
+    "landscape": "Landscape",
+    "search": "Search"
   },
   "actions": {
     "save": "Save",

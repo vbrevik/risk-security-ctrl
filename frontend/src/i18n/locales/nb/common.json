@@ -4,8 +4,11 @@
     "home": "Hjem",
     "ontology": "Ontologiutforsker",
     "crosswalk": "Kryssreferanse",
-    "compliance": "Samsvarssporing",
-    "reports": "Rapporter"
+    "compliance": "Samsvar",
+    "reports": "Rapporter",
+    "frameworks": "Rammeverk",
+    "landscape": "Landskap",
+    "search": "Søk"
   },
   "actions": {
     "save": "Lagre",
