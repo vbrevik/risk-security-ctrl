@@ -207,6 +207,7 @@ pub async fn import_all_ontologies(
         "gdpr.json",
         "cer-directive.json",
         "iso42001.json",
+        "iso42005.json",
         "iso23894.json",
         "iso9000.json",
         "iso27000.json",

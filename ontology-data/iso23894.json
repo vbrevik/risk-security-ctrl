@@ -125,6 +125,45 @@
       "sort_order": 8
     },
     {
+      "id": "iso23894-framework",
+      "framework_id": "iso23894",
+      "parent_id": null,
+      "concept_type": "category",
+      "code": null,
+      "name_en": "AI Risk Management Framework",
+      "name_nb": "Rammeverk for KI-risikostyring",
+      "definition_en": "ISO/IEC 23894 applies ISO 31000's framework components — leadership and commitment, integration, design, implementation, evaluation, and improvement — to the AI context, providing guidance on how organizations should structure their AI risk management framework.",
+      "definition_nb": "ISO/IEC 23894 anvender ISO 31000s rammeverkkomponenter — lederskap og forpliktelse, integrasjon, design, implementering, evaluering og forbedring — i KI-konteksten, og gir veiledning om hvordan organisasjoner bør strukturere sitt rammeverk for KI-risikostyring.",
+      "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework)",
+      "sort_order": 5
+    },
+    {
+      "id": "iso23894-fw-integration",
+      "framework_id": "iso23894",
+      "parent_id": "iso23894-framework",
+      "concept_type": "framework-component",
+      "code": "FW.1",
+      "name_en": "Integration of AI Risk Management",
+      "name_nb": "Integrasjon av KI-risikostyring",
+      "definition_en": "Integration of AI risk management into organizational governance, ensuring that AI-related risks are embedded within enterprise risk management structures, decision-making processes, and accountability frameworks across all levels of the organization.",
+      "definition_nb": "Integrasjon av KI-risikostyring i organisasjonens styring, som sikrer at KI-relaterte risikoer er innebygd i virksomhetens risikostyringsstrukturer, beslutningsprosesser og ansvarsrammeverk på tvers av alle nivåer i organisasjonen.",
+      "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework - Integration)",
+      "sort_order": 1
+    },
+    {
+      "id": "iso23894-fw-design",
+      "framework_id": "iso23894",
+      "parent_id": "iso23894-framework",
+      "concept_type": "framework-component",
+      "code": "FW.2",
+      "name_en": "Designing the AI Risk Management Framework",
+      "name_nb": "Design av rammeverket for KI-risikostyring",
+      "definition_en": "Designing the AI risk management framework for the organization's context, including understanding the organization's AI strategy, stakeholder needs, regulatory landscape, and internal capabilities to tailor the framework appropriately.",
+      "definition_nb": "Design av rammeverket for KI-risikostyring tilpasset organisasjonens kontekst, inkludert forståelse av organisasjonens KI-strategi, interessentbehov, regulatorisk landskap og interne kapabiliteter for å tilpasse rammeverket hensiktsmessig.",
+      "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework - Design)",
+      "sort_order": 2
+    },
+    {
       "id": "iso23894-process",
       "framework_id": "iso23894",
       "parent_id": null,
@@ -331,6 +370,19 @@
       "definition_nb": "Bredere samfunnsmessige risikoer fra KI-utrulling, inkludert diskriminering og urettferdig behandling av enkeltpersoner eller grupper, miljøpåvirkning fra energikrevende KI-trening og -drift, økonomisk fortrengning av arbeidstakere, effekter på demokratiske prosesser og offentlig diskurs, maktkonsentrasjon, og svekkelse av menneskelig handlekraft og autonomi.",
       "source_reference": "ISO/IEC 23894:2023 Annex A.5",
       "sort_order": 5
+    },
+    {
+      "id": "iso23894-organizational-risks",
+      "framework_id": "iso23894",
+      "parent_id": "iso23894-risk-sources",
+      "concept_type": "risk-source",
+      "code": "A.6",
+      "name_en": "Organizational/Governance Risks",
+      "name_nb": "Organisatoriske/styringsrelaterte risikoer",
+      "definition_en": "Risks arising from inadequate AI governance structures, skill gaps in AI risk management, policy failures in regulating AI development and use, unclear accountability for AI system outcomes, and insufficient organizational capacity to oversee and manage AI systems responsibly.",
+      "definition_nb": "Risikoer som oppstår fra utilstrekkelige KI-styringsstrukturer, kompetansegap i KI-risikostyring, svikt i retningslinjer for regulering av KI-utvikling og -bruk, uklar ansvarlighet for KI-systemresultater, og utilstrekkelig organisatorisk kapasitet til å overvåke og administrere KI-systemer på en ansvarlig måte.",
+      "source_reference": "ISO/IEC 23894:2023 Annex A.6",
+      "sort_order": 6
     },
     {
       "id": "iso23894-lifecycle",

@@ -138,6 +138,19 @@
       "sort_order": 4
     },
     {
+      "id": "fmn-cds",
+      "framework_id": "fmn",
+      "parent_id": "fmn-architecture",
+      "concept_type": "component",
+      "code": "CDS",
+      "name_en": "Cross-Domain Solution (CDS)",
+      "name_nb": "Kryssdomeneløsning (CDS)",
+      "definition_en": "A mechanism for cross-classification data sharing and multilevel security enforcement, enabling controlled information exchange between networks operating at different security classification levels within the federated environment.",
+      "definition_nb": "En mekanisme for datadeling på tvers av klassifiseringsnivåer og håndhevelse av flernivåsikkerhet, som muliggjør kontrollert informasjonsutveksling mellom nettverk som opererer på forskjellige sikkerhetsklassifiseringsnivåer i det fødererte miljøet.",
+      "source_reference": "FMN 5.0 CDS",
+      "sort_order": 6
+    },
+    {
       "id": "fmn-isa",
       "framework_id": "fmn",
       "parent_id": "fmn-architecture",
@@ -190,6 +203,32 @@
       "sort_order": 2
     },
     {
+      "id": "fmn-voice-uc",
+      "framework_id": "fmn",
+      "parent_id": "fmn-services",
+      "concept_type": "service_area",
+      "code": "VUC",
+      "name_en": "Voice and Unified Communications",
+      "name_nb": "Tale og samkommunikasjon",
+      "definition_en": "Services providing voice communications and unified communications capabilities across federated mission networks, including VoIP, presence, and integrated messaging.",
+      "definition_nb": "Tjenester som tilbyr talekommunikasjon og samkommunikasjonsevner på tvers av fødererte misjonsnettverk, inkludert VoIP, tilstedeværelse og integrert meldingsutveksling.",
+      "source_reference": "FMN 5.0 VUC",
+      "sort_order": 4
+    },
+    {
+      "id": "fmn-pnt",
+      "framework_id": "fmn",
+      "parent_id": "fmn-services",
+      "concept_type": "service_area",
+      "code": "PNT",
+      "name_en": "Position, Navigation and Timing (PNT)",
+      "name_nb": "Posisjon, navigasjon og tidsbestemmelse (PNT)",
+      "definition_en": "Services providing accurate position, navigation, and timing information to support mission operations across the federated network.",
+      "definition_nb": "Tjenester som gir nøyaktig posisjons-, navigasjons- og tidsinformasjon for å støtte oppdragsoperasjoner på tvers av det fødererte nettverket.",
+      "source_reference": "FMN 5.0 PNT",
+      "sort_order": 5
+    },
+    {
       "id": "fmn-collaboration",
       "framework_id": "fmn",
       "parent_id": "fmn-services",
@@ -201,6 +240,32 @@
       "definition_nb": "Tjenester som muliggjør samarbeid som delte arbeidsområder, chat, videokonferanse og dokumentdeling.",
       "source_reference": "FMN 5.0 Collaboration",
       "sort_order": 3
+    },
+    {
+      "id": "fmn-spirals",
+      "framework_id": "fmn",
+      "parent_id": null,
+      "concept_type": "category",
+      "code": null,
+      "name_en": "FMN Spiral Specifications",
+      "name_nb": "FMN Spiral-spesifikasjoner",
+      "definition_en": "The FMN Spiral specifications define progressive sets of interoperability profiles, standards, and compliance requirements for federated mission networking.",
+      "definition_nb": "FMN Spiral-spesifikasjonene definerer progressive sett med interoperabilitetsprofiler, standarder og samsvarskrav for føderert misjonsnettverk.",
+      "source_reference": "FMN Spiral Specifications",
+      "sort_order": 4
+    },
+    {
+      "id": "fmn-spiral-5",
+      "framework_id": "fmn",
+      "parent_id": "fmn-spirals",
+      "concept_type": "specification",
+      "code": "S5",
+      "name_en": "FMN Spiral 5",
+      "name_nb": "FMN Spiral 5",
+      "definition_en": "FMN Spiral 5 is the current specification defining interoperability profiles and compliance requirements for federated mission networking, establishing the standards and technical baselines that nations must meet for mission network participation.",
+      "definition_nb": "FMN Spiral 5 er den gjeldende spesifikasjonen som definerer interoperabilitetsprofiler og samsvarskrav for føderert misjonsnettverk, og etablerer standardene og tekniske grunnlinjene som nasjoner må oppfylle for deltakelse i misjonsnettverk.",
+      "source_reference": "FMN Spiral 5.0",
+      "sort_order": 1
     }
   ]
 }

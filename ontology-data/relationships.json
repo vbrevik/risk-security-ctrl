@@ -2347,6 +2347,343 @@
       "description": "CISA ZTMM Governance relates to ISO 31000 Leadership and Commitment for risk governance."
     },
     {
+      "id": "rel-gdpr-processor-eu-ai-provider",
+      "source_concept_id": "gdpr-processor-requirements",
+      "target_concept_id": "eu-ai-obl-provider",
+      "relationship_type": "related_to",
+      "description": "GDPR processor requirements relate to EU AI Act provider obligations. AI providers processing personal data must comply with both GDPR Article 28 processor contracts and EU AI Act Article 16 provider duties."
+    },
+    {
+      "id": "rel-gdpr-special-categories-eu-ai-biometrics",
+      "source_concept_id": "gdpr-special-categories",
+      "target_concept_id": "eu-ai-area-biometrics",
+      "relationship_type": "related_to",
+      "description": "GDPR special categories relate to EU AI Act biometrics high-risk area. Biometric AI systems process special category data requiring both GDPR Article 9 and EU AI Act high-risk compliance."
+    },
+    {
+      "id": "rel-gdpr-data-minimisation-eu-ai-data-governance",
+      "source_concept_id": "gdpr-principle-data-minimisation",
+      "target_concept_id": "eu-ai-hr-data-governance",
+      "relationship_type": "implements",
+      "description": "GDPR data minimisation principle implements EU AI Act data governance. Training datasets for high-risk AI must comply with data minimisation."
+    },
+    {
+      "id": "rel-gdpr-security-dora-protection",
+      "source_concept_id": "gdpr-security-of-processing",
+      "target_concept_id": "dora-ict-protection",
+      "relationship_type": "maps_to",
+      "description": "GDPR security of processing maps to DORA ICT protection. For financial entities, DORA ICT protection controls satisfy and extend GDPR Article 32 security requirements."
+    },
+    {
+      "id": "rel-gdpr-dpia-dora-third-party",
+      "source_concept_id": "gdpr-dpia",
+      "target_concept_id": "dora-third-party-assessment",
+      "relationship_type": "related_to",
+      "description": "GDPR DPIA relates to DORA third-party risk assessment. Financial entities using third-party ICT services processing personal data must conduct both assessments."
+    },
+    {
+      "id": "rel-gdpr-records-dora-inventory",
+      "source_concept_id": "gdpr-records-of-processing",
+      "target_concept_id": "dora-ict-systems-inventory",
+      "relationship_type": "related_to",
+      "description": "GDPR records of processing relate to DORA ICT systems inventory. Both require registers — GDPR of processing activities, DORA of ICT systems."
+    },
+    {
+      "id": "rel-nis2-risk-analysis-iso27000-planning",
+      "source_concept_id": "nis2-rm-risk-analysis",
+      "target_concept_id": "iso27000-planning",
+      "relationship_type": "implements",
+      "description": "NIS2 risk analysis implements ISO 27000 Planning. An ISO 27001-conformant risk treatment plan satisfies NIS2 Article 21(2)(a)."
+    },
+    {
+      "id": "rel-nis2-effectiveness-iso27000-evaluation",
+      "source_concept_id": "nis2-rm-effectiveness",
+      "target_concept_id": "iso27000-evaluation",
+      "relationship_type": "implements",
+      "description": "NIS2 effectiveness assessment implements ISO 27000 Performance evaluation. NIS2 Article 21(1) is satisfied by ISO 27001 Clause 9."
+    },
+    {
+      "id": "rel-nis2-supply-chain-iso27000-organizational",
+      "source_concept_id": "nis2-rm-supply-chain",
+      "target_concept_id": "iso27000-organizational",
+      "relationship_type": "implements",
+      "description": "NIS2 supply chain security implements ISO 27000 Organizational controls for supplier relationships (A.5.19-A.5.22)."
+    },
+    {
+      "id": "rel-cer-bcp-dora-backup",
+      "source_concept_id": "cer-business-continuity",
+      "target_concept_id": "dora-ict-backup",
+      "relationship_type": "related_to",
+      "description": "CER business continuity relates to DORA backup and recovery. Physical and digital continuity are interdependent for financial critical entities."
+    },
+    {
+      "id": "rel-cer-incident-dora-incident",
+      "source_concept_id": "cer-incident-management",
+      "target_concept_id": "dora-incident-management",
+      "relationship_type": "related_to",
+      "description": "CER incident management relates to DORA incident management. Financial entities must coordinate physical and ICT incident response."
+    },
+    {
+      "id": "rel-cer-resilience-dora-framework",
+      "source_concept_id": "cer-resilience-obligations",
+      "target_concept_id": "dora-ict-risk-framework",
+      "relationship_type": "related_to",
+      "description": "CER resilience obligations relate to DORA ICT risk framework. Together they define full operational resilience for financial critical entities."
+    },
+    {
+      "id": "rel-iso42001-a7-eu-ai-data",
+      "source_concept_id": "iso42001-a7",
+      "target_concept_id": "eu-ai-hr-data-governance",
+      "relationship_type": "implements",
+      "description": "ISO 42001 A.7 (Data for AI Systems) implements EU AI Act Article 10 data governance for high-risk AI systems."
+    },
+    {
+      "id": "rel-iso42001-cl8-1-eu-ai-docs",
+      "source_concept_id": "iso42001-clause8-1",
+      "target_concept_id": "eu-ai-hr-technical-documentation",
+      "relationship_type": "implements",
+      "description": "ISO 42001 Clause 8.1 operational planning implements EU AI Act Article 11 technical documentation requirement."
+    },
+    {
+      "id": "rel-iso42001-cl9-2-eu-ai-conformity",
+      "source_concept_id": "iso42001-clause9-2",
+      "target_concept_id": "eu-ai-gov-conformity",
+      "relationship_type": "supports",
+      "description": "ISO 42001 internal audit supports EU AI Act Article 43 conformity assessment with documented evidence trails."
+    },
+    {
+      "id": "rel-iso23894-recording-eu-ai-logging",
+      "source_concept_id": "iso23894-recording",
+      "target_concept_id": "eu-ai-hr-record-keeping",
+      "relationship_type": "implements",
+      "description": "ISO 23894 recording and reporting implements EU AI Act Article 12 record-keeping. AI risk management audit trails satisfy high-risk AI logging."
+    },
+    {
+      "id": "rel-iso23894-scope-eu-ai-high-risk",
+      "source_concept_id": "iso23894-scope-context",
+      "target_concept_id": "eu-ai-high-risk",
+      "relationship_type": "supports",
+      "description": "ISO 23894 scope and context supports EU AI Act high-risk classification by establishing intended purpose and deployment context."
+    },
+    {
+      "id": "rel-atlas-poisoning-saif-supply",
+      "source_concept_id": "mitre-atlas-staging-data-poisoning",
+      "target_concept_id": "google-saif-element-1-supply",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Data Poisoning relates to Google SAIF AI Supply Chain Security. Poisoning attacks target training pipelines that SAIF supply chain controls protect."
+    },
+    {
+      "id": "rel-atlas-prompt-injection-saif-detection",
+      "source_concept_id": "mitre-atlas-exec-prompt-injection",
+      "target_concept_id": "google-saif-element-3-automated-detection",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Prompt Injection relates to Google SAIF Automated Threat Detection for detecting adversarial instructions at scale."
+    },
+    {
+      "id": "rel-atlas-extraction-saif-access",
+      "source_concept_id": "mitre-atlas-coll-model-extraction",
+      "target_concept_id": "google-saif-element-1-access",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Model Extraction relates to Google SAIF AI Pipeline Access Controls. SAIF access controls mitigate extraction via rate limiting and monitoring."
+    },
+    {
+      "id": "rel-dora-governance-iso27000-leadership",
+      "source_concept_id": "dora-ict-governance",
+      "target_concept_id": "iso27000-leadership",
+      "relationship_type": "implements",
+      "description": "DORA ICT governance implements ISO 27000 Leadership. ISO 27001 leadership structures satisfy DORA Article 5 management body responsibilities."
+    },
+    {
+      "id": "rel-dora-testing-iso27000-evaluation",
+      "source_concept_id": "dora-resilience-testing",
+      "target_concept_id": "iso27000-evaluation",
+      "relationship_type": "implements",
+      "description": "DORA resilience testing implements ISO 27000 Performance evaluation for the financial sector."
+    },
+    {
+      "id": "rel-dora-learning-iso27000-improvement",
+      "source_concept_id": "dora-ict-learning-evolving",
+      "target_concept_id": "iso27000-improvement",
+      "relationship_type": "implements",
+      "description": "DORA learning and evolving implements ISO 27000 Improvement through post-incident lessons-learned and control updates."
+    },
+    {
+      "id": "rel-gdpr-integrity-iso27000-controls",
+      "source_concept_id": "gdpr-principle-integrity-confidentiality",
+      "target_concept_id": "iso27000-controls",
+      "relationship_type": "implements",
+      "description": "GDPR integrity and confidentiality principle is implemented by ISO 27000 information security controls catalogue."
+    },
+    {
+      "id": "rel-gdpr-erasure-iso27000-a8-10",
+      "source_concept_id": "gdpr-right-erasure",
+      "target_concept_id": "iso27000-a8-10",
+      "relationship_type": "related_to",
+      "description": "GDPR right to erasure relates to ISO 27000 A.8.10 (Information deletion) for secure data removal."
+    },
+    {
+      "id": "rel-iso23894-monitoring-iso42001-cl9-1",
+      "source_concept_id": "iso23894-monitoring",
+      "target_concept_id": "iso42001-clause9-1",
+      "relationship_type": "supports",
+      "description": "ISO 23894 monitoring guidance supports ISO 42001 Clause 9.1 with AI-specific monitoring methodology."
+    },
+    {
+      "id": "rel-iso23894-lifecycle-iso42001-a6",
+      "source_concept_id": "iso23894-lifecycle",
+      "target_concept_id": "iso42001-a6",
+      "relationship_type": "implements",
+      "description": "ISO 23894 lifecycle risk considerations implement ISO 42001 A.6 AI System Lifecycle requirements."
+    },
+    {
+      "id": "rel-eu-ai-cybersecurity-nis2-risk",
+      "source_concept_id": "eu-ai-hr-accuracy",
+      "target_concept_id": "nis2-risk-management",
+      "relationship_type": "related_to",
+      "description": "EU AI Act cybersecurity requirement relates to NIS2 risk management measures. AI systems in critical sectors must meet both EU AI Act robustness and NIS2 cybersecurity requirements."
+    },
+    {
+      "id": "rel-eu-ai-critical-infra-nis2-essential",
+      "source_concept_id": "eu-ai-area-critical-infra",
+      "target_concept_id": "nis2-essential-entities",
+      "relationship_type": "related_to",
+      "description": "EU AI Act critical infrastructure high-risk area relates to NIS2 essential entities. AI in critical infrastructure triggers both EU AI Act high-risk and NIS2 essential entity obligations."
+    },
+    {
+      "id": "rel-eu-ai-risk-mgmt-dora-ict-risk",
+      "source_concept_id": "eu-ai-hr-risk-management",
+      "target_concept_id": "dora-ict-risk-management",
+      "relationship_type": "related_to",
+      "description": "EU AI Act risk management relates to DORA ICT risk management. Financial AI systems require both EU AI Act Art 9 and DORA ICT risk management frameworks."
+    },
+    {
+      "id": "rel-eu-ai-post-market-dora-learning",
+      "source_concept_id": "eu-ai-gov-post-market",
+      "target_concept_id": "dora-ict-learning-evolving",
+      "relationship_type": "related_to",
+      "description": "EU AI Act post-market monitoring relates to DORA learning and evolving for continuous AI risk management in financial services."
+    },
+    {
+      "id": "rel-atlas-impact-nis2-incident",
+      "source_concept_id": "mitre-atlas-impact",
+      "target_concept_id": "nis2-rm-incident-handling",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Impact tactics relate to NIS2 incident handling. AI-specific attack impacts require NIS2-compliant incident response."
+    },
+    {
+      "id": "rel-atlas-recon-nis2-risk-analysis",
+      "source_concept_id": "mitre-atlas-reconnaissance",
+      "target_concept_id": "nis2-rm-risk-analysis",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Reconnaissance tactics relate to NIS2 risk analysis. AI-specific reconnaissance threats should inform NIS2 risk analysis for entities deploying AI."
+    },
+    {
+      "id": "rel-iso23894-system-risks-iso27000-tech",
+      "source_concept_id": "iso23894-system-risks",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "related_to",
+      "description": "ISO 23894 system-related AI risks relate to ISO 27000 Technological controls. AI system security vulnerabilities require ISO 27001 technological controls."
+    },
+    {
+      "id": "rel-iso23894-process-iso27000-operation",
+      "source_concept_id": "iso23894-process",
+      "target_concept_id": "iso27000-operation",
+      "relationship_type": "related_to",
+      "description": "ISO 23894 AI risk management process relates to ISO 27000 Operation. AI risk management should be integrated with the ISMS operational security risk assessment."
+    },
+    {
+      "id": "rel-iso42005-process-iso31000-assessment",
+      "source_concept_id": "iso42005-impact-assessment-process",
+      "target_concept_id": "iso31000-proc3-risk-assessment",
+      "relationship_type": "implements",
+      "description": "ISO 42005 AI impact assessment process implements ISO 31000 Risk Assessment for AI-specific societal, individual, and environmental impacts."
+    },
+    {
+      "id": "rel-iso42005-treatment-iso31000-treatment",
+      "source_concept_id": "iso42005-impact-treatment",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "implements",
+      "description": "ISO 42005 impact treatment implements ISO 31000 Risk Treatment for mitigating negative AI impacts and enhancing positive ones."
+    },
+    {
+      "id": "rel-iso42005-process-iso42001-impact",
+      "source_concept_id": "iso42005-impact-assessment-process",
+      "target_concept_id": "iso42001-clause8-4",
+      "relationship_type": "supports",
+      "description": "ISO 42005 impact assessment process supports ISO 42001 Clause 8.4 (AI system impact assessment). ISO 42005 provides the methodology that ISO 42001 requires."
+    },
+    {
+      "id": "rel-iso42005-human-rights-eu-ai-fria",
+      "source_concept_id": "iso42005-human-rights",
+      "target_concept_id": "eu-ai-obl-fria",
+      "relationship_type": "implements",
+      "description": "ISO 42005 human rights impact dimension implements EU AI Act Fundamental Rights Impact Assessment (Article 27)."
+    },
+    {
+      "id": "rel-iso42005-human-rights-gdpr-dpia",
+      "source_concept_id": "iso42005-human-rights",
+      "target_concept_id": "gdpr-dpia",
+      "relationship_type": "related_to",
+      "description": "ISO 42005 human rights impact assessment relates to GDPR DPIA. AI systems processing personal data require both AI impact and privacy impact assessments."
+    },
+    {
+      "id": "rel-iso42005-stakeholder-nist-ai-map",
+      "source_concept_id": "iso42005-stakeholder-engagement",
+      "target_concept_id": "nist-ai-map",
+      "relationship_type": "related_to",
+      "description": "ISO 42005 stakeholder engagement relates to NIST AI RMF Map function for understanding affected parties and deployment context."
+    },
+    {
+      "id": "rel-iso42005-vulnerable-eu-ai-unacceptable",
+      "source_concept_id": "iso42005-se-vulnerable-groups",
+      "target_concept_id": "eu-ai-unacceptable",
+      "relationship_type": "related_to",
+      "description": "ISO 42005 vulnerable groups consideration relates to EU AI Act prohibited practices. Both address protection of vulnerable populations from harmful AI."
+    },
+    {
+      "id": "rel-iso42005-monitoring-iso23894-monitoring",
+      "source_concept_id": "iso42005-monitoring-review",
+      "target_concept_id": "iso23894-monitoring",
+      "relationship_type": "maps_to",
+      "description": "ISO 42005 monitoring and review maps to ISO 23894 monitoring and review. Both require continuous monitoring of AI impacts and risks."
+    },
+    {
+      "id": "rel-iso42005-lifecycle-nist-ai-lifecycle",
+      "source_concept_id": "iso42005-lifecycle-integration",
+      "target_concept_id": "nist-ai-lifecycle",
+      "relationship_type": "maps_to",
+      "description": "ISO 42005 lifecycle integration maps to NIST AI RMF lifecycle stages for impact assessment throughout the AI system lifecycle."
+    },
+    {
+      "id": "rel-iso42005-environmental-eu-ai-systemic",
+      "source_concept_id": "iso42005-environmental-impacts",
+      "target_concept_id": "eu-ai-gpai-systemic-risk",
+      "relationship_type": "related_to",
+      "description": "ISO 42005 environmental impacts relate to EU AI Act GPAI systemic risk. Large-scale AI models have significant environmental impacts that factor into systemic risk assessment."
+    },
+    {
+      "id": "rel-iso42005-governance-iso42001-cl5",
+      "source_concept_id": "iso42005-governance-accountability",
+      "target_concept_id": "iso42001-clause5",
+      "relationship_type": "related_to",
+      "description": "ISO 42005 governance and accountability dimension relates to ISO 42001 Leadership clause for organizational accountability in AI governance."
+    },
+
+    {
+      "id": "rel-nist-ai-secure-iso27000-tech",
+      "source_concept_id": "nist-ai-tw-secure-resilient",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "related_to",
+      "description": "NIST AI RMF Secure and Resilient characteristic relates to ISO 27000 Technological controls for AI system security."
+    },
+    {
+      "id": "rel-nist-ai-gv-5-iso27000-organizational",
+      "source_concept_id": "nist-ai-gv-5",
+      "target_concept_id": "iso27000-organizational",
+      "relationship_type": "related_to",
+      "description": "NIST AI RMF Third-Party Risk Management relates to ISO 27000 Organizational controls for AI supply chain security."
+    },
+    {
       "id": "rel-ztmm-governance-iso27000-isms",
       "source_concept_id": "cisa-ztmm-governance",
       "target_concept_id": "iso27000-isms",
