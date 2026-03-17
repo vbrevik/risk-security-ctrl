@@ -70,6 +70,7 @@ export const frameworkColors: Record<string, string> = {
   "iso42001": "#2dd4bf", // teal-400
   "iso42005": "#e879f9", // fuchsia-400
   "iso23894": "#fbbf24", // yellow-400
+  "nist-ai-genai": "#c026d3", // fuchsia-600
 };
 
 export function getFrameworkColor(frameworkId: string): string {

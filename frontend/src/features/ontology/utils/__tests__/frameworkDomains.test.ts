@@ -16,7 +16,7 @@ function makeFramework(id: string): Framework {
 
 const ALL_IDS = [
   "iso31000", "iso31010", "iso27000", "iso9000", "nist-csf", "nist-800-53", "nist-rmf",
-  "eu-ai-act", "nist-ai-rmf", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas",
+  "eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas",
   "gdpr", "nis2", "dora", "cer-directive",
   "zero-trust", "cisa-ztmm", "data-centric", "fmn",
 ];
@@ -54,8 +54,8 @@ describe("groupFrameworksByDomain", () => {
   it("all 22 frameworks assigned to exactly one group", () => {
     const groups = groupFrameworksByDomain(ALL_IDS.map(makeFramework));
     const allIds = groups.flatMap((g) => g.frameworkIds);
-    expect(allIds).toHaveLength(22);
-    expect(new Set(allIds).size).toBe(22);
+    expect(allIds).toHaveLength(23);
+    expect(new Set(allIds).size).toBe(23);
   });
 
   it("handles empty framework array", () => {

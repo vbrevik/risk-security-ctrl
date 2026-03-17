@@ -215,6 +215,7 @@ pub async fn import_all_ontologies(
         "data-centric.json",
         "zero-trust.json",
         "cisa-ztmm.json",
+        "nist-ai-genai-profile.json",
     ];
 
     for file_name in &framework_files {

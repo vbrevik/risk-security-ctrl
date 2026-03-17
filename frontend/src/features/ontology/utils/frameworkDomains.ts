@@ -7,7 +7,7 @@ const DOMAIN_MAP: { label: string; ids: string[] }[] = [
   },
   {
     label: "AI Governance",
-    ids: ["eu-ai-act", "nist-ai-rmf", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas"],
+    ids: ["eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas"],
   },
   {
     label: "EU Regulations",

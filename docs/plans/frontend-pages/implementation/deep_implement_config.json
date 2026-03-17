@@ -34,6 +34,10 @@
     "section-05-unified-search": {
       "status": "complete",
       "commit_hash": "019a86e"
+    },
+    "section-06-regulatory-landscape": {
+      "status": "complete",
+      "commit_hash": "df4d2df"
     }
   },
   "pre_commit": {

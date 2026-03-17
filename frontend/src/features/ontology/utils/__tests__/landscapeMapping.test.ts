@@ -12,7 +12,7 @@ describe("getApplicableFrameworks", () => {
   it("Deploying AI systems activity adds correct frameworks", () => {
     const result = getApplicableFrameworks("", ["Deploying AI systems"]);
     expect(result).toEqual(
-      expect.arrayContaining(["eu-ai-act", "nist-ai-rmf", "iso42001", "iso23894"])
+      expect.arrayContaining(["eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso23894"])
     );
   });
 

@@ -28,7 +28,7 @@ const SECTOR_FRAMEWORKS: Record<string, string[]> = {
 
 const ACTIVITY_FRAMEWORKS: Record<string, string[]> = {
   "Processing personal data": ["gdpr"],
-  "Deploying AI systems": ["eu-ai-act", "nist-ai-rmf", "iso42001", "iso23894"],
+  "Deploying AI systems": ["eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso23894"],
   "Operating critical infrastructure": ["cer-directive", "nist-csf"],
   "Financial services": ["dora"],
   "Defense/NATO context": ["fmn", "zero-trust", "cisa-ztmm"],

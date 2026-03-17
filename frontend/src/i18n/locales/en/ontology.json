@@ -23,7 +23,8 @@
     "cerDirective": "CER - Critical Entities Resilience Directive",
     "iso42001": "ISO/IEC 42001 - AI Management System",
     "iso42005": "ISO/IEC 42005 - AI System Impact Assessment",
-    "iso23894": "ISO/IEC 23894 - AI Risk Management Guidance"
+    "iso23894": "ISO/IEC 23894 - AI Risk Management Guidance",
+    "nist-ai-genai": "NIST AI 600-1 - Generative AI Profile"
   },
   "concepts": {
     "title": "Concepts",
