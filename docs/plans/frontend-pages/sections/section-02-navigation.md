@@ -135,3 +135,34 @@ After implementation, verify:
 6. Navigating to `/concepts` redirects to `/concepts/search`
 7. Active link highlighting works on both nav tiers
 8. On narrow viewport, the secondary nav scrolls horizontally without wrapping
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Deviations from Plan
+
+1. **Crosswalk route kept as-is:** A parallel session created a full CrosswalkView at `/crosswalk` with `source/target/level` params (not `fw1/fw2/type`). We kept this existing implementation rather than overwriting with a stub.
+
+2. **Tests use mock layout:** Instead of importing the real `RootLayout` from `__root.tsx`, tests build a `TestRootLayout` that mirrors the nav structure. This avoids TanStack Router root route bootstrapping complexity while still verifying the navigation contract.
+
+3. **validateSearch uses typeof guards:** Replaced unsafe `as string` casts with `typeof search.x === "string"` checks per code review.
+
+4. **i18n deferred as planned:** Secondary nav links are hardcoded in English. Locale additions from the parallel crosswalk session are already committed.
+
+### Test Summary
+
+- 4 navigation tests in `root-nav.test.tsx`, all passing
+- Tests verify: secondary nav links (count, text, hrefs), primary nav structure, active class behavior
+
+### Actual Files Created
+
+- `frontend/src/routes/frameworks/index.tsx` (stub with validateSearch)
+- `frontend/src/routes/landscape/index.tsx` (stub with validateSearch)
+- `frontend/src/routes/concepts/index.tsx` (redirect to /concepts/search)
+- `frontend/src/routes/concepts/search.tsx` (stub with validateSearch)
+- `frontend/src/routes/__tests__/root-nav.test.tsx`
+
+### Files Modified
+
+- `frontend/src/routes/__root.tsx` (two-tier nav — merged with parallel crosswalk session's changes)

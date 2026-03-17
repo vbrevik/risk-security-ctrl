@@ -14,7 +14,12 @@
     "section-05-unified-search",
     "section-06-regulatory-landscape"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-shared-infra": {
+      "status": "complete",
+      "commit_hash": "593e8b7"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",
