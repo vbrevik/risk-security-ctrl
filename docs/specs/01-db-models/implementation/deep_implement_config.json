@@ -13,7 +13,12 @@
     "section-04-engine-trait",
     "section-05-wiring"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-migration": {
+      "status": "complete",
+      "commit_hash": "d1ce0f2"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",

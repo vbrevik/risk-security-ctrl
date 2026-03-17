@@ -1247,6 +1247,252 @@
     },
 
     {
+      "id": "rel-xwalk-gv1-iso42001-a2",
+      "source_concept_id": "nist-ai-gv-1",
+      "target_concept_id": "iso42001-a2",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 1 (Legal/Regulatory) maps to ISO 42001 A.2 (AI Policies) for AI regulatory compliance alignment."
+    },
+    {
+      "id": "rel-xwalk-gv1-iso42001-cl4-2",
+      "source_concept_id": "nist-ai-gv-1",
+      "target_concept_id": "iso42001-clause4-2",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 1 maps to ISO 42001 Clause 4.2 (Needs of interested parties) for understanding regulatory stakeholder requirements."
+    },
+    {
+      "id": "rel-xwalk-gv1-eu-ai-governance",
+      "source_concept_id": "nist-ai-gv-1",
+      "target_concept_id": "eu-ai-governance",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 1 maps to EU AI Act Governance and Enforcement framework."
+    },
+    {
+      "id": "rel-xwalk-gv2-iso42001-cl5-3",
+      "source_concept_id": "nist-ai-gv-2",
+      "target_concept_id": "iso42001-clause5-3",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 2 (Accountability) maps to ISO 42001 Clause 5.3 (Roles, responsibilities, authorities)."
+    },
+    {
+      "id": "rel-xwalk-gv2-iso42001-a3",
+      "source_concept_id": "nist-ai-gv-2",
+      "target_concept_id": "iso42001-a3",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 2 maps to ISO 42001 A.3 (Internal Organization) for AI accountability structures."
+    },
+    {
+      "id": "rel-xwalk-gv3-iso42001-cl7-2",
+      "source_concept_id": "nist-ai-gv-3",
+      "target_concept_id": "iso42001-clause7-2",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 3 (Workforce) maps to ISO 42001 Clause 7.2 (Competence) for AI expertise and diversity."
+    },
+    {
+      "id": "rel-xwalk-gv4-iso42001-cl6-1",
+      "source_concept_id": "nist-ai-gv-4",
+      "target_concept_id": "iso42001-clause6-1",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 4 (Risk Tolerances) maps to ISO 42001 Clause 6.1 (Actions to address risks) for defining AI risk appetite."
+    },
+    {
+      "id": "rel-xwalk-gv5-iso42001-a10",
+      "source_concept_id": "nist-ai-gv-5",
+      "target_concept_id": "iso42001-a10",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 5 (Third-Party) maps to ISO 42001 A.10 (Third-party and Customer Relationships)."
+    },
+    {
+      "id": "rel-xwalk-gv5-eu-ai-gpai",
+      "source_concept_id": "nist-ai-gv-5",
+      "target_concept_id": "eu-ai-gpai",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 5 maps to EU AI Act GPAI model provisions for third-party AI risk management."
+    },
+    {
+      "id": "rel-xwalk-gv6-iso42001-cl5-2",
+      "source_concept_id": "nist-ai-gv-6",
+      "target_concept_id": "iso42001-clause5-2",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 6 (Policies) maps to ISO 42001 Clause 5.2 (AI Policy)."
+    },
+    {
+      "id": "rel-xwalk-mp1-iso42001-a9",
+      "source_concept_id": "nist-ai-mp-1",
+      "target_concept_id": "iso42001-a9",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 1 (Intended Purpose) maps to ISO 42001 A.9 (Use of AI Systems) for defining intended use and misuse prevention."
+    },
+    {
+      "id": "rel-xwalk-mp1-eu-ai-high-risk",
+      "source_concept_id": "nist-ai-mp-1",
+      "target_concept_id": "eu-ai-high-risk",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 1 maps to EU AI Act High-Risk classification for determining AI system risk level by intended purpose."
+    },
+    {
+      "id": "rel-xwalk-mp2-iso42001-cl7-1",
+      "source_concept_id": "nist-ai-mp-2",
+      "target_concept_id": "iso42001-clause7-1",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 2 (Interdisciplinary Actors) maps to ISO 42001 Clause 7.1 (Resources) for diverse stakeholder participation."
+    },
+    {
+      "id": "rel-xwalk-mp3-iso42001-a5",
+      "source_concept_id": "nist-ai-mp-3",
+      "target_concept_id": "iso42001-a5",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 3 (Benefits and Costs) maps to ISO 42001 A.5 (Assessing Impacts) for evaluating AI system value and risk."
+    },
+    {
+      "id": "rel-xwalk-mp4-iso42001-cl8-2",
+      "source_concept_id": "nist-ai-mp-4",
+      "target_concept_id": "iso42001-clause8-2",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 4 (Risks and Impacts) maps to ISO 42001 Clause 8.2 (AI Risk Assessment)."
+    },
+    {
+      "id": "rel-xwalk-mp4-eu-ai-risk-mgmt",
+      "source_concept_id": "nist-ai-mp-4",
+      "target_concept_id": "eu-ai-hr-risk-management",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 4 maps to EU AI Act Article 9 (Risk Management System) for high-risk AI systems."
+    },
+    {
+      "id": "rel-xwalk-mp5-iso42001-cl8-4",
+      "source_concept_id": "nist-ai-mp-5",
+      "target_concept_id": "iso42001-clause8-4",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 5 (Likelihood) maps to ISO 42001 Clause 8.4 (AI System Impact Assessment)."
+    },
+    {
+      "id": "rel-xwalk-ms1-iso42001-cl9-1",
+      "source_concept_id": "nist-ai-ms-1",
+      "target_concept_id": "iso42001-clause9-1",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 1 (Metrics) maps to ISO 42001 Clause 9.1 (Monitoring, measurement, analysis)."
+    },
+    {
+      "id": "rel-xwalk-ms2-eu-ai-accuracy",
+      "source_concept_id": "nist-ai-ms-2",
+      "target_concept_id": "eu-ai-hr-accuracy",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 2 (Trustworthiness) maps to EU AI Act Article 15 (Accuracy, Robustness, Cybersecurity)."
+    },
+    {
+      "id": "rel-xwalk-ms2-eu-ai-transparency",
+      "source_concept_id": "nist-ai-ms-2",
+      "target_concept_id": "eu-ai-hr-transparency",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 2 maps to EU AI Act Article 13 (Transparency) for assessing AI system transparency."
+    },
+    {
+      "id": "rel-xwalk-ms2-iso42001-a6",
+      "source_concept_id": "nist-ai-ms-2",
+      "target_concept_id": "iso42001-a6",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 2 maps to ISO 42001 A.6 (AI System Lifecycle) for trustworthiness testing across the lifecycle."
+    },
+    {
+      "id": "rel-xwalk-ms2-iso42001-a7",
+      "source_concept_id": "nist-ai-ms-2",
+      "target_concept_id": "iso42001-a7",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 2 maps to ISO 42001 A.7 (Data for AI Systems) for data quality and bias testing."
+    },
+    {
+      "id": "rel-xwalk-ms3-iso42001-cl9-1",
+      "source_concept_id": "nist-ai-ms-3",
+      "target_concept_id": "iso42001-clause9-1",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 3 (Tracking) maps to ISO 42001 Clause 9.1 for ongoing monitoring of AI risks."
+    },
+    {
+      "id": "rel-xwalk-ms4-iso42001-cl10-1",
+      "source_concept_id": "nist-ai-ms-4",
+      "target_concept_id": "iso42001-clause10-1",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 4 (Feedback) maps to ISO 42001 Clause 10.1 (Continual improvement) for measurement refinement."
+    },
+    {
+      "id": "rel-xwalk-mg1-iso42001-cl8-3",
+      "source_concept_id": "nist-ai-mg-1",
+      "target_concept_id": "iso42001-clause8-3",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MANAGE 1 (Prioritization) maps to ISO 42001 Clause 8.3 (AI Risk Treatment)."
+    },
+    {
+      "id": "rel-xwalk-mg2-eu-ai-post-market",
+      "source_concept_id": "nist-ai-mg-2",
+      "target_concept_id": "eu-ai-gov-post-market",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MANAGE 2 (Treatment) maps to EU AI Act Article 72 (Post-Market Monitoring) for ongoing risk management."
+    },
+    {
+      "id": "rel-xwalk-mg2-eu-ai-deployer",
+      "source_concept_id": "nist-ai-mg-2",
+      "target_concept_id": "eu-ai-obl-deployer",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MANAGE 2 maps to EU AI Act Article 26 (Deployer Obligations) for deployer risk treatment responsibilities."
+    },
+    {
+      "id": "rel-xwalk-mg3-eu-ai-incidents",
+      "source_concept_id": "nist-ai-mg-3",
+      "target_concept_id": "eu-ai-gov-serious-incidents",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MANAGE 3 (Response) maps to EU AI Act Article 73 (Serious Incident Reporting) for AI incident response."
+    },
+    {
+      "id": "rel-xwalk-mg3-iso42001-cl10-2",
+      "source_concept_id": "nist-ai-mg-3",
+      "target_concept_id": "iso42001-clause10-2",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MANAGE 3 maps to ISO 42001 Clause 10.2 (Nonconformity and corrective action) for AI incident recovery."
+    },
+    {
+      "id": "rel-xwalk-mg4-iso42001-cl7-4",
+      "source_concept_id": "nist-ai-mg-4",
+      "target_concept_id": "iso42001-clause7-4",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MANAGE 4 (Residual Risk) maps to ISO 42001 Clause 7.4 (Communication) for residual risk communication to stakeholders."
+    },
+    {
+      "id": "rel-xwalk-mg4-iso42001-a8",
+      "source_concept_id": "nist-ai-mg-4",
+      "target_concept_id": "iso42001-a8",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MANAGE 4 maps to ISO 42001 A.8 (Information for Interested Parties) for transparency about residual AI risks."
+    },
+    {
+      "id": "rel-xwalk-mp1-eu-ai-hr-transparency",
+      "source_concept_id": "nist-ai-mp-1",
+      "target_concept_id": "eu-ai-hr-transparency",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 1 maps to EU AI Act Article 13 (Transparency) for documenting AI system purpose and limitations."
+    },
+    {
+      "id": "rel-xwalk-gv4-eu-ai-fria",
+      "source_concept_id": "nist-ai-gv-4",
+      "target_concept_id": "eu-ai-obl-fria",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: GOVERN 4 maps to EU AI Act Article 27 (Fundamental Rights Impact Assessment) for organizational risk tolerance alignment."
+    },
+    {
+      "id": "rel-xwalk-ms2-gdpr-dpia",
+      "source_concept_id": "nist-ai-ms-2",
+      "target_concept_id": "gdpr-dpia",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MEASURE 2 maps to GDPR DPIA for privacy testing of AI systems processing personal data."
+    },
+    {
+      "id": "rel-xwalk-mp4-iso23894-assessment",
+      "source_concept_id": "nist-ai-mp-4",
+      "target_concept_id": "iso23894-assessment",
+      "relationship_type": "maps_to",
+      "description": "NIST AI RMF Crosswalk: MAP 4 maps to ISO 23894 AI Risk Assessment for risk identification methodology alignment."
+    },
+
+    {
       "id": "rel-nist-ai-govern-csf-govern",
       "source_concept_id": "nist-ai-govern",
       "target_concept_id": "nist-csf-govern",
