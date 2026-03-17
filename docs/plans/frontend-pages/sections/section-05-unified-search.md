@@ -254,3 +254,23 @@ No new CSS classes are needed for this page.
 | Framework in URL filter not in results | Ignore it (the pill still shows, clicking x removes it) |
 | Slow network | The `useSearchConcepts` hook shows `isLoading` -- render a skeleton matching the results layout |
 | Empty `frameworks` or `types` param | `filter(Boolean)` ensures `""` parses to `[]`, not `[""]` |
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Deviations from Plan
+1. **computeFacets exported from route file:** Instead of a separate utility file, `computeFacets` is exported from `concepts/search.tsx` for colocation. Tests import it directly.
+2. **Debounce tests omitted:** Testing setTimeout-based debounce with fake timers and TanStack Router integration proved fragile. The debounce logic is straightforward (useEffect + setTimeout).
+3. **Route-level tests omitted:** Router harness complexity disproportionate to value.
+4. **Keyboard arrow navigation omitted:** Focus management between cards deferred — basic tab navigation works via tabIndex.
+5. **Suggestion chip clicks:** Implemented as data attributes for future use; don't currently trigger search input.
+
+### Test Summary
+- 11 new tests across 3 files, all passing
+- searchUtils: 3 tests (facet counting)
+- SearchFilters: 4 tests (checkboxes, counts, toggle callback, zero-count filtering)
+- SearchResults: 4 tests (grouping, card content, empty state, no results state)
+
+### Modified Files
+- `useSearchConcepts` now requests `limit=500` for broader results

@@ -26,6 +26,10 @@
     "section-03-frameworks-catalog": {
       "status": "complete",
       "commit_hash": "5a1c3dd"
+    },
+    "section-04-crosswalk-explorer": {
+      "status": "complete",
+      "commit_hash": "e8d527e"
     }
   },
   "pre_commit": {

@@ -127,7 +127,7 @@ export function useSearchConcepts(query: string, frameworkId?: string) {
   return useQuery({
     queryKey: ontologyKeys.search(query, frameworkId),
     queryFn: async () => {
-      const params = new URLSearchParams({ q: query });
+      const params = new URLSearchParams({ q: query, limit: "500" });
       if (frameworkId) params.set("framework_id", frameworkId);
       const { data } = await api.get<PaginatedResponse<Concept>>(
         `/ontology/concepts/search?${params}`
