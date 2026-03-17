@@ -44,9 +44,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Load configuration
     let config = Config::from_env();
 
-    // Create database connection pool
+    // Create database connection pool with foreign key enforcement
     let db = SqlitePoolOptions::new()
         .max_connections(5)
+        .after_connect(|conn, _meta| {
+            Box::pin(async move {
+                sqlx::query("PRAGMA foreign_keys = ON")
+                    .execute(&mut *conn)
+                    .await?;
+                Ok(())
+            })
+        })
         .connect(&config.database_url)
         .await?;
 
@@ -54,6 +62,32 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     sqlx::migrate!("./migrations").run(&db).await?;
 
     tracing::info!("Database migrations completed");
+
+    // Check for foreign key violations in existing data
+    match sqlx::query_as::<_, (String, i64, Option<String>, i64)>("PRAGMA foreign_key_check")
+        .fetch_all(&db)
+        .await
+    {
+        Ok(violations) => {
+            if !violations.is_empty() {
+                tracing::warn!(
+                    "Found {} foreign key violations in existing data",
+                    violations.len()
+                );
+                for (table, rowid, parent, fkid) in &violations {
+                    tracing::warn!(
+                        "FK violation: table={}, rowid={}, parent={:?}, fkid={}",
+                        table, rowid, parent, fkid
+                    );
+                }
+            } else {
+                tracing::info!("Foreign key integrity check passed");
+            }
+        }
+        Err(e) => {
+            tracing::warn!("Could not run foreign key check: {}", e);
+        }
+    }
 
     // Import ontology data (if not already imported or if new frameworks available)
     let ontology_data_dir = std::path::Path::new("../ontology-data");
