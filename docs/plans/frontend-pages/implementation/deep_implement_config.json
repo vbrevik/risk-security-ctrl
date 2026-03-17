@@ -18,6 +18,10 @@
     "section-01-shared-infra": {
       "status": "complete",
       "commit_hash": "593e8b7"
+    },
+    "section-02-navigation": {
+      "status": "complete",
+      "commit_hash": "d03f878"
     }
   },
   "pre_commit": {

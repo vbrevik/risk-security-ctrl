@@ -367,3 +367,31 @@ No new CSS classes are needed for this section. All styling is achieved with exi
 | Selected framework has zero concepts | Stats show 0s; breakdown bar is empty; hierarchy section shows "No concepts" |
 | Selected framework has zero relationships | Connected frameworks section shows "No cross-framework connections" |
 | Concepts or relationships still loading | Show skeleton/spinner in the relevant subsection of the detail panel; sidebar and header render immediately from framework data |
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Deviations from Plan
+
+1. **Cross-framework resolution:** Plan assumed concepts prop would contain all concepts. Actually uses `conceptToFramework` Map from `useAllConcepts()` hook for global concept-to-framework lookups. Added as a prop to FrameworkProfile.
+
+2. **Color map:** Reused existing `getFrameworkColor()` from graphTransform.ts instead of creating a new oklch-based FRAMEWORK_COLORS map. DRY and consistent with rest of codebase.
+
+3. **Toast notification:** Omitted toast for invalid ?id — no toast infrastructure in project. Silent redirect to first framework instead.
+
+4. **Clickable connection rows:** Omitted crosswalk navigation on click — deferred to future enhancement.
+
+5. **Route-level tests:** Omitted — router harness complexity disproportionate to value.
+
+### Code Review Fixes Applied
+- Added `= new Map()` default for statsMap to prevent undefined crash
+- Fixed cross-framework connection resolution using global conceptToFramework Map
+- Added empty state for zero frameworks
+- Added corner-markers class to stat boxes
+- Added useEffect to reset expanded state on framework change
+
+### Test Summary
+- 9 component tests across 2 files, all passing
+- FrameworkSidebar: 5 tests (grouping, counts, click, active highlight, loading skeleton)
+- FrameworkProfile: 4 tests (header, stat boxes, type breakdown, empty state)
