@@ -17,6 +17,22 @@
     "section-01-migration": {
       "status": "complete",
       "commit_hash": "d1ce0f2"
+    },
+    "section-02-enums": {
+      "status": "complete",
+      "commit_hash": "cac5c35"
+    },
+    "section-03-models": {
+      "status": "complete",
+      "commit_hash": "cac5c35"
+    },
+    "section-04-engine-trait": {
+      "status": "complete",
+      "commit_hash": "cac5c35"
+    },
+    "section-05-wiring": {
+      "status": "complete",
+      "commit_hash": "cac5c35"
     }
   },
   "pre_commit": {
