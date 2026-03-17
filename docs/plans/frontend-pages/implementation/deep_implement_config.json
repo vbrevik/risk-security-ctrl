@@ -30,6 +30,10 @@
     "section-04-crosswalk-explorer": {
       "status": "complete",
       "commit_hash": "e8d527e"
+    },
+    "section-05-unified-search": {
+      "status": "complete",
+      "commit_hash": "019a86e"
     }
   },
   "pre_commit": {

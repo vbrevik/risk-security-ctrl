@@ -356,3 +356,23 @@ LandscapeResults receives:
 | `useAllConcepts` partially fails | Show partial data with warning: "Some frameworks failed to load" (leverages the `errors` array from `useAllConcepts` hook built in section-01) |
 | Unknown sector in URL | Treat as no sector selected (universal only) |
 | Empty activities string in URL | `filter(Boolean)` produces `[]`, treated as no activities |
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Changes Made
+- Exported SECTORS, ACTIVITIES, UNIVERSAL_FRAMEWORKS constants from landscapeMapping.ts
+- LandscapeSelector uses exported constants (no string duplication)
+- LandscapeResults uses conceptToFramework from useAllConcepts for accurate cross-framework overlap counting
+- Route component wires everything with URL state via TanStack Router navigate
+
+### Deviations from Plan
+- Route-level tests omitted (router harness complexity)
+- "Why it applies" labels omitted from framework cards (generic display instead)
+- Overlap indicators show between adjacent applicable frameworks only
+
+### Test Summary
+- 8 new tests across 2 files, all passing
+- LandscapeSelector: 5 tests (radio buttons, checkboxes, callbacks, clear all)
+- LandscapeResults: 3 tests (applicable styling, faded non-applicable, summary stats)

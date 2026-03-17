@@ -1,4 +1,21 @@
-const UNIVERSAL_FRAMEWORKS = ["iso31000", "iso31010", "iso9000"];
+export const UNIVERSAL_FRAMEWORKS = ["iso31000", "iso31010", "iso9000"];
+
+export const SECTORS = [
+  { key: "Financial", label: "Financial", description: "Banking, insurance, investment" },
+  { key: "Healthcare", label: "Healthcare", description: "Hospitals, medtech, pharma" },
+  { key: "Critical Infrastructure", label: "Critical Infrastructure", description: "Energy, transport, water" },
+  { key: "Government/Public Admin", label: "Government/Public Admin", description: "Public sector, agencies" },
+  { key: "Technology/AI Provider", label: "Technology/AI Provider", description: "Tech companies, AI developers" },
+  { key: "General Enterprise", label: "General Enterprise", description: "General business operations" },
+];
+
+export const ACTIVITIES = [
+  { key: "Processing personal data", label: "Processing personal data" },
+  { key: "Deploying AI systems", label: "Deploying AI systems" },
+  { key: "Operating critical infrastructure", label: "Operating critical infrastructure" },
+  { key: "Financial services", label: "Financial services" },
+  { key: "Defense/NATO context", label: "Defense/NATO context" },
+];
 
 const SECTOR_FRAMEWORKS: Record<string, string[]> = {
   Financial: ["dora", "nis2", "iso27000", "gdpr"],
