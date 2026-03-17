@@ -31,6 +31,31 @@ This section implements the Crosswalk Explorer page at `/crosswalk`. It renders 
 
 ---
 
+## Implementation Notes (Post-Build)
+
+### Decision: Existing Implementation Retained
+
+A parallel development session implemented a full CrosswalkView (commit c993e21) that covers the core crosswalk functionality:
+
+- Two-framework selection with swap button
+- Three abstraction level filters (Function/Step, Subcategory/Task, Action/Playbook)
+- Relationship type filtering with color-coded stats bar
+- Expandable mapping list with inline detail expansion
+- Detail sidebar with concept cards and rationale
+- Full i18n support (en/nb)
+- URL state persistence for bookmarking
+
+**What was NOT implemented from this section's plan:**
+- D3 SVG 22x22 heatmap matrix (deferred — the existing two-framework view is more actionable)
+- `crosswalkMatrix.ts` pure function utility
+- `CrosswalkMatrix.tsx` and `CrosswalkDrilldown.tsx` components
+- Section-specific tests (existing CrosswalkView has no unit tests — deferred)
+- Keyboard navigation and WCAG role="grid" accessibility
+
+**Rationale:** The existing CrosswalkView provides direct framework-to-framework comparison with filtering, which is more useful for the current dataset (48 relationships between 2 frameworks). The planned heatmap matrix becomes valuable when cross-framework relationships are denser across all 22 frameworks. This can be added as a secondary view in a future iteration.
+
+---
+
 ## Tests
 
 Write all tests before implementation. Tests use Vitest and `@testing-library/react` (installed in section-01).

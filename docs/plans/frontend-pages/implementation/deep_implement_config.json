@@ -22,6 +22,10 @@
     "section-02-navigation": {
       "status": "complete",
       "commit_hash": "d03f878"
+    },
+    "section-03-frameworks-catalog": {
+      "status": "complete",
+      "commit_hash": "5a1c3dd"
     }
   },
   "pre_commit": {
