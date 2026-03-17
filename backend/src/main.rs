@@ -55,22 +55,43 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     tracing::info!("Database migrations completed");
 
-    // Import ontology data (if not already imported)
+    // Import ontology data (if not already imported or if new frameworks available)
     let ontology_data_dir = std::path::Path::new("../ontology-data");
     if ontology_data_dir.exists() {
-        // Check if data already exists
-        let count: (i64,) = sqlx::query_as("SELECT COUNT(*) FROM concepts")
+        // Check how many frameworks are loaded vs available on disk
+        let framework_count: (i64,) = sqlx::query_as("SELECT COUNT(*) FROM frameworks")
             .fetch_one(&db)
             .await?;
 
-        if count.0 == 0 {
+        let available_files: Vec<_> = std::fs::read_dir(ontology_data_dir)?
+            .filter_map(|e| e.ok())
+            .filter(|e| {
+                let name = e.file_name().to_string_lossy().to_string();
+                name.ends_with(".json") && name != "relationships.json" && name != "topic-tags.json"
+            })
+            .collect();
+
+        if framework_count.0 < available_files.len() as i64 {
+            tracing::info!(
+                "Found {} frameworks in DB but {} data files on disk, importing new data...",
+                framework_count.0,
+                available_files.len()
+            );
+            if let Err(e) = import::import_all_ontologies(&db, ontology_data_dir).await {
+                tracing::error!("Failed to import ontology data: {}", e);
+                tracing::warn!("Continuing without full ontology data. Import manually with CLI.");
+            }
+        } else if framework_count.0 == 0 {
             tracing::info!("No ontology data found, importing...");
             if let Err(e) = import::import_all_ontologies(&db, ontology_data_dir).await {
                 tracing::error!("Failed to import ontology data: {}", e);
                 tracing::warn!("Continuing without ontology data. Import manually with CLI.");
             }
         } else {
-            tracing::info!("Ontology data already loaded ({} concepts)", count.0);
+            tracing::info!(
+                "Ontology data already loaded ({} frameworks)",
+                framework_count.0
+            );
         }
     } else {
         tracing::warn!(

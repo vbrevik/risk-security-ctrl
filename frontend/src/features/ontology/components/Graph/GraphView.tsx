@@ -48,6 +48,8 @@ export function GraphView() {
   const { data: relationships } = useRelationships();
 
   // Combine concepts from all visible frameworks
+  // Use a stable dep key derived from query status to avoid re-running on every render
+  const frameworkQueryKey = frameworkQueries.map((q) => q.dataUpdatedAt).join(",");
   const allConcepts = useMemo(() => {
     const concepts = frameworkQueries.flatMap((q) => q.data ?? []);
 
@@ -62,7 +64,8 @@ export function GraphView() {
     const children = typeFiltered.filter((c) => c.parent_id && rootIds.has(c.parent_id));
 
     return [...roots, ...children].slice(0, 200);
-  }, [frameworkQueries, state.activeConceptType]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [frameworkQueryKey, state.activeConceptType]);
 
   const graphData = useMemo(() => {
     const language = i18n.language.startsWith("nb") ? "nb" : "en";

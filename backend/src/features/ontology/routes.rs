@@ -11,7 +11,7 @@ use crate::AppState;
 
 use super::models::{
     Concept, ConceptListQuery, ConceptWithRelationships, Framework, PaginatedResponse,
-    RelatedConcept, Relationship, SearchQuery,
+    RelatedConcept, Relationship, SearchQuery, Topic, TopicTagsFile,
 };
 
 /// Health check response
@@ -414,6 +414,25 @@ pub async fn list_relationships(
     Ok(Json(relationships))
 }
 
+/// List all topic tags for cross-cutting theme filtering
+#[utoipa::path(
+    get,
+    path = "/api/ontology/topics",
+    tag = "ontology",
+    responses(
+        (status = 200, description = "List of topic tags", body = Vec<Topic>)
+    )
+)]
+pub async fn list_topics() -> Result<Json<Vec<Topic>>, StatusCode> {
+    let file_path = std::path::Path::new("../ontology-data/topic-tags.json");
+    let content = tokio::fs::read_to_string(file_path)
+        .await
+        .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
+    let topic_tags: TopicTagsFile =
+        serde_json::from_str(&content).map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
+    Ok(Json(topic_tags.topics))
+}
+
 pub fn router() -> Router<AppState> {
     Router::new()
         .route("/frameworks", get(list_frameworks))
@@ -426,4 +445,5 @@ pub fn router() -> Router<AppState> {
             get(get_concept_relationships),
         )
         .route("/relationships", get(list_relationships))
+        .route("/topics", get(list_topics))
 }

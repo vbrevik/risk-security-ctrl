@@ -86,6 +86,23 @@ impl<T> PaginatedResponse<T> {
     }
 }
 
+/// Topic tag for cross-cutting theme filtering
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
+pub struct Topic {
+    pub id: String,
+    pub name_en: String,
+    pub name_nb: String,
+    pub description_en: String,
+    pub description_nb: String,
+    pub concept_ids: Vec<String>,
+}
+
+/// Topic tags file structure
+#[derive(Debug, Deserialize)]
+pub struct TopicTagsFile {
+    pub topics: Vec<Topic>,
+}
+
 /// Query parameters for listing concepts
 #[derive(Debug, Deserialize, IntoParams)]
 pub struct ConceptListQuery {

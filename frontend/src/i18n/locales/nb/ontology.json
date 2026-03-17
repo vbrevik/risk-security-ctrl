@@ -4,7 +4,25 @@
     "title": "Rammeverk",
     "iso31000": "ISO 31000:2018 - Risikostyring",
     "iso31010": "ISO 31010 - Risikovurderingsteknikker",
-    "nistCsf": "NIST Cybersikkerhetsrammeverk"
+    "nistCsf": "NIST Cybersikkerhetsrammeverk",
+    "nist80053": "NIST SP 800-53 - Sikkerhetskontroller",
+    "iso27000": "ISO/IEC 27000 - Informasjonssikkerhet",
+    "iso9000": "ISO 9000 - Kvalitetsstyring",
+    "zeroTrust": "Null-tillit arkitektur",
+    "dataCentric": "Datasentrert sikkerhet",
+    "fmn": "Føderert misjonsnettverk",
+    "cisaZtmm": "CISA Null-tillit modenhetsmodell",
+    "nistRmf": "NIST RMF - Rammeverk for risikostyring",
+    "euAiAct": "EUs KI-forordning",
+    "nistAiRmf": "NIST AI RMF - KI-rammeverk for risikostyring",
+    "googleSaif": "Google SAIF - Rammeverk for sikker KI",
+    "mitreAtlas": "MITRE ATLAS - KI-trussellandskap",
+    "nis2": "NIS2 - Direktiv for nettverks- og informasjonssikkerhet",
+    "dora": "DORA - Forordning om digital operasjonell motstandsdyktighet",
+    "gdpr": "GDPR - Personvernforordningen",
+    "cerDirective": "CER - Direktiv om kritiske enheters motstandsdyktighet",
+    "iso42001": "ISO/IEC 42001 - KI-styringssystem",
+    "iso23894": "ISO/IEC 23894 - Veiledning for KI-risikostyring"
   },
   "concepts": {
     "title": "Konsepter",
@@ -90,6 +108,7 @@
     "frameworks": "Rammeverk",
     "conceptType": "Konsepttype",
     "allTypes": "Alle typer",
-    "clearAll": "Fjern alle"
+    "clearAll": "Fjern alle",
+    "topics": "Emner"
   }
 }

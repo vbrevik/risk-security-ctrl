@@ -6,6 +6,7 @@ import type {
   Relationship,
   ConceptWithRelationships,
   PaginatedResponse,
+  Topic,
 } from "../types";
 
 // Query keys
@@ -21,6 +22,7 @@ export const ontologyKeys = {
   relationships: () => [...ontologyKeys.all, "relationships"] as const,
   search: (query: string, frameworkId?: string) =>
     [...ontologyKeys.all, "search", { query, frameworkId }] as const,
+  topics: () => [...ontologyKeys.all, "topics"] as const,
 };
 
 // Fetch all frameworks
@@ -103,6 +105,18 @@ export function useRelationships() {
       return data;
     },
     staleTime: 1000 * 60 * 5,
+  });
+}
+
+// Fetch topic tags for cross-cutting theme filtering
+export function useTopics() {
+  return useQuery({
+    queryKey: ontologyKeys.topics(),
+    queryFn: async () => {
+      const { data } = await api.get<Topic[]>("/ontology/topics");
+      return data;
+    },
+    staleTime: Infinity,
   });
 }
 

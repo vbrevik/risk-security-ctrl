@@ -422,6 +422,84 @@
       "definition_nb": "Veier de totale forventede kostnadene mot de totale forventede fordelene av en eller flere handlinger for å velge det beste alternativet.",
       "source_reference": "ISO 31010:2019 Clause B.23",
       "sort_order": 2
+    },
+    {
+      "id": "iso31010-cat-additional",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-techniques",
+      "concept_type": "category",
+      "code": null,
+      "name_en": "Additional Techniques",
+      "name_nb": "Ytterligere teknikker",
+      "definition_en": "Additional risk assessment techniques defined in ISO 31010:2019 for specific applications.",
+      "definition_nb": "Ytterligere risikovurderingsteknikker definert i ISO 31010:2019 for spesifikke bruksområder.",
+      "source_reference": "ISO 31010:2019",
+      "sort_order": 10
+    },
+    {
+      "id": "iso31010-swift",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-additional",
+      "concept_type": "technique",
+      "code": "T24",
+      "name_en": "Structured What-If Technique (SWIFT)",
+      "name_nb": "Strukturert hva-hvis-teknikk (SWIFT)",
+      "definition_en": "A systematic, team-based study using a set of guide words or prompts to identify risks. It is a high-level hazard identification technique used in workshops to identify deviations from normal operations.",
+      "definition_nb": "En systematisk, teambasert studie som bruker et sett med veiledningsord eller ledetråder for å identifisere risikoer. Det er en overordnet fareidentifiseringsteknikk brukt i workshops for å identifisere avvik fra normal drift.",
+      "source_reference": "ISO 31010:2019 Annex B",
+      "sort_order": 1
+    },
+    {
+      "id": "iso31010-risk-matrix",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-additional",
+      "concept_type": "technique",
+      "code": "T25",
+      "name_en": "Risk Matrix (Consequence/Likelihood Matrix)",
+      "name_nb": "Risikomatrise (konsekvens/sannsynlighetsmatrise)",
+      "definition_en": "A matrix that combines qualitative or semi-quantitative ratings of consequence and likelihood to produce a level of risk or risk rating. It is one of the most widely used risk assessment tools for risk evaluation and prioritization.",
+      "definition_nb": "En matrise som kombinerer kvalitative eller semi-kvantitative vurderinger av konsekvens og sannsynlighet for å produsere et risikonivå eller risikogradering. Det er et av de mest brukte risikovurderingsverktøyene for risikoevaluering og prioritering.",
+      "source_reference": "ISO 31010:2019 Annex B",
+      "sort_order": 2
+    },
+    {
+      "id": "iso31010-decision-tree",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-additional",
+      "concept_type": "technique",
+      "code": "T26",
+      "name_en": "Decision Tree Analysis",
+      "name_nb": "Beslutningstreanalyse",
+      "definition_en": "A graphical representation of decisions and their possible consequences, including chance event outcomes, resource costs, and utility. Uses a tree-like structure to model sequential decisions under uncertainty.",
+      "definition_nb": "En grafisk fremstilling av beslutninger og deres mulige konsekvenser, inkludert utfall av tilfeldige hendelser, ressurskostnader og nytte. Bruker en trelignende struktur for å modellere sekvensielle beslutninger under usikkerhet.",
+      "source_reference": "ISO 31010:2019 Annex B",
+      "sort_order": 3
+    },
+    {
+      "id": "iso31010-hra",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-additional",
+      "concept_type": "technique",
+      "code": "T27",
+      "name_en": "Human Reliability Analysis (HRA)",
+      "name_nb": "Menneskelig pålitelighetsanalyse (HRA)",
+      "definition_en": "Techniques for identifying and quantifying the probability of human errors that may affect system performance. Includes task analysis, error identification, error quantification, and error reduction strategies.",
+      "definition_nb": "Teknikker for å identifisere og kvantifisere sannsynligheten for menneskelige feil som kan påvirke systemytelse. Inkluderer oppgaveanalyse, feilidentifisering, feilkvantifisering og feilreduksjonsstrategier.",
+      "source_reference": "ISO 31010:2019 Annex B",
+      "sort_order": 4
+    },
+    {
+      "id": "iso31010-ishikawa",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-additional",
+      "concept_type": "technique",
+      "code": "T28",
+      "name_en": "Cause-and-Effect Analysis (Ishikawa/Fishbone)",
+      "name_nb": "Årsak-virkning-analyse (Ishikawa/fiskebein)",
+      "definition_en": "A structured method for identifying potential causes of a problem or effect using a fishbone (Ishikawa) diagram. Causes are organized into major categories (typically: methods, machines, materials, manpower, measurement, environment) to systematically explore root causes.",
+      "definition_nb": "En strukturert metode for å identifisere potensielle årsaker til et problem eller en effekt ved bruk av et fiskebein (Ishikawa)-diagram. Årsaker organiseres i hovedkategorier (typisk: metoder, maskiner, materialer, arbeidskraft, måling, miljø) for systematisk å utforske rotårsaker.",
+      "source_reference": "ISO 31010:2019 Annex B",
+      "sort_order": 5
     }
   ]
 }

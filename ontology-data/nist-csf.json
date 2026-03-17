@@ -112,6 +112,58 @@
       "sort_order": 2
     },
     {
+      "id": "nist-csf-gv-rr",
+      "framework_id": "nist-csf",
+      "parent_id": "nist-csf-govern",
+      "concept_type": "category",
+      "code": "GV.RR",
+      "name_en": "Roles, Responsibilities, and Authorities",
+      "name_nb": "Roller, ansvar og myndigheter",
+      "definition_en": "Cybersecurity roles, responsibilities, and authorities to foster accountability, performance assessment, and continuous improvement are established and communicated.",
+      "definition_nb": "Cybersikkerhetsroller, ansvar og myndigheter for å fremme ansvarlighet, ytelsesvurdering og kontinuerlig forbedring er etablert og kommunisert.",
+      "source_reference": "NIST CSF 2.0",
+      "sort_order": 3
+    },
+    {
+      "id": "nist-csf-gv-po",
+      "framework_id": "nist-csf",
+      "parent_id": "nist-csf-govern",
+      "concept_type": "category",
+      "code": "GV.PO",
+      "name_en": "Policy",
+      "name_nb": "Retningslinjer",
+      "definition_en": "Organizational cybersecurity policy is established, communicated, and enforced.",
+      "definition_nb": "Organisasjonens cybersikkerhetsretningslinjer er etablert, kommunisert og håndhevet.",
+      "source_reference": "NIST CSF 2.0",
+      "sort_order": 4
+    },
+    {
+      "id": "nist-csf-gv-ov",
+      "framework_id": "nist-csf",
+      "parent_id": "nist-csf-govern",
+      "concept_type": "category",
+      "code": "GV.OV",
+      "name_en": "Oversight",
+      "name_nb": "Tilsyn",
+      "definition_en": "Results of organization-wide cybersecurity risk management activities and performance are used to inform, improve, and adjust the risk management strategy.",
+      "definition_nb": "Resultater av organisasjonsomfattende cybersikkerhetsrisikostyringsaktiviteter og -ytelse brukes til å informere, forbedre og justere risikostyringsstrategien.",
+      "source_reference": "NIST CSF 2.0",
+      "sort_order": 5
+    },
+    {
+      "id": "nist-csf-gv-sc",
+      "framework_id": "nist-csf",
+      "parent_id": "nist-csf-govern",
+      "concept_type": "category",
+      "code": "GV.SC",
+      "name_en": "Cybersecurity Supply Chain Risk Management",
+      "name_nb": "Risikostyring for cybersikkerhetsforsyningskjede",
+      "definition_en": "Cyber supply chain risk management processes are identified, established, managed, monitored, and improved by organizational stakeholders.",
+      "definition_nb": "Prosesser for risikostyring av cyberforsyningskjeden er identifisert, etablert, håndtert, overvåket og forbedret av organisasjonens interessenter.",
+      "source_reference": "NIST CSF 2.0",
+      "sort_order": 6
+    },
+    {
       "id": "nist-csf-identify",
       "framework_id": "nist-csf",
       "parent_id": "nist-csf-functions",
@@ -240,6 +292,19 @@
       "definition_nb": "Sikkerhetstiltak for å håndtere organisasjonens cybersikkerhetsrisikoer brukes.",
       "source_reference": "NIST CSF 2.0 Section 3",
       "sort_order": 3
+    },
+    {
+      "id": "nist-csf-pr-at",
+      "framework_id": "nist-csf",
+      "parent_id": "nist-csf-protect",
+      "concept_type": "category",
+      "code": "PR.AT",
+      "name_en": "Awareness and Training",
+      "name_nb": "Bevissthet og opplæring",
+      "definition_en": "The organization's personnel and partners are provided cybersecurity awareness education and are trained to perform their cybersecurity-related duties and responsibilities consistent with related policies, procedures, and agreements.",
+      "definition_nb": "Organisasjonens personell og partnere får opplæring i cybersikkerhetsbevissthet og trenes til å utføre sine cybersikkerhetsrelaterte plikter og ansvar i samsvar med relaterte retningslinjer, prosedyrer og avtaler.",
+      "source_reference": "NIST CSF 2.0",
+      "sort_order": 0
     },
     {
       "id": "nist-csf-pr-aa",

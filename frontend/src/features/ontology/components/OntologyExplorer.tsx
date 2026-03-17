@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Download, Keyboard } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useSearch } from "@tanstack/react-router";
@@ -21,6 +21,9 @@ function ExplorerContent() {
 
   const search = useSearch({ from: "/ontology/" });
   const navigate = useNavigate({ from: "/ontology/" });
+  const navigateRef = useRef(navigate);
+  navigateRef.current = navigate;
+  const lastSearchRef = useRef("");
 
   // Initialize state from URL on first render
   useEffect(() => {
@@ -34,25 +37,29 @@ function ExplorerContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Sync state to URL when it changes
-  useEffect(() => {
-    const params: Record<string, string | undefined> = {};
-    if (state.viewMode !== "graph") params.view = state.viewMode;
-    if (state.selectedConceptId) params.concept = state.selectedConceptId;
-    if (state.activeFrameworks.length > 0) params.frameworks = state.activeFrameworks.join(",");
-    if (state.activeConceptType) params.type = state.activeConceptType;
+  // Sync state to URL when it changes (using serialized comparison to avoid loops)
+  const viewMode = state.viewMode;
+  const selectedConceptId = state.selectedConceptId;
+  const activeFrameworks = state.activeFrameworks;
+  const activeConceptType = state.activeConceptType;
 
-    navigate({
-      search: params as Record<string, string>,
+  useEffect(() => {
+    if (!initialized) return;
+    const params: Record<string, string> = {};
+    if (viewMode !== "graph") params.view = viewMode;
+    if (selectedConceptId) params.concept = selectedConceptId;
+    if (activeFrameworks.length > 0) params.frameworks = activeFrameworks.join(",");
+    if (activeConceptType) params.type = activeConceptType;
+
+    const serialized = JSON.stringify(params);
+    if (serialized === lastSearchRef.current) return;
+    lastSearchRef.current = serialized;
+
+    navigateRef.current({
+      search: params,
       replace: true,
     });
-  }, [
-    state.viewMode,
-    state.selectedConceptId,
-    state.activeFrameworks,
-    state.activeConceptType,
-    navigate,
-  ]);
+  }, [initialized, viewMode, selectedConceptId, activeFrameworks, activeConceptType]);
 
   const viewModes: { mode: ViewMode; label: string }[] = [
     { mode: "graph", label: t("views.graph") },

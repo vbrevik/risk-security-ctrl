@@ -51,11 +51,24 @@ export const frameworkColors: Record<string, string> = {
   iso31000: "#3b82f6", // blue
   iso31010: "#22c55e", // green
   "nist-csf": "#f97316", // orange
+  "nist-800-53": "#ef4444", // red
   iso27000: "#8b5cf6", // purple
   iso9000: "#ec4899", // pink
   "zero-trust": "#14b8a6", // teal
   "data-centric": "#eab308", // yellow
   fmn: "#6366f1", // indigo
+  "cisa-ztmm": "#0ea5e9", // sky blue
+  "nist-rmf": "#d946ef", // fuchsia
+  "eu-ai-act": "#fb923c", // amber
+  "nist-ai-rmf": "#a855f7", // violet
+  "google-saif": "#34d399", // emerald
+  "mitre-atlas": "#f43f5e", // rose
+  "nis2": "#06b6d4", // cyan
+  "dora": "#f59e0b", // amber-500
+  "gdpr": "#84cc16", // lime
+  "cer-directive": "#c084fc", // purple-400
+  "iso42001": "#2dd4bf", // teal-400
+  "iso23894": "#fbbf24", // yellow-400
 };
 
 export function getFrameworkColor(frameworkId: string): string {

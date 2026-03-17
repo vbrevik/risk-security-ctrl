@@ -4,7 +4,25 @@
     "title": "Frameworks",
     "iso31000": "ISO 31000:2018 - Risk Management",
     "iso31010": "ISO 31010 - Risk Assessment Techniques",
-    "nistCsf": "NIST Cybersecurity Framework"
+    "nistCsf": "NIST Cybersecurity Framework",
+    "nist80053": "NIST SP 800-53 - Security Controls",
+    "iso27000": "ISO/IEC 27000 - Information Security",
+    "iso9000": "ISO 9000 - Quality Management",
+    "zeroTrust": "Zero Trust Architecture",
+    "dataCentric": "Data Centric Security",
+    "fmn": "Federated Mission Networking",
+    "cisaZtmm": "CISA Zero Trust Maturity Model",
+    "nistRmf": "NIST RMF - Risk Management Framework",
+    "euAiAct": "EU AI Act",
+    "nistAiRmf": "NIST AI RMF - AI Risk Management Framework",
+    "googleSaif": "Google SAIF - Secure AI Framework",
+    "mitreAtlas": "MITRE ATLAS - AI Threat Landscape",
+    "nis2": "NIS2 - Network and Information Security Directive",
+    "dora": "DORA - Digital Operational Resilience Act",
+    "gdpr": "GDPR - General Data Protection Regulation",
+    "cerDirective": "CER - Critical Entities Resilience Directive",
+    "iso42001": "ISO/IEC 42001 - AI Management System",
+    "iso23894": "ISO/IEC 23894 - AI Risk Management Guidance"
   },
   "concepts": {
     "title": "Concepts",
@@ -90,6 +108,7 @@
     "frameworks": "Frameworks",
     "conceptType": "Concept type",
     "allTypes": "All types",
-    "clearAll": "Clear all"
+    "clearAll": "Clear all",
+    "topics": "Topics"
   }
 }

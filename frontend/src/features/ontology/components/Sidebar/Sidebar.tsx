@@ -3,7 +3,7 @@ import { PanelLeftClose, PanelLeft, Filter, SlidersHorizontal } from "lucide-rea
 import { useTranslation } from "react-i18next";
 import { useQueries } from "@tanstack/react-query";
 import { api } from "@/lib/api";
-import { useFrameworks } from "../../api";
+import { useFrameworks, useTopics } from "../../api";
 import { ontologyKeys } from "../../api";
 import { useExplorer } from "../../context";
 import { getFrameworkColor } from "../../utils/graphTransform";
@@ -12,9 +12,11 @@ import { SearchBox } from "./SearchBox";
 import type { Concept, PaginatedResponse } from "../../types";
 
 function FilterPanel() {
-  const { t } = useTranslation("ontology");
-  const { state, toggleFramework, setActiveFrameworks, setConceptType } = useExplorer();
+  const { t, i18n } = useTranslation("ontology");
+  const { state, toggleFramework, setActiveFrameworks, setConceptType, toggleTopic, setActiveTopics } = useExplorer();
   const { data: frameworks } = useFrameworks();
+  const { data: topics } = useTopics();
+  const lang = i18n.language === "nb" ? "nb" : "en";
 
   // Fetch concepts from all frameworks to aggregate concept types
   const allFrameworkQueries = useQueries({
@@ -33,13 +35,17 @@ function FilterPanel() {
     })),
   });
 
+  // Use a stable dep key derived from query status to avoid re-running on every render
+  const queryKey = allFrameworkQueries.map((q) => q.dataUpdatedAt).join(",");
   const conceptTypes = useMemo(() => {
     const allConcepts = allFrameworkQueries.flatMap((q) => q.data ?? []);
     const types = new Set(allConcepts.map((c) => c.concept_type));
     return Array.from(types).sort();
-  }, [allFrameworkQueries]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryKey]);
 
   const allChecked = state.activeFrameworks.length === 0;
+  const hasActiveFilters = !allChecked || state.activeConceptType || state.activeTopics.length > 0;
 
   return (
     <div className="px-3 py-2 border-b space-y-3">
@@ -47,11 +53,12 @@ function FilterPanel() {
         <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
           {t("filters.title")}
         </h3>
-        {(!allChecked || state.activeConceptType) && (
+        {hasActiveFilters && (
           <button
             onClick={() => {
               setActiveFrameworks([]);
               setConceptType(null);
+              setActiveTopics([]);
             }}
             className="text-xs text-muted-foreground hover:text-foreground"
           >
@@ -97,6 +104,34 @@ function FilterPanel() {
           })}
         </div>
       </div>
+
+      {/* Topic checkboxes */}
+      {topics && topics.length > 0 && (
+        <div>
+          <label className="text-xs text-muted-foreground">{t("filters.topics")}</label>
+          <div className="space-y-1 mt-1">
+            {topics.map((topic) => {
+              const isActive = state.activeTopics.includes(topic.id);
+              const name = lang === "nb" ? topic.name_nb : topic.name_en;
+              return (
+                <label
+                  key={topic.id}
+                  className="flex items-center gap-2 cursor-pointer text-sm"
+                  title={lang === "nb" ? topic.description_nb : topic.description_en}
+                >
+                  <input
+                    type="checkbox"
+                    checked={isActive}
+                    onChange={() => toggleTopic(topic.id)}
+                    className="w-3.5 h-3.5 rounded"
+                  />
+                  <span className="truncate">{name}</span>
+                </label>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Concept type filter */}
       <div>

@@ -1,4 +1,4 @@
-import { X, ChevronRight } from "lucide-react";
+import { X, ChevronRight, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -173,12 +173,25 @@ export function ContextPanel() {
             )}
 
             {/* Source */}
-            {conceptData.source_reference && (
+            {(conceptData.source_reference || framework?.source_url) && (
               <div>
                 <h3 className="font-medium text-xs text-muted-foreground mb-1.5 uppercase tracking-wide">
                   {t("detail.source")}
                 </h3>
-                <p className="text-xs text-muted-foreground">{conceptData.source_reference}</p>
+                {conceptData.source_reference && (
+                  <p className="text-xs text-muted-foreground">{conceptData.source_reference}</p>
+                )}
+                {framework?.source_url && (
+                  <a
+                    href={framework.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                    {framework.name}
+                  </a>
+                )}
               </div>
             )}
 

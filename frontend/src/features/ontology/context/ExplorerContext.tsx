@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useMemo, useReducer, type ReactNode } from "react";
 import type { ViewMode, ExplorerState } from "../types";
 
 type ExplorerAction =
@@ -13,7 +13,9 @@ type ExplorerAction =
   | { type: "TOGGLE_FRAMEWORK"; frameworkId: string }
   | { type: "SET_CONCEPT_TYPE"; conceptType: string | null }
   | { type: "SET_SEARCH_HIGHLIGHTS"; ids: string[] }
-  | { type: "NAVIGATE_BACK"; conceptId: string };
+  | { type: "NAVIGATE_BACK"; conceptId: string }
+  | { type: "SET_ACTIVE_TOPICS"; topicIds: string[] }
+  | { type: "TOGGLE_TOPIC"; topicId: string };
 
 const initialState: ExplorerState = {
   selectedConceptId: null,
@@ -22,6 +24,7 @@ const initialState: ExplorerState = {
   sidebarCollapsed: false,
   compareFrameworks: [null, null],
   activeFrameworks: [],
+  activeTopics: [],
   activeConceptType: null,
   searchHighlightIds: [],
   navigationHistory: [],
@@ -98,6 +101,17 @@ function explorerReducer(state: ExplorerState, action: ExplorerAction): Explorer
         navigationHistory: truncated,
       };
     }
+    case "SET_ACTIVE_TOPICS":
+      return { ...state, activeTopics: action.topicIds };
+    case "TOGGLE_TOPIC": {
+      const isActive = state.activeTopics.includes(action.topicId);
+      return {
+        ...state,
+        activeTopics: isActive
+          ? state.activeTopics.filter((id) => id !== action.topicId)
+          : [...state.activeTopics, action.topicId],
+      };
+    }
     default:
       return state;
   }
@@ -117,6 +131,8 @@ interface ExplorerContextValue {
   setConceptType: (conceptType: string | null) => void;
   setSearchHighlights: (ids: string[]) => void;
   navigateBack: (conceptId: string) => void;
+  setActiveTopics: (topicIds: string[]) => void;
+  toggleTopic: (topicId: string) => void;
 }
 
 const ExplorerContext = createContext<ExplorerContextValue | null>(null);
@@ -124,21 +140,55 @@ const ExplorerContext = createContext<ExplorerContextValue | null>(null);
 export function ExplorerProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(explorerReducer, initialState);
 
-  const value: ExplorerContextValue = {
+  // Stabilize all dispatch wrappers so consumers don't re-render on every provider render
+  const selectConcept = useCallback((conceptId: string | null) => dispatch({ type: "SELECT_CONCEPT", conceptId }), []);
+  const toggleConceptSelection = useCallback((conceptId: string) => dispatch({ type: "TOGGLE_CONCEPT", conceptId }), []);
+  const clearSelection = useCallback(() => dispatch({ type: "CLEAR_SELECTION" }), []);
+  const setViewMode = useCallback((mode: ViewMode) => dispatch({ type: "SET_VIEW_MODE", mode }), []);
+  const toggleSidebar = useCallback(() => dispatch({ type: "TOGGLE_SIDEBAR" }), []);
+  const setCompareLeft = useCallback((frameworkId: string | null) => dispatch({ type: "SET_COMPARE_LEFT", frameworkId }), []);
+  const setCompareRight = useCallback((frameworkId: string | null) => dispatch({ type: "SET_COMPARE_RIGHT", frameworkId }), []);
+  const setActiveFrameworks = useCallback((frameworkIds: string[]) => dispatch({ type: "SET_ACTIVE_FRAMEWORKS", frameworkIds }), []);
+  const toggleFramework = useCallback((frameworkId: string) => dispatch({ type: "TOGGLE_FRAMEWORK", frameworkId }), []);
+  const setConceptType = useCallback((conceptType: string | null) => dispatch({ type: "SET_CONCEPT_TYPE", conceptType }), []);
+  const setSearchHighlights = useCallback((ids: string[]) => dispatch({ type: "SET_SEARCH_HIGHLIGHTS", ids }), []);
+  const navigateBack = useCallback((conceptId: string) => dispatch({ type: "NAVIGATE_BACK", conceptId }), []);
+  const setActiveTopics = useCallback((topicIds: string[]) => dispatch({ type: "SET_ACTIVE_TOPICS", topicIds }), []);
+  const toggleTopic = useCallback((topicId: string) => dispatch({ type: "TOGGLE_TOPIC", topicId }), []);
+
+  const value = useMemo<ExplorerContextValue>(() => ({
     state,
-    selectConcept: (conceptId) => dispatch({ type: "SELECT_CONCEPT", conceptId }),
-    toggleConceptSelection: (conceptId) => dispatch({ type: "TOGGLE_CONCEPT", conceptId }),
-    clearSelection: () => dispatch({ type: "CLEAR_SELECTION" }),
-    setViewMode: (mode) => dispatch({ type: "SET_VIEW_MODE", mode }),
-    toggleSidebar: () => dispatch({ type: "TOGGLE_SIDEBAR" }),
-    setCompareLeft: (frameworkId) => dispatch({ type: "SET_COMPARE_LEFT", frameworkId }),
-    setCompareRight: (frameworkId) => dispatch({ type: "SET_COMPARE_RIGHT", frameworkId }),
-    setActiveFrameworks: (frameworkIds) => dispatch({ type: "SET_ACTIVE_FRAMEWORKS", frameworkIds }),
-    toggleFramework: (frameworkId) => dispatch({ type: "TOGGLE_FRAMEWORK", frameworkId }),
-    setConceptType: (conceptType) => dispatch({ type: "SET_CONCEPT_TYPE", conceptType }),
-    setSearchHighlights: (ids) => dispatch({ type: "SET_SEARCH_HIGHLIGHTS", ids }),
-    navigateBack: (conceptId) => dispatch({ type: "NAVIGATE_BACK", conceptId }),
-  };
+    selectConcept,
+    toggleConceptSelection,
+    clearSelection,
+    setViewMode,
+    toggleSidebar,
+    setCompareLeft,
+    setCompareRight,
+    setActiveFrameworks,
+    toggleFramework,
+    setConceptType,
+    setSearchHighlights,
+    navigateBack,
+    setActiveTopics,
+    toggleTopic,
+  }), [
+    state,
+    selectConcept,
+    toggleConceptSelection,
+    clearSelection,
+    setViewMode,
+    toggleSidebar,
+    setCompareLeft,
+    setCompareRight,
+    setActiveFrameworks,
+    toggleFramework,
+    setConceptType,
+    setSearchHighlights,
+    navigateBack,
+    setActiveTopics,
+    toggleTopic,
+  ]);
 
   return (
     <ExplorerContext.Provider value={value}>{children}</ExplorerContext.Provider>

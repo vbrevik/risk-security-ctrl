@@ -100,6 +100,16 @@ export interface GraphData {
   edges: GraphEdge[];
 }
 
+// Topic tag for cross-cutting theme filtering
+export interface Topic {
+  id: string;
+  name_en: string;
+  name_nb: string;
+  description_en: string;
+  description_nb: string;
+  concept_ids: string[];
+}
+
 // UI State Types
 export type ViewMode = "graph" | "tree" | "compare";
 
@@ -110,6 +120,7 @@ export interface ExplorerState {
   sidebarCollapsed: boolean;
   compareFrameworks: [string | null, string | null];
   activeFrameworks: string[];
+  activeTopics: string[];
   activeConceptType: string | null;
   searchHighlightIds: string[];
   navigationHistory: string[];
