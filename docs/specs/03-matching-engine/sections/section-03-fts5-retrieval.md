@@ -112,7 +112,7 @@ fn test_sanitize_fts_query_removes_special_chars() {
 
 #### Helper: sanitize_fts_keywords
 
-A pure function that strips FTS5 special characters from keywords before building the MATCH query. FTS5 operators to remove: `"`, `*`, `(`, `)`, `+`, `-`, `^`, `{`, `}`, `:`, `~`. Also discard any keyword that becomes empty after sanitization.
+A pure function that strips FTS5 special characters and reserved words from keywords before building the MATCH query. FTS5 operators removed: `"`, `*`, `(`, `)`, `+`, `-`, `^`, `{`, `}`, `:`, `~`, `\`. FTS5 reserved words filtered: AND, OR, NOT, NEAR (case-insensitive). Also discards any keyword that becomes empty after sanitization. Added `escape_like()` helper for LIKE wildcard escaping (`%`, `_`). Per code review: keywords lowercased before LIKE binding, ESCAPE clause added to LIKE patterns.
 
 Signature:
 
