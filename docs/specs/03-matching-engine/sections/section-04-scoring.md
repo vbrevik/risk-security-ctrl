@@ -65,7 +65,7 @@ For each candidate in `candidates`:
 
 2. **Compute keyword overlap.** Build a `HashSet` from `doc_keywords` for O(1) lookup. For each concept keyword, check membership in the document keyword set. Collect the overlapping keywords.
 
-3. **Compute IDF values.** Before the per-candidate loop, precompute a document-frequency map across ALL candidates: for each unique keyword that appears in any candidate's extracted keywords, count how many candidates contain it. Then IDF for a term = `ln(total_candidates as f64 / df as f64)` where `df` is the number of candidates containing that term. Use `f64::ln()`. If `total_candidates` is 0, IDF is 0.0.
+3. **Compute IDF values.** Before the per-candidate loop, precompute a document-frequency map across ALL candidates: for each unique keyword that appears in any candidate's extracted keywords, count how many candidates contain it. Then IDF for a term = `max(ln(total_candidates as f64 / df as f64), 0.1)` where `df` is the number of candidates containing that term. The floor of 0.1 ensures single-candidate sets still produce nonzero scores (per code review: without this, `ln(1/1) = 0` makes all scores zero). If `total_candidates` is 0, IDF is 0.0.
 
 4. **Compute TF-IDF with boost for each overlapping keyword:**
    - `tf` = the keyword's count in `doc_term_freq`, defaulting to 1 if the keyword is present in `doc_keywords` but missing from `doc_term_freq` (this can happen because `extract_keywords` strips stopwords/short words but `term_frequency` operates on raw whitespace-split tokens).
