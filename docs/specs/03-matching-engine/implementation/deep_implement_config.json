@@ -1,0 +1,57 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/03-matching-engine/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/03-matching-engine/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-config-types",
+    "section-02-framework-detection",
+    "section-03-fts5-retrieval",
+    "section-04-scoring",
+    "section-05-classification",
+    "section-06-matcher-impl",
+    "section-07-wiring"
+  ],
+  "sections_state": {
+    "section-01-config-types": {
+      "status": "complete",
+      "commit_hash": "ad2869b"
+    },
+    "section-02-framework-detection": {
+      "status": "complete",
+      "commit_hash": "7e25ba8"
+    },
+    "section-03-fts5-retrieval": {
+      "status": "complete",
+      "commit_hash": "02e650d"
+    },
+    "section-04-scoring": {
+      "status": "complete",
+      "commit_hash": "15b83ff"
+    },
+    "section-05-classification": {
+      "status": "complete",
+      "commit_hash": "b3f81b2"
+    },
+    "section-06-matcher-impl": {
+      "status": "complete",
+      "commit_hash": "8a4ffaf"
+    },
+    "section-07-wiring": {
+      "status": "complete",
+      "commit_hash": "7848593"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-18T08:20:54.764598+00:00"
+}
