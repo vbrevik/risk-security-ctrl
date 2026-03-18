@@ -40,6 +40,11 @@ dotenvy = "0.15"
 uuid = { version = "1", features = ["v4", "serde"] }
 chrono = { version = "0.4", features = ["serde"] }
 
+# Document parsing
+pdf-extract = "0.10"
+zip = "2"
+quick-xml = "0.37"
+
 [lib]
 name = "ontology_backend"
 path = "src/lib.rs"
@@ -51,6 +56,7 @@ path = "src/main.rs"
 [dev-dependencies]
 tokio-test = "0.4"
 tower = { version = "0.5", features = ["util"] }
+tempfile = "3"
 
 [profile.release]
 lto = true
