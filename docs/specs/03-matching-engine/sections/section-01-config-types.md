@@ -138,7 +138,7 @@ mod tests {
 
 ### MatcherConfig struct
 
-Derive `Debug, Clone, Serialize, Deserialize`. All fields use `serde(default)` so partial JSON input still works by falling back to defaults for missing fields.
+Derive `Debug, Clone, Serialize, Deserialize` with struct-level `#[serde(default)]`. Partial JSON input falls back to defaults for missing fields.
 
 Fields:
 - `version: u32` -- schema version, default 1
@@ -154,6 +154,7 @@ Implement `Default` manually to set all the defaults listed above.
 Implement `from_json(input: Option<&str>) -> Self`:
 - If `input` is `None`, return `Self::default()`.
 - If `input` is `Some(s)`, attempt `serde_json::from_str(s)`. On success return the parsed config. On failure, log a warning via `tracing::warn!` with the parse error and return `Self::default()`.
+- After parsing, call `validate_thresholds()` which logs `tracing::warn!` if `partial_threshold >= addressed_threshold` or any threshold is outside [0.0, 1.0]. (Added per code review — prevents silent misclassification.)
 
 ### Topic struct
 
@@ -166,7 +167,7 @@ This is a local type used to deserialize topic tags passed from the route handle
 
 ### ConceptCandidate struct
 
-Derive `Debug, Clone`. Fields:
+Derive `Debug, Clone, PartialEq`. Fields:
 - `id: String`
 - `framework_id: String`
 - `parent_id: Option<String>`
@@ -180,10 +181,11 @@ This represents a raw candidate concept retrieved from the database by the FTS5 
 
 ### ScoredCandidate struct
 
-Derive `Debug, Clone`. Has all the same fields as `ConceptCandidate` plus:
+Derive `Debug, Clone`. Uses composition (not field duplication):
+- `candidate: ConceptCandidate`
 - `confidence_score: f64`
 
-This is the output of the scoring stage (Section 04). It carries the TF-IDF score assigned to each candidate. Later sections will classify these into findings based on threshold comparison.
+This is the output of the scoring stage (Section 04). Access concept fields via `sc.candidate.name_en`. Changed from flat duplication per code review to avoid maintenance hazard.
 
 ### Imports needed at top of file
 
