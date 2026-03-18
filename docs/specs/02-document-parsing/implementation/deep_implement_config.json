@@ -14,7 +14,32 @@
     "section-05-tokenizer",
     "section-06-wiring"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-deps-and-types": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-02-pdf-parser": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-03-docx-parser": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-04-text-parser-dispatch": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-05-tokenizer": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-06-wiring": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",
