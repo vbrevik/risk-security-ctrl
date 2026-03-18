@@ -113,7 +113,7 @@ fn test_detect_frameworks_ordered_by_strength() {
 pub fn detect_frameworks(
     doc_keywords: &[String],
     topics: &[Topic],
-    frameworks: Vec<(String, String)>,  // (id, name) pairs
+    frameworks: &[(String, String)],  // (id, name) pairs (changed to borrow per code review)
     config: &MatcherConfig,
 ) -> Vec<String>
 ```
@@ -128,7 +128,7 @@ For each topic in `topics`:
 1. Tokenize `topic.name_en` using `extract_keywords()` from the tokenizer module.
 2. Compute overlap count: how many of these topic keyword tokens appear in `doc_keywords`.
 3. If overlap > 0, the topic is "matched." Record the overlap count as the topic's score.
-4. Collect all `concept_ids` from matched topics.
+4. Collect all `concept_ids` from matched topics into a `HashSet` (deduplicated per code review to prevent score inflation from overlapping topics).
 
 **Step 2 -- Framework scoring:**
 
@@ -150,5 +150,5 @@ Build a `HashMap<String, f64>` mapping framework_id to score. For each framework
 
 - The `doc_keywords` are already lowercased and stopword-filtered (from `extract_keywords()` in the tokenizer). Topic name tokens and framework name tokens must also be lowercased for comparison. Using `extract_keywords()` on topic/framework names ensures consistent tokenization.
 - Create a `HashSet<&str>` from `doc_keywords` for O(1) lookups during overlap computation.
-- Framework ID prefix matching for concept_ids: use `concept_id.starts_with(&framework_id)` as a heuristic. This works because concept IDs in the ontology data follow the convention `{framework-id}-{suffix}` (e.g., `"nist-800-53-ac-1"` starts with `"nist-800-53"`).
+- Framework ID prefix matching for concept_ids: use `concept_id.starts_with(&format!("{}-", framework_id)) || concept_id == framework_id` with delimiter guard to prevent prefix collisions (e.g., "nist" matching "nist-csf-*"). Changed per code review.
 - The `config` parameter is accepted for future extensibility (e.g., configurable minimum topic overlap threshold) but is not used in the initial implementation.
