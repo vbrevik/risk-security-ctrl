@@ -134,10 +134,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
     }
 
+    // Load topics from ontology-data/topic-tags.json
+    let topics = ontology_backend::load_topics(std::path::Path::new("../ontology-data/topic-tags.json"));
+    tracing::info!("Loaded {} topics for analysis matching", topics.len());
+
     // Create application state
     let state = AppState {
         db,
         config: config.clone(),
+        topics,
     };
 
     // Build router with Swagger UI

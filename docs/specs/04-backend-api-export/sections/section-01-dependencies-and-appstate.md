@@ -192,8 +192,13 @@ Then run `cargo test` to confirm no existing tests regress.
 
 None. This is the foundational section that all other sections depend on. Sections 02 through 11 all require the updated `AppState` and/or the new Cargo dependencies added here.
 
+## Implementation Deviations
+
+- **Shared `load_topics()` function**: Instead of duplicating topic-loading logic in `main.rs` and `tests/common/mod.rs` as originally planned, extracted a `pub fn load_topics(path: &Path) -> Vec<Topic>` in `lib.rs`. Both call sites now use this shared function.
+- **Malformed topic logging**: The `load_topics()` function logs `tracing::warn!` for each malformed topic entry skipped (by index), rather than silently dropping entries via `filter_map`.
+- **Image crate versions**: Confirmed 3 versions of `image` in dependency tree (0.23 via genpdf, 0.24 via pdf-extract, 0.25 added for plotters). Accepted as necessary for chart rendering.
+
 ## Notes
 
 - The `Topic` type in `matcher.rs` has fewer fields than the `Topic` type in `ontology/models.rs`. When loading from `topic-tags.json`, only `id`, `name_en`, and `concept_ids` need to be extracted. The other fields (`name_nb`, `description_en`, `description_nb`) are ignored for matching purposes.
 - The `docx-rs` crate is distinct from the `zip` + `quick-xml` crates already in Cargo.toml. Those existing crates are used by the document parser (split 02) for reading DOCX files. The `docx-rs` crate is used for writing/generating DOCX export files in section 09.
-- If `genpdf` version 0.2 has compatibility issues with `image` 0.25, check for a newer version or pin `image` to the version that `genpdf` expects. The `genpdf` `images` feature internally depends on the `image` crate, so version alignment matters.

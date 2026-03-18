@@ -40,9 +40,12 @@ pub async fn create_test_app() -> Router {
         }
     }
 
+    let topics = ontology_backend::load_topics(std::path::Path::new("../ontology-data/topic-tags.json"));
+
     let state = AppState {
         db: pool,
         config: config.clone(),
+        topics,
     };
 
     ontology_backend::create_router(state)
