@@ -16,6 +16,15 @@ use utoipa_swagger_ui::SwaggerUi;
     ),
     paths(
         ontology_backend::features::ontology::routes::health_check,
+        ontology_backend::features::analysis::routes::create_analysis,
+        ontology_backend::features::analysis::routes::upload_analysis,
+        ontology_backend::features::analysis::routes::list_analyses,
+        ontology_backend::features::analysis::routes::get_analysis,
+        ontology_backend::features::analysis::routes::get_findings,
+        ontology_backend::features::analysis::routes::delete_analysis,
+        ontology_backend::features::analysis::routes::export_analysis,
+        ontology_backend::features::analysis::routes::get_prompt_template,
+        ontology_backend::features::analysis::routes::update_prompt_template,
     ),
     tags(
         (name = "health", description = "Health check endpoints"),
@@ -23,6 +32,7 @@ use utoipa_swagger_ui::SwaggerUi;
         (name = "compliance", description = "Compliance tracking endpoints"),
         (name = "reports", description = "Reporting endpoints"),
         (name = "auth", description = "Authentication endpoints"),
+        (name = "analysis", description = "Document analysis endpoints"),
     )
 )]
 struct ApiDoc;

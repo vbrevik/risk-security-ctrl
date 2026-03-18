@@ -86,4 +86,5 @@ fn api_routes() -> Router<AppState> {
         .nest("/compliance", features::compliance::routes::router())
         .nest("/reports", features::reports::routes::router())
         .nest("/auth", features::auth::routes::router())
+        .nest("/analyses", features::analysis::routes::router())
 }

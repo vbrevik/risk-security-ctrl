@@ -235,4 +235,10 @@ After completing this section, the following should pass:
 | `backend/src/lib.rs` | **Modify** -- add `.nest("/analyses", ...)` to `api_routes()` |
 | `backend/src/main.rs` | **Modify** -- add analysis tag and paths to OpenAPI |
 | `backend/tests/analysis_tests.rs` | **Create** -- router registration test |
-| `backend/tests/common/mod.rs` | **Modify** -- add `topics` field to `AppState` if needed |
+| `backend/tests/common/mod.rs` | **Not modified** -- `topics` field already added by Section 01 |
+
+## Implementation Deviations
+
+- **Handler visibility**: All 9 handlers made `pub` (plan didn't specify). Required for utoipa `paths(...)` macro in main.rs to reference them.
+- **`routes` module ordering**: Added alphabetically before `tokenizer` in mod.rs (plan said after). Matches convention.
+- **Unused imports cleaned**: `delete` and `put` routing functions removed from imports; Axum method chaining doesn't need them as separate imports.
