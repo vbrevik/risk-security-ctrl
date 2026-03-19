@@ -3,11 +3,11 @@ import type { Framework } from "../types";
 const DOMAIN_MAP: { label: string; ids: string[] }[] = [
   {
     label: "Risk & Security Standards",
-    ids: ["iso31000", "iso31010", "iso27000", "iso9000", "nist-csf", "nist-800-53", "nist-rmf"],
+    ids: ["iso31000", "iso31010", "iso27000", "iso9000", "iso10015", "nist-csf", "nist-800-53", "nist-rmf"],
   },
   {
     label: "AI Governance",
-    ids: ["eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas"],
+    ids: ["eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso42005", "iso23894", "iso24028", "google-saif", "mitre-atlas"],
   },
   {
     label: "EU Regulations",

@@ -3220,6 +3220,195 @@
             "target_concept_id": "nist-ai-gv-1",
             "relationship_type": "supports",
             "description": "Regulatory Alignment supports NIST AI RMF GOVERN 1 by mapping organizational XAI practices to applicable regulatory requirements and voluntary frameworks."
+        },
+        {
+            "id": "rel-iso10015-iso9000-engagement",
+            "source_concept_id": "iso10015-engagement",
+            "target_concept_id": "iso9000-p3-engagement",
+            "relationship_type": "implements",
+            "description": "ISO 10015 Engagement and motivation implements ISO 9000 Engagement of people principle by providing specific guidance on fostering engagement through development opportunities."
+        },
+        {
+            "id": "rel-iso10015-iso9000-support",
+            "source_concept_id": "iso10015-developing",
+            "target_concept_id": "iso9000-support",
+            "relationship_type": "supports",
+            "description": "ISO 10015 Developing competence supports ISO 9001 Support requirements (Clause 7), specifically competence and awareness requirements."
+        },
+        {
+            "id": "rel-iso10015-iso9000-improvement",
+            "source_concept_id": "iso10015-continual-improvement",
+            "target_concept_id": "iso9000-improvement-req",
+            "relationship_type": "maps_to",
+            "description": "ISO 10015 Continual improvement maps to ISO 9001 Continual improvement requirement. Both address ongoing enhancement of management systems."
+        },
+        {
+            "id": "rel-iso10015-iso9000-leadership",
+            "source_concept_id": "iso10015-planning-objectives",
+            "target_concept_id": "iso9000-p2-leadership",
+            "relationship_type": "related_to",
+            "description": "ISO 10015 Competence management objectives relate to ISO 9000 Leadership principle. Effective competence management requires leadership commitment and strategic alignment."
+        },
+        {
+            "id": "rel-iso10015-iso9000-evaluation",
+            "source_concept_id": "iso10015-evaluating",
+            "target_concept_id": "iso9000-evaluation",
+            "relationship_type": "maps_to",
+            "description": "ISO 10015 Evaluating competence development maps to ISO 9001 Performance evaluation. Both address monitoring, measurement, and evaluation of system effectiveness."
+        },
+        {
+            "id": "rel-iso10015-iso9000-context",
+            "source_concept_id": "iso10015-context",
+            "target_concept_id": "iso9000-context",
+            "relationship_type": "maps_to",
+            "description": "ISO 10015 Context of the organization maps to ISO 9001 Context of the organization. Both require understanding internal and external issues affecting the management system."
+        },
+        {
+            "id": "rel-iso10015-iso31000-human-cultural",
+            "source_concept_id": "iso10015-people-development",
+            "target_concept_id": "iso31000-p7-human-cultural",
+            "relationship_type": "implements",
+            "description": "ISO 10015 People development implements ISO 31000 Human and cultural factors principle by providing systematic approaches to developing people's competence in risk management."
+        },
+        {
+            "id": "rel-iso10015-iso27000-people",
+            "source_concept_id": "iso10015-determining-needs",
+            "target_concept_id": "iso27000-people",
+            "relationship_type": "supports",
+            "description": "ISO 10015 Determining competence needs supports ISO 27001 People controls by providing methodology for identifying and addressing security competence requirements."
+        },
+        {
+            "id": "rel-iso10015-nist-at",
+            "source_concept_id": "iso10015-development-methods",
+            "target_concept_id": "nist-800-53-at-2",
+            "relationship_type": "supports",
+            "description": "ISO 10015 competence development methods support NIST SP 800-53 AT-2 Literacy Training and Awareness by providing structured approaches for training delivery."
+        },
+        {
+            "id": "rel-iso10015-nist-at3",
+            "source_concept_id": "iso10015-competence-required",
+            "target_concept_id": "nist-800-53-at-3",
+            "relationship_type": "supports",
+            "description": "ISO 10015 Determining required competence supports NIST SP 800-53 AT-3 Role-Based Training by providing methodology for identifying role-specific competence requirements."
+        },
+        {
+            "id": "rel-iso10015-iso42001-competence",
+            "source_concept_id": "iso10015-developing",
+            "target_concept_id": "iso42001-clause7",
+            "relationship_type": "supports",
+            "description": "ISO 10015 Developing competence supports ISO 42001 Support requirements for AI management systems, specifically competence development for AI practitioners."
+        },
+        {
+            "id": "rel-iso10015-knowledge-iso9000-process",
+            "source_concept_id": "iso10015-knowledge-management",
+            "target_concept_id": "iso9000-p4-process-approach",
+            "relationship_type": "related_to",
+            "description": "ISO 10015 Knowledge management relates to ISO 9000 Process approach. Capturing and sharing organizational knowledge supports process-based quality management."
+        },
+        {
+            "id": "rel-iso24028-nist-ai-govern",
+            "source_concept_id": "iso24028-trustworthiness",
+            "target_concept_id": "nist-ai-gv-1",
+            "relationship_type": "maps_to",
+            "description": "ISO 24028 Trustworthiness in AI maps to NIST AI RMF GOVERN 1. Both establish foundational governance principles for trustworthy AI systems."
+        },
+        {
+            "id": "rel-iso24028-transparency-nist-ai",
+            "source_concept_id": "iso24028-transparency",
+            "target_concept_id": "nist-ai-gv-2",
+            "relationship_type": "maps_to",
+            "description": "ISO 24028 Transparency maps to NIST AI RMF GOVERN 2. Both address transparency and accountability in AI governance."
+        },
+        {
+            "id": "rel-iso24028-explainability-xai",
+            "source_concept_id": "iso24028-explainability",
+            "target_concept_id": "xai-prin-explanation",
+            "relationship_type": "related_to",
+            "description": "ISO 24028 Explainability relates to XAI DataOps model explainability. Both address making AI decision processes understandable to stakeholders."
+        },
+        {
+            "id": "rel-iso24028-data-threats-mitre",
+            "source_concept_id": "iso24028-data-threats",
+            "target_concept_id": "mitre-atlas-reconnaissance",
+            "relationship_type": "related_to",
+            "description": "ISO 24028 Data-related threats relate to MITRE ATLAS Reconnaissance. Both address adversarial threats to AI systems through data manipulation."
+        },
+        {
+            "id": "rel-iso24028-safety-iso23894",
+            "source_concept_id": "iso24028-safety",
+            "target_concept_id": "iso23894-p6-best-info",
+            "relationship_type": "related_to",
+            "description": "ISO 24028 Safety relates to ISO 23894 Best available information. Safety assessment depends on having the best available information about AI system risks."
+        },
+        {
+            "id": "rel-iso24028-security-iso27000",
+            "source_concept_id": "iso24028-security",
+            "target_concept_id": "iso27000-technological",
+            "relationship_type": "maps_to",
+            "description": "ISO 24028 Security maps to ISO 27001 Technological controls. Both address protection of systems against unauthorized access and manipulation."
+        },
+        {
+            "id": "rel-iso24028-privacy-gdpr",
+            "source_concept_id": "iso24028-privacy",
+            "target_concept_id": "gdpr-principles",
+            "relationship_type": "related_to",
+            "description": "ISO 24028 Privacy relates to GDPR Principles. Both address protection of personal data, with ISO 24028 focusing on AI-specific privacy risks."
+        },
+        {
+            "id": "rel-iso24028-audit-iso42001",
+            "source_concept_id": "iso24028-audit-certification",
+            "target_concept_id": "iso42001-clause9",
+            "relationship_type": "supports",
+            "description": "ISO 24028 Audit and certification supports ISO 42001 Performance evaluation requirements for AI management systems."
+        },
+        {
+            "id": "rel-iso24028-resiliency-nist-csf",
+            "source_concept_id": "iso24028-resiliency",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "related_to",
+            "description": "ISO 24028 Resiliency relates to NIST CSF Protect function. Both address maintaining system functions under adverse conditions."
+        },
+        {
+            "id": "rel-iso24028-bias-eu-ai",
+            "source_concept_id": "iso24028-bias-mitigation",
+            "target_concept_id": "eu-ai-high-risk-requirements",
+            "relationship_type": "supports",
+            "description": "ISO 24028 Bias assessment and mitigation supports EU AI Act high-risk system requirements for non-discrimination and fairness."
+        },
+        {
+            "id": "rel-iso24028-oversight-eu-ai",
+            "source_concept_id": "iso24028-human-oversight",
+            "target_concept_id": "eu-ai-hr-human-oversight",
+            "relationship_type": "maps_to",
+            "description": "ISO 24028 Human oversight mechanisms maps to EU AI Act human oversight requirements. Both require meaningful human control over high-risk AI systems."
+        },
+        {
+            "id": "rel-iso24028-lifecycle-iso42005",
+            "source_concept_id": "iso24028-lifecycle",
+            "target_concept_id": "iso42005-impact-assessment-process",
+            "relationship_type": "related_to",
+            "description": "ISO 24028 AI system lifecycle considerations relate to ISO 42005 Impact Assessment Process. Both address trustworthiness across the full AI lifecycle."
+        },
+        {
+            "id": "rel-iso24028-monitoring-iso31000",
+            "source_concept_id": "iso24028-lc-monitoring",
+            "target_concept_id": "iso31000-proc5-monitoring-review",
+            "relationship_type": "implements",
+            "description": "ISO 24028 Monitoring and maintenance implements ISO 31000 Monitoring and review for AI-specific trustworthiness monitoring in production."
+        },
+        {
+            "id": "rel-iso24028-testing-iso23894",
+            "source_concept_id": "iso24028-testing-validation",
+            "target_concept_id": "iso23894-process",
+            "relationship_type": "supports",
+            "description": "ISO 24028 Testing and validation supports ISO 23894 AI Risk Management Process by providing concrete testing approaches for AI risk assessment."
+        },
+        {
+            "id": "rel-iso24028-controllability-iso42001",
+            "source_concept_id": "iso24028-controllability",
+            "target_concept_id": "iso42001-clause8",
+            "relationship_type": "supports",
+            "description": "ISO 24028 Controllability supports ISO 42001 Operation requirements by providing guidance on maintaining human control over AI system operations."
         }
     ]
 }

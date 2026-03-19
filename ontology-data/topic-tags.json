@@ -90,7 +90,9 @@
         "dca-discovery",
         "dca-activity-monitoring",
         "iso27000-technological",
-        "fmn-isa"
+        "fmn-isa",
+        "iso24028-security",
+        "iso24028-privacy"
       ]
     },
     {
@@ -172,7 +174,17 @@
         "iso27000-planning",
         "iso27000-context",
         "iso9000-p2-leadership",
-        "cisa-ztmm-governance"
+        "cisa-ztmm-governance",
+        "iso10015-context",
+        "iso10015-planning",
+        "iso10015-planning-objectives",
+        "iso10015-improvement",
+        "iso10015-continual-improvement",
+        "iso24028-trustworthiness",
+        "iso24028-transparency",
+        "iso24028-controllability",
+        "iso24028-human-oversight",
+        "iso24028-audit-certification"
       ]
     },
     {
@@ -237,7 +249,9 @@
         "zt-t5-device-security",
         "cisa-ztmm-visibility",
         "cisa-ztmm-dev-edr",
-        "dca-activity-monitoring"
+        "dca-activity-monitoring",
+        "iso24028-lc-monitoring",
+        "iso24028-testing-validation"
       ]
     },
     {
@@ -323,7 +337,14 @@
         "nist-csf-protect",
         "iso27000-people",
         "iso31000-p7-human-cultural",
-        "iso9000-p3-engagement"
+        "iso9000-p3-engagement",
+        "iso10015-determining-needs",
+        "iso10015-competence-required",
+        "iso10015-developing",
+        "iso10015-development-methods",
+        "iso10015-evaluating",
+        "iso10015-people-development",
+        "iso10015-engagement"
       ]
     },
     {

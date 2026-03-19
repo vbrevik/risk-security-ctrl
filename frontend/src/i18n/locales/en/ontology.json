@@ -24,7 +24,9 @@
     "iso42001": "ISO/IEC 42001 - AI Management System",
     "iso42005": "ISO/IEC 42005 - AI System Impact Assessment",
     "iso23894": "ISO/IEC 23894 - AI Risk Management Guidance",
-    "nist-ai-genai": "NIST AI 600-1 - Generative AI Profile"
+    "nist-ai-genai": "NIST AI 600-1 - Generative AI Profile",
+    "iso10015": "ISO 10015:2019 - Competence Management",
+    "iso24028": "ISO/IEC TR 24028 - AI Trustworthiness"
   },
   "concepts": {
     "title": "Concepts",
