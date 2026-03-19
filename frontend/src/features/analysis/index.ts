@@ -7,3 +7,6 @@ export { CreateAnalysisForm } from "./components/CreateAnalysisForm";
 export { FileDropZone } from "./components/FileDropZone";
 export { SettingsForm } from "./components/SettingsForm";
 export { BoostTermsEditor } from "./components/BoostTermsEditor";
+export { useChartData } from "./hooks/useChartData";
+export type { ChartData } from "./hooks/useChartData";
+export { SummaryStats } from "./components/SummaryStats";
