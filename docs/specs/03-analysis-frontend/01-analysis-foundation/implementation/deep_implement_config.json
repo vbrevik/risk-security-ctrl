@@ -26,6 +26,10 @@
     "section-03-shadcn-components": {
       "status": "complete",
       "commit_hash": "46ab818"
+    },
+    "section-04-list-page": {
+      "status": "complete",
+      "commit_hash": "f8d67f1"
     }
   },
   "pre_commit": {
