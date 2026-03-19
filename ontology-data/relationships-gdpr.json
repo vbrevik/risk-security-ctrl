@@ -1,0 +1,172 @@
+{
+    "relationships": [
+        {
+            "id": "rel-gdpr-integrity-csf-pr-ds",
+            "source_concept_id": "gdpr-principle-integrity-confidentiality",
+            "target_concept_id": "nist-csf-pr-ds",
+            "relationship_type": "implements",
+            "description": "GDPR integrity and confidentiality principle implements NIST CSF Data Security requirements for personal data."
+        },
+        {
+            "id": "rel-gdpr-security-iso27000-isms",
+            "source_concept_id": "gdpr-security-of-processing",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "GDPR security of processing relates to ISO 27000 ISMS. An ISMS supports GDPR security compliance."
+        },
+        {
+            "id": "rel-gdpr-breach-csf-rs-co",
+            "source_concept_id": "gdpr-breach-notification-authority",
+            "target_concept_id": "nist-csf-rs-co",
+            "relationship_type": "maps_to",
+            "description": "GDPR breach notification to supervisory authority maps to NIST CSF Incident Response Reporting and Communication."
+        },
+        {
+            "id": "rel-gdpr-breach-nis2-reporting",
+            "source_concept_id": "gdpr-breach-notification-authority",
+            "target_concept_id": "nis2-incident-reporting",
+            "relationship_type": "related_to",
+            "description": "GDPR 72h breach notification relates to NIS2 incident reporting. Both impose mandatory notification timelines."
+        },
+        {
+            "id": "rel-gdpr-breach-dora-reporting",
+            "source_concept_id": "gdpr-breach-notification-authority",
+            "target_concept_id": "dora-incident-reporting",
+            "relationship_type": "related_to",
+            "description": "GDPR breach notification relates to DORA incident reporting for financial entities handling personal data."
+        },
+        {
+            "id": "rel-gdpr-dpia-iso31000-assessment",
+            "source_concept_id": "gdpr-dpia",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "GDPR Data Protection Impact Assessment implements ISO 31000 Risk Assessment process for privacy risks."
+        },
+        {
+            "id": "rel-gdpr-dpia-eu-ai-fria",
+            "source_concept_id": "gdpr-dpia",
+            "target_concept_id": "eu-ai-obl-fria",
+            "relationship_type": "related_to",
+            "description": "GDPR DPIA relates to EU AI Act Fundamental Rights Impact Assessment. Both require pre-deployment impact assessment."
+        },
+        {
+            "id": "rel-gdpr-by-design-iso27000-planning",
+            "source_concept_id": "gdpr-data-protection-by-design",
+            "target_concept_id": "iso27000-planning",
+            "relationship_type": "related_to",
+            "description": "GDPR data protection by design relates to ISO 27000 Planning requirements for building security into systems."
+        },
+        {
+            "id": "rel-gdpr-automated-eu-ai-high-risk",
+            "source_concept_id": "gdpr-right-automated-decisions",
+            "target_concept_id": "eu-ai-high-risk",
+            "relationship_type": "related_to",
+            "description": "GDPR right regarding automated decision-making relates to EU AI Act high-risk AI requirements. Both regulate automated decisions affecting individuals."
+        },
+        {
+            "id": "rel-gdpr-accountability-csf-govern",
+            "source_concept_id": "gdpr-principle-accountability",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "related_to",
+            "description": "GDPR accountability principle relates to NIST CSF Govern function for organizational governance of data protection."
+        },
+        {
+            "id": "rel-gdpr-privacy-nist-ai-privacy",
+            "source_concept_id": "gdpr-principles",
+            "target_concept_id": "nist-ai-tw-privacy",
+            "relationship_type": "related_to",
+            "description": "GDPR data protection principles relate to NIST AI RMF Privacy-Enhanced characteristic for AI systems processing personal data."
+        },
+        {
+            "id": "rel-gdpr-access-control-800-53-ac",
+            "source_concept_id": "gdpr-security-of-processing",
+            "target_concept_id": "nist-800-53-ac",
+            "relationship_type": "related_to",
+            "description": "GDPR security of processing relates to NIST SP 800-53 Access Control for protecting personal data access."
+        },
+        {
+            "id": "rel-gdpr-records-800-53-au",
+            "source_concept_id": "gdpr-records-of-processing",
+            "target_concept_id": "nist-800-53-au",
+            "relationship_type": "related_to",
+            "description": "GDPR records of processing activities relate to NIST SP 800-53 Audit and Accountability for data processing auditability."
+        },
+        {
+            "id": "rel-gdpr-dpo-iso27000-isms",
+            "source_concept_id": "gdpr-dpo",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "GDPR Data Protection Officer relates to ISO 27000 ISMS governance. DPO role supports ISMS data protection governance."
+        },
+        {
+            "id": "rel-gdpr-data-min-dca-aware",
+            "source_concept_id": "gdpr-principle-data-minimisation",
+            "target_concept_id": "dca-p1-data-aware",
+            "relationship_type": "related_to",
+            "description": "GDPR data minimisation principle relates to Data Centric data awareness. Understanding what data exists is prerequisite to minimising it."
+        },
+        {
+            "id": "rel-gdpr-encryption-dca-encryption",
+            "source_concept_id": "gdpr-principle-integrity-confidentiality",
+            "target_concept_id": "dca-encryption",
+            "relationship_type": "related_to",
+            "description": "GDPR integrity and confidentiality relates to Data Centric encryption for protecting personal data at rest and in transit."
+        },
+        {
+            "id": "rel-gdpr-processor-eu-ai-provider",
+            "source_concept_id": "gdpr-processor-requirements",
+            "target_concept_id": "eu-ai-obl-provider",
+            "relationship_type": "related_to",
+            "description": "GDPR processor requirements relate to EU AI Act provider obligations. AI providers processing personal data must comply with both GDPR Article 28 processor contracts and EU AI Act Article 16 provider duties."
+        },
+        {
+            "id": "rel-gdpr-special-categories-eu-ai-biometrics",
+            "source_concept_id": "gdpr-special-categories",
+            "target_concept_id": "eu-ai-area-biometrics",
+            "relationship_type": "related_to",
+            "description": "GDPR special categories relate to EU AI Act biometrics high-risk area. Biometric AI systems process special category data requiring both GDPR Article 9 and EU AI Act high-risk compliance."
+        },
+        {
+            "id": "rel-gdpr-data-minimisation-eu-ai-data-governance",
+            "source_concept_id": "gdpr-principle-data-minimisation",
+            "target_concept_id": "eu-ai-hr-data-governance",
+            "relationship_type": "implements",
+            "description": "GDPR data minimisation principle implements EU AI Act data governance. Training datasets for high-risk AI must comply with data minimisation."
+        },
+        {
+            "id": "rel-gdpr-security-dora-protection",
+            "source_concept_id": "gdpr-security-of-processing",
+            "target_concept_id": "dora-ict-protection",
+            "relationship_type": "maps_to",
+            "description": "GDPR security of processing maps to DORA ICT protection. For financial entities, DORA ICT protection controls satisfy and extend GDPR Article 32 security requirements."
+        },
+        {
+            "id": "rel-gdpr-dpia-dora-third-party",
+            "source_concept_id": "gdpr-dpia",
+            "target_concept_id": "dora-third-party-assessment",
+            "relationship_type": "related_to",
+            "description": "GDPR DPIA relates to DORA third-party risk assessment. Financial entities using third-party ICT services processing personal data must conduct both assessments."
+        },
+        {
+            "id": "rel-gdpr-records-dora-inventory",
+            "source_concept_id": "gdpr-records-of-processing",
+            "target_concept_id": "dora-ict-systems-inventory",
+            "relationship_type": "related_to",
+            "description": "GDPR records of processing relate to DORA ICT systems inventory. Both require registers — GDPR of processing activities, DORA of ICT systems."
+        },
+        {
+            "id": "rel-gdpr-integrity-iso27000-controls",
+            "source_concept_id": "gdpr-principle-integrity-confidentiality",
+            "target_concept_id": "iso27000-controls",
+            "relationship_type": "implements",
+            "description": "GDPR integrity and confidentiality principle is implemented by ISO 27000 information security controls catalogue."
+        },
+        {
+            "id": "rel-gdpr-erasure-iso27000-a8-10",
+            "source_concept_id": "gdpr-right-erasure",
+            "target_concept_id": "iso27000-a8-10",
+            "relationship_type": "related_to",
+            "description": "GDPR right to erasure relates to ISO 27000 A.8.10 (Information deletion) for secure data removal."
+        }
+    ]
+}

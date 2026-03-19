@@ -1,0 +1,123 @@
+{
+    "relationships": [
+        {
+            "id": "rel-iso31010-iso31000-identification",
+            "source_concept_id": "iso31010-brainstorming",
+            "target_concept_id": "iso31000-proc3a-identification",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Brainstorming technique supports ISO 31000 Risk Identification process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-checklists",
+            "source_concept_id": "iso31010-checklists",
+            "target_concept_id": "iso31000-proc3a-identification",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Checklists technique supports ISO 31000 Risk Identification process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-fmea",
+            "source_concept_id": "iso31010-fmea",
+            "target_concept_id": "iso31000-proc3b-analysis",
+            "relationship_type": "supports",
+            "description": "ISO 31010 FMEA technique supports ISO 31000 Risk Analysis process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-fault-tree",
+            "source_concept_id": "iso31010-fault-tree",
+            "target_concept_id": "iso31000-proc3b-analysis",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Fault Tree Analysis supports ISO 31000 Risk Analysis process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-event-tree",
+            "source_concept_id": "iso31010-event-tree",
+            "target_concept_id": "iso31000-proc3b-analysis",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Event Tree Analysis supports ISO 31000 Risk Analysis process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-bow-tie",
+            "source_concept_id": "iso31010-bow-tie",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Bow-tie Analysis supports ISO 31000 Risk Assessment process."
+        },
+        {
+            "id": "rel-iso31010-iso31000-rca",
+            "source_concept_id": "iso31010-root-cause",
+            "target_concept_id": "iso31000-proc3b-analysis",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Root Cause Analysis supports ISO 31000 Risk Analysis process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-monte-carlo",
+            "source_concept_id": "iso31010-monte-carlo",
+            "target_concept_id": "iso31000-proc3b-analysis",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Monte Carlo simulation supports ISO 31000 Risk Analysis process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-hazop",
+            "source_concept_id": "iso31010-hazop",
+            "target_concept_id": "iso31000-proc3a-identification",
+            "relationship_type": "supports",
+            "description": "ISO 31010 HAZOP supports ISO 31000 Risk Identification process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-delphi",
+            "source_concept_id": "iso31010-delphi",
+            "target_concept_id": "iso31000-p4-inclusive",
+            "relationship_type": "implements",
+            "description": "ISO 31010 Delphi technique implements ISO 31000 Inclusive principle through expert consultation."
+        },
+        {
+            "id": "rel-iso31010-iso31000-swot",
+            "source_concept_id": "iso31010-swot",
+            "target_concept_id": "iso31000-proc2-scope-context",
+            "relationship_type": "supports",
+            "description": "ISO 31010 SWOT Analysis supports ISO 31000 Scope, context and criteria process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-cba",
+            "source_concept_id": "iso31010-cost-benefit",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Cost-benefit analysis supports ISO 31000 Risk Treatment process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-mcda",
+            "source_concept_id": "iso31010-mcda",
+            "target_concept_id": "iso31000-proc3c-evaluation",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Multi-criteria decision analysis supports ISO 31000 Risk Evaluation process step."
+        },
+        {
+            "id": "rel-iso31010-iso31000-bia",
+            "source_concept_id": "iso31010-bcp-bia",
+            "target_concept_id": "iso31000-proc3b-analysis",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Business Impact Analysis supports ISO 31000 Risk Analysis process step."
+        },
+        {
+            "id": "rel-iso31010-nist-bia-recovery",
+            "source_concept_id": "iso31010-bcp-bia",
+            "target_concept_id": "nist-csf-recover",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Business Impact Analysis supports NIST CSF Recover function planning."
+        },
+        {
+            "id": "rel-iso31010-nist-rca-analysis",
+            "source_concept_id": "iso31010-root-cause",
+            "target_concept_id": "nist-csf-rs-an",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Root Cause Analysis supports NIST CSF Incident Analysis category."
+        },
+        {
+            "id": "rel-iso31010-nist-bow-tie-protect",
+            "source_concept_id": "iso31010-bow-tie",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "supports",
+            "description": "ISO 31010 Bow-tie Analysis supports NIST CSF Protect function by identifying barriers and controls."
+        }
+    ]
+}

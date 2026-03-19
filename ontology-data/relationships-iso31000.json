@@ -1,0 +1,67 @@
+{
+    "relationships": [
+        {
+            "id": "rel-iso31000-nist-risk-assessment",
+            "source_concept_id": "iso31000-proc3-risk-assessment",
+            "target_concept_id": "nist-csf-id-ra",
+            "relationship_type": "maps_to",
+            "description": "ISO 31000 Risk Assessment process maps to NIST CSF Risk Assessment category. Both address identifying, analyzing, and evaluating risks."
+        },
+        {
+            "id": "rel-iso31000-nist-identification",
+            "source_concept_id": "iso31000-proc3a-identification",
+            "target_concept_id": "nist-csf-id-ra-01",
+            "relationship_type": "maps_to",
+            "description": "ISO 31000 Risk Identification maps to NIST CSF Vulnerability Identification. Both focus on finding potential risks/vulnerabilities."
+        },
+        {
+            "id": "rel-iso31000-nist-asset-management",
+            "source_concept_id": "iso31000-proc2-scope-context",
+            "target_concept_id": "nist-csf-id-am",
+            "relationship_type": "related_to",
+            "description": "ISO 31000 Scope, context and criteria relates to NIST CSF Asset Management. Understanding context includes knowing what assets exist."
+        },
+        {
+            "id": "rel-iso31000-nist-communication",
+            "source_concept_id": "iso31000-proc1-communication",
+            "target_concept_id": "nist-csf-rs-co",
+            "relationship_type": "related_to",
+            "description": "ISO 31000 Communication and consultation relates to NIST CSF Incident Response Communication. Both emphasize stakeholder communication."
+        },
+        {
+            "id": "rel-iso31000-nist-monitoring",
+            "source_concept_id": "iso31000-proc5-monitoring-review",
+            "target_concept_id": "nist-csf-de-cm",
+            "relationship_type": "maps_to",
+            "description": "ISO 31000 Monitoring and review maps to NIST CSF Continuous Monitoring. Both address ongoing surveillance of risk environment."
+        },
+        {
+            "id": "rel-iso31000-nist-treatment-protect",
+            "source_concept_id": "iso31000-proc4-treatment",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "maps_to",
+            "description": "ISO 31000 Risk Treatment maps to NIST CSF Protect function. Risk treatment includes implementing protective safeguards."
+        },
+        {
+            "id": "rel-iso31000-nist-continual-improvement",
+            "source_concept_id": "iso31000-p8-continual-improvement",
+            "target_concept_id": "nist-csf-id-im",
+            "relationship_type": "maps_to",
+            "description": "ISO 31000 Continual improvement principle maps to NIST CSF Improvement category. Both emphasize ongoing enhancement."
+        },
+        {
+            "id": "rel-iso31000-nist-governance",
+            "source_concept_id": "iso31000-f1-leadership",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "maps_to",
+            "description": "ISO 31000 Leadership and commitment maps to NIST CSF Govern function. Both address organizational governance of risk management."
+        },
+        {
+            "id": "rel-iso31000-nist-framework-design",
+            "source_concept_id": "iso31000-f3-design",
+            "target_concept_id": "nist-csf-gv-rm",
+            "relationship_type": "related_to",
+            "description": "ISO 31000 Framework Design relates to NIST CSF Risk Management Strategy. Both involve establishing risk management approaches."
+        }
+    ]
+}

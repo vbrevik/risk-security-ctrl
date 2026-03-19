@@ -1,0 +1,144 @@
+{
+    "relationships": [
+        {
+            "id": "rel-nis2-risk-mgmt-csf-protect",
+            "source_concept_id": "nis2-risk-management",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "maps_to",
+            "description": "NIS2 risk management measures map to NIST CSF Protect function. Both establish cybersecurity safeguards."
+        },
+        {
+            "id": "rel-nis2-risk-analysis-iso31000-assessment",
+            "source_concept_id": "nis2-rm-risk-analysis",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "NIS2 risk analysis requirement implements ISO 31000 Risk Assessment process."
+        },
+        {
+            "id": "rel-nis2-incident-csf-respond",
+            "source_concept_id": "nis2-rm-incident-handling",
+            "target_concept_id": "nist-csf-respond",
+            "relationship_type": "maps_to",
+            "description": "NIS2 incident handling requirement maps to NIST CSF Respond function."
+        },
+        {
+            "id": "rel-nis2-bcp-csf-recover",
+            "source_concept_id": "nis2-rm-business-continuity",
+            "target_concept_id": "nist-csf-recover",
+            "relationship_type": "maps_to",
+            "description": "NIS2 business continuity requirement maps to NIST CSF Recover function."
+        },
+        {
+            "id": "rel-nis2-supply-chain-800-53-sr",
+            "source_concept_id": "nis2-rm-supply-chain",
+            "target_concept_id": "nist-800-53-sr",
+            "relationship_type": "maps_to",
+            "description": "NIS2 supply chain security requirement maps to NIST SP 800-53 Supply Chain Risk Management family."
+        },
+        {
+            "id": "rel-nis2-crypto-csf-pr-ds",
+            "source_concept_id": "nis2-rm-cryptography",
+            "target_concept_id": "nist-csf-pr-ds",
+            "relationship_type": "implements",
+            "description": "NIS2 cryptography and encryption requirement implements NIST CSF Data Security category."
+        },
+        {
+            "id": "rel-nis2-mfa-csf-pr-aa",
+            "source_concept_id": "nis2-rm-mfa",
+            "target_concept_id": "nist-csf-pr-aa",
+            "relationship_type": "implements",
+            "description": "NIS2 multi-factor authentication requirement implements NIST CSF Identity Management and Access Control."
+        },
+        {
+            "id": "rel-nis2-hr-access-800-53-ac",
+            "source_concept_id": "nis2-rm-hr-access",
+            "target_concept_id": "nist-800-53-ac",
+            "relationship_type": "maps_to",
+            "description": "NIS2 HR security and access control maps to NIST SP 800-53 Access Control family."
+        },
+        {
+            "id": "rel-nis2-reporting-csf-rs-co",
+            "source_concept_id": "nis2-incident-reporting",
+            "target_concept_id": "nist-csf-rs-co",
+            "relationship_type": "maps_to",
+            "description": "NIS2 incident reporting obligations map to NIST CSF Incident Response Reporting and Communication."
+        },
+        {
+            "id": "rel-nis2-governance-iso27000-isms",
+            "source_concept_id": "nis2-governance",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "NIS2 governance structure relates to ISO 27000 ISMS. NIS2 compliance benefits from an established ISMS."
+        },
+        {
+            "id": "rel-nis2-acquisition-csf-pr-ps",
+            "source_concept_id": "nis2-rm-acquisition-security",
+            "target_concept_id": "nist-csf-pr-ps",
+            "relationship_type": "maps_to",
+            "description": "NIS2 acquisition security requirement maps to NIST CSF Platform Security for secure system acquisition and maintenance."
+        },
+        {
+            "id": "rel-nis2-effectiveness-iso31000-monitoring",
+            "source_concept_id": "nis2-rm-effectiveness",
+            "target_concept_id": "iso31000-proc5-monitoring-review",
+            "relationship_type": "implements",
+            "description": "NIS2 effectiveness assessment requirement implements ISO 31000 Monitoring and review process."
+        },
+        {
+            "id": "rel-nis2-hygiene-800-53-at",
+            "source_concept_id": "nis2-rm-cyber-hygiene",
+            "target_concept_id": "nist-800-53-at",
+            "relationship_type": "maps_to",
+            "description": "NIS2 cyber hygiene and training requirement maps to NIST SP 800-53 Awareness and Training family."
+        },
+        {
+            "id": "rel-nis2-mgmt-accountability-csf-govern",
+            "source_concept_id": "nis2-rm-management-accountability",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "maps_to",
+            "description": "NIS2 management body accountability maps to NIST CSF Govern function for organizational cybersecurity governance."
+        },
+        {
+            "id": "rel-nis2-vuln-disclosure-800-53-si",
+            "source_concept_id": "nis2-vulnerability-disclosure",
+            "target_concept_id": "nist-800-53-si",
+            "relationship_type": "related_to",
+            "description": "NIS2 coordinated vulnerability disclosure relates to NIST SP 800-53 System and Information Integrity."
+        },
+        {
+            "id": "rel-nis2-essential-cer-sectors",
+            "source_concept_id": "nis2-essential-entities",
+            "target_concept_id": "cer-critical-sectors",
+            "relationship_type": "related_to",
+            "description": "NIS2 essential entities relate to CER critical sectors. NIS2 and CER cover overlapping sectors with complementary requirements."
+        },
+        {
+            "id": "rel-nis2-digital-infra-cer-digital",
+            "source_concept_id": "nis2-essential-entities",
+            "target_concept_id": "cer-sector-digital-infrastructure",
+            "relationship_type": "related_to",
+            "description": "NIS2 essential entities in digital infrastructure relate to CER digital infrastructure sector."
+        },
+        {
+            "id": "rel-nis2-risk-analysis-iso27000-planning",
+            "source_concept_id": "nis2-rm-risk-analysis",
+            "target_concept_id": "iso27000-planning",
+            "relationship_type": "implements",
+            "description": "NIS2 risk analysis implements ISO 27000 Planning. An ISO 27001-conformant risk treatment plan satisfies NIS2 Article 21(2)(a)."
+        },
+        {
+            "id": "rel-nis2-effectiveness-iso27000-evaluation",
+            "source_concept_id": "nis2-rm-effectiveness",
+            "target_concept_id": "iso27000-evaluation",
+            "relationship_type": "implements",
+            "description": "NIS2 effectiveness assessment implements ISO 27000 Performance evaluation. NIS2 Article 21(1) is satisfied by ISO 27001 Clause 9."
+        },
+        {
+            "id": "rel-nis2-supply-chain-iso27000-organizational",
+            "source_concept_id": "nis2-rm-supply-chain",
+            "target_concept_id": "iso27000-organizational",
+            "relationship_type": "implements",
+            "description": "NIS2 supply chain security implements ISO 27000 Organizational controls for supplier relationships (A.5.19-A.5.22)."
+        }
+    ]
+}

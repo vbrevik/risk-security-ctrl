@@ -1,0 +1,116 @@
+{
+    "relationships": [
+        {
+            "id": "rel-cer-risk-assessment-iso31000-assessment",
+            "source_concept_id": "cer-risk-assessment",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "CER risk assessment requirement implements ISO 31000 Risk Assessment for critical entity resilience."
+        },
+        {
+            "id": "rel-cer-resilience-csf-protect",
+            "source_concept_id": "cer-resilience-obligations",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "maps_to",
+            "description": "CER resilience obligations map to NIST CSF Protect function. Both require protective safeguards."
+        },
+        {
+            "id": "rel-cer-bcp-csf-recover",
+            "source_concept_id": "cer-business-continuity",
+            "target_concept_id": "nist-csf-recover",
+            "relationship_type": "maps_to",
+            "description": "CER business continuity measures map to NIST CSF Recover function."
+        },
+        {
+            "id": "rel-cer-incident-csf-respond",
+            "source_concept_id": "cer-incident-management",
+            "target_concept_id": "nist-csf-respond",
+            "relationship_type": "maps_to",
+            "description": "CER incident management measures map to NIST CSF Respond function."
+        },
+        {
+            "id": "rel-cer-notification-nis2-reporting",
+            "source_concept_id": "cer-incident-notification",
+            "target_concept_id": "nis2-incident-reporting",
+            "relationship_type": "related_to",
+            "description": "CER incident notification relates to NIS2 incident reporting. Both directive require notification of significant incidents."
+        },
+        {
+            "id": "rel-cer-supply-chain-800-53-sr",
+            "source_concept_id": "cer-supply-chain-security",
+            "target_concept_id": "nist-800-53-sr",
+            "relationship_type": "related_to",
+            "description": "CER supply chain security measures relate to NIST SP 800-53 Supply Chain Risk Management."
+        },
+        {
+            "id": "rel-cer-employee-security-iso27000-people",
+            "source_concept_id": "cer-employee-security",
+            "target_concept_id": "iso27000-people",
+            "relationship_type": "maps_to",
+            "description": "CER employee security measures map to ISO 27000 People controls for personnel security."
+        },
+        {
+            "id": "rel-cer-physical-800-53-pe",
+            "source_concept_id": "cer-physical-protection",
+            "target_concept_id": "nist-800-53-pe",
+            "relationship_type": "maps_to",
+            "description": "CER physical protection measures map to NIST SP 800-53 Physical and Environmental Protection family."
+        },
+        {
+            "id": "rel-cer-digital-infra-nis2-essential",
+            "source_concept_id": "cer-sector-digital-infrastructure",
+            "target_concept_id": "nis2-essential-entities",
+            "relationship_type": "related_to",
+            "description": "CER digital infrastructure sector relates to NIS2 essential entities. Digital infrastructure operators are subject to both directives."
+        },
+        {
+            "id": "rel-cer-energy-nis2-essential",
+            "source_concept_id": "cer-sector-energy",
+            "target_concept_id": "nis2-essential-entities",
+            "relationship_type": "related_to",
+            "description": "CER energy sector relates to NIS2 essential entities. Energy operators are subject to both directives."
+        },
+        {
+            "id": "rel-cer-banking-dora-risk",
+            "source_concept_id": "cer-sector-banking",
+            "target_concept_id": "dora-ict-risk-management",
+            "relationship_type": "related_to",
+            "description": "CER banking sector relates to DORA ICT risk management. Banking entities are subject to CER resilience and DORA ICT resilience."
+        },
+        {
+            "id": "rel-cer-governance-iso31000-leadership",
+            "source_concept_id": "cer-governance-oversight",
+            "target_concept_id": "iso31000-f1-leadership",
+            "relationship_type": "related_to",
+            "description": "CER governance and oversight relates to ISO 31000 Leadership and commitment for critical entity resilience governance."
+        },
+        {
+            "id": "rel-cer-national-assessment-iso31000-context",
+            "source_concept_id": "cer-national-risk-assessment",
+            "target_concept_id": "iso31000-proc2-scope-context",
+            "relationship_type": "implements",
+            "description": "CER national risk assessment implements ISO 31000 Scope, context and criteria at the national level."
+        },
+        {
+            "id": "rel-cer-bcp-dora-backup",
+            "source_concept_id": "cer-business-continuity",
+            "target_concept_id": "dora-ict-backup",
+            "relationship_type": "related_to",
+            "description": "CER business continuity relates to DORA backup and recovery. Physical and digital continuity are interdependent for financial critical entities."
+        },
+        {
+            "id": "rel-cer-incident-dora-incident",
+            "source_concept_id": "cer-incident-management",
+            "target_concept_id": "dora-incident-management",
+            "relationship_type": "related_to",
+            "description": "CER incident management relates to DORA incident management. Financial entities must coordinate physical and ICT incident response."
+        },
+        {
+            "id": "rel-cer-resilience-dora-framework",
+            "source_concept_id": "cer-resilience-obligations",
+            "target_concept_id": "dora-ict-risk-framework",
+            "relationship_type": "related_to",
+            "description": "CER resilience obligations relate to DORA ICT risk framework. Together they define full operational resilience for financial critical entities."
+        }
+    ]
+}

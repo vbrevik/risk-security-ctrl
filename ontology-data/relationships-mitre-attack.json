@@ -1,0 +1,221 @@
+{
+    "relationships": [
+        {
+            "id": "rel-attack-recon-nist-csf-identify",
+            "source_concept_id": "mitre-attack-reconnaissance",
+            "target_concept_id": "nist-csf-identify",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Reconnaissance tactic relates to NIST CSF Identify function. Understanding reconnaissance threats informs asset and risk identification."
+        },
+        {
+            "id": "rel-attack-initial-access-nist-csf-protect",
+            "source_concept_id": "mitre-attack-initial-access",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Initial Access tactic relates to NIST CSF Protect function. Protective controls aim to prevent initial compromise vectors."
+        },
+        {
+            "id": "rel-attack-execution-nist-csf-detect",
+            "source_concept_id": "mitre-attack-execution",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Execution tactic relates to NIST CSF Detect function. Detection capabilities must identify malicious code execution."
+        },
+        {
+            "id": "rel-attack-persistence-nist-csf-detect",
+            "source_concept_id": "mitre-attack-persistence",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Persistence tactic relates to NIST CSF Detect function. Monitoring must detect persistence mechanisms like scheduled tasks and autostart entries."
+        },
+        {
+            "id": "rel-attack-privesc-nist-csf-protect",
+            "source_concept_id": "mitre-attack-privilege-escalation",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Privilege Escalation tactic relates to NIST CSF Protect function. Access controls and least privilege principles mitigate escalation."
+        },
+        {
+            "id": "rel-attack-defense-evasion-nist-csf-detect",
+            "source_concept_id": "mitre-attack-defense-evasion",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Defense Evasion tactic relates to NIST CSF Detect function. Detection must account for adversary evasion techniques."
+        },
+        {
+            "id": "rel-attack-lateral-nist-csf-protect",
+            "source_concept_id": "mitre-attack-lateral-movement",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Lateral Movement tactic relates to NIST CSF Protect function. Network segmentation and access controls limit lateral movement."
+        },
+        {
+            "id": "rel-attack-exfiltration-nist-csf-detect",
+            "source_concept_id": "mitre-attack-exfiltration",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Exfiltration tactic relates to NIST CSF Detect function. Data loss prevention and network monitoring detect exfiltration attempts."
+        },
+        {
+            "id": "rel-attack-impact-nist-csf-respond",
+            "source_concept_id": "mitre-attack-impact",
+            "target_concept_id": "nist-csf-respond",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Impact tactic relates to NIST CSF Respond function. Impact techniques (ransomware, destruction) trigger incident response."
+        },
+        {
+            "id": "rel-attack-impact-nist-csf-recover",
+            "source_concept_id": "mitre-attack-impact",
+            "target_concept_id": "nist-csf-recover",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Impact tactic relates to NIST CSF Recover function. Recovery planning must address destructive attack impacts."
+        },
+        {
+            "id": "rel-attack-c2-nist-csf-detect",
+            "source_concept_id": "mitre-attack-command-and-control",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Command and Control tactic relates to NIST CSF Detect function. Network monitoring must detect C2 communication channels."
+        },
+        {
+            "id": "rel-attack-credacc-nist-csf-protect",
+            "source_concept_id": "mitre-attack-credential-access",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Credential Access tactic relates to NIST CSF Protect function. Credential protection controls mitigate credential theft."
+        },
+        {
+            "id": "rel-attack-initial-access-800-53-ac",
+            "source_concept_id": "mitre-attack-initial-access",
+            "target_concept_id": "nist-800-53-ac",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Initial Access techniques are mitigated by NIST SP 800-53 Access Control family. Account management and access enforcement prevent unauthorized initial access."
+        },
+        {
+            "id": "rel-attack-credacc-800-53-ia",
+            "source_concept_id": "mitre-attack-credential-access",
+            "target_concept_id": "nist-800-53-ia",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Credential Access techniques are mitigated by NIST SP 800-53 Identification and Authentication family. MFA and credential policies counter credential theft."
+        },
+        {
+            "id": "rel-attack-execution-800-53-si",
+            "source_concept_id": "mitre-attack-execution",
+            "target_concept_id": "nist-800-53-si",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Execution techniques are mitigated by NIST SP 800-53 System and Information Integrity family. Malware protection and software integrity controls prevent malicious execution."
+        },
+        {
+            "id": "rel-attack-exfil-800-53-sc",
+            "source_concept_id": "mitre-attack-exfiltration",
+            "target_concept_id": "nist-800-53-sc",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Exfiltration techniques are mitigated by NIST SP 800-53 System and Communications Protection family. Boundary protection and transmission confidentiality counter data exfiltration."
+        },
+        {
+            "id": "rel-attack-lateral-800-53-sc",
+            "source_concept_id": "mitre-attack-lateral-movement",
+            "target_concept_id": "nist-800-53-sc",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Lateral Movement techniques are mitigated by NIST SP 800-53 System and Communications Protection family. Network segmentation limits lateral traversal."
+        },
+        {
+            "id": "rel-attack-persistence-800-53-cm",
+            "source_concept_id": "mitre-attack-persistence",
+            "target_concept_id": "nist-800-53-cm",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Persistence techniques are mitigated by NIST SP 800-53 Configuration Management family. Configuration baselines and change detection counter unauthorized persistence."
+        },
+        {
+            "id": "rel-attack-discovery-800-53-au",
+            "source_concept_id": "mitre-attack-discovery",
+            "target_concept_id": "nist-800-53-au",
+            "relationship_type": "detected_by",
+            "description": "ATT&CK Discovery techniques are detected by NIST SP 800-53 Audit and Accountability family. Audit logging captures discovery activities like account enumeration."
+        },
+        {
+            "id": "rel-attack-supply-chain-800-53-sr",
+            "source_concept_id": "mitre-attack-ia-supply-chain-compromise",
+            "target_concept_id": "nist-800-53-sr",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Supply Chain Compromise technique is mitigated by NIST SP 800-53 Supply Chain Risk Management family."
+        },
+        {
+            "id": "rel-attack-recon-atlas-recon",
+            "source_concept_id": "mitre-attack-reconnaissance",
+            "target_concept_id": "mitre-atlas-reconnaissance",
+            "relationship_type": "extends",
+            "description": "MITRE ATLAS Reconnaissance extends ATT&CK Reconnaissance with AI/ML-specific reconnaissance techniques like model ontology discovery."
+        },
+        {
+            "id": "rel-attack-exfil-atlas-exfil",
+            "source_concept_id": "mitre-attack-exfiltration",
+            "target_concept_id": "mitre-atlas-exfiltration",
+            "relationship_type": "extends",
+            "description": "MITRE ATLAS Exfiltration extends ATT&CK Exfiltration with AI-specific data theft techniques like model extraction."
+        },
+        {
+            "id": "rel-attack-impact-atlas-impact",
+            "source_concept_id": "mitre-attack-impact",
+            "target_concept_id": "mitre-atlas-impact",
+            "relationship_type": "extends",
+            "description": "MITRE ATLAS Impact extends ATT&CK Impact with AI-specific impact techniques like ML model corruption."
+        },
+        {
+            "id": "rel-attack-defevade-atlas-defevade",
+            "source_concept_id": "mitre-attack-defense-evasion",
+            "target_concept_id": "mitre-atlas-defense-evasion",
+            "relationship_type": "extends",
+            "description": "MITRE ATLAS Defense Evasion extends ATT&CK Defense Evasion with AI-specific evasion like guardrail erosion."
+        },
+        {
+            "id": "rel-attack-tactics-iso27000-risk-assessment",
+            "source_concept_id": "mitre-attack-tactics",
+            "target_concept_id": "iso27000-planning",
+            "relationship_type": "informs",
+            "description": "ATT&CK Enterprise tactics inform ISO 27000 risk planning by providing a structured threat model of adversary behaviors."
+        },
+        {
+            "id": "rel-attack-lateral-zt-microseg",
+            "source_concept_id": "mitre-attack-lateral-movement",
+            "target_concept_id": "zt-p3-assume-breach",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Lateral Movement is mitigated by Zero Trust assume-breach principle, which drives network segmentation and limits blast radius."
+        },
+        {
+            "id": "rel-attack-credacc-zt-verify",
+            "source_concept_id": "mitre-attack-credential-access",
+            "target_concept_id": "zt-p1-verify-explicitly",
+            "relationship_type": "mitigated_by",
+            "description": "ATT&CK Credential Access is mitigated by Zero Trust verify-explicitly principle requiring continuous authentication."
+        },
+        {
+            "id": "rel-attack-ia-exploit-public-cwe-707",
+            "source_concept_id": "mitre-attack-ia-exploit-public-facing",
+            "target_concept_id": "cwe-707",
+            "relationship_type": "exploits",
+            "description": "ATT&CK Exploit Public-Facing Application exploits CWE-707 Improper Neutralization weaknesses. Public-facing apps with injection flaws are primary initial access vectors."
+        },
+        {
+            "id": "rel-attack-credacc-brute-cwe-287",
+            "source_concept_id": "mitre-attack-credacc-brute-force",
+            "target_concept_id": "cwe-287",
+            "relationship_type": "exploits",
+            "description": "ATT&CK Brute Force exploits CWE-287 Improper Authentication. Weak authentication mechanisms are vulnerable to credential brute forcing."
+        },
+        {
+            "id": "rel-attack-tactics-nis2-risk",
+            "source_concept_id": "mitre-attack-tactics",
+            "target_concept_id": "nis2-risk-management",
+            "relationship_type": "informs",
+            "description": "ATT&CK Enterprise tactics inform NIS2 risk management measures by providing structured threat intelligence for risk assessment."
+        },
+        {
+            "id": "rel-attack-impact-nis2-incident",
+            "source_concept_id": "mitre-attack-impact",
+            "target_concept_id": "nis2-rm-incident-handling",
+            "relationship_type": "related_to",
+            "description": "ATT&CK Impact tactics relate to NIS2 incident handling requirements. Impact techniques define the incidents NIS2 requires organizations to detect and report."
+        }
+    ]
+}

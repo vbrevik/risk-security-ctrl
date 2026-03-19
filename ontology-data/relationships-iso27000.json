@@ -1,0 +1,60 @@
+{
+    "relationships": [
+        {
+            "id": "rel-iso27000-iso31000-risk-assessment",
+            "source_concept_id": "iso27000-operation",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "ISO 27000 Operation (information security risk assessment) implements ISO 31000 Risk Assessment process."
+        },
+        {
+            "id": "rel-iso27000-iso31000-planning",
+            "source_concept_id": "iso27000-planning",
+            "target_concept_id": "iso31000-f3-design",
+            "relationship_type": "maps_to",
+            "description": "ISO 27000 Planning (actions to address risks) maps to ISO 31000 Risk Management Framework Design."
+        },
+        {
+            "id": "rel-iso27000-iso31000-improvement",
+            "source_concept_id": "iso27000-improvement",
+            "target_concept_id": "iso31000-f6-improvement",
+            "relationship_type": "maps_to",
+            "description": "ISO 27000 Improvement maps to ISO 31000 Framework Improvement, both emphasizing continual enhancement."
+        },
+        {
+            "id": "rel-iso27000-nist-isms-governance",
+            "source_concept_id": "iso27000-isms",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "implements",
+            "description": "ISO 27000 ISMS implements NIST CSF Govern function for information security."
+        },
+        {
+            "id": "rel-iso27000-nist-controls-protect",
+            "source_concept_id": "iso27000-controls",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "implements",
+            "description": "ISO 27000 Information Security Controls implement NIST CSF Protect function."
+        },
+        {
+            "id": "rel-iso27000-nist-physical",
+            "source_concept_id": "iso27000-physical",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "implements",
+            "description": "ISO 27000 Physical controls implement NIST CSF Protect function."
+        },
+        {
+            "id": "rel-iso27000-nist-technological",
+            "source_concept_id": "iso27000-technological",
+            "target_concept_id": "nist-csf-pr-ds",
+            "relationship_type": "implements",
+            "description": "ISO 27000 Technological controls implement NIST CSF Data Security category."
+        },
+        {
+            "id": "rel-iso27000-iso9000-management-systems",
+            "source_concept_id": "iso27000-isms",
+            "target_concept_id": "iso9000-qms",
+            "relationship_type": "related_to",
+            "description": "ISO 27000 ISMS and ISO 9000 QMS are both management system standards with similar structures."
+        }
+    ]
+}

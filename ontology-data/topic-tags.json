@@ -47,7 +47,19 @@
         "zt-pdp",
         "zt-t6-dynamic-authentication",
         "iso27000-technological",
-        "fmn-identity"
+        "fmn-identity",
+        "mitre-attack-credential-access",
+        "mitre-attack-credacc-brute-force",
+        "mitre-attack-credacc-os-credential-dumping",
+        "mitre-attack-credacc-steal-web-session",
+        "mitre-attack-ia-valid-accounts",
+        "cwe-287",
+        "cwe-306",
+        "cwe-798",
+        "cwe-862",
+        "cwe-863",
+        "cwe-269",
+        "cwe-276"
       ]
     },
     {
@@ -92,7 +104,15 @@
         "iso27000-technological",
         "fmn-isa",
         "iso24028-security",
-        "iso24028-privacy"
+        "iso24028-privacy",
+        "mitre-attack-collection",
+        "mitre-attack-exfiltration",
+        "mitre-attack-coll-data-from-local-system",
+        "mitre-attack-exfil-over-c2-channel",
+        "cwe-89",
+        "cwe-22",
+        "cwe-918",
+        "cwe-502"
       ]
     },
     {
@@ -121,7 +141,11 @@
         "iso31000-proc4-treatment",
         "iso31010-root-cause",
         "iso27000-operation",
-        "cisa-ztmm-automation"
+        "cisa-ztmm-automation",
+        "mitre-attack-impact",
+        "mitre-attack-impact-data-encrypted-for-impact",
+        "mitre-attack-impact-data-destruction",
+        "mitre-attack-impact-service-stop"
       ]
     },
     {
@@ -184,7 +208,9 @@
         "iso24028-transparency",
         "iso24028-controllability",
         "iso24028-human-oversight",
-        "iso24028-audit-certification"
+        "iso24028-audit-certification",
+        "mitre-attack-tactics",
+        "cwe-pillars"
       ]
     },
     {
@@ -216,7 +242,9 @@
         "nist-800-53-sa-11",
         "nist-csf-gv-oc",
         "fmn-p3-security",
-        "fmn-isa"
+        "fmn-isa",
+        "mitre-attack-ia-supply-chain-compromise",
+        "mitre-attack-resdev-compromise-accounts"
       ]
     },
     {
@@ -251,7 +279,13 @@
         "cisa-ztmm-dev-edr",
         "dca-activity-monitoring",
         "iso24028-lc-monitoring",
-        "iso24028-testing-validation"
+        "iso24028-testing-validation",
+        "mitre-attack-defense-evasion",
+        "mitre-attack-discovery",
+        "mitre-attack-persistence",
+        "mitre-attack-command-and-control",
+        "mitre-attack-c2-encrypted-channel",
+        "mitre-attack-defevade-impair-defenses"
       ]
     },
     {
@@ -310,7 +344,11 @@
         "cisa-ztmm-net-encryption",
         "cisa-ztmm-net-resilience",
         "zt-t2-secure-communication",
-        "zt-t3-per-session-access"
+        "zt-t3-per-session-access",
+        "mitre-attack-lateral-movement",
+        "mitre-attack-latmov-remote-services",
+        "mitre-attack-c2-application-layer-protocol",
+        "mitre-attack-c2-proxy"
       ]
     },
     {
@@ -374,6 +412,83 @@
         "iso31000-p8-continual-improvement",
         "iso31010-bcp-bia",
         "cisa-ztmm-net-resilience"
+      ]
+    },
+    {
+      "id": "threat-intelligence",
+      "name_en": "Threat Intelligence & Attack Modeling",
+      "name_nb": "Trusselintelligens og angrepsmodellering",
+      "description_en": "Adversary tactics, techniques and procedures (TTPs), threat landscapes, attack frameworks, and threat-informed defense.",
+      "description_nb": "Motstanders taktikker, teknikker og prosedyrer (TTP-er), trussellandskap, angrepsrammeverk og trusselinformert forsvar.",
+      "concept_ids": [
+        "mitre-attack-tactics",
+        "mitre-attack-reconnaissance",
+        "mitre-attack-resource-development",
+        "mitre-attack-initial-access",
+        "mitre-attack-execution",
+        "mitre-attack-persistence",
+        "mitre-attack-privilege-escalation",
+        "mitre-attack-defense-evasion",
+        "mitre-attack-credential-access",
+        "mitre-attack-discovery",
+        "mitre-attack-lateral-movement",
+        "mitre-attack-collection",
+        "mitre-attack-command-and-control",
+        "mitre-attack-exfiltration",
+        "mitre-attack-impact",
+        "mitre-atlas-tactics",
+        "mitre-atlas-reconnaissance",
+        "mitre-atlas-defense-evasion",
+        "mitre-atlas-impact",
+        "mitre-atlas-exfiltration"
+      ]
+    },
+    {
+      "id": "vulnerability-management",
+      "name_en": "Vulnerability Management",
+      "name_nb": "Sarbarhetsstyring",
+      "description_en": "Software weakness classification, vulnerability identification, secure coding practices, and vulnerability remediation across the development lifecycle.",
+      "description_nb": "Klassifisering av programvaresvakheter, sarbarhetsidentifisering, sikker kodingspraksis og sarbarhetsutbedring gjennom utviklingslivssyklusen.",
+      "concept_ids": [
+        "cwe-pillars",
+        "cwe-707",
+        "cwe-693",
+        "cwe-118",
+        "cwe-664",
+        "cwe-691",
+        "cwe-682",
+        "cwe-703",
+        "cwe-697",
+        "cwe-710",
+        "cwe-79",
+        "cwe-89",
+        "cwe-78",
+        "cwe-77",
+        "cwe-94",
+        "cwe-787",
+        "cwe-125",
+        "cwe-119",
+        "cwe-287",
+        "cwe-862",
+        "cwe-798",
+        "cwe-306",
+        "cwe-269",
+        "cwe-863",
+        "cwe-276",
+        "cwe-352",
+        "cwe-416",
+        "cwe-502",
+        "cwe-434",
+        "cwe-20",
+        "cwe-22",
+        "cwe-918",
+        "cwe-190",
+        "cwe-476",
+        "cwe-362",
+        "nist-800-53-ra-5",
+        "nist-800-53-si-2",
+        "nist-csf-id-ra",
+        "nist-csf-id-ra-01"
       ]
     }
   ]

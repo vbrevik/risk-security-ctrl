@@ -1,0 +1,116 @@
+{
+    "relationships": [
+        {
+            "id": "rel-cwe-707-800-53-si",
+            "source_concept_id": "cwe-707",
+            "target_concept_id": "nist-800-53-si",
+            "relationship_type": "mitigated_by",
+            "description": "CWE-707 Improper Neutralization weaknesses (injection, XSS, path traversal) are mitigated by NIST SP 800-53 System and Information Integrity controls including input validation."
+        },
+        {
+            "id": "rel-cwe-693-800-53-ac",
+            "source_concept_id": "cwe-693",
+            "target_concept_id": "nist-800-53-ac",
+            "relationship_type": "mitigated_by",
+            "description": "CWE-693 Protection Mechanism Failure weaknesses (missing auth, CSRF, default permissions) are mitigated by NIST SP 800-53 Access Control family."
+        },
+        {
+            "id": "rel-cwe-693-800-53-ia",
+            "source_concept_id": "cwe-693",
+            "target_concept_id": "nist-800-53-ia",
+            "relationship_type": "mitigated_by",
+            "description": "CWE-693 Protection Mechanism Failure weaknesses (improper authentication) are mitigated by NIST SP 800-53 Identification and Authentication controls."
+        },
+        {
+            "id": "rel-cwe-118-800-53-si",
+            "source_concept_id": "cwe-118",
+            "target_concept_id": "nist-800-53-si",
+            "relationship_type": "mitigated_by",
+            "description": "CWE-118 memory safety weaknesses (buffer overflow, out-of-bounds) are mitigated by NIST SP 800-53 System and Information Integrity controls including software assurance."
+        },
+        {
+            "id": "rel-cwe-664-800-53-si",
+            "source_concept_id": "cwe-664",
+            "target_concept_id": "nist-800-53-si",
+            "relationship_type": "mitigated_by",
+            "description": "CWE-664 resource lifecycle weaknesses (use-after-free, deserialization) are mitigated by NIST SP 800-53 System and Information Integrity controls."
+        },
+        {
+            "id": "rel-cwe-pillars-nist-csf-identify",
+            "source_concept_id": "cwe-pillars",
+            "target_concept_id": "nist-csf-id-ra",
+            "relationship_type": "informs",
+            "description": "CWE weakness taxonomy informs NIST CSF Risk Assessment by providing a structured classification of software vulnerabilities for risk identification."
+        },
+        {
+            "id": "rel-cwe-79-attack-ia-drive-by",
+            "source_concept_id": "cwe-79",
+            "target_concept_id": "mitre-attack-ia-drive-by-compromise",
+            "relationship_type": "exploited_by",
+            "description": "CWE-79 Cross-site Scripting is exploited by ATT&CK Drive-by Compromise. XSS vulnerabilities enable browser-based initial access attacks."
+        },
+        {
+            "id": "rel-cwe-89-attack-exec-command",
+            "source_concept_id": "cwe-89",
+            "target_concept_id": "mitre-attack-exec-command-scripting",
+            "relationship_type": "exploited_by",
+            "description": "CWE-89 SQL Injection is exploited via ATT&CK Command and Scripting Interpreter techniques. Injection weaknesses enable arbitrary command execution."
+        },
+        {
+            "id": "rel-cwe-78-attack-exec-command",
+            "source_concept_id": "cwe-78",
+            "target_concept_id": "mitre-attack-exec-command-scripting",
+            "relationship_type": "exploited_by",
+            "description": "CWE-78 OS Command Injection is exploited via ATT&CK Command and Scripting Interpreter. Command injection weaknesses enable system-level code execution."
+        },
+        {
+            "id": "rel-cwe-287-attack-valid-accounts",
+            "source_concept_id": "cwe-287",
+            "target_concept_id": "mitre-attack-ia-valid-accounts",
+            "relationship_type": "exploited_by",
+            "description": "CWE-287 Improper Authentication is exploited by ATT&CK Valid Accounts. Authentication weaknesses enable adversaries to use legitimate credentials."
+        },
+        {
+            "id": "rel-cwe-798-attack-valid-accounts",
+            "source_concept_id": "cwe-798",
+            "target_concept_id": "mitre-attack-ia-valid-accounts",
+            "relationship_type": "exploited_by",
+            "description": "CWE-798 Hard-coded Credentials is exploited by ATT&CK Valid Accounts. Hardcoded credentials provide adversaries with ready-made access."
+        },
+        {
+            "id": "rel-cwe-862-attack-privesc",
+            "source_concept_id": "cwe-862",
+            "target_concept_id": "mitre-attack-privesc-exploitation",
+            "relationship_type": "exploited_by",
+            "description": "CWE-862 Missing Authorization is exploited by ATT&CK Exploitation for Privilege Escalation. Missing authorization checks enable privilege escalation."
+        },
+        {
+            "id": "rel-cwe-502-attack-exec",
+            "source_concept_id": "cwe-502",
+            "target_concept_id": "mitre-attack-exec-exploitation-client",
+            "relationship_type": "exploited_by",
+            "description": "CWE-502 Deserialization of Untrusted Data is exploited by ATT&CK Exploitation for Client Execution. Insecure deserialization enables remote code execution."
+        },
+        {
+            "id": "rel-cwe-918-attack-recon",
+            "source_concept_id": "cwe-918",
+            "target_concept_id": "mitre-attack-recon-active-scanning",
+            "relationship_type": "exploited_by",
+            "description": "CWE-918 Server-Side Request Forgery is exploited for ATT&CK Active Scanning of internal infrastructure via SSRF to map internal networks."
+        },
+        {
+            "id": "rel-cwe-89-gdpr-security",
+            "source_concept_id": "cwe-89",
+            "target_concept_id": "gdpr-security-of-processing",
+            "relationship_type": "threatens",
+            "description": "CWE-89 SQL Injection threatens GDPR Security of Processing requirements. Injection vulnerabilities can lead to unauthorized access to personal data."
+        },
+        {
+            "id": "rel-cwe-pillars-dora-testing",
+            "source_concept_id": "cwe-pillars",
+            "target_concept_id": "dora-resilience-testing",
+            "relationship_type": "informs",
+            "description": "CWE weakness taxonomy informs DORA Digital Operational Resilience Testing by identifying vulnerability classes to test for."
+        }
+    ]
+}

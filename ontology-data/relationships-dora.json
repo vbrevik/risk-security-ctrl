@@ -1,0 +1,144 @@
+{
+    "relationships": [
+        {
+            "id": "rel-dora-risk-mgmt-csf-protect",
+            "source_concept_id": "dora-ict-risk-management",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "maps_to",
+            "description": "DORA ICT Risk Management maps to NIST CSF Protect function. Both establish protective measures for ICT systems."
+        },
+        {
+            "id": "rel-dora-governance-csf-govern",
+            "source_concept_id": "dora-ict-governance",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "maps_to",
+            "description": "DORA ICT governance requirement maps to NIST CSF Govern function."
+        },
+        {
+            "id": "rel-dora-identification-csf-identify",
+            "source_concept_id": "dora-ict-identification",
+            "target_concept_id": "nist-csf-identify",
+            "relationship_type": "maps_to",
+            "description": "DORA ICT identification requirement maps to NIST CSF Identify function for asset and risk identification."
+        },
+        {
+            "id": "rel-dora-detection-csf-detect",
+            "source_concept_id": "dora-ict-detection",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "maps_to",
+            "description": "DORA ICT detection requirement maps to NIST CSF Detect function."
+        },
+        {
+            "id": "rel-dora-response-csf-respond",
+            "source_concept_id": "dora-ict-response-recovery",
+            "target_concept_id": "nist-csf-respond",
+            "relationship_type": "maps_to",
+            "description": "DORA ICT response and recovery maps to NIST CSF Respond function."
+        },
+        {
+            "id": "rel-dora-response-csf-recover",
+            "source_concept_id": "dora-ict-response-recovery",
+            "target_concept_id": "nist-csf-recover",
+            "relationship_type": "maps_to",
+            "description": "DORA ICT response and recovery maps to NIST CSF Recover function."
+        },
+        {
+            "id": "rel-dora-learning-csf-id-im",
+            "source_concept_id": "dora-ict-learning-evolving",
+            "target_concept_id": "nist-csf-id-im",
+            "relationship_type": "maps_to",
+            "description": "DORA learning and evolving requirement maps to NIST CSF Improvement category."
+        },
+        {
+            "id": "rel-dora-risk-framework-iso31000-design",
+            "source_concept_id": "dora-ict-risk-framework",
+            "target_concept_id": "iso31000-f3-design",
+            "relationship_type": "implements",
+            "description": "DORA ICT risk management framework implements ISO 31000 Framework Design."
+        },
+        {
+            "id": "rel-dora-incident-reporting-nis2-reporting",
+            "source_concept_id": "dora-incident-reporting",
+            "target_concept_id": "nis2-incident-reporting",
+            "relationship_type": "related_to",
+            "description": "DORA incident reporting relates to NIS2 incident reporting. Both impose mandatory incident notification for financial and essential entities respectively."
+        },
+        {
+            "id": "rel-dora-third-party-800-53-sr",
+            "source_concept_id": "dora-third-party-risk",
+            "target_concept_id": "nist-800-53-sr",
+            "relationship_type": "maps_to",
+            "description": "DORA ICT third-party risk management maps to NIST SP 800-53 Supply Chain Risk Management family."
+        },
+        {
+            "id": "rel-dora-third-party-nis2-supply",
+            "source_concept_id": "dora-third-party-risk",
+            "target_concept_id": "nis2-rm-supply-chain",
+            "relationship_type": "related_to",
+            "description": "DORA third-party risk management relates to NIS2 supply chain security. Both address ICT supply chain risks."
+        },
+        {
+            "id": "rel-dora-tlpt-800-53-ca",
+            "source_concept_id": "dora-testing-tlpt",
+            "target_concept_id": "nist-800-53-ca",
+            "relationship_type": "related_to",
+            "description": "DORA threat-led penetration testing relates to NIST SP 800-53 Assessment, Authorization, and Monitoring."
+        },
+        {
+            "id": "rel-dora-protection-iso27000-tech",
+            "source_concept_id": "dora-ict-protection",
+            "target_concept_id": "iso27000-technological",
+            "relationship_type": "implements",
+            "description": "DORA ICT protection requirement implements ISO 27000 Technological controls."
+        },
+        {
+            "id": "rel-dora-info-sharing-nis2-sharing",
+            "source_concept_id": "dora-information-sharing",
+            "target_concept_id": "nis2-information-sharing",
+            "relationship_type": "related_to",
+            "description": "DORA information sharing arrangements relate to NIS2 cybersecurity information sharing."
+        },
+        {
+            "id": "rel-dora-incident-classification-800-53-ir",
+            "source_concept_id": "dora-incident-classification",
+            "target_concept_id": "nist-800-53-ir",
+            "relationship_type": "related_to",
+            "description": "DORA incident classification relates to NIST SP 800-53 Incident Response family."
+        },
+        {
+            "id": "rel-dora-risk-mgmt-iso27000-operation",
+            "source_concept_id": "dora-ict-risk-management",
+            "target_concept_id": "iso27000-operation",
+            "relationship_type": "implements",
+            "description": "DORA ICT risk management implements ISO 27000 Operation requirements for financial sector entities."
+        },
+        {
+            "id": "rel-dora-banking-cer-banking",
+            "source_concept_id": "dora-ict-risk-management",
+            "target_concept_id": "cer-sector-banking",
+            "relationship_type": "related_to",
+            "description": "DORA ICT risk management relates to CER banking sector. DORA provides sector-specific ICT resilience requirements complementing CER."
+        },
+        {
+            "id": "rel-dora-governance-iso27000-leadership",
+            "source_concept_id": "dora-ict-governance",
+            "target_concept_id": "iso27000-leadership",
+            "relationship_type": "implements",
+            "description": "DORA ICT governance implements ISO 27000 Leadership. ISO 27001 leadership structures satisfy DORA Article 5 management body responsibilities."
+        },
+        {
+            "id": "rel-dora-testing-iso27000-evaluation",
+            "source_concept_id": "dora-resilience-testing",
+            "target_concept_id": "iso27000-evaluation",
+            "relationship_type": "implements",
+            "description": "DORA resilience testing implements ISO 27000 Performance evaluation for the financial sector."
+        },
+        {
+            "id": "rel-dora-learning-iso27000-improvement",
+            "source_concept_id": "dora-ict-learning-evolving",
+            "target_concept_id": "iso27000-improvement",
+            "relationship_type": "implements",
+            "description": "DORA learning and evolving implements ISO 27000 Improvement through post-incident lessons-learned and control updates."
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "relationships": [
+        {
+            "id": "rel-iso42005-process-iso31000-assessment",
+            "source_concept_id": "iso42005-impact-assessment-process",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "ISO 42005 AI impact assessment process implements ISO 31000 Risk Assessment for AI-specific societal, individual, and environmental impacts."
+        },
+        {
+            "id": "rel-iso42005-treatment-iso31000-treatment",
+            "source_concept_id": "iso42005-impact-treatment",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "implements",
+            "description": "ISO 42005 impact treatment implements ISO 31000 Risk Treatment for mitigating negative AI impacts and enhancing positive ones."
+        },
+        {
+            "id": "rel-iso42005-process-iso42001-impact",
+            "source_concept_id": "iso42005-impact-assessment-process",
+            "target_concept_id": "iso42001-clause8-4",
+            "relationship_type": "supports",
+            "description": "ISO 42005 impact assessment process supports ISO 42001 Clause 8.4 (AI system impact assessment). ISO 42005 provides the methodology that ISO 42001 requires."
+        },
+        {
+            "id": "rel-iso42005-human-rights-eu-ai-fria",
+            "source_concept_id": "iso42005-human-rights",
+            "target_concept_id": "eu-ai-obl-fria",
+            "relationship_type": "implements",
+            "description": "ISO 42005 human rights impact dimension implements EU AI Act Fundamental Rights Impact Assessment (Article 27)."
+        },
+        {
+            "id": "rel-iso42005-human-rights-gdpr-dpia",
+            "source_concept_id": "iso42005-human-rights",
+            "target_concept_id": "gdpr-dpia",
+            "relationship_type": "related_to",
+            "description": "ISO 42005 human rights impact assessment relates to GDPR DPIA. AI systems processing personal data require both AI impact and privacy impact assessments."
+        },
+        {
+            "id": "rel-iso42005-stakeholder-nist-ai-map",
+            "source_concept_id": "iso42005-stakeholder-engagement",
+            "target_concept_id": "nist-ai-map",
+            "relationship_type": "related_to",
+            "description": "ISO 42005 stakeholder engagement relates to NIST AI RMF Map function for understanding affected parties and deployment context."
+        },
+        {
+            "id": "rel-iso42005-vulnerable-eu-ai-unacceptable",
+            "source_concept_id": "iso42005-se-vulnerable-groups",
+            "target_concept_id": "eu-ai-unacceptable",
+            "relationship_type": "related_to",
+            "description": "ISO 42005 vulnerable groups consideration relates to EU AI Act prohibited practices. Both address protection of vulnerable populations from harmful AI."
+        },
+        {
+            "id": "rel-iso42005-monitoring-iso23894-monitoring",
+            "source_concept_id": "iso42005-monitoring-review",
+            "target_concept_id": "iso23894-monitoring",
+            "relationship_type": "maps_to",
+            "description": "ISO 42005 monitoring and review maps to ISO 23894 monitoring and review. Both require continuous monitoring of AI impacts and risks."
+        },
+        {
+            "id": "rel-iso42005-lifecycle-nist-ai-lifecycle",
+            "source_concept_id": "iso42005-lifecycle-integration",
+            "target_concept_id": "nist-ai-lifecycle",
+            "relationship_type": "maps_to",
+            "description": "ISO 42005 lifecycle integration maps to NIST AI RMF lifecycle stages for impact assessment throughout the AI system lifecycle."
+        },
+        {
+            "id": "rel-iso42005-environmental-eu-ai-systemic",
+            "source_concept_id": "iso42005-environmental-impacts",
+            "target_concept_id": "eu-ai-gpai-systemic-risk",
+            "relationship_type": "related_to",
+            "description": "ISO 42005 environmental impacts relate to EU AI Act GPAI systemic risk. Large-scale AI models have significant environmental impacts that factor into systemic risk assessment."
+        },
+        {
+            "id": "rel-iso42005-governance-iso42001-cl5",
+            "source_concept_id": "iso42005-governance-accountability",
+            "target_concept_id": "iso42001-clause5",
+            "relationship_type": "related_to",
+            "description": "ISO 42005 governance and accountability dimension relates to ISO 42001 Leadership clause for organizational accountability in AI governance."
+        }
+    ]
+}

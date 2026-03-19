@@ -217,6 +217,8 @@ pub async fn import_all_ontologies(
         "cisa-ztmm.json",
         "nist-ai-genai-profile.json",
         "xai-dataops.json",
+        "mitre-attack.json",
+        "cve-cwe.json",
     ];
 
     for file_name in &framework_files {
@@ -228,15 +230,30 @@ pub async fn import_all_ontologies(
         }
     }
 
-    // Import relationships
-    let relationships_path = data_dir.join("relationships.json");
-    if relationships_path.exists() {
-        import_relationships(db, &relationships_path).await?;
+    // Import relationships from all relationships-*.json files
+    let mut rel_files: Vec<_> = std::fs::read_dir(data_dir)?
+        .filter_map(|e| e.ok())
+        .filter(|e| {
+            let name = e.file_name().to_string_lossy().to_string();
+            name.starts_with("relationships-") && name.ends_with(".json")
+        })
+        .map(|e| e.path())
+        .collect();
+    rel_files.sort();
+
+    if rel_files.is_empty() {
+        // Fall back to monolithic relationships.json for backwards compatibility
+        let relationships_path = data_dir.join("relationships.json");
+        if relationships_path.exists() {
+            import_relationships(db, &relationships_path).await?;
+        } else {
+            warn!("No relationship files found in {}", data_dir.display());
+        }
     } else {
-        warn!(
-            "Relationships file not found: {}",
-            relationships_path.display()
-        );
+        info!("Found {} relationship files to import", rel_files.len());
+        for rel_path in &rel_files {
+            import_relationships(db, rel_path).await?;
+        }
     }
 
     info!("Full ontology import completed");

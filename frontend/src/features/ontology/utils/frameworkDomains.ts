@@ -3,7 +3,7 @@ import type { Framework } from "../types";
 const DOMAIN_MAP: { label: string; ids: string[] }[] = [
   {
     label: "Risk & Security Standards",
-    ids: ["iso31000", "iso31010", "iso27000", "iso9000", "iso10015", "nist-csf", "nist-800-53", "nist-rmf"],
+    ids: ["iso31000", "iso31010", "iso27000", "iso9000", "iso10015", "nist-csf", "nist-800-53", "nist-rmf", "mitre-attack", "cwe"],
   },
   {
     label: "AI Governance",

@@ -1,0 +1,172 @@
+{
+    "relationships": [
+        {
+            "id": "rel-iso23894-principles-iso31000-principles",
+            "source_concept_id": "iso23894-principles",
+            "target_concept_id": "iso31000-p1-integrated",
+            "relationship_type": "implements",
+            "description": "ISO 23894 AI risk management principles implement ISO 31000 principles, extending them to the AI context."
+        },
+        {
+            "id": "rel-iso23894-process-iso31000-process",
+            "source_concept_id": "iso23894-process",
+            "target_concept_id": "iso31000-proc1-communication",
+            "relationship_type": "implements",
+            "description": "ISO 23894 AI risk management process implements the ISO 31000 risk management process for AI systems."
+        },
+        {
+            "id": "rel-iso23894-assessment-iso31000-assessment",
+            "source_concept_id": "iso23894-assessment",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "ISO 23894 AI risk assessment implements ISO 31000 Risk Assessment with AI-specific risk identification, analysis, and evaluation."
+        },
+        {
+            "id": "rel-iso23894-treatment-iso31000-treatment",
+            "source_concept_id": "iso23894-treatment",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "implements",
+            "description": "ISO 23894 AI risk treatment implements ISO 31000 Risk Treatment with AI-specific controls and mitigations."
+        },
+        {
+            "id": "rel-iso23894-monitoring-iso31000-monitoring",
+            "source_concept_id": "iso23894-monitoring",
+            "target_concept_id": "iso31000-proc5-monitoring-review",
+            "relationship_type": "implements",
+            "description": "ISO 23894 AI monitoring and review implements ISO 31000 Monitoring and review for AI system performance and emerging risks."
+        },
+        {
+            "id": "rel-iso23894-process-nist-ai-functions",
+            "source_concept_id": "iso23894-process",
+            "target_concept_id": "nist-ai-functions",
+            "relationship_type": "maps_to",
+            "description": "ISO 23894 AI risk management process maps to NIST AI RMF core functions. Both provide structured approaches to AI risk management."
+        },
+        {
+            "id": "rel-iso23894-assessment-nist-ai-map",
+            "source_concept_id": "iso23894-risk-identification",
+            "target_concept_id": "nist-ai-map",
+            "relationship_type": "maps_to",
+            "description": "ISO 23894 AI risk identification maps to NIST AI RMF Map function for identifying AI risks in context."
+        },
+        {
+            "id": "rel-iso23894-analysis-nist-ai-measure",
+            "source_concept_id": "iso23894-risk-analysis",
+            "target_concept_id": "nist-ai-measure",
+            "relationship_type": "maps_to",
+            "description": "ISO 23894 AI risk analysis maps to NIST AI RMF Measure function for assessing and analyzing AI risks."
+        },
+        {
+            "id": "rel-iso23894-treatment-nist-ai-manage",
+            "source_concept_id": "iso23894-treatment",
+            "target_concept_id": "nist-ai-manage",
+            "relationship_type": "maps_to",
+            "description": "ISO 23894 AI risk treatment maps to NIST AI RMF Manage function for prioritizing and acting on AI risks."
+        },
+        {
+            "id": "rel-iso23894-iso42001-risk",
+            "source_concept_id": "iso23894-assessment",
+            "target_concept_id": "iso42001-clause8-2",
+            "relationship_type": "supports",
+            "description": "ISO 23894 AI risk assessment guidance supports ISO 42001 AI risk assessment requirement. ISO 23894 provides the methodology that ISO 42001 requires."
+        },
+        {
+            "id": "rel-iso23894-iso42001-treatment",
+            "source_concept_id": "iso23894-treatment",
+            "target_concept_id": "iso42001-clause8-3",
+            "relationship_type": "supports",
+            "description": "ISO 23894 AI risk treatment guidance supports ISO 42001 AI risk treatment requirement."
+        },
+        {
+            "id": "rel-iso23894-data-risks-eu-ai-data",
+            "source_concept_id": "iso23894-data-risks",
+            "target_concept_id": "eu-ai-hr-data-governance",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 data-related risks relate to EU AI Act data governance requirement. Both address data quality, bias, and representativeness for AI."
+        },
+        {
+            "id": "rel-iso23894-model-risks-eu-ai-accuracy",
+            "source_concept_id": "iso23894-model-risks",
+            "target_concept_id": "eu-ai-hr-accuracy",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 model-related risks relate to EU AI Act accuracy, robustness, and cybersecurity requirement."
+        },
+        {
+            "id": "rel-iso23894-use-risks-eu-ai-oversight",
+            "source_concept_id": "iso23894-use-risks",
+            "target_concept_id": "eu-ai-hr-human-oversight",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 use-related risks (over-reliance, automation bias) relate to EU AI Act human oversight requirement."
+        },
+        {
+            "id": "rel-iso23894-lifecycle-nist-ai-lifecycle",
+            "source_concept_id": "iso23894-lifecycle",
+            "target_concept_id": "nist-ai-lifecycle",
+            "relationship_type": "maps_to",
+            "description": "ISO 23894 AI lifecycle considerations map to NIST AI RMF AI lifecycle stages."
+        },
+        {
+            "id": "rel-iso23894-societal-gdpr-special",
+            "source_concept_id": "iso23894-societal-risks",
+            "target_concept_id": "gdpr-special-categories",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 societal risks (discrimination) relate to GDPR special categories of personal data, as AI discrimination often involves processing sensitive data."
+        },
+        {
+            "id": "rel-iso23894-system-risks-mitre-atlas",
+            "source_concept_id": "iso23894-system-risks",
+            "target_concept_id": "mitre-atlas-tactics",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 system-related risks (security vulnerabilities) relate to MITRE ATLAS AI attack tactics."
+        },
+        {
+            "id": "rel-iso23894-scope-csf-identify",
+            "source_concept_id": "iso23894-scope-context",
+            "target_concept_id": "nist-csf-identify",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 scope, context and criteria relates to NIST CSF Identify function for understanding AI system context."
+        },
+        {
+            "id": "rel-iso23894-recording-eu-ai-logging",
+            "source_concept_id": "iso23894-recording",
+            "target_concept_id": "eu-ai-hr-record-keeping",
+            "relationship_type": "implements",
+            "description": "ISO 23894 recording and reporting implements EU AI Act Article 12 record-keeping. AI risk management audit trails satisfy high-risk AI logging."
+        },
+        {
+            "id": "rel-iso23894-scope-eu-ai-high-risk",
+            "source_concept_id": "iso23894-scope-context",
+            "target_concept_id": "eu-ai-high-risk",
+            "relationship_type": "supports",
+            "description": "ISO 23894 scope and context supports EU AI Act high-risk classification by establishing intended purpose and deployment context."
+        },
+        {
+            "id": "rel-iso23894-monitoring-iso42001-cl9-1",
+            "source_concept_id": "iso23894-monitoring",
+            "target_concept_id": "iso42001-clause9-1",
+            "relationship_type": "supports",
+            "description": "ISO 23894 monitoring guidance supports ISO 42001 Clause 9.1 with AI-specific monitoring methodology."
+        },
+        {
+            "id": "rel-iso23894-lifecycle-iso42001-a6",
+            "source_concept_id": "iso23894-lifecycle",
+            "target_concept_id": "iso42001-a6",
+            "relationship_type": "implements",
+            "description": "ISO 23894 lifecycle risk considerations implement ISO 42001 A.6 AI System Lifecycle requirements."
+        },
+        {
+            "id": "rel-iso23894-system-risks-iso27000-tech",
+            "source_concept_id": "iso23894-system-risks",
+            "target_concept_id": "iso27000-technological",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 system-related AI risks relate to ISO 27000 Technological controls. AI system security vulnerabilities require ISO 27001 technological controls."
+        },
+        {
+            "id": "rel-iso23894-process-iso27000-operation",
+            "source_concept_id": "iso23894-process",
+            "target_concept_id": "iso27000-operation",
+            "relationship_type": "related_to",
+            "description": "ISO 23894 AI risk management process relates to ISO 27000 Operation. AI risk management should be integrated with the ISMS operational security risk assessment."
+        }
+    ]
+}

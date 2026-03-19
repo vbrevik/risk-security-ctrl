@@ -1,0 +1,172 @@
+{
+    "relationships": [
+        {
+            "id": "rel-eu-ai-risk-mgmt-iso31000-process",
+            "source_concept_id": "eu-ai-hr-risk-management",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "EU AI Act risk management system requirement for high-risk AI implements ISO 31000 Risk Assessment process for AI-specific risks."
+        },
+        {
+            "id": "rel-eu-ai-risk-mgmt-rmf-prepare",
+            "source_concept_id": "eu-ai-hr-risk-management",
+            "target_concept_id": "nist-rmf-prepare",
+            "relationship_type": "related_to",
+            "description": "EU AI Act risk management system relates to NIST RMF Prepare step. Both require establishing risk management before system deployment."
+        },
+        {
+            "id": "rel-eu-ai-cybersecurity-csf-protect",
+            "source_concept_id": "eu-ai-hr-accuracy",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "implements",
+            "description": "EU AI Act accuracy, robustness, and cybersecurity requirement implements NIST CSF Protect function for AI system resilience."
+        },
+        {
+            "id": "rel-eu-ai-cybersecurity-800-53-si",
+            "source_concept_id": "eu-ai-hr-accuracy",
+            "target_concept_id": "nist-800-53-si",
+            "relationship_type": "related_to",
+            "description": "EU AI Act cybersecurity requirement relates to NIST SP 800-53 System and Information Integrity family for AI system integrity."
+        },
+        {
+            "id": "rel-eu-ai-logging-csf-de-cm",
+            "source_concept_id": "eu-ai-hr-record-keeping",
+            "target_concept_id": "nist-csf-de-cm",
+            "relationship_type": "implements",
+            "description": "EU AI Act record-keeping (logging) requirement implements NIST CSF Continuous Monitoring through automated event logging."
+        },
+        {
+            "id": "rel-eu-ai-logging-800-53-au",
+            "source_concept_id": "eu-ai-hr-record-keeping",
+            "target_concept_id": "nist-800-53-au",
+            "relationship_type": "maps_to",
+            "description": "EU AI Act logging requirement maps to NIST SP 800-53 Audit and Accountability family."
+        },
+        {
+            "id": "rel-eu-ai-human-oversight-iso31000-monitoring",
+            "source_concept_id": "eu-ai-hr-human-oversight",
+            "target_concept_id": "iso31000-proc5-monitoring-review",
+            "relationship_type": "implements",
+            "description": "EU AI Act human oversight requirement implements ISO 31000 Monitoring and review through human-in-the-loop processes."
+        },
+        {
+            "id": "rel-eu-ai-data-governance-iso27000-org",
+            "source_concept_id": "eu-ai-hr-data-governance",
+            "target_concept_id": "iso27000-organizational",
+            "relationship_type": "related_to",
+            "description": "EU AI Act data governance requirement relates to ISO 27000 Organizational controls for data management practices."
+        },
+        {
+            "id": "rel-eu-ai-data-governance-dca-aware",
+            "source_concept_id": "eu-ai-hr-data-governance",
+            "target_concept_id": "dca-p1-data-aware",
+            "relationship_type": "related_to",
+            "description": "EU AI Act data governance relates to Data Centric data awareness principle. Understanding training data quality requires data awareness."
+        },
+        {
+            "id": "rel-eu-ai-conformity-rmf-assess",
+            "source_concept_id": "eu-ai-gov-conformity",
+            "target_concept_id": "nist-rmf-assess",
+            "relationship_type": "maps_to",
+            "description": "EU AI Act conformity assessment maps to NIST RMF Assess step. Both involve formal assessment of controls/requirements compliance."
+        },
+        {
+            "id": "rel-eu-ai-conformity-rmf-authorize",
+            "source_concept_id": "eu-ai-gov-conformity",
+            "target_concept_id": "nist-rmf-authorize",
+            "relationship_type": "related_to",
+            "description": "EU AI Act conformity assessment relates to NIST RMF Authorize step. Both require formal approval before system operation."
+        },
+        {
+            "id": "rel-eu-ai-provider-iso9000-qms",
+            "source_concept_id": "eu-ai-obl-provider",
+            "target_concept_id": "iso9000-qms",
+            "relationship_type": "related_to",
+            "description": "EU AI Act provider obligations (quality management system) relate to ISO 9000 Quality Management System requirements."
+        },
+        {
+            "id": "rel-eu-ai-risk-mgmt-iso31000-treatment",
+            "source_concept_id": "eu-ai-hr-risk-management",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "implements",
+            "description": "EU AI Act risk management system implements ISO 31000 Risk Treatment through adoption of suitable risk management measures for AI systems."
+        },
+        {
+            "id": "rel-eu-ai-fria-iso31000-evaluation",
+            "source_concept_id": "eu-ai-obl-fria",
+            "target_concept_id": "iso31000-proc3c-evaluation",
+            "relationship_type": "implements",
+            "description": "EU AI Act Fundamental Rights Impact Assessment implements ISO 31000 Risk Evaluation for fundamental rights impacts."
+        },
+        {
+            "id": "rel-eu-ai-transparency-csf-govern",
+            "source_concept_id": "eu-ai-hr-transparency",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "related_to",
+            "description": "EU AI Act transparency requirements relate to NIST CSF Govern function. Transparency supports organizational governance of AI systems."
+        },
+        {
+            "id": "rel-eu-ai-critical-infra-csf-pr-ir",
+            "source_concept_id": "eu-ai-area-critical-infra",
+            "target_concept_id": "nist-csf-pr-ir",
+            "relationship_type": "related_to",
+            "description": "EU AI Act critical infrastructure high-risk area relates to NIST CSF Technology Infrastructure Resilience."
+        },
+        {
+            "id": "rel-eu-ai-systemic-risk-iso31000-dynamic",
+            "source_concept_id": "eu-ai-gpai-systemic-risk",
+            "target_concept_id": "iso31000-p5-dynamic",
+            "relationship_type": "related_to",
+            "description": "EU AI Act systemic risk obligations for GPAI relate to ISO 31000 Dynamic principle. Systemic AI risks require dynamic, evolving risk assessment."
+        },
+        {
+            "id": "rel-eu-ai-deployer-rmf-monitor",
+            "source_concept_id": "eu-ai-obl-deployer",
+            "target_concept_id": "nist-rmf-monitor",
+            "relationship_type": "related_to",
+            "description": "EU AI Act deployer obligations (monitoring operation) relate to NIST RMF Monitor step for ongoing system oversight."
+        },
+        {
+            "id": "rel-eu-ai-biometrics-csf-pr-aa",
+            "source_concept_id": "eu-ai-area-biometrics",
+            "target_concept_id": "nist-csf-pr-aa",
+            "relationship_type": "related_to",
+            "description": "EU AI Act biometrics high-risk area relates to NIST CSF Identity Management, Authentication, and Access Control."
+        },
+        {
+            "id": "rel-eu-ai-governance-iso27000-isms",
+            "source_concept_id": "eu-ai-governance",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "EU AI Act governance framework relates to ISO 27000 ISMS. Both establish institutional frameworks for managing technology-related risks and compliance."
+        },
+        {
+            "id": "rel-eu-ai-cybersecurity-nis2-risk",
+            "source_concept_id": "eu-ai-hr-accuracy",
+            "target_concept_id": "nis2-risk-management",
+            "relationship_type": "related_to",
+            "description": "EU AI Act cybersecurity requirement relates to NIS2 risk management measures. AI systems in critical sectors must meet both EU AI Act robustness and NIS2 cybersecurity requirements."
+        },
+        {
+            "id": "rel-eu-ai-critical-infra-nis2-essential",
+            "source_concept_id": "eu-ai-area-critical-infra",
+            "target_concept_id": "nis2-essential-entities",
+            "relationship_type": "related_to",
+            "description": "EU AI Act critical infrastructure high-risk area relates to NIS2 essential entities. AI in critical infrastructure triggers both EU AI Act high-risk and NIS2 essential entity obligations."
+        },
+        {
+            "id": "rel-eu-ai-risk-mgmt-dora-ict-risk",
+            "source_concept_id": "eu-ai-hr-risk-management",
+            "target_concept_id": "dora-ict-risk-management",
+            "relationship_type": "related_to",
+            "description": "EU AI Act risk management relates to DORA ICT risk management. Financial AI systems require both EU AI Act Art 9 and DORA ICT risk management frameworks."
+        },
+        {
+            "id": "rel-eu-ai-post-market-dora-learning",
+            "source_concept_id": "eu-ai-gov-post-market",
+            "target_concept_id": "dora-ict-learning-evolving",
+            "relationship_type": "related_to",
+            "description": "EU AI Act post-market monitoring relates to DORA learning and evolving for continuous AI risk management in financial services."
+        }
+    ]
+}

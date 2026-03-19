@@ -126,7 +126,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .filter_map(|e| e.ok())
             .filter(|e| {
                 let name = e.file_name().to_string_lossy().to_string();
-                name.ends_with(".json") && name != "relationships.json" && name != "topic-tags.json"
+                name.ends_with(".json") && !name.starts_with("relationships") && name != "topic-tags.json"
             })
             .collect();
 

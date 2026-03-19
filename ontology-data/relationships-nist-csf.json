@@ -1,0 +1,39 @@
+{
+    "relationships": [
+        {
+            "id": "rel-nist-govern-iso31000-framework",
+            "source_concept_id": "nist-csf-gv-oc",
+            "target_concept_id": "iso31000-f3-design",
+            "relationship_type": "related_to",
+            "description": "NIST CSF Organizational Context relates to ISO 31000 Framework Design. Both involve understanding organizational context."
+        },
+        {
+            "id": "rel-nist-detect-iso31000-monitoring",
+            "source_concept_id": "nist-csf-de-ae",
+            "target_concept_id": "iso31000-proc5-monitoring-review",
+            "relationship_type": "related_to",
+            "description": "NIST CSF Adverse Event Analysis relates to ISO 31000 Monitoring and review process step."
+        },
+        {
+            "id": "rel-nist-respond-iso31000-treatment",
+            "source_concept_id": "nist-csf-rs-mi",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "related_to",
+            "description": "NIST CSF Incident Mitigation relates to ISO 31000 Risk Treatment. Incident mitigation is a form of risk treatment."
+        },
+        {
+            "id": "rel-nist-data-security-iso31000-treatment",
+            "source_concept_id": "nist-csf-pr-ds",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "implements",
+            "description": "NIST CSF Data Security implements ISO 31000 Risk Treatment for data-related risks."
+        },
+        {
+            "id": "rel-nist-access-control-iso31000-treatment",
+            "source_concept_id": "nist-csf-pr-aa",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "implements",
+            "description": "NIST CSF Identity Management and Access Control implements ISO 31000 Risk Treatment for access-related risks."
+        }
+    ]
+}

@@ -1,0 +1,123 @@
+{
+    "relationships": [
+        {
+            "id": "rel-iso42001-aims-iso27000-isms",
+            "source_concept_id": "iso42001-clause4-4",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "ISO 42001 AIMS relates to ISO 27000 ISMS. Both follow the ISO Harmonized Structure for management systems with compatible requirements."
+        },
+        {
+            "id": "rel-iso42001-risk-iso31000-assessment",
+            "source_concept_id": "iso42001-clause8-2",
+            "target_concept_id": "iso31000-proc3-risk-assessment",
+            "relationship_type": "implements",
+            "description": "ISO 42001 AI risk assessment implements ISO 31000 Risk Assessment process for AI-specific risks."
+        },
+        {
+            "id": "rel-iso42001-treatment-iso31000-treatment",
+            "source_concept_id": "iso42001-clause8-3",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "implements",
+            "description": "ISO 42001 AI risk treatment implements ISO 31000 Risk Treatment for AI systems."
+        },
+        {
+            "id": "rel-iso42001-policy-csf-govern",
+            "source_concept_id": "iso42001-clause5-2",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "related_to",
+            "description": "ISO 42001 AI policy relates to NIST CSF Govern function for organizational AI governance."
+        },
+        {
+            "id": "rel-iso42001-govern-nist-ai-govern",
+            "source_concept_id": "iso42001-clause5",
+            "target_concept_id": "nist-ai-govern",
+            "relationship_type": "maps_to",
+            "description": "ISO 42001 Leadership clause maps to NIST AI RMF Govern function. Both establish organizational AI risk governance."
+        },
+        {
+            "id": "rel-iso42001-impact-eu-ai-fria",
+            "source_concept_id": "iso42001-clause8-4",
+            "target_concept_id": "eu-ai-obl-fria",
+            "relationship_type": "related_to",
+            "description": "ISO 42001 AI system impact assessment relates to EU AI Act Fundamental Rights Impact Assessment."
+        },
+        {
+            "id": "rel-iso42001-risk-eu-ai-risk-mgmt",
+            "source_concept_id": "iso42001-clause8-2",
+            "target_concept_id": "eu-ai-hr-risk-management",
+            "relationship_type": "maps_to",
+            "description": "ISO 42001 AI risk assessment maps to EU AI Act risk management system requirement for high-risk AI."
+        },
+        {
+            "id": "rel-iso42001-qms-iso9000-qms",
+            "source_concept_id": "iso42001-clause4-4",
+            "target_concept_id": "iso9000-qms",
+            "relationship_type": "related_to",
+            "description": "ISO 42001 AIMS relates to ISO 9000 QMS. Both are ISO management system standards with compatible structures."
+        },
+        {
+            "id": "rel-iso42001-monitoring-iso31000-monitoring",
+            "source_concept_id": "iso42001-clause9-1",
+            "target_concept_id": "iso31000-proc5-monitoring-review",
+            "relationship_type": "implements",
+            "description": "ISO 42001 monitoring and measurement implements ISO 31000 Monitoring and review for AI systems."
+        },
+        {
+            "id": "rel-iso42001-improvement-iso31000-improvement",
+            "source_concept_id": "iso42001-clause10",
+            "target_concept_id": "iso31000-p8-continual-improvement",
+            "relationship_type": "implements",
+            "description": "ISO 42001 continual improvement implements ISO 31000 Continual improvement principle for AIMS."
+        },
+        {
+            "id": "rel-iso42001-context-nist-ai-map",
+            "source_concept_id": "iso42001-clause4-1",
+            "target_concept_id": "nist-ai-map",
+            "relationship_type": "maps_to",
+            "description": "ISO 42001 understanding organizational context maps to NIST AI RMF Map function for understanding AI system context."
+        },
+        {
+            "id": "rel-iso42001-audit-iso27000-evaluation",
+            "source_concept_id": "iso42001-clause9-2",
+            "target_concept_id": "iso27000-evaluation",
+            "relationship_type": "maps_to",
+            "description": "ISO 42001 internal audit maps to ISO 27000 Performance evaluation. Both require systematic assessment of management system effectiveness."
+        },
+        {
+            "id": "rel-iso42001-gdpr-privacy",
+            "source_concept_id": "iso42001-clause8-4",
+            "target_concept_id": "gdpr-dpia",
+            "relationship_type": "related_to",
+            "description": "ISO 42001 AI system impact assessment relates to GDPR DPIA. AI systems processing personal data require both AI impact and privacy impact assessments."
+        },
+        {
+            "id": "rel-iso42001-saif-governance",
+            "source_concept_id": "iso42001-clause5",
+            "target_concept_id": "google-saif-element-4-governance",
+            "relationship_type": "related_to",
+            "description": "ISO 42001 Leadership clause relates to Google SAIF Unified AI Security Governance for consistent AI governance."
+        },
+        {
+            "id": "rel-iso42001-a7-eu-ai-data",
+            "source_concept_id": "iso42001-a7",
+            "target_concept_id": "eu-ai-hr-data-governance",
+            "relationship_type": "implements",
+            "description": "ISO 42001 A.7 (Data for AI Systems) implements EU AI Act Article 10 data governance for high-risk AI systems."
+        },
+        {
+            "id": "rel-iso42001-cl8-1-eu-ai-docs",
+            "source_concept_id": "iso42001-clause8-1",
+            "target_concept_id": "eu-ai-hr-technical-documentation",
+            "relationship_type": "implements",
+            "description": "ISO 42001 Clause 8.1 operational planning implements EU AI Act Article 11 technical documentation requirement."
+        },
+        {
+            "id": "rel-iso42001-cl9-2-eu-ai-conformity",
+            "source_concept_id": "iso42001-clause9-2",
+            "target_concept_id": "eu-ai-gov-conformity",
+            "relationship_type": "supports",
+            "description": "ISO 42001 internal audit supports EU AI Act Article 43 conformity assessment with documented evidence trails."
+        }
+    ]
+}

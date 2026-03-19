@@ -1,0 +1,32 @@
+{
+    "relationships": [
+        {
+            "id": "rel-iso9000-iso31000-risk-planning",
+            "source_concept_id": "iso9000-planning",
+            "target_concept_id": "iso31000-f3-design",
+            "relationship_type": "maps_to",
+            "description": "ISO 9000 Planning for QMS addresses risks and opportunities, mapping to ISO 31000 Risk Management Framework Design."
+        },
+        {
+            "id": "rel-iso9000-iso31000-improvement",
+            "source_concept_id": "iso9000-p5-improvement",
+            "target_concept_id": "iso31000-p8-continual-improvement",
+            "relationship_type": "maps_to",
+            "description": "ISO 9000 Improvement principle maps to ISO 31000 Continual improvement principle."
+        },
+        {
+            "id": "rel-iso9000-iso31000-process-approach",
+            "source_concept_id": "iso9000-p4-process-approach",
+            "target_concept_id": "iso31000-p2-structured",
+            "relationship_type": "related_to",
+            "description": "ISO 9000 Process approach relates to ISO 31000 Structured and comprehensive principle."
+        },
+        {
+            "id": "rel-iso9000-iso31000-evidence",
+            "source_concept_id": "iso9000-p6-evidence-based",
+            "target_concept_id": "iso31000-p6-best-info",
+            "relationship_type": "maps_to",
+            "description": "ISO 9000 Evidence-based decision making maps to ISO 31000 Best available information principle."
+        }
+    ]
+}

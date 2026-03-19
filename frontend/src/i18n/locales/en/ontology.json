@@ -26,7 +26,9 @@
     "iso23894": "ISO/IEC 23894 - AI Risk Management Guidance",
     "nist-ai-genai": "NIST AI 600-1 - Generative AI Profile",
     "iso10015": "ISO 10015:2019 - Competence Management",
-    "iso24028": "ISO/IEC TR 24028 - AI Trustworthiness"
+    "iso24028": "ISO/IEC TR 24028 - AI Trustworthiness",
+    "mitreAttack": "MITRE ATT&CK Enterprise - Adversary TTPs",
+    "cwe": "CWE - Common Weakness Enumeration"
   },
   "concepts": {
     "title": "Concepts",

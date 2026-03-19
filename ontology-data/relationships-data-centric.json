@@ -1,0 +1,46 @@
+{
+    "relationships": [
+        {
+            "id": "rel-dca-iso27000-data-protection",
+            "source_concept_id": "dca-p2-data-protection",
+            "target_concept_id": "iso27000-technological",
+            "relationship_type": "implements",
+            "description": "Data Centric data-level protection implements ISO 27000 Technological controls."
+        },
+        {
+            "id": "rel-dca-nist-data-security",
+            "source_concept_id": "dca-encryption",
+            "target_concept_id": "nist-csf-pr-ds",
+            "relationship_type": "implements",
+            "description": "Data Centric encryption implements NIST CSF Data Security category."
+        },
+        {
+            "id": "rel-dca-iso31000-data-awareness",
+            "source_concept_id": "dca-p1-data-aware",
+            "target_concept_id": "iso31000-proc2-scope-context",
+            "relationship_type": "implements",
+            "description": "Data awareness (knowing what data you have) implements ISO 31000 Scope and context establishment."
+        },
+        {
+            "id": "rel-dca-nist-asset-management",
+            "source_concept_id": "dca-discovery",
+            "target_concept_id": "nist-csf-id-am",
+            "relationship_type": "implements",
+            "description": "Data discovery and inventory implements NIST CSF Asset Management for data assets."
+        },
+        {
+            "id": "rel-dca-classification-iso27000",
+            "source_concept_id": "dca-classification",
+            "target_concept_id": "iso27000-organizational",
+            "relationship_type": "implements",
+            "description": "Data classification implements ISO 27000 Organizational controls for information classification."
+        },
+        {
+            "id": "rel-dca-zt-data-protection",
+            "source_concept_id": "dca-p4-persistent-protection",
+            "target_concept_id": "zt-t2-secure-communication",
+            "relationship_type": "supports",
+            "description": "Data Centric persistent protection supports Zero Trust secure communication requirements."
+        }
+    ]
+}

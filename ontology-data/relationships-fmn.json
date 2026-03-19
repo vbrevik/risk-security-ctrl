@@ -1,0 +1,39 @@
+{
+    "relationships": [
+        {
+            "id": "rel-fmn-iso27000-identity",
+            "source_concept_id": "fmn-identity",
+            "target_concept_id": "iso27000-technological",
+            "relationship_type": "implements",
+            "description": "FMN Federated Identity Management implements ISO 27000 Technological controls for identity and access."
+        },
+        {
+            "id": "rel-fmn-iso27000-security",
+            "source_concept_id": "fmn-p3-security",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "FMN Multilevel security principle relates to ISO 27000 ISMS security requirements."
+        },
+        {
+            "id": "rel-fmn-nist-identity",
+            "source_concept_id": "fmn-identity",
+            "target_concept_id": "nist-csf-pr-aa",
+            "relationship_type": "implements",
+            "description": "FMN Federated Identity Management implements NIST CSF Identity Management and Access Control."
+        },
+        {
+            "id": "rel-fmn-nist-information-sharing",
+            "source_concept_id": "fmn-isa",
+            "target_concept_id": "nist-csf-pr-ds",
+            "relationship_type": "implements",
+            "description": "FMN Information Sharing Agreements implement NIST CSF Data Security for shared information."
+        },
+        {
+            "id": "rel-fmn-iso31000-isa-risk",
+            "source_concept_id": "fmn-isa",
+            "target_concept_id": "iso31000-proc4-treatment",
+            "relationship_type": "implements",
+            "description": "FMN Information Sharing Agreements implement ISO 31000 Risk Treatment for information sharing risks."
+        }
+    ]
+}

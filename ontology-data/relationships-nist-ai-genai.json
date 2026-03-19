@@ -1,0 +1,102 @@
+{
+    "relationships": [
+        {
+            "id": "rel-genai-govern-ai-govern",
+            "source_concept_id": "genai-actions-govern",
+            "target_concept_id": "nist-ai-govern",
+            "relationship_type": "maps_to",
+            "description": "GenAI Profile Govern actions extend and specialize the AI RMF Govern function with GAI-specific governance requirements including content provenance policies, third-party GAI oversight, and GAI workforce training."
+        },
+        {
+            "id": "rel-genai-map-ai-map",
+            "source_concept_id": "genai-actions-map",
+            "target_concept_id": "nist-ai-map",
+            "relationship_type": "maps_to",
+            "description": "GenAI Profile Map actions extend the AI RMF Map function with GAI-specific context establishment, stakeholder identification, and risk identification for generative AI deployment scenarios."
+        },
+        {
+            "id": "rel-genai-measure-ai-measure",
+            "source_concept_id": "genai-actions-measure",
+            "target_concept_id": "nist-ai-measure",
+            "relationship_type": "maps_to",
+            "description": "GenAI Profile Measure actions extend the AI RMF Measure function with GAI-specific metrics for confabulation rates, content provenance tracking, and trustworthiness evaluation of generated outputs."
+        },
+        {
+            "id": "rel-genai-manage-ai-manage",
+            "source_concept_id": "genai-actions-manage",
+            "target_concept_id": "nist-ai-manage",
+            "relationship_type": "maps_to",
+            "description": "GenAI Profile Manage actions extend the AI RMF Manage function with GAI-specific risk treatment strategies including content filtering, output monitoring, and incident response for generated content."
+        },
+        {
+            "id": "rel-genai-confab-ai-valid",
+            "source_concept_id": "genai-risk-confabulation",
+            "target_concept_id": "nist-ai-tw-valid-reliable",
+            "relationship_type": "related_to",
+            "description": "Confabulation risk directly relates to the Valid and Reliable trustworthy AI characteristic. GAI systems that confabulate produce invalid outputs, undermining reliability requirements."
+        },
+        {
+            "id": "rel-genai-privacy-ai-privacy",
+            "source_concept_id": "genai-risk-data-privacy",
+            "target_concept_id": "nist-ai-tw-privacy",
+            "relationship_type": "related_to",
+            "description": "GAI data privacy risk relates to the Privacy-Enhanced trustworthy AI characteristic. Training data memorization and prompt leakage create privacy risks beyond traditional AI systems."
+        },
+        {
+            "id": "rel-genai-bias-ai-fair",
+            "source_concept_id": "genai-risk-harmful-bias",
+            "target_concept_id": "nist-ai-tw-fair",
+            "relationship_type": "related_to",
+            "description": "GAI harmful bias and homogenization risk relates to the Fair with Harmful Bias Managed characteristic. Generative models can amplify training data biases at scale."
+        },
+        {
+            "id": "rel-genai-security-ai-secure",
+            "source_concept_id": "genai-risk-info-security",
+            "target_concept_id": "nist-ai-tw-secure-resilient",
+            "relationship_type": "related_to",
+            "description": "GAI information security risk (prompt injection, model extraction) relates to the Secure and Resilient trustworthy AI characteristic. GAI introduces novel attack surfaces."
+        },
+        {
+            "id": "rel-genai-humanai-ai-transparent",
+            "source_concept_id": "genai-risk-human-ai",
+            "target_concept_id": "nist-ai-tw-accountable-transparent",
+            "relationship_type": "related_to",
+            "description": "Human-AI configuration risk relates to Accountable and Transparent characteristics. Inadequate oversight of GAI systems undermines accountability and transparency."
+        },
+        {
+            "id": "rel-genai-integrity-ai-safe",
+            "source_concept_id": "genai-risk-info-integrity",
+            "target_concept_id": "nist-ai-tw-safe",
+            "relationship_type": "related_to",
+            "description": "Information integrity risk from synthetic media and disinformation relates to the Safe characteristic. Large-scale misinformation can endanger public safety and democratic processes."
+        },
+        {
+            "id": "rel-genai-privacy-gdpr-dpia",
+            "source_concept_id": "genai-risk-data-privacy",
+            "target_concept_id": "gdpr-data-protection-impact",
+            "relationship_type": "related_to",
+            "description": "GAI data privacy risk connects to GDPR DPIA requirements. Organizations deploying generative AI that processes personal data must conduct impact assessments under GDPR Article 35."
+        },
+        {
+            "id": "rel-genai-risk-euai-high",
+            "source_concept_id": "genai-risks",
+            "target_concept_id": "eu-ai-act-high-risk",
+            "relationship_type": "related_to",
+            "description": "GenAI risks as a category relate to EU AI Act high-risk classification. General-purpose AI models with systemic risk fall under Tier 2 obligations in the AI Act."
+        },
+        {
+            "id": "rel-genai-confab-iso42005-impact",
+            "source_concept_id": "genai-risk-confabulation",
+            "target_concept_id": "iso42005-impact-assessment-process",
+            "relationship_type": "related_to",
+            "description": "Confabulation risk should be assessed as part of ISO 42005 impact assessment. Fabricated outputs can have significant downstream impacts on individuals and organizations."
+        },
+        {
+            "id": "rel-genai-env-iso42005-env",
+            "source_concept_id": "genai-risk-environmental",
+            "target_concept_id": "iso42005-environmental-impacts",
+            "relationship_type": "maps_to",
+            "description": "GAI environmental impact risk maps directly to ISO 42005 environmental impact assessment. Both address resource consumption and sustainability concerns of AI systems."
+        }
+    ]
+}

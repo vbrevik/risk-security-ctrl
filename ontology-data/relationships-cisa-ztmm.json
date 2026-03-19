@@ -1,0 +1,137 @@
+{
+    "relationships": [
+        {
+            "id": "rel-ztmm-identity-csf-pr-aa",
+            "source_concept_id": "cisa-ztmm-identity",
+            "target_concept_id": "nist-csf-pr-aa",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Identity pillar maps to NIST CSF Identity Management, Authentication, and Access Control."
+        },
+        {
+            "id": "rel-ztmm-identity-800-53-ac",
+            "source_concept_id": "cisa-ztmm-identity",
+            "target_concept_id": "nist-800-53-ac",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Identity pillar maps to NIST SP 800-53 Access Control family."
+        },
+        {
+            "id": "rel-ztmm-identity-800-53-ia",
+            "source_concept_id": "cisa-ztmm-identity",
+            "target_concept_id": "nist-800-53-ia",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Identity pillar maps to NIST SP 800-53 Identification and Authentication family."
+        },
+        {
+            "id": "rel-ztmm-identity-zt-verify",
+            "source_concept_id": "cisa-ztmm-identity",
+            "target_concept_id": "zt-p1-verify-explicitly",
+            "relationship_type": "implements",
+            "description": "CISA ZTMM Identity pillar implements the Zero Trust principle of verify explicitly."
+        },
+        {
+            "id": "rel-ztmm-devices-csf-pr-ps",
+            "source_concept_id": "cisa-ztmm-devices",
+            "target_concept_id": "nist-csf-pr-ps",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Devices pillar maps to NIST CSF Platform Security for device hardening and compliance."
+        },
+        {
+            "id": "rel-ztmm-devices-zt-device",
+            "source_concept_id": "cisa-ztmm-devices",
+            "target_concept_id": "zt-t5-device-security",
+            "relationship_type": "implements",
+            "description": "CISA ZTMM Devices pillar implements Zero Trust device security and compliance verification."
+        },
+        {
+            "id": "rel-ztmm-networks-800-53-sc",
+            "source_concept_id": "cisa-ztmm-networks",
+            "target_concept_id": "nist-800-53-sc",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Networks pillar maps to NIST SP 800-53 System and Communications Protection family."
+        },
+        {
+            "id": "rel-ztmm-networks-zt-comms",
+            "source_concept_id": "cisa-ztmm-networks",
+            "target_concept_id": "zt-t2-secure-communication",
+            "relationship_type": "implements",
+            "description": "CISA ZTMM Networks pillar implements Zero Trust secure communication tenet."
+        },
+        {
+            "id": "rel-ztmm-networks-zt-session",
+            "source_concept_id": "cisa-ztmm-networks",
+            "target_concept_id": "zt-t3-per-session-access",
+            "relationship_type": "implements",
+            "description": "CISA ZTMM Networks pillar implements Zero Trust per-session access tenet for network segmentation."
+        },
+        {
+            "id": "rel-ztmm-apps-800-53-cm",
+            "source_concept_id": "cisa-ztmm-apps",
+            "target_concept_id": "nist-800-53-cm",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Applications & Workloads pillar maps to NIST SP 800-53 Configuration Management family."
+        },
+        {
+            "id": "rel-ztmm-apps-csf-pr-ps",
+            "source_concept_id": "cisa-ztmm-apps",
+            "target_concept_id": "nist-csf-pr-ps",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Applications & Workloads pillar maps to NIST CSF Platform Security for application hardening."
+        },
+        {
+            "id": "rel-ztmm-data-csf-pr-ds",
+            "source_concept_id": "cisa-ztmm-data",
+            "target_concept_id": "nist-csf-pr-ds",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Data pillar maps to NIST CSF Data Security for data protection controls."
+        },
+        {
+            "id": "rel-ztmm-data-800-53-mp",
+            "source_concept_id": "cisa-ztmm-data",
+            "target_concept_id": "nist-800-53-mp",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Data pillar maps to NIST SP 800-53 Media Protection family."
+        },
+        {
+            "id": "rel-ztmm-data-dca-principles",
+            "source_concept_id": "cisa-ztmm-data",
+            "target_concept_id": "dca-principles",
+            "relationship_type": "related_to",
+            "description": "CISA ZTMM Data pillar relates to Data Centric Security principles for data-level protection."
+        },
+        {
+            "id": "rel-ztmm-visibility-csf-detect",
+            "source_concept_id": "cisa-ztmm-visibility",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Visibility & Analytics maps to NIST CSF Detect function for continuous monitoring."
+        },
+        {
+            "id": "rel-ztmm-visibility-800-53-au",
+            "source_concept_id": "cisa-ztmm-visibility",
+            "target_concept_id": "nist-800-53-au",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Visibility & Analytics maps to NIST SP 800-53 Audit and Accountability family."
+        },
+        {
+            "id": "rel-ztmm-governance-csf-govern",
+            "source_concept_id": "cisa-ztmm-governance",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "maps_to",
+            "description": "CISA ZTMM Governance maps to NIST CSF Govern function for organizational governance alignment."
+        },
+        {
+            "id": "rel-ztmm-governance-iso31000-leadership",
+            "source_concept_id": "cisa-ztmm-governance",
+            "target_concept_id": "iso31000-f1-leadership",
+            "relationship_type": "related_to",
+            "description": "CISA ZTMM Governance relates to ISO 31000 Leadership and Commitment for risk governance."
+        },
+        {
+            "id": "rel-ztmm-governance-iso27000-isms",
+            "source_concept_id": "cisa-ztmm-governance",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "CISA ZTMM Governance relates to ISO 27000 ISMS for information security governance alignment."
+        }
+    ]
+}

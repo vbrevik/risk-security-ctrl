@@ -1,0 +1,95 @@
+{
+    "relationships": [
+        {
+            "id": "rel-saif-1-csf-protect",
+            "source_concept_id": "google-saif-element-1",
+            "target_concept_id": "nist-csf-protect",
+            "relationship_type": "maps_to",
+            "description": "Google SAIF Element 1 (Expand security foundations) maps to NIST CSF Protect function."
+        },
+        {
+            "id": "rel-saif-1-supply-800-53-sr",
+            "source_concept_id": "google-saif-element-1-supply",
+            "target_concept_id": "nist-800-53-sr",
+            "relationship_type": "related_to",
+            "description": "Google SAIF AI Supply Chain Security relates to NIST SP 800-53 Supply Chain Risk Management."
+        },
+        {
+            "id": "rel-saif-2-csf-detect",
+            "source_concept_id": "google-saif-element-2",
+            "target_concept_id": "nist-csf-detect",
+            "relationship_type": "maps_to",
+            "description": "Google SAIF Element 2 (Detection and response) maps to NIST CSF Detect function."
+        },
+        {
+            "id": "rel-saif-2-incident-csf-respond",
+            "source_concept_id": "google-saif-element-2-incident",
+            "target_concept_id": "nist-csf-respond",
+            "relationship_type": "maps_to",
+            "description": "Google SAIF AI Incident Response maps to NIST CSF Respond function."
+        },
+        {
+            "id": "rel-saif-2-redteam-mitre-atlas",
+            "source_concept_id": "google-saif-element-2-redteam",
+            "target_concept_id": "mitre-atlas-tactics",
+            "relationship_type": "related_to",
+            "description": "Google SAIF AI Red Teaming relates to MITRE ATLAS tactics. Red teaming exercises simulate ATLAS-documented attack techniques."
+        },
+        {
+            "id": "rel-saif-3-csf-de-cm",
+            "source_concept_id": "google-saif-element-3",
+            "target_concept_id": "nist-csf-de-cm",
+            "relationship_type": "related_to",
+            "description": "Google SAIF Element 3 (Automate defenses) relates to NIST CSF Continuous Monitoring."
+        },
+        {
+            "id": "rel-saif-4-csf-govern",
+            "source_concept_id": "google-saif-element-4",
+            "target_concept_id": "nist-csf-govern",
+            "relationship_type": "maps_to",
+            "description": "Google SAIF Element 4 (Harmonize platform controls) maps to NIST CSF Govern function for consistent governance."
+        },
+        {
+            "id": "rel-saif-4-governance-nist-ai-govern",
+            "source_concept_id": "google-saif-element-4-governance",
+            "target_concept_id": "nist-ai-govern",
+            "relationship_type": "maps_to",
+            "description": "Google SAIF Unified AI Security Governance maps to NIST AI RMF Govern function."
+        },
+        {
+            "id": "rel-saif-5-nist-ai-measure",
+            "source_concept_id": "google-saif-element-5",
+            "target_concept_id": "nist-ai-measure",
+            "relationship_type": "maps_to",
+            "description": "Google SAIF Element 5 (Adapt controls) maps to NIST AI RMF Measure function. Both involve continuous evaluation and feedback."
+        },
+        {
+            "id": "rel-saif-6-nist-ai-map",
+            "source_concept_id": "google-saif-element-6",
+            "target_concept_id": "nist-ai-map",
+            "relationship_type": "maps_to",
+            "description": "Google SAIF Element 6 (Contextualize risks) maps to NIST AI RMF Map function. Both contextualize AI risks in business processes."
+        },
+        {
+            "id": "rel-saif-6-iso31000-context",
+            "source_concept_id": "google-saif-element-6-risk-assessment",
+            "target_concept_id": "iso31000-proc2-scope-context",
+            "relationship_type": "implements",
+            "description": "Google SAIF Business-Contextualized AI Risk Assessment implements ISO 31000 Scope, context and criteria."
+        },
+        {
+            "id": "rel-saif-6-human-eu-ai-oversight",
+            "source_concept_id": "google-saif-element-6-human-oversight",
+            "target_concept_id": "eu-ai-hr-human-oversight",
+            "relationship_type": "related_to",
+            "description": "Google SAIF Human Oversight relates to EU AI Act human oversight requirement for high-risk AI."
+        },
+        {
+            "id": "rel-saif-1-iso27000-isms",
+            "source_concept_id": "google-saif-element-1",
+            "target_concept_id": "iso27000-isms",
+            "relationship_type": "related_to",
+            "description": "Google SAIF Element 1 (Expand security foundations) relates to ISO 27000 ISMS for foundational security management."
+        }
+    ]
+}
