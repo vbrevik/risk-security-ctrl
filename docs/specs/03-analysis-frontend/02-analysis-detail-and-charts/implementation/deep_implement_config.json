@@ -14,7 +14,32 @@
     "section-05-export-and-empty-state",
     "section-06-page-assembly"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-prerequisites-and-i18n": {
+      "status": "complete",
+      "commit_hash": "3238951"
+    },
+    "section-02-chart-data-and-stats": {
+      "status": "complete",
+      "commit_hash": "79c1a72"
+    },
+    "section-03-d3-charts": {
+      "status": "complete",
+      "commit_hash": "0575d59"
+    },
+    "section-04-findings-table": {
+      "status": "complete",
+      "commit_hash": "96941c7"
+    },
+    "section-05-export-and-empty-state": {
+      "status": "complete",
+      "commit_hash": "606556c"
+    },
+    "section-06-page-assembly": {
+      "status": "complete",
+      "commit_hash": "0871abc"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",
