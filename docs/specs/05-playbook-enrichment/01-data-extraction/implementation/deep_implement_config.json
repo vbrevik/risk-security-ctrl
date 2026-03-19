@@ -34,6 +34,10 @@
     "section-05-cli-integration": {
       "status": "complete",
       "commit_hash": "bb042cd"
+    },
+    "section-06-integration-tests": {
+      "status": "complete",
+      "commit_hash": "84b3262"
     }
   },
   "pre_commit": {

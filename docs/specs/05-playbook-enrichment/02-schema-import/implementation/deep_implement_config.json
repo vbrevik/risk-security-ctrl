@@ -1,0 +1,25 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/05-playbook-enrichment/02-schema-import/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/05-playbook-enrichment/02-schema-import/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-migration-schema",
+    "section-02-import-types-and-function",
+    "section-03-wiring-and-fts5",
+    "section-04-integration-tests"
+  ],
+  "sections_state": {},
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-19T23:46:04.233941+00:00"
+}
