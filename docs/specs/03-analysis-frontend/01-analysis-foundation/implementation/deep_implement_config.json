@@ -14,7 +14,12 @@
     "section-05-create-page",
     "section-06-settings-page"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-types-and-hooks": {
+      "status": "complete",
+      "commit_hash": "00275d6"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",

@@ -1,0 +1,62 @@
+{
+  "title": "Document Analysis",
+  "list": {
+    "title": "Analyses",
+    "newAnalysis": "New Analysis",
+    "empty": {
+      "title": "No analyses yet",
+      "description": "Create your first analysis to get started."
+    },
+    "filters": {
+      "status": "Status",
+      "all": "All"
+    }
+  },
+  "status": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "completed": "Completed",
+    "failed": "Failed"
+  },
+  "create": {
+    "title": "New Analysis",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter analysis name",
+    "descriptionLabel": "Description",
+    "textTab": "Text Input",
+    "uploadTab": "File Upload",
+    "textPlaceholder": "Paste or type the document text to analyze...",
+    "dropzoneText": "Drag and drop a file here, or",
+    "dropzoneBrowse": "browse",
+    "uploading": "Uploading...",
+    "submit": "Create Analysis",
+    "maxFileSize": "Maximum file size: 25MB",
+    "invalidFileType": "Invalid file type. Supported formats: PDF, DOCX",
+    "fileTooLarge": "File exceeds the maximum size of 25MB",
+    "success": "Analysis created successfully"
+  },
+  "settings": {
+    "title": "Matcher Configuration",
+    "thresholds": "Thresholds",
+    "minConfidence": "Minimum Confidence",
+    "addressedThreshold": "Addressed Threshold",
+    "partialThreshold": "Partial Threshold",
+    "maxFindings": "Max Findings per Framework",
+    "includeAddressed": "Include Addressed Findings",
+    "boostTerms": "Boost Terms",
+    "termLabel": "Term",
+    "weightLabel": "Weight",
+    "addTerm": "Add Term",
+    "save": "Save Settings",
+    "saved": "Settings saved",
+    "resetDefaults": "Reset to Defaults",
+    "resetConfirm": "Reset all settings to defaults?"
+  },
+  "common": {
+    "back": "Back",
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure you want to delete this analysis?",
+    "cancel": "Cancel",
+    "error": "An error occurred"
+  }
+}

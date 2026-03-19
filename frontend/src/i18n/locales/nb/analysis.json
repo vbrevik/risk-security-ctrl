@@ -1,0 +1,62 @@
+{
+  "title": "Dokumentanalyse",
+  "list": {
+    "title": "Analyser",
+    "newAnalysis": "Ny analyse",
+    "empty": {
+      "title": "Ingen analyser ennå",
+      "description": "Opprett din første analyse for å komme i gang."
+    },
+    "filters": {
+      "status": "Status",
+      "all": "Alle"
+    }
+  },
+  "status": {
+    "pending": "Venter",
+    "processing": "Behandler",
+    "completed": "Fullført",
+    "failed": "Feilet"
+  },
+  "create": {
+    "title": "Ny analyse",
+    "nameLabel": "Navn",
+    "namePlaceholder": "Skriv inn analysenavn",
+    "descriptionLabel": "Beskrivelse",
+    "textTab": "Tekstinntasting",
+    "uploadTab": "Filopplasting",
+    "textPlaceholder": "Lim inn eller skriv dokumentteksten som skal analyseres...",
+    "dropzoneText": "Dra og slipp en fil her, eller",
+    "dropzoneBrowse": "bla gjennom",
+    "uploading": "Laster opp...",
+    "submit": "Opprett analyse",
+    "maxFileSize": "Maksimal filstørrelse: 25 MB",
+    "invalidFileType": "Ugyldig filtype. Støttede formater: PDF, DOCX",
+    "fileTooLarge": "Filen overskrider maksimal størrelse på 25 MB",
+    "success": "Analyse opprettet"
+  },
+  "settings": {
+    "title": "Matcherkonfigurasjon",
+    "thresholds": "Terskelverdier",
+    "minConfidence": "Minimum konfidens",
+    "addressedThreshold": "Terskel for adressert",
+    "partialThreshold": "Terskel for delvis",
+    "maxFindings": "Maks funn per rammeverk",
+    "includeAddressed": "Inkluder adresserte funn",
+    "boostTerms": "Forsterkningstermer",
+    "termLabel": "Term",
+    "weightLabel": "Vekt",
+    "addTerm": "Legg til term",
+    "save": "Lagre innstillinger",
+    "saved": "Innstillinger lagret",
+    "resetDefaults": "Tilbakestill til standard",
+    "resetConfirm": "Tilbakestille alle innstillinger til standard?"
+  },
+  "common": {
+    "back": "Tilbake",
+    "delete": "Slett",
+    "deleteConfirm": "Er du sikker på at du vil slette denne analysen?",
+    "cancel": "Avbryt",
+    "error": "Det oppstod en feil"
+  }
+}

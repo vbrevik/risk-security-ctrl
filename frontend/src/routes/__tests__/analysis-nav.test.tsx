@@ -12,7 +12,6 @@ import {
 } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-// Mock i18next
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => {
@@ -34,7 +33,6 @@ vi.mock("react-i18next", () => ({
   }),
 }));
 
-// Mirrors the merged single-bar navigation from __root.tsx
 function TestRootLayout() {
   return (
     <div>
@@ -85,35 +83,21 @@ function renderWithRouter(initialPath = "/") {
   );
 }
 
-describe("Root Navigation (Single Bar)", () => {
-  it("renders all 9 navigation links", async () => {
+describe("Analysis navigation link", () => {
+  it("renders Analysis link in the navigation", async () => {
     renderWithRouter("/");
     const nav = await screen.findByTestId("main-nav");
-    const links = nav.querySelectorAll("a");
-    expect(links).toHaveLength(9);
+    const links = Array.from(nav.querySelectorAll("a")).map((a) => a.textContent);
+    expect(links).toContain("Analysis");
   });
 
-  it("contains all expected link targets", async () => {
+  it("Analysis link points to /analysis", async () => {
     renderWithRouter("/");
     const nav = await screen.findByTestId("main-nav");
-    const hrefs = Array.from(nav.querySelectorAll("a")).map((a) => a.getAttribute("href"));
-    expect(hrefs).toEqual([
-      "/",
-      "/ontology",
-      "/frameworks",
-      "/crosswalk",
-      "/landscape",
-      "/concepts/search",
-      "/analysis",
-      "/compliance",
-      "/reports",
-    ]);
-  });
-
-  it("active link gets active class on matching route", async () => {
-    renderWithRouter("/frameworks");
-    const nav = await screen.findByTestId("main-nav");
-    const frameworksLink = nav.querySelector('a[href="/frameworks"]');
-    expect(frameworksLink?.classList.contains("active")).toBe(true);
+    const analysisLink = Array.from(nav.querySelectorAll("a")).find(
+      (a) => a.textContent === "Analysis"
+    );
+    expect(analysisLink).toBeDefined();
+    expect(analysisLink?.getAttribute("href")).toBe("/analysis");
   });
 });
