@@ -57,9 +57,13 @@ sha2 = "0.10"
 governor = "0.10"
 tower_governor = "0.8"
 
+# CLI
+clap = { version = "4", features = ["derive"] }
+
 # Document parsing
 pdf-extract = "0.10"
 regex = "1"
+tempfile = "3"
 zip = "2"
 quick-xml = "0.37"
 

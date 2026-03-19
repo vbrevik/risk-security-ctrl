@@ -1,5 +1,7 @@
 use std::net::SocketAddr;
 
+use clap::Parser;
+use ontology_backend::features::extraction::cli::{Cli, Commands};
 use ontology_backend::{import, AppState, Config};
 use sqlx::sqlite::SqlitePoolOptions;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
@@ -54,6 +56,29 @@ struct ApiDoc;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let cli = Cli::parse();
+
+    // Handle CLI subcommands
+    if let Some(Commands::ExtractPdf(args)) = cli.command {
+        // Initialize minimal tracing for CLI mode
+        tracing_subscriber::registry()
+            .with(
+                tracing_subscriber::EnvFilter::try_from_default_env()
+                    .unwrap_or_else(|_| "warn".into()),
+            )
+            .with(tracing_subscriber::fmt::layer().with_target(false))
+            .init();
+
+        if let Err(e) =
+            ontology_backend::features::extraction::cli::run_extract(args)
+        {
+            eprintln!("Error: {e}");
+            std::process::exit(1);
+        }
+        return Ok(());
+    }
+
+    // Default: start the server
     // Load environment variables
     dotenvy::dotenv().ok();
 

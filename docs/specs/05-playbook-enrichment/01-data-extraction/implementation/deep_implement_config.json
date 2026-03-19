@@ -26,6 +26,10 @@
     "section-03-playbook-extractor": {
       "status": "complete",
       "commit_hash": "2784e2e"
+    },
+    "section-04-validation-logic": {
+      "status": "complete",
+      "commit_hash": "7a76688"
     }
   },
   "pre_commit": {
