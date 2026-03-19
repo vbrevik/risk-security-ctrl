@@ -1,6 +1,6 @@
-I have all the context I need. Now I'll generate the section content.
-
 # Section 1: Types and API Hooks
+
+## Implementation Status: COMPLETE
 
 ## Overview
 
@@ -284,3 +284,18 @@ export * from "./api";
 5. **Export utility function:** `exportAnalysis` is intentionally not a hook. Exports are one-shot user-triggered actions (click a button, download a file). Using a hook would be overkill and the blob/download logic does not benefit from caching or query state.
 
 6. **Existing test patterns to follow:** See `src/features/ontology/api/__tests__/hooks.test.ts` for the established project pattern. Key elements: `vi.mock("@/lib/api")`, `vi.mocked(api)`, `createWrapper()` function returning a `QueryClientProvider`, `renderHook` with `waitFor`, `vi.resetAllMocks()` in `beforeEach`.
+
+---
+
+## Deviations from Plan
+
+1. **Falsy param check bug fixed:** Original plan said "skip undefined values" for URL params. Initial implementation used `if (params?.page)` which also skips `0`. Fixed to use `params?.page != null` per code review.
+
+2. **Test wrapper returns queryClient:** The `createWrapper()` helper was enhanced to return `{ wrapper, queryClient }` so cache invalidation tests can spy on `queryClient.invalidateQueries`.
+
+3. **23 tests total (vs 12 initial):** Code review identified missing tests. All plan-specified test cases now covered including cache invalidation, upload progress mid-flight observation with deferred promise, error-path progress reset, useFindings, and exportAnalysis.
+
+## Final Test Count
+
+- 23 tests in `hooks.test.ts`
+- All passing
