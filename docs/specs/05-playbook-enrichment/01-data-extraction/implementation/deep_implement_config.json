@@ -22,6 +22,10 @@
     "section-02-page-offset-detection": {
       "status": "complete",
       "commit_hash": "10b2469"
+    },
+    "section-03-playbook-extractor": {
+      "status": "complete",
+      "commit_hash": "2784e2e"
     }
   },
   "pre_commit": {
