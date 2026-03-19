@@ -30,6 +30,10 @@
     "section-04-list-page": {
       "status": "complete",
       "commit_hash": "f8d67f1"
+    },
+    "section-05-create-page": {
+      "status": "complete",
+      "commit_hash": "9f4f4d5"
     }
   },
   "pre_commit": {

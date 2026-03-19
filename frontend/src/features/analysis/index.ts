@@ -5,3 +5,5 @@ export { AnalysisCard } from "./components/AnalysisCard";
 export { AnalysisList } from "./components/AnalysisList";
 export { CreateAnalysisForm } from "./components/CreateAnalysisForm";
 export { FileDropZone } from "./components/FileDropZone";
+export { SettingsForm } from "./components/SettingsForm";
+export { BoostTermsEditor } from "./components/BoostTermsEditor";
