@@ -1,0 +1,149 @@
+{
+  "title": "Dokumentanalyse",
+  "list": {
+    "title": "Analyser",
+    "newAnalysis": "Ny analyse",
+    "empty": {
+      "title": "Ingen analyser ennå",
+      "description": "Opprett din første analyse for å komme i gang."
+    },
+    "filters": {
+      "status": "Status",
+      "all": "Alle"
+    },
+    "pagination": {
+      "previous": "Forrige",
+      "next": "Neste",
+      "pageOf": "Side {{page}} av {{total}}"
+    }
+  },
+  "status": {
+    "pending": "Venter",
+    "processing": "Behandler",
+    "completed": "Fullført",
+    "failed": "Feilet"
+  },
+  "create": {
+    "title": "Ny analyse",
+    "nameLabel": "Navn",
+    "namePlaceholder": "Skriv inn analysenavn",
+    "descriptionLabel": "Beskrivelse",
+    "textTab": "Tekstinntasting",
+    "uploadTab": "Filopplasting",
+    "textPlaceholder": "Lim inn eller skriv dokumentteksten som skal analyseres...",
+    "dropzoneText": "Dra og slipp en fil her, eller",
+    "dropzoneBrowse": "bla gjennom",
+    "uploading": "Laster opp...",
+    "submit": "Opprett analyse",
+    "maxFileSize": "Maksimal filstørrelse: 25 MB",
+    "invalidFileType": "Ugyldig filtype. Støttede formater: PDF, DOCX",
+    "fileTooLarge": "Filen overskrider maksimal størrelse på 25 MB",
+    "success": "Analyse opprettet"
+  },
+  "settings": {
+    "title": "Matcherkonfigurasjon",
+    "thresholds": "Terskelverdier",
+    "minConfidence": "Minimum konfidens",
+    "addressedThreshold": "Terskel for adressert",
+    "partialThreshold": "Terskel for delvis",
+    "maxFindings": "Maks funn per rammeverk",
+    "includeAddressed": "Inkluder adresserte funn",
+    "boostTerms": "Forsterkningstermer",
+    "termLabel": "Term",
+    "weightLabel": "Vekt",
+    "addTerm": "Legg til term",
+    "save": "Lagre innstillinger",
+    "saved": "Innstillinger lagret",
+    "resetDefaults": "Tilbakestill til standard",
+    "resetConfirm": "Tilbakestille alle innstillinger til standard?"
+  },
+  "common": {
+    "back": "Tilbake",
+    "delete": "Slett",
+    "deleteConfirm": "Er du sikker på at du vil slette denne analysen?",
+    "cancel": "Avbryt",
+    "error": "Det oppstod en feil",
+    "retry": "Prøv igjen",
+    "settings": "Innstillinger"
+  },
+  "detail": {
+    "backToList": "Tilbake til analyser",
+    "createdAt": "Opprettet {{date}}",
+    "inputType": "Inndata: {{type}}",
+    "processing": {
+      "banner": "Analyse pågår",
+      "message": "Denne analysen behandles nå. Resultatene vises automatisk når den er ferdig."
+    },
+    "failed": {
+      "message": "Denne analysen feilet under behandling. Du kan slette den og prøve igjen."
+    },
+    "notFound": {
+      "title": "Analyse ikke funnet",
+      "message": "Analysen du leter etter finnes ikke eller er fjernet."
+    }
+  },
+  "stats": {
+    "totalFindings": "Totalt antall funn",
+    "addressed": "Adressert",
+    "gaps": "Mangler",
+    "frameworks": "Rammeverk",
+    "processingTime": "Behandlingstid",
+    "tokenCount": "Antall tokens"
+  },
+  "charts": {
+    "coverage": {
+      "title": "Rammeverkdekning",
+      "description": "Andel konsepter adressert per rammeverk",
+      "noData": "Ingen dekningsdata tilgjengelig"
+    },
+    "priority": {
+      "title": "Prioritetsfordeling",
+      "description": "Fordeling av funn etter prioritetsnivå",
+      "noData": "Ingen prioritetsdata tilgjengelig"
+    }
+  },
+  "findings": {
+    "title": "Funn",
+    "filters": {
+      "framework": "Rammeverk",
+      "allFrameworks": "Alle rammeverk",
+      "findingType": "Funntype",
+      "allTypes": "Alle typer",
+      "priority": "Prioritet",
+      "allPriorities": "Alle prioriteter"
+    },
+    "columns": {
+      "expand": "",
+      "conceptCode": "Kode",
+      "conceptName": "Konsept",
+      "framework": "Rammeverk",
+      "type": "Type",
+      "priority": "Prioritet",
+      "confidence": "Konfidens"
+    },
+    "expand": "Utvid detaljer",
+    "collapse": "Skjul detaljer",
+    "evidence": "Bevis",
+    "recommendation": "Anbefaling",
+    "conceptDefinition": "Konseptdefinisjon",
+    "sourceReference": "Kildereferanse",
+    "empty": {
+      "title": "Ingen samsvarsfunn oppdaget",
+      "description": "Analysen fant ingen samsvarsfunn. Du kan justere matcherterskelverdiene.",
+      "settingsLink": "Juster matcherinnstillinger"
+    },
+    "type": {
+      "addressed": "Adressert",
+      "partially_addressed": "Delvis adressert",
+      "gap": "Mangel",
+      "not_applicable": "Ikke relevant"
+    }
+  },
+  "export": {
+    "pdf": "Eksporter PDF",
+    "docx": "Eksporter DOCX",
+    "disabled": "Analysen må være fullført for å eksportere",
+    "downloading": "Laster ned...",
+    "error": "Eksport feilet. Vennligst prøv igjen."
+  }
+}

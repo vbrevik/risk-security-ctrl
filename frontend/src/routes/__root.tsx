@@ -67,6 +67,12 @@ function RootLayout() {
               </Link>
               <span className="text-border mx-1.5">·</span>
               <Link
+                to="/analysis"
+                className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
+              >
+                {t("nav.analysis")}
+              </Link>
+              <Link
                 to="/compliance"
                 className="transition-colors hover:text-foreground/80 text-foreground/50 [&.active]:text-foreground px-2.5 py-1"
               >

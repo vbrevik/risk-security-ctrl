@@ -8,7 +8,8 @@
     "reports": "Rapporter",
     "frameworks": "Rammeverk",
     "landscape": "Landskap",
-    "search": "Søk"
+    "search": "Søk",
+    "analysis": "Analyse"
   },
   "actions": {
     "save": "Lagre",

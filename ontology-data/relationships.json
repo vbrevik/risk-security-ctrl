@@ -3093,6 +3093,133 @@
             "target_concept_id": "iso42005-environmental-impacts",
             "relationship_type": "maps_to",
             "description": "GAI environmental impact risk maps directly to ISO 42005 environmental impact assessment. Both address resource consumption and sustainability concerns of AI systems."
+        },
+
+        {
+            "id": "rel-xai-prin-nist-explainable",
+            "source_concept_id": "xai-principles",
+            "target_concept_id": "nist-ai-tw-explainable",
+            "relationship_type": "implements",
+            "description": "XAI-DataOps Core Principles implement the NIST AI RMF Explainable and Interpretable trustworthy AI characteristic with concrete, actionable principles from NISTIR 8312."
+        },
+        {
+            "id": "rel-xai-prin-nist-transparent",
+            "source_concept_id": "xai-principles",
+            "target_concept_id": "nist-ai-tw-accountable-transparent",
+            "relationship_type": "supports",
+            "description": "XAI Core Principles support NIST AI RMF Accountability and Transparency by providing the mechanisms through which AI system decisions can be made transparent and accountable."
+        },
+        {
+            "id": "rel-xai-meaningful-eu-transparency",
+            "source_concept_id": "xai-prin-meaningful",
+            "target_concept_id": "eu-ai-hr-transparency",
+            "relationship_type": "implements",
+            "description": "The Meaningful Explanations principle implements EU AI Act Article 13's requirement that high-risk AI systems be sufficiently transparent for deployers to interpret outputs."
+        },
+        {
+            "id": "rel-xai-accuracy-nist-measure",
+            "source_concept_id": "xai-prin-accuracy",
+            "target_concept_id": "nist-ai-ms-2-5",
+            "relationship_type": "implements",
+            "description": "Explanation Accuracy principle implements NIST AI RMF MEASURE 2.5 requirement to test whether explanations faithfully represent the system's actual process."
+        },
+        {
+            "id": "rel-xai-knowledge-limits-nist-measure",
+            "source_concept_id": "xai-prin-knowledge-limits",
+            "target_concept_id": "nist-ai-ms-2-8",
+            "relationship_type": "related_to",
+            "description": "Knowledge Limits principle relates to NIST AI RMF MEASURE 2.8 transparency assessment, ensuring systems communicate operational boundaries."
+        },
+        {
+            "id": "rel-xai-deployment-eu-art50",
+            "source_concept_id": "xai-do-deployment-ai-disclosure",
+            "target_concept_id": "eu-ai-limited-risk",
+            "relationship_type": "implements",
+            "description": "AI System Disclosure practice implements EU AI Act Article 50 transparency obligations for informing individuals of AI interaction and AI-generated content."
+        },
+        {
+            "id": "rel-xai-instructions-eu-art13",
+            "source_concept_id": "xai-do-deployment-instructions",
+            "target_concept_id": "eu-ai-hr-transparency",
+            "relationship_type": "implements",
+            "description": "Instructions for Use practice directly implements EU AI Act Article 13(3) requirement for clear documentation accompanying high-risk AI systems."
+        },
+        {
+            "id": "rel-xai-audit-trail-iso42001",
+            "source_concept_id": "xai-gov-audit-trail",
+            "target_concept_id": "iso42001-a8-1",
+            "relationship_type": "implements",
+            "description": "Audit Trails and Decision Logging implements ISO 42001 A.8.1 Transparency of AI systems control by providing systematic evidence of AI system operations and decisions."
+        },
+        {
+            "id": "rel-xai-impact-iso42005",
+            "source_concept_id": "xai-gov-impact-assessment",
+            "target_concept_id": "iso42005-impact-assessment-process",
+            "relationship_type": "implements",
+            "description": "Algorithmic Impact Assessment implements ISO 42005 AI System Impact Assessment requirements with specific focus on explainability adequacy for affected stakeholders."
+        },
+        {
+            "id": "rel-xai-bias-nist-fair",
+            "source_concept_id": "xai-gov-bias-detection",
+            "target_concept_id": "nist-ai-tw-fair",
+            "relationship_type": "supports",
+            "description": "Bias Detection and Fairness Auditing supports NIST AI RMF Fair with Harmful Bias Managed by using XAI techniques to detect and document discriminatory patterns."
+        },
+        {
+            "id": "rel-xai-model-cards-nist-transparency",
+            "source_concept_id": "xai-do-training-model-cards",
+            "target_concept_id": "nist-ai-ms-2-8",
+            "relationship_type": "implements",
+            "description": "Model Cards implement NIST AI RMF MEASURE 2.8 transparency assessment through standardized model documentation covering capabilities, limitations, and ethical considerations."
+        },
+        {
+            "id": "rel-xai-monitoring-nist-manage",
+            "source_concept_id": "xai-do-monitoring",
+            "target_concept_id": "nist-ai-mg-3",
+            "relationship_type": "supports",
+            "description": "Monitoring and Observability supports NIST AI RMF MANAGE 3 by continuously tracking explanation quality, model drift, and operational boundaries in production."
+        },
+        {
+            "id": "rel-xai-stakeholders-iso42001-b23",
+            "source_concept_id": "xai-stakeholders",
+            "target_concept_id": "iso42001-b2-3",
+            "relationship_type": "implements",
+            "description": "Stakeholder Explanations framework implements ISO 42001 B.2.3 Explainability and Interpretability objective by defining audience-specific explanation strategies."
+        },
+        {
+            "id": "rel-xai-affected-gdpr",
+            "source_concept_id": "xai-stake-affected",
+            "target_concept_id": "eu-ai-affected-persons",
+            "relationship_type": "implements",
+            "description": "Affected Person Explanations implement EU AI Act rights of affected persons, ensuring individuals subject to AI decisions can understand and challenge outcomes."
+        },
+        {
+            "id": "rel-xai-counterfactual-gdpr",
+            "source_concept_id": "xai-technique-counterfactual",
+            "target_concept_id": "eu-ai-affected-persons",
+            "relationship_type": "supports",
+            "description": "Counterfactual Explanations support EU AI Act affected person rights by providing actionable recourse information showing what would need to change for a different outcome."
+        },
+        {
+            "id": "rel-xai-regulators-eu-conformity",
+            "source_concept_id": "xai-stake-regulators",
+            "target_concept_id": "eu-ai-gov-conformity",
+            "relationship_type": "supports",
+            "description": "Regulator and Auditor Explanations support EU AI Act conformity assessment by providing compliance-oriented documentation and evidence of systematic explainability."
+        },
+        {
+            "id": "rel-xai-lineage-iso42001-a6",
+            "source_concept_id": "xai-lineage",
+            "target_concept_id": "iso42001-a6-2",
+            "relationship_type": "supports",
+            "description": "Data Lineage and Provenance supports ISO 42001 A.6.2 data management controls by providing comprehensive traceability from data origin through model output."
+        },
+        {
+            "id": "rel-xai-regulatory-nist-govern",
+            "source_concept_id": "xai-gov-regulatory-alignment",
+            "target_concept_id": "nist-ai-gv-1",
+            "relationship_type": "supports",
+            "description": "Regulatory Alignment supports NIST AI RMF GOVERN 1 by mapping organizational XAI practices to applicable regulatory requirements and voluntary frameworks."
         }
     ]
 }

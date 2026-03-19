@@ -1,48 +1,49 @@
-# TDD Plan: 02-document-parsing
+# TDD Plan: Document Parsing Pipeline
 
-## Section 1: Cargo Dependencies
-No tests. Validated by `cargo check`.
+## Testing Infrastructure
 
-## Section 2: Parser Types and Error Handling
-- Test: ParsingError variants display meaningful messages
-- Test: ParsingError::IoError converts from std::io::Error via `?`
-- Test: ParsedDocument computes word_count and token_count_estimate correctly
-- Test: ParsedDocument with empty text has zero counts
+Existing: `backend/tests/common/mod.rs` with `create_test_app()`. Unit tests use `#[cfg(test)] mod tests` within each module. Run with `cargo test`.
 
-## Section 3: PDF Parser
-- Test: parse_pdf with a valid PDF returns non-empty full_text
-- Test: parse_pdf returns sections with page numbers
-- Test: parse_pdf with empty/corrupt file returns CorruptFile error
-- Test: parse_pdf with non-existent path returns IoError
-Note: Requires a small test fixture PDF. Create programmatically or include a minimal file.
+## Section 1: Upload Handler Tests
 
-## Section 4: DOCX Parser
-- Test: parse_docx extracts text from a valid DOCX
-- Test: parse_docx detects headings as section boundaries
-- Test: parse_docx with corrupt ZIP returns CorruptFile
-- Test: parse_docx with empty document returns EmptyDocument
-Note: Can create minimal DOCX as ZIP with document.xml in tests.
+```rust
+#[cfg(test)]
+mod tests {
+    #[test] fn reject_file_too_large() {}
+    #[test] fn reject_unknown_extension() {}
+    #[test] fn accept_pdf_extension() {}
+    #[test] fn accept_docx_case_insensitive() {}
+    #[test] fn reject_path_traversal_analysis_id() {}
+    #[test] fn validate_pdf_magic_bytes() {}
+    #[test] fn validate_zip_magic_bytes() {}
+    #[test] fn reject_mismatched_magic_bytes() {}
+    #[test] fn save_upload_creates_directory_and_file() {}
+}
+```
 
-## Section 5: Text Parser and Dispatch
-- Test: parse_text with multi-paragraph text returns sections split on blank lines
-- Test: parse_text with empty string returns EmptyDocument
-- Test: parse_text with whitespace-only returns EmptyDocument
-- Test: parse() dispatches .pdf to parse_pdf
-- Test: parse() dispatches .docx to parse_docx
-- Test: parse() with .txt returns UnsupportedFormat
-- Test: parse() with .PDF (uppercase) works (case-insensitive)
-- Test: parse() checks file size and returns FileTooLarge for oversized files
+## Section 2: Parser Refinement Tests
 
-## Section 6: Tokenizer
-- Test: sentence_split breaks on period+capital
-- Test: sentence_split handles newlines
-- Test: extract_keywords removes stopwords
-- Test: extract_keywords filters short tokens (<3 chars)
-- Test: extract_keywords deduplicates
-- Test: generate_ngrams produces correct bigrams
-- Test: generate_ngrams with n=3 produces trigrams
-- Test: term_frequency counts correctly
-- Test: term_frequency is case-insensitive
+```rust
+#[cfg(test)]
+mod tests {
+    #[test] fn empty_document_error_has_message() {}
+    #[test] fn scanned_pdf_detected_as_empty() {}
+    #[test] fn parsing_error_converts_to_app_error_bad_request() {}
+    #[test] fn parsing_error_converts_to_app_error_internal() {}
+    #[tokio::test] async fn parse_async_returns_same_result() {}
+}
+```
 
-## Section 7: Module Wiring
-No tests. Validated by `cargo check` and `cargo test`.
+## Section 3: Route Handler Tests
+
+```rust
+#[tokio::test] async fn upload_pdf_creates_analysis() {}
+#[tokio::test] async fn upload_oversized_returns_400() {}
+#[tokio::test] async fn upload_unsupported_format_returns_400() {}
+```
+
+## Section 4: Integration Tests
+
+```rust
+#[tokio::test] async fn full_pipeline_pdf_upload_to_findings() {}
+```

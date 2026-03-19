@@ -95,6 +95,18 @@ The ontology covers:
 
 Cross-framework mappings link equivalent concepts between standards.
 
+## Deep Workflow Integration Rules
+
+When running `/deep-project`, `/deep-plan`, or `/deep-implement`, apply prompt contracts at these points:
+
+- **deep-project Step 6** (Spec Generation): Draft a lightweight prompt contract before writing each split's spec.md
+- **deep-plan Step 10** (Write Spec): Draft a prompt contract before synthesizing claude-spec.md
+- **deep-plan Step 11** (Generate Plan): Draft a prompt contract before writing claude-plan.md
+- **deep-implement Step 3** (Implement Section): Draft a prompt contract from the section file before coding
+- **deep-implement Step 6** (Code Review): Pass the contract's FAILURE CONDITIONS to the code-reviewer subagent
+
+Every prompt contract MUST run `/stig-compliance guard` after drafting CONSTRAINTS. This is non-blocking and advisory.
+
 ## Gotchas
 
 ### Ontology Concept ID Naming

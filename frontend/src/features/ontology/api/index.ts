@@ -63,7 +63,7 @@ export function useConcepts(frameworkId?: string) {
       const { data } = await api.get<PaginatedResponse<Concept>>(
         `/ontology/concepts?${params}`
       );
-      return data.data;
+      return data.items;
     },
     staleTime: 1000 * 60 * 5, // 5 minutes
     enabled: !!frameworkId,
@@ -132,7 +132,7 @@ export function useSearchConcepts(query: string, frameworkId?: string) {
       const { data } = await api.get<PaginatedResponse<Concept>>(
         `/ontology/concepts/search?${params}`
       );
-      return data.data;
+      return data.items;
     },
     staleTime: 1000 * 30, // 30 seconds
     enabled: query.length >= 2,
@@ -154,7 +154,7 @@ async function fetchAllConceptsForFramework(
     const { data } = await api.get<PaginatedResponse<Concept>>(
       `/ontology/concepts?${params}`
     );
-    allConcepts.push(...data.data);
+    allConcepts.push(...data.items);
     if (page >= data.total_pages) break;
     page++;
   }

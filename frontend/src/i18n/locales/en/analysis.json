@@ -1,0 +1,149 @@
+{
+  "title": "Document Analysis",
+  "list": {
+    "title": "Analyses",
+    "newAnalysis": "New Analysis",
+    "empty": {
+      "title": "No analyses yet",
+      "description": "Create your first analysis to get started."
+    },
+    "filters": {
+      "status": "Status",
+      "all": "All"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageOf": "Page {{page}} of {{total}}"
+    }
+  },
+  "status": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "completed": "Completed",
+    "failed": "Failed"
+  },
+  "create": {
+    "title": "New Analysis",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter analysis name",
+    "descriptionLabel": "Description",
+    "textTab": "Text Input",
+    "uploadTab": "File Upload",
+    "textPlaceholder": "Paste or type the document text to analyze...",
+    "dropzoneText": "Drag and drop a file here, or",
+    "dropzoneBrowse": "browse",
+    "uploading": "Uploading...",
+    "submit": "Create Analysis",
+    "maxFileSize": "Maximum file size: 25MB",
+    "invalidFileType": "Invalid file type. Supported formats: PDF, DOCX",
+    "fileTooLarge": "File exceeds the maximum size of 25MB",
+    "success": "Analysis created successfully"
+  },
+  "settings": {
+    "title": "Matcher Configuration",
+    "thresholds": "Thresholds",
+    "minConfidence": "Minimum Confidence",
+    "addressedThreshold": "Addressed Threshold",
+    "partialThreshold": "Partial Threshold",
+    "maxFindings": "Max Findings per Framework",
+    "includeAddressed": "Include Addressed Findings",
+    "boostTerms": "Boost Terms",
+    "termLabel": "Term",
+    "weightLabel": "Weight",
+    "addTerm": "Add Term",
+    "save": "Save Settings",
+    "saved": "Settings saved",
+    "resetDefaults": "Reset to Defaults",
+    "resetConfirm": "Reset all settings to defaults?"
+  },
+  "common": {
+    "back": "Back",
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure you want to delete this analysis?",
+    "cancel": "Cancel",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "settings": "Settings"
+  },
+  "detail": {
+    "backToList": "Back to analyses",
+    "createdAt": "Created {{date}}",
+    "inputType": "Input: {{type}}",
+    "processing": {
+      "banner": "Analysis in progress",
+      "message": "This analysis is currently being processed. Results will appear automatically when complete."
+    },
+    "failed": {
+      "message": "This analysis failed to process. You may delete it and try again."
+    },
+    "notFound": {
+      "title": "Analysis not found",
+      "message": "The analysis you are looking for does not exist or has been removed."
+    }
+  },
+  "stats": {
+    "totalFindings": "Total Findings",
+    "addressed": "Addressed",
+    "gaps": "Gaps",
+    "frameworks": "Frameworks",
+    "processingTime": "Processing Time",
+    "tokenCount": "Token Count"
+  },
+  "charts": {
+    "coverage": {
+      "title": "Framework Coverage",
+      "description": "Percentage of concepts addressed per framework",
+      "noData": "No coverage data available"
+    },
+    "priority": {
+      "title": "Priority Breakdown",
+      "description": "Distribution of findings by priority level",
+      "noData": "No priority data available"
+    }
+  },
+  "findings": {
+    "title": "Findings",
+    "filters": {
+      "framework": "Framework",
+      "allFrameworks": "All Frameworks",
+      "findingType": "Finding Type",
+      "allTypes": "All Types",
+      "priority": "Priority",
+      "allPriorities": "All Priorities"
+    },
+    "columns": {
+      "expand": "",
+      "conceptCode": "Code",
+      "conceptName": "Concept",
+      "framework": "Framework",
+      "type": "Type",
+      "priority": "Priority",
+      "confidence": "Confidence"
+    },
+    "expand": "Expand details",
+    "collapse": "Collapse details",
+    "evidence": "Evidence",
+    "recommendation": "Recommendation",
+    "conceptDefinition": "Concept Definition",
+    "sourceReference": "Source Reference",
+    "empty": {
+      "title": "No compliance findings detected",
+      "description": "The analysis did not detect any compliance findings. You may want to adjust the matcher thresholds.",
+      "settingsLink": "Adjust matcher settings"
+    },
+    "type": {
+      "addressed": "Addressed",
+      "partially_addressed": "Partially Addressed",
+      "gap": "Gap",
+      "not_applicable": "Not Applicable"
+    }
+  },
+  "export": {
+    "pdf": "Export PDF",
+    "docx": "Export DOCX",
+    "disabled": "Analysis must be completed to export",
+    "downloading": "Downloading...",
+    "error": "Export failed. Please try again."
+  }
+}

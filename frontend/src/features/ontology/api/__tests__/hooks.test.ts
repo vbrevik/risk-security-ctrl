@@ -62,10 +62,10 @@ describe("useAllConcepts", () => {
         return { data: [FW_A, FW_B] };
       }
       if (url.includes("framework_id=fw-a")) {
-        return { data: { data: [makeConcept("c1", "fw-a")], total: 1, page: 1, limit: 500, total_pages: 1 } };
+        return { data: { items: [makeConcept("c1", "fw-a")], total: 1, page: 1, limit: 500, total_pages: 1 } };
       }
       if (url.includes("framework_id=fw-b")) {
-        return { data: { data: [makeConcept("c2", "fw-b")], total: 1, page: 1, limit: 500, total_pages: 1 } };
+        return { data: { items: [makeConcept("c2", "fw-b")], total: 1, page: 1, limit: 500, total_pages: 1 } };
       }
       return { data: [] };
     });
@@ -86,7 +86,7 @@ describe("useAllConcepts", () => {
         return { data: [FW_A, FW_B] };
       }
       if (url.includes("framework_id=fw-a")) {
-        return { data: { data: [makeConcept("c1", "fw-a")], total: 1, page: 1, limit: 500, total_pages: 1 } };
+        return { data: { items: [makeConcept("c1", "fw-a")], total: 1, page: 1, limit: 500, total_pages: 1 } };
       }
       if (url.includes("framework_id=fw-b")) {
         throw new Error("Network error");
@@ -110,10 +110,10 @@ describe("useAllConcepts", () => {
         return { data: [FW_A, FW_B] };
       }
       if (url.includes("framework_id=fw-a")) {
-        return { data: { data: [makeConcept("c1", "fw-a")], total: 1, page: 1, limit: 500, total_pages: 1 } };
+        return { data: { items: [makeConcept("c1", "fw-a")], total: 1, page: 1, limit: 500, total_pages: 1 } };
       }
       if (url.includes("framework_id=fw-b")) {
-        return { data: { data: [makeConcept("c2", "fw-b")], total: 1, page: 1, limit: 500, total_pages: 1 } };
+        return { data: { items: [makeConcept("c2", "fw-b")], total: 1, page: 1, limit: 500, total_pages: 1 } };
       }
       return { data: [] };
     });
@@ -149,7 +149,7 @@ describe("useFrameworkStats", () => {
       if (url.includes("framework_id=fw-a")) {
         return {
           data: {
-            data: [
+            items: [
               makeConcept("c1", "fw-a", "control"),
               makeConcept("c2", "fw-a", "principle"),
             ],
@@ -160,7 +160,7 @@ describe("useFrameworkStats", () => {
       if (url.includes("framework_id=fw-b")) {
         return {
           data: {
-            data: [makeConcept("c3", "fw-b", "control")],
+            items: [makeConcept("c3", "fw-b", "control")],
             total: 1, page: 1, limit: 500, total_pages: 1,
           },
         };

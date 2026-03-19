@@ -4,3 +4,7 @@ pub mod models;
 pub mod parser;
 pub mod routes;
 pub mod tokenizer;
+pub mod upload;
+pub mod charts;
+pub mod export_docx;
+pub mod export_pdf;

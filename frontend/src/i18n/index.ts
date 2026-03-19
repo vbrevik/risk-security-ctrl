@@ -6,11 +6,13 @@ import enCommon from "./locales/en/common.json";
 import enOntology from "./locales/en/ontology.json";
 import enCompliance from "./locales/en/compliance.json";
 import enReports from "./locales/en/reports.json";
+import enAnalysis from "./locales/en/analysis.json";
 
 import nbCommon from "./locales/nb/common.json";
 import nbOntology from "./locales/nb/ontology.json";
 import nbCompliance from "./locales/nb/compliance.json";
 import nbReports from "./locales/nb/reports.json";
+import nbAnalysis from "./locales/nb/analysis.json";
 
 const resources = {
   en: {
@@ -18,12 +20,14 @@ const resources = {
     ontology: enOntology,
     compliance: enCompliance,
     reports: enReports,
+    analysis: enAnalysis,
   },
   nb: {
     common: nbCommon,
     ontology: nbOntology,
     compliance: nbCompliance,
     reports: nbReports,
+    analysis: nbAnalysis,
   },
 };
 

@@ -49,7 +49,7 @@ export interface ConceptWithRelationships extends Concept {
 }
 
 export interface PaginatedResponse<T> {
-  data: T[];
+  items: T[];
   total: number;
   page: number;
   limit: number;

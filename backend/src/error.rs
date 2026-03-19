@@ -75,3 +75,18 @@ impl IntoResponse for AppError {
 }
 
 pub type AppResult<T> = Result<T, AppError>;
+
+impl From<crate::features::analysis::parser::ParsingError> for AppError {
+    fn from(err: crate::features::analysis::parser::ParsingError) -> Self {
+        use crate::features::analysis::parser::ParsingError;
+        match err {
+            ParsingError::UnsupportedFormat(msg) => AppError::BadRequest(msg),
+            ParsingError::EmptyDocument(msg) => AppError::BadRequest(msg),
+            ParsingError::FileTooLarge { size, max } => {
+                AppError::BadRequest(format!("File too large: {} bytes (max: {})", size, max))
+            }
+            ParsingError::CorruptFile(msg) => AppError::Internal(msg),
+            ParsingError::IoError(e) => AppError::Internal(e.to_string()),
+        }
+    }
+}

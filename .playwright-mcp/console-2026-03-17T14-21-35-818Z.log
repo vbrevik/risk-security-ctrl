@@ -1,0 +1,38 @@
+[     155ms] [WARNING] [@tanstack/router-devtools] This package has moved to @tanstack/react-router-devtools. Please switch to the new package at your earliest convenience, as this package will be dropped in the next major version release. @ http://localhost:5573/node_modules/.vite/deps/@tanstack_router-devtools.js?v=6b8722dc:134
+[  411044ms] [ERROR] %o
+
+%s
+
+%s
+ TypeError: Cannot read properties of undefined (reading 'length')
+    at SVGTextElement.<anonymous> (http://localhost:5573/src/features/ontology/hooks/useD3Graph.ts?t=1773755144458:105:19)
+    at SVGTextElement.<anonymous> (http://localhost:5573/node_modules/.vite/deps/d3.js?v=6b8722dc:1982:20)
+    at Selection.each_default [as each] (http://localhost:5573/node_modules/.vite/deps/d3.js?v=6b8722dc:1806:38)
+    at Selection.text_default [as text] (http://localhost:5573/node_modules/.vite/deps/d3.js?v=6b8722dc:1987:34)
+    at http://localhost:5573/src/features/ontology/hooks/useD3Graph.ts?t=1773755144458:103:253
+    at Object.react_stack_bottom_frame (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:18567:20)
+    at runWithFiberInDEV (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:997:72)
+    at commitHookEffectListMount (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:9411:163)
+    at commitHookPassiveMountEffects (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:9465:60)
+    at commitPassiveMountOnFiber (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:11040:29) The above error occurred in the <GraphView> component. React will try to recreate this component tree from scratch using the error boundary you provided, CatchBoundaryImpl. @ http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:7000
+[  411044ms] [WARNING] Warning: The following error wasn't caught by any route! At the very least, consider setting an 'errorComponent' in your RootRoute! @ http://localhost:5573/node_modules/.vite/deps/chunk-M5LCQ5BX.js?v=6b8722dc:326
+[  411045ms] [WARNING] Warning: Cannot read properties of undefined (reading 'length') @ http://localhost:5573/node_modules/.vite/deps/chunk-M5LCQ5BX.js?v=6b8722dc:326
+[  411045ms] [ERROR] %o
+
+%s
+
+%s
+ TypeError: Cannot read properties of undefined (reading 'length')
+    at SVGTextElement.<anonymous> (http://localhost:5573/src/features/ontology/hooks/useD3Graph.ts?t=1773755144458:105:19)
+    at SVGTextElement.<anonymous> (http://localhost:5573/node_modules/.vite/deps/d3.js?v=6b8722dc:1982:20)
+    at Selection.each_default [as each] (http://localhost:5573/node_modules/.vite/deps/d3.js?v=6b8722dc:1806:38)
+    at Selection.text_default [as text] (http://localhost:5573/node_modules/.vite/deps/d3.js?v=6b8722dc:1987:34)
+    at http://localhost:5573/src/features/ontology/hooks/useD3Graph.ts?t=1773755144458:103:253
+    at Object.react_stack_bottom_frame (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:18567:20)
+    at runWithFiberInDEV (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:997:72)
+    at commitHookEffectListMount (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:9411:163)
+    at commitHookPassiveMountEffects (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:9465:60)
+    at reconnectPassiveEffects (http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:11273:13) The above error occurred in the <GraphView> component. React will try to recreate this component tree from scratch using the error boundary you provided, CatchBoundaryImpl. @ http://localhost:5573/node_modules/.vite/deps/react-dom_client.js?v=6b8722dc:7000
+[  411045ms] [WARNING] Warning: The following error wasn't caught by any route! At the very least, consider setting an 'errorComponent' in your RootRoute! @ http://localhost:5573/node_modules/.vite/deps/chunk-M5LCQ5BX.js?v=6b8722dc:326
+[  411045ms] [WARNING] Warning: Cannot read properties of undefined (reading 'length') @ http://localhost:5573/node_modules/.vite/deps/chunk-M5LCQ5BX.js?v=6b8722dc:326
+[  417948ms] [WARNING] [@tanstack/router-devtools] This package has moved to @tanstack/react-router-devtools. Please switch to the new package at your earliest convenience, as this package will be dropped in the next major version release. @ http://localhost:5573/node_modules/.vite/deps/@tanstack_router-devtools.js?v=6b8722dc:134

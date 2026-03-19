@@ -1,0 +1,52 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/03-analysis-frontend/01-analysis-foundation/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/03-analysis-frontend/01-analysis-foundation/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-types-and-hooks",
+    "section-02-i18n-and-navigation",
+    "section-03-shadcn-components",
+    "section-04-list-page",
+    "section-05-create-page",
+    "section-06-settings-page"
+  ],
+  "sections_state": {
+    "section-01-types-and-hooks": {
+      "status": "complete",
+      "commit_hash": "00275d6"
+    },
+    "section-02-i18n-and-navigation": {
+      "status": "complete",
+      "commit_hash": "7c8c19e"
+    },
+    "section-03-shadcn-components": {
+      "status": "complete",
+      "commit_hash": "46ab818"
+    },
+    "section-04-list-page": {
+      "status": "complete",
+      "commit_hash": "f8d67f1"
+    },
+    "section-05-create-page": {
+      "status": "complete",
+      "commit_hash": "9f4f4d5"
+    },
+    "section-06-settings-page": {
+      "status": "complete",
+      "commit_hash": "ca27013"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-19T10:24:32.825097+00:00"
+}

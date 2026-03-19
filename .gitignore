@@ -14,3 +14,7 @@ Thumbs.db
 .env.local
 *.local
 .claude/
+
+# Reference PDFs (large binary files)
+docs/reference-xai/
+.serena/

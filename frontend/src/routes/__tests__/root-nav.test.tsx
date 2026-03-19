@@ -26,6 +26,7 @@ vi.mock("react-i18next", () => ({
         "nav.crosswalk": "Crosswalk",
         "nav.landscape": "Landscape",
         "nav.search": "Search",
+        "nav.analysis": "Analysis",
       };
       return translations[key] ?? key;
     },
@@ -44,6 +45,7 @@ function TestRootLayout() {
         <Link to="/crosswalk">Crosswalk</Link>
         <Link to="/landscape">Landscape</Link>
         <Link to="/concepts/search">Search</Link>
+        <Link to="/analysis">Analysis</Link>
         <Link to="/compliance">Compliance</Link>
         <Link to="/reports">Reports</Link>
       </nav>
@@ -64,6 +66,7 @@ function renderWithRouter(initialPath = "/") {
     createRoute({ getParentRoute: () => rootRoute, path: "/compliance", component: () => React.createElement("div", null, "Compliance") }),
     createRoute({ getParentRoute: () => rootRoute, path: "/reports", component: () => React.createElement("div", null, "Reports") }),
     createRoute({ getParentRoute: () => rootRoute, path: "/concepts/search", component: () => React.createElement("div", null, "Search") }),
+    createRoute({ getParentRoute: () => rootRoute, path: "/analysis", component: () => React.createElement("div", null, "Analysis") }),
   ];
 
   const router = createRouter({
@@ -83,11 +86,11 @@ function renderWithRouter(initialPath = "/") {
 }
 
 describe("Root Navigation (Single Bar)", () => {
-  it("renders all 8 navigation links", async () => {
+  it("renders all 9 navigation links", async () => {
     renderWithRouter("/");
     const nav = await screen.findByTestId("main-nav");
     const links = nav.querySelectorAll("a");
-    expect(links).toHaveLength(8);
+    expect(links).toHaveLength(9);
   });
 
   it("contains all expected link targets", async () => {
@@ -101,6 +104,7 @@ describe("Root Navigation (Single Bar)", () => {
       "/crosswalk",
       "/landscape",
       "/concepts/search",
+      "/analysis",
       "/compliance",
       "/reports",
     ]);
