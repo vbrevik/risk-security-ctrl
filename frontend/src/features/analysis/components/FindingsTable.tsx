@@ -17,7 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import type { AnalysisFinding, FindingType } from "../types";
+import type { AnalysisFinding, FindingType, FindingsFilter } from "../types";
 import { FindingTypeTag } from "./FindingTypeTag";
 
 interface FindingsTableProps {
@@ -25,19 +25,12 @@ interface FindingsTableProps {
   expandedIds: Set<string>;
   onToggleExpand: (id: string) => void;
   frameworkIds: string[];
-  filters: {
-    framework_id?: string;
-    finding_type?: FindingType;
-    priority?: number;
-  };
-  onFilterChange: (filters: {
-    framework_id?: string;
-    finding_type?: FindingType;
-    priority?: number;
-  }) => void;
+  filters: FindingsFilter;
+  onFilterChange: (filters: FindingsFilter) => void;
   page: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  onConceptClick?: (conceptId: string) => void;
 }
 
 const ALL = "__all__";
@@ -59,6 +52,7 @@ export function FindingsTable({
   page,
   totalPages,
   onPageChange,
+  onConceptClick,
 }: FindingsTableProps) {
   const { t } = useTranslation("analysis");
 
@@ -177,9 +171,29 @@ export function FindingsTable({
                   </Button>
                 </TableCell>
                 <TableCell className="font-mono text-sm">
-                  {finding.concept_code ?? "\u2014"}
+                  {onConceptClick && finding.concept_code ? (
+                    <button
+                      className="text-left hover:underline text-accent-foreground cursor-pointer"
+                      onClick={() => onConceptClick(finding.concept_id)}
+                    >
+                      {finding.concept_code}
+                    </button>
+                  ) : (
+                    finding.concept_code ?? "\u2014"
+                  )}
                 </TableCell>
-                <TableCell>{finding.concept_name ?? "\u2014"}</TableCell>
+                <TableCell>
+                  {onConceptClick && finding.concept_name ? (
+                    <button
+                      className="text-left hover:underline text-accent-foreground cursor-pointer"
+                      onClick={() => onConceptClick(finding.concept_id)}
+                    >
+                      {finding.concept_name}
+                    </button>
+                  ) : (
+                    finding.concept_name ?? "\u2014"
+                  )}
+                </TableCell>
                 <TableCell>{finding.framework_id}</TableCell>
                 <TableCell>
                   <FindingTypeTag type={finding.finding_type} />
@@ -242,7 +256,7 @@ export function FindingsTable({
       {/* Pagination */}
       <div className="flex items-center justify-between">
         <p className="text-sm text-muted-foreground">
-          Page {page} of {totalPages}
+          {t("list.pagination.pageOf", { page, total: totalPages })}
         </p>
         <div className="flex gap-2">
           <Button

@@ -24,7 +24,9 @@
     "iso42001": "ISO/IEC 42001 - KI-styringssystem",
     "iso42005": "ISO/IEC 42005 - Konsekvensanalyse for KI-systemer",
     "iso23894": "ISO/IEC 23894 - Veiledning for KI-risikostyring",
-    "nist-ai-genai": "NIST AI 600-1 - Generativ KI-profil"
+    "nist-ai-genai": "NIST AI 600-1 - Generativ KI-profil",
+    "iso10015": "ISO 10015:2019 - Kompetansestyring",
+    "iso24028": "ISO/IEC TR 24028 - KI-palitelighet"
   },
   "concepts": {
     "title": "Konsepter",

@@ -7,6 +7,7 @@ interface SummaryStatsProps {
   analysis: Analysis;
   chartData: ChartData;
   isLoading?: boolean;
+  overrideTypeCounts?: ChartData["typeCounts"];
 }
 
 function formatProcessingTime(ms: number | null): string {
@@ -24,23 +25,25 @@ function calcPercent(count: number, total: number): string {
   return `${Math.round((count / total) * 100)}%`;
 }
 
-export function SummaryStats({ analysis, chartData, isLoading }: SummaryStatsProps) {
+export function SummaryStats({ analysis, chartData, isLoading, overrideTypeCounts }: SummaryStatsProps) {
   const { t } = useTranslation("analysis");
+
+  const typeCounts = overrideTypeCounts ?? chartData.typeCounts;
 
   const cards = [
     {
       label: t("stats.totalFindings"),
-      value: String(chartData.typeCounts.total),
+      value: String(typeCounts.total),
     },
     {
       label: t("stats.addressed"),
-      value: String(chartData.typeCounts.addressed),
-      secondary: calcPercent(chartData.typeCounts.addressed, chartData.typeCounts.total),
+      value: String(typeCounts.addressed),
+      secondary: calcPercent(typeCounts.addressed, typeCounts.total),
     },
     {
       label: t("stats.gaps"),
-      value: String(chartData.typeCounts.gap),
-      secondary: calcPercent(chartData.typeCounts.gap, chartData.typeCounts.total),
+      value: String(typeCounts.gap),
+      secondary: calcPercent(typeCounts.gap, typeCounts.total),
     },
     {
       label: t("stats.frameworks"),

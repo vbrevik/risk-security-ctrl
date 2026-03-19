@@ -52,7 +52,7 @@ describe("useAnalyses", () => {
 
   it("returns paginated list on successful fetch", async () => {
     const mockData = {
-      items: [
+      data: [
         { id: "a1", name: "Test", description: null, input_type: "text", status: "completed", error_message: null, processing_time_ms: 100, created_at: "2025-01-01", updated_at: "2025-01-01" },
       ],
       total: 1, page: 1, limit: 20, total_pages: 1,
@@ -70,7 +70,7 @@ describe("useAnalyses", () => {
   });
 
   it("passes status filter as query param", async () => {
-    mockedApi.get.mockResolvedValue({ data: { items: [], total: 0, page: 1, limit: 20, total_pages: 0 } });
+    mockedApi.get.mockResolvedValue({ data: { data: [], total: 0, page: 1, limit: 20, total_pages: 0 } });
 
     const { wrapper } = createWrapper();
     renderHook(() => useAnalyses({ status: "completed" }), { wrapper });
@@ -85,7 +85,7 @@ describe("useAnalyses", () => {
 
   it("refetchInterval activates when response contains processing items", async () => {
     const mockData = {
-      items: [
+      data: [
         { id: "a1", name: "Test", status: "processing", input_type: "text", description: null, error_message: null, processing_time_ms: null, created_at: "2025-01-01", updated_at: "2025-01-01" },
       ],
       total: 1, page: 1, limit: 20, total_pages: 1,
@@ -102,12 +102,12 @@ describe("useAnalyses", () => {
     // The hook should be set to refetch because there's a processing item
     // We verify by checking that api.get gets called more than once when using fake timers
     // Alternatively, just verify the data was returned correctly with processing status
-    expect(result.current.data?.items[0].status).toBe("processing");
+    expect(result.current.data?.data[0].status).toBe("processing");
   });
 
   it("refetchInterval is false when no processing items", async () => {
     const mockData = {
-      items: [
+      data: [
         { id: "a1", name: "Test", status: "completed", input_type: "text", description: null, error_message: null, processing_time_ms: 100, created_at: "2025-01-01", updated_at: "2025-01-01" },
       ],
       total: 1, page: 1, limit: 20, total_pages: 1,
@@ -122,7 +122,7 @@ describe("useAnalyses", () => {
     });
 
     // All items completed — no polling should occur
-    expect(result.current.data?.items[0].status).toBe("completed");
+    expect(result.current.data?.data[0].status).toBe("completed");
   });
 });
 
@@ -389,7 +389,7 @@ describe("useFindings", () => {
 
   it("fetches paginated findings for an analysis", async () => {
     const mockFindings = {
-      items: [
+      data: [
         { id: "f1", concept_id: "c1", framework_id: "fw1", finding_type: "gap", confidence_score: 0.85, evidence_text: "test", recommendation: "fix", priority: 1, sort_order: 1, concept_code: "C1", concept_name: "Control 1", concept_definition: "Def" },
       ],
       total: 1, page: 1, limit: 20, total_pages: 1,
@@ -403,8 +403,8 @@ describe("useFindings", () => {
       expect(result.current.isSuccess).toBe(true);
     });
 
-    expect(result.current.data?.items).toHaveLength(1);
-    expect(result.current.data?.items[0].id).toBe("f1");
+    expect(result.current.data?.data).toHaveLength(1);
+    expect(result.current.data?.data[0].id).toBe("f1");
   });
 
   it("disabled when id is empty", async () => {
@@ -416,7 +416,7 @@ describe("useFindings", () => {
   });
 
   it("passes filter params as query string", async () => {
-    mockedApi.get.mockResolvedValue({ data: { items: [], total: 0, page: 1, limit: 20, total_pages: 0 } });
+    mockedApi.get.mockResolvedValue({ data: { data: [], total: 0, page: 1, limit: 20, total_pages: 0 } });
 
     const { wrapper } = createWrapper();
     renderHook(() => useFindings("a1", { framework_id: "fw1", finding_type: "gap" }), { wrapper });

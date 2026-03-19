@@ -1,31 +1,14 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { FindingsTable } from "../FindingsTable";
-import type { AnalysisFinding, FindingType } from "../../types";
+import type { FindingType } from "../../types";
+import { makeFinding } from "../../test-utils/factories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
   }),
 }));
-
-function makeFinding(overrides: Partial<AnalysisFinding> = {}): AnalysisFinding {
-  return {
-    id: "f1",
-    concept_id: "c1",
-    framework_id: "fw1",
-    finding_type: "gap",
-    confidence_score: 0.85,
-    evidence_text: "Some evidence",
-    recommendation: "Fix this",
-    priority: 1,
-    sort_order: 1,
-    concept_code: "C-001",
-    concept_name: "Control One",
-    concept_definition: "Definition of control",
-    ...overrides,
-  };
-}
 
 const defaultProps = {
   findings: [
@@ -130,5 +113,31 @@ describe("FindingsTable", () => {
     render(<FindingsTable {...defaultProps} page={2} onPageChange={onPage} />);
     fireEvent.click(screen.getByText("list.pagination.previous"));
     expect(onPage).toHaveBeenCalledWith(1);
+  });
+
+  it("concept name cell is clickable when onConceptClick is provided", () => {
+    const onClick = vi.fn();
+    render(<FindingsTable {...defaultProps} onConceptClick={onClick} />);
+    const btn = screen.getByRole("button", { name: "Control One" });
+    expect(btn).toBeInTheDocument();
+  });
+
+  it("clicking concept name fires onConceptClick with concept_id", () => {
+    const onClick = vi.fn();
+    render(<FindingsTable {...defaultProps} onConceptClick={onClick} />);
+    fireEvent.click(screen.getByRole("button", { name: "Control One" }));
+    expect(onClick).toHaveBeenCalledWith("c1");
+  });
+
+  it("concept code cell shows dash when concept_code is null", () => {
+    const onClick = vi.fn();
+    render(<FindingsTable {...defaultProps} onConceptClick={onClick} />);
+    // Second finding has concept_code: null — should show dash, not a button
+    const dashes = screen.getAllByText("\u2014");
+    expect(dashes.length).toBeGreaterThan(0);
+  });
+
+  it("no error when onConceptClick is not provided", () => {
+    expect(() => render(<FindingsTable {...defaultProps} />)).not.toThrow();
   });
 });

@@ -19,4 +19,48 @@ describe("analysis i18n namespace", () => {
     expect(bundle).toBeDefined();
     expect(bundle.title).toBeTruthy();
   });
+
+  describe("enhancement keys", () => {
+    const radarKeys = [
+      "charts.radar.title",
+      "charts.radar.description",
+      "charts.radar.noData",
+      "charts.radar.addressed",
+      "charts.radar.partial",
+      "charts.radar.gap",
+      "charts.radar.notApplicable",
+      "charts.radar.legend",
+      "charts.radar.percentage",
+    ];
+
+    const conceptPanelKeys = [
+      "detail.conceptPanel.title",
+      "detail.conceptPanel.close",
+      "detail.conceptPanel.openInExplorer",
+      "detail.conceptPanel.definition",
+      "detail.conceptPanel.type",
+      "detail.conceptPanel.framework",
+      "detail.conceptPanel.relatedConcepts",
+      "detail.conceptPanel.crossMappings",
+      "detail.conceptPanel.loading",
+      "detail.conceptPanel.error",
+      "detail.conceptPanel.retry",
+    ];
+
+    const crossFilterKeys = [
+      "detail.filteredBy",
+      "detail.clearFilter",
+    ];
+
+    const allNewKeys = [...radarKeys, ...conceptPanelKeys, ...crossFilterKeys];
+
+    it.each(allNewKeys)("key '%s' exists in en and nb and is non-empty", (key) => {
+      const en = i18n.t(key, { ns: "analysis", lng: "en" });
+      const nb = i18n.t(key, { ns: "analysis", lng: "nb" });
+      expect(en).not.toBe(key);
+      expect(nb).not.toBe(key);
+      expect(en.length).toBeGreaterThan(0);
+      expect(nb.length).toBeGreaterThan(0);
+    });
+  });
 });

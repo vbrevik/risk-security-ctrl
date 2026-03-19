@@ -90,13 +90,13 @@ function HomePage() {
       {
         label: "Risk & Security Standards",
         items: frameworks.filter((f) =>
-          ["iso31000", "iso31010", "iso27000", "iso9000", "nist-csf", "nist-800-53", "nist-rmf"].includes(f.id)
+          ["iso31000", "iso31010", "iso27000", "iso9000", "iso10015", "nist-csf", "nist-800-53", "nist-rmf"].includes(f.id)
         ),
       },
       {
         label: "AI Governance",
         items: frameworks.filter((f) =>
-          ["eu-ai-act", "nist-ai-rmf", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas"].includes(f.id)
+          ["eu-ai-act", "nist-ai-rmf", "iso42001", "iso42005", "iso23894", "iso24028", "google-saif", "mitre-atlas"].includes(f.id)
         ),
       },
       {

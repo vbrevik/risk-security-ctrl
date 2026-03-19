@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useState, useCallback, useRef, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X } from "lucide-react";
 import { useAnalysis, useFindings } from "@/features/analysis/api";
 import { StatusBadge } from "@/features/analysis/components/StatusBadge";
 import { SummaryStats } from "@/features/analysis/components/SummaryStats";
 import { CoverageHeatmap } from "@/features/analysis/components/CoverageHeatmap";
 import { PriorityChart } from "@/features/analysis/components/PriorityChart";
+import { FrameworkRadar } from "@/features/analysis/components/FrameworkRadar";
 import { FindingsTable } from "@/features/analysis/components/FindingsTable";
+import { ConceptDrawer } from "@/features/analysis/components/ConceptDrawer";
 import { ExportButtons } from "@/features/analysis/components/ExportButtons";
 import { EmptyFindings } from "@/features/analysis/components/EmptyFindings";
 import { useChartData } from "@/features/analysis/hooks/useChartData";
-import type { FindingType } from "@/features/analysis/types";
+import type { FindingsFilter } from "@/features/analysis/types";
 
 export const Route = createFileRoute("/analysis/$id")({
   component: AnalysisDetailPage,
@@ -30,23 +32,36 @@ function AnalysisDetailPage() {
     { limit: 1000 },
   );
   const chartData = useChartData(
-    isCompleted ? allFindingsData?.items : undefined
+    isCompleted ? allFindingsData?.data : undefined
   );
 
   // Paginated findings for table
   const [page, setPage] = useState(1);
-  const [filters, setFilters] = useState<{
-    framework_id?: string;
-    finding_type?: FindingType;
-    priority?: number;
-  }>({});
+  const [filters, setFilters] = useState<FindingsFilter>({});
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const [selectedConceptId, setSelectedConceptId] = useState<string | null>(null);
+  const findingsRef = useRef<HTMLDivElement>(null);
 
   const { data: paginatedFindings } = useFindings(id, {
     page,
     limit: 20,
     ...filters,
   });
+
+  const handleBarClick = useCallback((frameworkId: string) => {
+    setFilters(prev => ({
+      ...prev,
+      framework_id: prev.framework_id === frameworkId ? undefined : frameworkId,
+    }));
+    setPage(1);
+    findingsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  const filteredFindings = useMemo(() => {
+    if (!filters.framework_id || !allFindingsData?.data) return undefined;
+    return allFindingsData.data.filter(f => f.framework_id === filters.framework_id);
+  }, [filters.framework_id, allFindingsData?.data]);
+  const filteredChartData = useChartData(filteredFindings);
 
   function handleFilterChange(newFilters: typeof filters) {
     setFilters(newFilters);
@@ -195,21 +210,46 @@ function AnalysisDetailPage() {
             analysis={analysis}
             chartData={chartData}
             isLoading={isChartDataLoading}
+            overrideTypeCounts={filteredFindings ? filteredChartData.typeCounts : undefined}
           />
 
+          {/* Filter Banner */}
+          {filters.framework_id && (
+            <div className="flex items-center gap-2 bg-muted rounded px-3 py-1 text-sm">
+              <span>{t("detail.filteredBy", { framework: filters.framework_id })}</span>
+              <button
+                onClick={() => setFilters(prev => ({ ...prev, framework_id: undefined }))}
+                className="ml-auto hover:bg-accent rounded p-0.5"
+                aria-label={t("detail.clearFilter")}
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </div>
+          )}
+
           {/* Charts */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CoverageHeatmap data={chartData.frameworkCoverage} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <CoverageHeatmap
+              data={chartData.frameworkCoverage}
+              onBarClick={handleBarClick}
+              selectedFrameworkId={filters.framework_id}
+              frameworkIds={analysis.matched_framework_ids}
+            />
+            <FrameworkRadar
+              data={chartData.radarData}
+              selectedFrameworkId={filters.framework_id}
+              frameworkIds={analysis.matched_framework_ids}
+            />
             <PriorityChart data={chartData.priorityCounts} />
           </div>
 
           {/* Findings Table */}
-          <div>
+          <div ref={findingsRef}>
             <h2 className="text-lg font-semibold mb-4">
               {t("findings.title")}
             </h2>
             <FindingsTable
-              findings={paginatedFindings?.items ?? []}
+              findings={paginatedFindings?.data ?? []}
               expandedIds={expandedIds}
               onToggleExpand={handleToggleExpand}
               frameworkIds={analysis.matched_framework_ids}
@@ -218,8 +258,15 @@ function AnalysisDetailPage() {
               page={page}
               totalPages={paginatedFindings?.total_pages ?? 1}
               onPageChange={setPage}
+              onConceptClick={(conceptId) => setSelectedConceptId(conceptId)}
             />
           </div>
+
+          {/* Concept Drawer */}
+          <ConceptDrawer
+            conceptId={selectedConceptId}
+            onClose={() => setSelectedConceptId(null)}
+          />
         </div>
       )}
     </div>

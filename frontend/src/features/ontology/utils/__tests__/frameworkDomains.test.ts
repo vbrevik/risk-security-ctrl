@@ -15,8 +15,8 @@ function makeFramework(id: string): Framework {
 }
 
 const ALL_IDS = [
-  "iso31000", "iso31010", "iso27000", "iso9000", "nist-csf", "nist-800-53", "nist-rmf",
-  "eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas",
+  "iso31000", "iso31010", "iso27000", "iso9000", "iso10015", "nist-csf", "nist-800-53", "nist-rmf",
+  "eu-ai-act", "nist-ai-rmf", "nist-ai-genai", "iso42001", "iso42005", "iso23894", "iso24028", "google-saif", "mitre-atlas",
   "gdpr", "nis2", "dora", "cer-directive",
   "zero-trust", "cisa-ztmm", "data-centric", "fmn",
 ];
@@ -38,10 +38,10 @@ describe("groupFrameworksByDomain", () => {
     const byLabel = Object.fromEntries(groups.map((g) => [g.label, g.frameworkIds]));
 
     expect(byLabel["Risk & Security Standards"]).toEqual(
-      expect.arrayContaining(["iso31000", "iso31010", "iso27000", "iso9000", "nist-csf", "nist-800-53", "nist-rmf"])
+      expect.arrayContaining(["iso31000", "iso31010", "iso27000", "iso9000", "iso10015", "nist-csf", "nist-800-53", "nist-rmf"])
     );
     expect(byLabel["AI Governance"]).toEqual(
-      expect.arrayContaining(["eu-ai-act", "nist-ai-rmf", "iso42001", "iso42005", "iso23894", "google-saif", "mitre-atlas"])
+      expect.arrayContaining(["eu-ai-act", "nist-ai-rmf", "iso42001", "iso42005", "iso23894", "iso24028", "google-saif", "mitre-atlas"])
     );
     expect(byLabel["EU Regulations"]).toEqual(
       expect.arrayContaining(["gdpr", "nis2", "dora", "cer-directive"])
@@ -54,8 +54,8 @@ describe("groupFrameworksByDomain", () => {
   it("all 22 frameworks assigned to exactly one group", () => {
     const groups = groupFrameworksByDomain(ALL_IDS.map(makeFramework));
     const allIds = groups.flatMap((g) => g.frameworkIds);
-    expect(allIds).toHaveLength(23);
-    expect(new Set(allIds).size).toBe(23);
+    expect(allIds).toHaveLength(25);
+    expect(new Set(allIds).size).toBe(25);
   });
 
   it("handles empty framework array", () => {

@@ -87,11 +87,14 @@ export interface AnalysisListParams {
   status?: AnalysisStatus;
 }
 
-export interface FindingsListParams {
-  page?: number;
-  limit?: number;
+export interface FindingsFilter {
   framework_id?: string;
   finding_type?: FindingType;
   priority?: number;
+}
+
+export interface FindingsListParams extends FindingsFilter {
+  page?: number;
+  limit?: number;
   sort_by?: string;
 }

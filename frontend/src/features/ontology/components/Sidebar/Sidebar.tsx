@@ -29,7 +29,7 @@ function FilterPanel() {
         const { data } = await api.get<PaginatedResponse<Concept>>(
           `/ontology/concepts?${params}`
         );
-        return data.items;
+        return data.data;
       },
       staleTime: 1000 * 60 * 5,
     })),

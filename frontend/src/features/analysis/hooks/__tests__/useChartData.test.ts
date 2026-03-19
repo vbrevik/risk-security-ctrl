@@ -1,25 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { useChartData } from "../useChartData";
-import type { AnalysisFinding } from "../../types";
-
-function makeFinding(overrides: Partial<AnalysisFinding> = {}): AnalysisFinding {
-  return {
-    id: "f1",
-    concept_id: "c1",
-    framework_id: "fw1",
-    finding_type: "gap",
-    confidence_score: 0.85,
-    evidence_text: null,
-    recommendation: null,
-    priority: 1,
-    sort_order: 1,
-    concept_code: null,
-    concept_name: null,
-    concept_definition: null,
-    ...overrides,
-  };
-}
+import { makeFinding } from "../../test-utils/factories";
 
 describe("useChartData", () => {
   it("returns zero counts when findings array is empty", () => {
@@ -105,5 +87,71 @@ describe("useChartData", () => {
     const { result } = renderHook(() => useChartData(findings));
     const fw = result.current.frameworkCoverage[0];
     expect(fw.percentage).toBeCloseTo(66.67, 1);
+  });
+});
+
+describe("radarData", () => {
+  it("returns empty array when no findings", () => {
+    const { result } = renderHook(() => useChartData([]));
+    expect(result.current.radarData).toEqual([]);
+  });
+
+  it("groups findings by framework with normalized percentages", () => {
+    const findings = [
+      makeFinding({ id: "f1", framework_id: "fw-a", finding_type: "addressed" }),
+      makeFinding({ id: "f2", framework_id: "fw-a", finding_type: "addressed" }),
+      makeFinding({ id: "f3", framework_id: "fw-a", finding_type: "gap" }),
+      makeFinding({ id: "f4", framework_id: "fw-a", finding_type: "partially_addressed" }),
+      makeFinding({ id: "f5", framework_id: "fw-b", finding_type: "not_applicable" }),
+      makeFinding({ id: "f6", framework_id: "fw-b", finding_type: "addressed" }),
+    ];
+    const { result } = renderHook(() => useChartData(findings));
+    const fwA = result.current.radarData.find((r) => r.frameworkId === "fw-a");
+    expect(fwA).toBeDefined();
+    expect(fwA!.values.addressed).toBe(50);
+    expect(fwA!.values.gap).toBe(25);
+    expect(fwA!.values.partial).toBe(25);
+    expect(fwA!.values.notApplicable).toBe(0);
+
+    const fwB = result.current.radarData.find((r) => r.frameworkId === "fw-b");
+    expect(fwB).toBeDefined();
+    expect(fwB!.values.addressed).toBe(50);
+    expect(fwB!.values.notApplicable).toBe(50);
+  });
+
+  it("percentages sum to 100 per framework", () => {
+    const findings = [
+      makeFinding({ id: "f1", framework_id: "fw-a", finding_type: "addressed" }),
+      makeFinding({ id: "f2", framework_id: "fw-a", finding_type: "gap" }),
+      makeFinding({ id: "f3", framework_id: "fw-a", finding_type: "partially_addressed" }),
+    ];
+    const { result } = renderHook(() => useChartData(findings));
+    const fwA = result.current.radarData[0];
+    const sum = fwA.values.addressed + fwA.values.partial + fwA.values.gap + fwA.values.notApplicable;
+    expect(sum).toBeCloseTo(100, 1);
+  });
+
+  it("handles single framework with all one type", () => {
+    const findings = [
+      makeFinding({ id: "f1", framework_id: "fw-x", finding_type: "gap" }),
+      makeFinding({ id: "f2", framework_id: "fw-x", finding_type: "gap" }),
+    ];
+    const { result } = renderHook(() => useChartData(findings));
+    const fw = result.current.radarData[0];
+    expect(fw.values.gap).toBe(100);
+    expect(fw.values.addressed).toBe(0);
+    expect(fw.values.partial).toBe(0);
+    expect(fw.values.notApplicable).toBe(0);
+  });
+
+  it("includes total raw count per framework", () => {
+    const findings = [
+      makeFinding({ id: "f1", framework_id: "fw-a", finding_type: "addressed" }),
+      makeFinding({ id: "f2", framework_id: "fw-a", finding_type: "gap" }),
+      makeFinding({ id: "f3", framework_id: "fw-b", finding_type: "gap" }),
+    ];
+    const { result } = renderHook(() => useChartData(findings));
+    expect(result.current.radarData.find((r) => r.frameworkId === "fw-a")!.total).toBe(2);
+    expect(result.current.radarData.find((r) => r.frameworkId === "fw-b")!.total).toBe(1);
   });
 });

@@ -40,7 +40,7 @@ export function useAnalyses(params?: AnalysisListParams) {
     },
     refetchInterval: (query) => {
       const data = query.state.data;
-      if (data?.items.some((item) => item.status === "processing")) {
+      if (data?.data?.some((item) => item.status === "processing")) {
         return 5000;
       }
       return false;

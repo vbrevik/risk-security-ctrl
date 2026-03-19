@@ -80,7 +80,22 @@
     "notFound": {
       "title": "Analyse ikke funnet",
       "message": "Analysen du leter etter finnes ikke eller er fjernet."
-    }
+    },
+    "conceptPanel": {
+      "title": "Konseptdetaljer",
+      "close": "Lukk panel",
+      "openInExplorer": "Åpne i Ontologiutforsker",
+      "definition": "Definisjon",
+      "type": "Type",
+      "framework": "Rammeverk",
+      "relatedConcepts": "Relaterte konsepter",
+      "crossMappings": "Kryssrammeverk-koblinger",
+      "loading": "Laster konsept...",
+      "error": "Kunne ikke laste konseptdetaljer",
+      "retry": "Prøv igjen"
+    },
+    "filteredBy": "Viser resultater for: {{framework}}",
+    "clearFilter": "Fjern filter"
   },
   "stats": {
     "totalFindings": "Totalt antall funn",
@@ -100,6 +115,17 @@
       "title": "Prioritetsfordeling",
       "description": "Fordeling av funn etter prioritetsnivå",
       "noData": "Ingen prioritetsdata tilgjengelig"
+    },
+    "radar": {
+      "title": "Rammeverkradar",
+      "description": "Normalisert funntype-fordeling på tvers av rammeverk",
+      "noData": "Ingen radardata tilgjengelig",
+      "addressed": "Adressert",
+      "partial": "Delvis",
+      "gap": "Mangel",
+      "notApplicable": "Ikke relevant",
+      "legend": "Tegnforklaring",
+      "percentage": "{{value}}%"
     }
   },
   "findings": {
