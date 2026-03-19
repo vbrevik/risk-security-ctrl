@@ -13,3 +13,5 @@ export { SummaryStats } from "./components/SummaryStats";
 export { useContainerDimensions } from "./hooks/useContainerDimensions";
 export { CoverageHeatmap } from "./components/CoverageHeatmap";
 export { PriorityChart } from "./components/PriorityChart";
+export { FindingTypeTag } from "./components/FindingTypeTag";
+export { FindingsTable } from "./components/FindingsTable";
