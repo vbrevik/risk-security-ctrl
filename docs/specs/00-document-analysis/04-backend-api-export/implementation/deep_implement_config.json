@@ -47,6 +47,22 @@
     "section-07-chart-rendering": {
       "status": "complete",
       "commit_hash": "1cc9024"
+    },
+    "section-08-pdf-export": {
+      "status": "complete",
+      "commit_hash": "faf6814"
+    },
+    "section-09-docx-export": {
+      "status": "complete",
+      "commit_hash": "4cc5932"
+    },
+    "section-10-export-handler": {
+      "status": "complete",
+      "commit_hash": "2195606"
+    },
+    "section-11-prompt-template": {
+      "status": "complete",
+      "commit_hash": "c90d852"
     }
   },
   "pre_commit": {
