@@ -25,6 +25,18 @@ use utoipa_swagger_ui::SwaggerUi;
         ontology_backend::features::analysis::routes::export_analysis,
         ontology_backend::features::analysis::routes::get_prompt_template,
         ontology_backend::features::analysis::routes::update_prompt_template,
+        ontology_backend::features::auth::routes::register_handler,
+        ontology_backend::features::auth::routes::login_handler,
+        ontology_backend::features::auth::routes::logout_handler,
+        ontology_backend::features::auth::routes::me_handler,
+    ),
+    components(
+        schemas(
+            ontology_backend::features::auth::models::RegisterRequest,
+            ontology_backend::features::auth::models::LoginRequest,
+            ontology_backend::features::auth::models::AuthResponse,
+            ontology_backend::features::auth::models::UserProfile,
+        )
     ),
     tags(
         (name = "health", description = "Health check endpoints"),

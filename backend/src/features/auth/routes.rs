@@ -60,7 +60,7 @@ fn extract_user_agent(headers: &HeaderMap) -> String {
     ),
     tag = "auth"
 )]
-async fn register_handler(
+pub async fn register_handler(
     State(state): State<AppState>,
     Json(body): Json<RegisterRequest>,
 ) -> Result<impl IntoResponse, AppError> {
@@ -80,7 +80,7 @@ async fn register_handler(
     ),
     tag = "auth"
 )]
-async fn login_handler(
+pub async fn login_handler(
     State(state): State<AppState>,
     jar: PrivateCookieJar<Key>,
     headers: HeaderMap,
@@ -150,7 +150,7 @@ async fn login_handler(
     security(("bearer" = [])),
     tag = "auth"
 )]
-async fn logout_handler(
+pub async fn logout_handler(
     State(state): State<AppState>,
     jar: PrivateCookieJar<Key>,
     auth_user: AuthUser,
@@ -180,7 +180,7 @@ async fn logout_handler(
     security(("bearer" = [])),
     tag = "auth"
 )]
-async fn me_handler(auth_user: AuthUser) -> Json<UserProfile> {
+pub async fn me_handler(auth_user: AuthUser) -> Json<UserProfile> {
     Json(UserProfile {
         id: auth_user.id,
         email: auth_user.email,
