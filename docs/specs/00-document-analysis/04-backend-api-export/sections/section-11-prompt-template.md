@@ -1,10 +1,20 @@
-Now I have all the context needed. Here is the section content:
-
 # Section 11: Prompt Template Endpoints
+
+## Status: Implemented
 
 ## Overview
 
 This section implements two handlers in `backend/src/features/analysis/routes.rs` for managing the analysis prompt template (a `MatcherConfig` JSON file). The `get_prompt_template` handler reads the current configuration from disk (or returns defaults), and `update_prompt_template` validates and writes a new configuration, with audit logging.
+
+## Files Modified
+- **Modified:** `backend/src/features/analysis/routes.rs` - Replaced stubs with full implementations
+
+## Deviations from Plan
+- **Corrupt config returns error:** Plan suggested silently falling back to defaults on deserialization failure. Code review identified this masks corruption. Now returns 500 with error log.
+- **`.tmp` cleanup on rename failure:** Added best-effort removal of orphaned temp file in rename error path.
+- **Best-effort audit logging:** Consistent with section-10, audit INSERT uses warn-and-continue.
+- **No `validate_thresholds`:** Method doesn't exist on MatcherConfig; validation relies on serde deserialization only.
+- **No integration tests:** Section plan specified tests requiring test app infrastructure. Handler logic compiles and existing tests pass.
 
 These handlers are registered on the routes already scaffolded in section 02:
 - `GET /api/analyses/prompt-template` -- `get_prompt_template`
