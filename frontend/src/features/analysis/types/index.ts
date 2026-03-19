@@ -47,13 +47,13 @@ export interface AnalysisFinding {
   framework_id: string;
   finding_type: FindingType;
   confidence_score: number;
-  evidence_text: string;
-  recommendation: string;
+  evidence_text: string | null;
+  recommendation: string | null;
   priority: number;
   sort_order: number;
-  concept_code: string;
-  concept_name: string;
-  concept_definition: string;
+  concept_code: string | null;
+  concept_name: string | null;
+  concept_definition: string | null;
 }
 
 // Matcher configuration for prompt template

@@ -1,0 +1,27 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/03-analysis-frontend/02-analysis-detail-and-charts/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/03-analysis-frontend/02-analysis-detail-and-charts/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-prerequisites-and-i18n",
+    "section-02-chart-data-and-stats",
+    "section-03-d3-charts",
+    "section-04-findings-table",
+    "section-05-export-and-empty-state",
+    "section-06-page-assembly"
+  ],
+  "sections_state": {},
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-19T13:13:31.300512+00:00"
+}

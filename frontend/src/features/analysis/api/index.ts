@@ -40,7 +40,7 @@ export function useAnalyses(params?: AnalysisListParams) {
     },
     refetchInterval: (query) => {
       const data = query.state.data;
-      if (data?.data.some((item) => item.status === "processing")) {
+      if (data?.items.some((item) => item.status === "processing")) {
         return 5000;
       }
       return false;
@@ -66,6 +66,13 @@ export function useAnalysis(id: string) {
     },
     enabled: !!id,
     staleTime: 5 * 60 * 1000,
+    refetchOnMount: "always" as const,
+    refetchInterval: (query) => {
+      if (query.state.data?.status === "processing") {
+        return 5000;
+      }
+      return false;
+    },
   });
 }
 

@@ -40,7 +40,7 @@ export function GraphView() {
         const { data } = await api.get<PaginatedResponse<Concept>>(
           `/ontology/concepts?${params}`
         );
-        return data.data;
+        return data.items;
       },
       staleTime: 1000 * 60 * 5,
     })),
