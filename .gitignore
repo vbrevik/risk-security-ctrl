@@ -17,3 +17,4 @@ Thumbs.db
 
 # Reference PDFs (large binary files)
 docs/reference-xai/
+.serena/
