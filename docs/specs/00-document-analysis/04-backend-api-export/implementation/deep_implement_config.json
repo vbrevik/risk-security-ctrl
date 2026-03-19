@@ -27,6 +27,26 @@
     "section-02-route-scaffold-and-wiring": {
       "status": "complete",
       "commit_hash": "8766773"
+    },
+    "section-03-create-analysis-text": {
+      "status": "complete",
+      "commit_hash": "f48bf8a"
+    },
+    "section-04-file-upload": {
+      "status": "complete",
+      "commit_hash": "f48bf8a"
+    },
+    "section-05-list-get-delete": {
+      "status": "complete",
+      "commit_hash": "f48bf8a"
+    },
+    "section-06-findings-endpoint": {
+      "status": "complete",
+      "commit_hash": "f48bf8a"
+    },
+    "section-07-chart-rendering": {
+      "status": "complete",
+      "commit_hash": "1cc9024"
     }
   },
   "pre_commit": {

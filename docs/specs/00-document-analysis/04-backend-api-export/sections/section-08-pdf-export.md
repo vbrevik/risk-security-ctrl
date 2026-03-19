@@ -163,5 +163,15 @@ Add `pub mod export_pdf;` to `backend/src/features/analysis/mod.rs`. This must h
 
 | File | Action |
 |------|--------|
-| `backend/src/features/analysis/export_pdf.rs` | Create -- main implementation |
-| `backend/src/features/analysis/mod.rs` | Modify -- add `pub mod export_pdf;` |
+| `backend/src/features/analysis/export_pdf.rs` | Created -- main implementation |
+| `backend/src/features/analysis/mod.rs` | Modified -- added `pub mod export_pdf;` |
+
+## Implementation Notes
+
+- **Font loading:** Constructs `FontFamily` manually from 3 font files (Regular, Bold, Italic), reusing Bold as BoldItalic fallback since `genpdf::fonts::from_files` requires all 4 variants
+- **Image embedding:** Uses `Image::from_reader(Cursor)` instead of `from_dynamic_image` to avoid image crate version mismatch (genpdf 0.2 depends on image 0.23, project uses 0.25)
+- **Chart scaling:** Charts rendered at 800x600px are scaled 0.5x via `CHART_SCALE` constant to fit A4 page margins
+- **Chart fallback:** All chart embedding sites show "[Chart could not be rendered]" on failure instead of silent gaps
+- **Truncation:** Uses `chars().count()` consistently for both truncation and truncation notice
+- **Tests:** 5 tests covering PDF generation (valid bytes, contains title, empty findings), plus truncate utility
+- Findings table rendered as formatted paragraphs (one per finding) rather than `TableLayout` for simplicity

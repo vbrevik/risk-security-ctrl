@@ -12,7 +12,24 @@
     "section-03-route-completion",
     "section-04-integration-tests"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-upload-handler": {
+      "status": "complete",
+      "commit_hash": "229bfbe"
+    },
+    "section-02-parser-refinements": {
+      "status": "complete",
+      "commit_hash": "bc14ae8"
+    },
+    "section-03-route-completion": {
+      "status": "complete",
+      "commit_hash": "f48bf8a"
+    },
+    "section-04-integration-tests": {
+      "status": "complete",
+      "commit_hash": "f48bf8a"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",
