@@ -13,7 +13,7 @@ import { ConceptDrawer } from "@/features/analysis/components/ConceptDrawer";
 import { ExportButtons } from "@/features/analysis/components/ExportButtons";
 import { EmptyFindings } from "@/features/analysis/components/EmptyFindings";
 import { useChartData } from "@/features/analysis/hooks/useChartData";
-import type { FindingType } from "@/features/analysis/types";
+import type { FindingsFilter } from "@/features/analysis/types";
 
 export const Route = createFileRoute("/analysis/$id")({
   component: AnalysisDetailPage,
@@ -37,11 +37,7 @@ function AnalysisDetailPage() {
 
   // Paginated findings for table
   const [page, setPage] = useState(1);
-  const [filters, setFilters] = useState<{
-    framework_id?: string;
-    finding_type?: FindingType;
-    priority?: number;
-  }>({});
+  const [filters, setFilters] = useState<FindingsFilter>({});
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
   const [selectedConceptId, setSelectedConceptId] = useState<string | null>(null);
   const findingsRef = useRef<HTMLDivElement>(null);
@@ -61,19 +57,11 @@ function AnalysisDetailPage() {
     findingsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
-  const filteredTypeCounts = useMemo(() => {
+  const filteredFindings = useMemo(() => {
     if (!filters.framework_id || !allFindingsData?.data) return undefined;
-    const counts = { addressed: 0, partiallyAddressed: 0, gap: 0, notApplicable: 0, total: 0 };
-    for (const f of allFindingsData.data) {
-      if (f.framework_id !== filters.framework_id) continue;
-      counts.total++;
-      if (f.finding_type === "addressed") counts.addressed++;
-      else if (f.finding_type === "partially_addressed") counts.partiallyAddressed++;
-      else if (f.finding_type === "gap") counts.gap++;
-      else if (f.finding_type === "not_applicable") counts.notApplicable++;
-    }
-    return counts;
+    return allFindingsData.data.filter(f => f.framework_id === filters.framework_id);
   }, [filters.framework_id, allFindingsData?.data]);
+  const filteredChartData = useChartData(filteredFindings);
 
   function handleFilterChange(newFilters: typeof filters) {
     setFilters(newFilters);
@@ -222,7 +210,7 @@ function AnalysisDetailPage() {
             analysis={analysis}
             chartData={chartData}
             isLoading={isChartDataLoading}
-            overrideTypeCounts={filteredTypeCounts}
+            overrideTypeCounts={filteredFindings ? filteredChartData.typeCounts : undefined}
           />
 
           {/* Filter Banner */}

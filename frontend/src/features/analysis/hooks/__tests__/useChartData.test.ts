@@ -1,25 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { useChartData } from "../useChartData";
-import type { AnalysisFinding } from "../../types";
-
-function makeFinding(overrides: Partial<AnalysisFinding> = {}): AnalysisFinding {
-  return {
-    id: "f1",
-    concept_id: "c1",
-    framework_id: "fw1",
-    finding_type: "gap",
-    confidence_score: 0.85,
-    evidence_text: null,
-    recommendation: null,
-    priority: 1,
-    sort_order: 1,
-    concept_code: null,
-    concept_name: null,
-    concept_definition: null,
-    ...overrides,
-  };
-}
+import { makeFinding } from "../../test-utils/factories";
 
 describe("useChartData", () => {
   it("returns zero counts when findings array is empty", () => {

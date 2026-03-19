@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useContainerDimensions } from "../hooks/useContainerDimensions";
-import { getFrameworkColor } from "../utils/frameworkColors";
+import { buildFrameworkColorMap } from "../utils/frameworkColors";
 
 interface CoverageHeatmapProps {
   data: Array<{
@@ -20,7 +20,7 @@ interface CoverageHeatmapProps {
   }>;
   onBarClick?: (frameworkId: string) => void;
   selectedFrameworkId?: string | null;
-  frameworkIds?: string[];
+  frameworkIds: string[];
 }
 
 const BAR_HEIGHT = 40;
@@ -75,7 +75,7 @@ export function CoverageHeatmap({ data, onBarClick, selectedFrameworkId, framewo
     const xScale = d3.scaleLinear().domain([0, 100]).range([0, innerWidth]);
 
     // Draw bars
-    const colorIds = frameworkIds ?? data.map((d) => d.frameworkId);
+    const colorOf = buildFrameworkColorMap(frameworkIds);
 
     g.selectAll("rect")
       .data(data)
@@ -95,7 +95,7 @@ export function CoverageHeatmap({ data, onBarClick, selectedFrameworkId, framewo
       )
       .attr("stroke", (d) =>
         selectedFrameworkId && d.frameworkId === selectedFrameworkId
-          ? getFrameworkColor(colorIds, d.frameworkId)
+          ? colorOf(d.frameworkId)
           : "none"
       )
       .attr("stroke-width", (d) =>
@@ -109,17 +109,12 @@ export function CoverageHeatmap({ data, onBarClick, selectedFrameworkId, framewo
         }
       })
       .on("mouseover", (event, d) => {
-        const rect = (
-          event.currentTarget as SVGRectElement
-        ).getBoundingClientRect();
-        const containerRect = containerRef.current?.getBoundingClientRect();
-        if (containerRect) {
-          setTooltip({
-            x: rect.right - containerRect.left,
-            y: rect.top - containerRect.top + rect.height / 2,
-            text: `${d.frameworkId}: ${d.addressed}/${d.total} (${d.percentage.toFixed(1)}%)`,
-          });
-        }
+        const [px, py] = d3.pointer(event, svgRef.current);
+        setTooltip({
+          x: px + MARGINS.left,
+          y: py + MARGINS.top,
+          text: `${d.frameworkId}: ${d.addressed}/${d.total} (${d.percentage.toFixed(1)}%)`,
+        });
       })
       .on("mouseout", () => setTooltip(null));
 

@@ -34,6 +34,10 @@
     "section-05-page-assembly": {
       "status": "complete",
       "commit_hash": "bdb94ac"
+    },
+    "section-06-i18n-and-tests": {
+      "status": "complete",
+      "commit_hash": "842b59a"
     }
   },
   "pre_commit": {

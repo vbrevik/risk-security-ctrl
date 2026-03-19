@@ -17,7 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import type { AnalysisFinding, FindingType } from "../types";
+import type { AnalysisFinding, FindingType, FindingsFilter } from "../types";
 import { FindingTypeTag } from "./FindingTypeTag";
 
 interface FindingsTableProps {
@@ -25,16 +25,8 @@ interface FindingsTableProps {
   expandedIds: Set<string>;
   onToggleExpand: (id: string) => void;
   frameworkIds: string[];
-  filters: {
-    framework_id?: string;
-    finding_type?: FindingType;
-    priority?: number;
-  };
-  onFilterChange: (filters: {
-    framework_id?: string;
-    finding_type?: FindingType;
-    priority?: number;
-  }) => void;
+  filters: FindingsFilter;
+  onFilterChange: (filters: FindingsFilter) => void;
   page: number;
   totalPages: number;
   onPageChange: (page: number) => void;
@@ -264,7 +256,7 @@ export function FindingsTable({
       {/* Pagination */}
       <div className="flex items-center justify-between">
         <p className="text-sm text-muted-foreground">
-          Page {page} of {totalPages}
+          {t("list.pagination.pageOf", { page, total: totalPages })}
         </p>
         <div className="flex gap-2">
           <Button

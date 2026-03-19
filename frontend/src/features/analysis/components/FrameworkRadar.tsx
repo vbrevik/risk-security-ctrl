@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useContainerDimensions } from "../hooks/useContainerDimensions";
-import { getFrameworkColor } from "../utils/frameworkColors";
+import { buildFrameworkColorMap } from "../utils/frameworkColors";
 
 interface FrameworkRadarProps {
   data: Array<{
@@ -25,6 +25,12 @@ const MARGIN = 60;
 const GRID_LEVELS = 4;
 const MAX_FRAMEWORKS = 8;
 const AXES = ["addressed", "partial", "gap", "notApplicable"] as const;
+const AXIS_LABEL_KEYS: Record<typeof AXES[number], string> = {
+  addressed: "charts.radar.addressed",
+  partial: "charts.radar.partial",
+  gap: "charts.radar.gap",
+  notApplicable: "charts.radar.notApplicable",
+};
 const ANGLE_SLICE = (2 * Math.PI) / AXES.length;
 
 export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: FrameworkRadarProps) {
@@ -45,6 +51,8 @@ export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: Fram
         .slice(0, MAX_FRAMEWORKS),
     [data]
   );
+
+  const colorOf = useMemo(() => buildFrameworkColorMap(frameworkIds), [frameworkIds]);
 
   useEffect(() => {
     if (!svgRef.current || width === 0 || displayData.length === 0) return;
@@ -85,14 +93,7 @@ export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: Fram
     }
 
     // Axis lines and labels
-    const axisLabels = [
-      t("charts.radar.addressed"),
-      t("charts.radar.partial"),
-      t("charts.radar.gap"),
-      t("charts.radar.notApplicable"),
-    ];
-
-    AXES.forEach((_, i) => {
+    AXES.forEach((axis, i) => {
       const angle = Math.PI / 2 + ANGLE_SLICE * i;
       const x = Math.cos(angle) * radius;
       const y = -Math.sin(angle) * radius;
@@ -115,7 +116,7 @@ export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: Fram
         .attr("dominant-baseline", "central")
         .attr("font-size", "11px")
         .attr("fill", "currentColor")
-        .text(axisLabels[i]);
+        .text(t(AXIS_LABEL_KEYS[axis]));
     });
 
     // Percentage labels along top axis
@@ -139,7 +140,7 @@ export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: Fram
 
     displayData.forEach((fw) => {
       const values = [fw.values.addressed, fw.values.partial, fw.values.gap, fw.values.notApplicable];
-      const color = getFrameworkColor(frameworkIds, fw.frameworkId);
+      const color = colorOf(fw.frameworkId);
 
       const isSelected = selectedFrameworkId === fw.frameworkId;
       const hasSelection = !!selectedFrameworkId;
@@ -171,15 +172,12 @@ export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: Fram
           .attr("fill-opacity", 0)
           .attr("stroke", "none")
           .on("mouseover", (event) => {
-            const rect = (event.currentTarget as SVGCircleElement).getBoundingClientRect();
-            const containerRect = containerRef.current?.getBoundingClientRect();
-            if (containerRect) {
-              setTooltip({
-                x: rect.left - containerRect.left + rect.width / 2,
-                y: rect.top - containerRect.top - 8,
-                text: `${fw.frameworkId}: ${axisLabels[i]} ${val.toFixed(1)}%`,
-              });
-            }
+            const [px, py] = d3.pointer(event, svgRef.current);
+            setTooltip({
+              x: px,
+              y: py - 8,
+              text: `${fw.frameworkId}: ${t(AXIS_LABEL_KEYS[AXES[i]])} ${val.toFixed(1)}%`,
+            });
           })
           .on("mouseout", () => setTooltip(null));
       });
@@ -188,7 +186,7 @@ export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: Fram
     return () => {
       svg.selectAll("*").remove();
     };
-  }, [displayData, width, selectedFrameworkId, frameworkIds, t]);
+  }, [displayData, width, selectedFrameworkId, colorOf, t]);
 
   return (
     <Card>
@@ -224,7 +222,7 @@ export function FrameworkRadar({ data, selectedFrameworkId, frameworkIds }: Fram
                 <div key={fw.frameworkId} className="flex items-center gap-1.5 text-xs">
                   <span
                     className="w-2.5 h-2.5 rounded-full inline-block"
-                    style={{ backgroundColor: getFrameworkColor(frameworkIds, fw.frameworkId) }}
+                    style={{ backgroundColor: colorOf(fw.frameworkId) }}
                   />
                   <span>{fw.frameworkId}</span>
                 </div>

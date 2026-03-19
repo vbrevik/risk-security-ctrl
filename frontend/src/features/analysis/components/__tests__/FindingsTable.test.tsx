@@ -1,31 +1,14 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { FindingsTable } from "../FindingsTable";
-import type { AnalysisFinding, FindingType } from "../../types";
+import type { FindingType } from "../../types";
+import { makeFinding } from "../../test-utils/factories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
   }),
 }));
-
-function makeFinding(overrides: Partial<AnalysisFinding> = {}): AnalysisFinding {
-  return {
-    id: "f1",
-    concept_id: "c1",
-    framework_id: "fw1",
-    finding_type: "gap",
-    confidence_score: 0.85,
-    evidence_text: "Some evidence",
-    recommendation: "Fix this",
-    priority: 1,
-    sort_order: 1,
-    concept_code: "C-001",
-    concept_name: "Control One",
-    concept_definition: "Definition of control",
-    ...overrides,
-  };
-}
 
 const defaultProps = {
   findings: [

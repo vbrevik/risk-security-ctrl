@@ -12,6 +12,7 @@ vi.mock("../../hooks/useContainerDimensions", () => ({
 
 vi.mock("../../utils/frameworkColors", () => ({
   getFrameworkColor: (_ids: string[], _id: string) => "#3366cc",
+  buildFrameworkColorMap: (_ids: string[]) => (_id: string) => "#3366cc",
 }));
 
 const sampleData = [
