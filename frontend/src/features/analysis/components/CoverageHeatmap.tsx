@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useContainerDimensions } from "../hooks/useContainerDimensions";
+import { getFrameworkColor } from "../utils/frameworkColors";
 
 interface CoverageHeatmapProps {
   data: Array<{
@@ -17,12 +18,15 @@ interface CoverageHeatmapProps {
     addressed: number;
     total: number;
   }>;
+  onBarClick?: (frameworkId: string) => void;
+  selectedFrameworkId?: string | null;
+  frameworkIds?: string[];
 }
 
 const BAR_HEIGHT = 40;
 const MARGINS = { top: 10, right: 60, bottom: 10, left: 120 };
 
-export function CoverageHeatmap({ data }: CoverageHeatmapProps) {
+export function CoverageHeatmap({ data, onBarClick, selectedFrameworkId, frameworkIds }: CoverageHeatmapProps) {
   const { t } = useTranslation("analysis");
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -32,6 +36,9 @@ export function CoverageHeatmap({ data }: CoverageHeatmapProps) {
     y: number;
     text: string;
   } | null>(null);
+
+  const onBarClickRef = useRef(onBarClick);
+  onBarClickRef.current = onBarClick;
 
   useEffect(() => {
     if (!svgRef.current || width === 0 || data.length === 0) return;
@@ -68,6 +75,8 @@ export function CoverageHeatmap({ data }: CoverageHeatmapProps) {
     const xScale = d3.scaleLinear().domain([0, 100]).range([0, innerWidth]);
 
     // Draw bars
+    const colorIds = frameworkIds ?? data.map((d) => d.frameworkId);
+
     g.selectAll("rect")
       .data(data)
       .join("rect")
@@ -77,6 +86,28 @@ export function CoverageHeatmap({ data }: CoverageHeatmapProps) {
       .attr("height", yScale.bandwidth())
       .attr("fill", (d) => d3.interpolateRdYlGn(d.percentage / 100))
       .attr("rx", 2)
+      .attr("cursor", "pointer")
+      .attr("tabindex", "0")
+      .attr("role", "button")
+      .attr("aria-label", (d) => d.frameworkId)
+      .attr("opacity", (d) =>
+        selectedFrameworkId && d.frameworkId !== selectedFrameworkId ? 0.3 : 1
+      )
+      .attr("stroke", (d) =>
+        selectedFrameworkId && d.frameworkId === selectedFrameworkId
+          ? getFrameworkColor(colorIds, d.frameworkId)
+          : "none"
+      )
+      .attr("stroke-width", (d) =>
+        selectedFrameworkId && d.frameworkId === selectedFrameworkId ? 2 : 0
+      )
+      .on("click", (_event, d) => onBarClickRef.current?.(d.frameworkId))
+      .on("keydown", (event: KeyboardEvent, d) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onBarClickRef.current?.(d.frameworkId);
+        }
+      })
       .on("mouseover", (event, d) => {
         const rect = (
           event.currentTarget as SVGRectElement
@@ -120,7 +151,7 @@ export function CoverageHeatmap({ data }: CoverageHeatmapProps) {
     return () => {
       svg.selectAll("*").remove();
     };
-  }, [data, width, t]);
+  }, [data, width, t, selectedFrameworkId, frameworkIds]);
 
   return (
     <Card data-testid="coverage-heatmap">

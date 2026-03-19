@@ -14,7 +14,12 @@
     "section-05-page-assembly",
     "section-06-i18n-and-tests"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-colors-and-chart-data": {
+      "status": "complete",
+      "commit_hash": "82bc930"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",

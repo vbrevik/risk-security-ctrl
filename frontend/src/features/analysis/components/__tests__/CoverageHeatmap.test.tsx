@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { CoverageHeatmap } from "../CoverageHeatmap";
 
 vi.mock("react-i18next", () => ({
@@ -61,5 +61,61 @@ describe("CoverageHeatmap", () => {
 
     rerender(<CoverageHeatmap data={sampleData} />);
     expect(container.querySelectorAll("svg rect").length).toBe(3);
+  });
+
+  it("fires onBarClick with correct frameworkId when bar is clicked", () => {
+    const mockFn = vi.fn();
+    const { container } = render(
+      <CoverageHeatmap data={sampleData} onBarClick={mockFn} />
+    );
+    const rects = container.querySelectorAll("svg rect");
+    fireEvent.click(rects[0]);
+    expect(mockFn).toHaveBeenCalledOnce();
+    expect(mockFn).toHaveBeenCalledWith("iso-31000");
+  });
+
+  it("does not error when onBarClick is not provided", () => {
+    const { container } = render(<CoverageHeatmap data={sampleData} />);
+    const rects = container.querySelectorAll("svg rect");
+    expect(() => fireEvent.click(rects[0])).not.toThrow();
+  });
+
+  it("dims non-selected bars when selectedFrameworkId is set", () => {
+    const { container } = render(
+      <CoverageHeatmap data={sampleData} selectedFrameworkId="iso-31000" />
+    );
+    const rects = container.querySelectorAll("svg rect");
+    expect(rects[0].getAttribute("opacity")).toBe("1");
+    expect(rects[1].getAttribute("opacity")).toBe("0.3");
+    expect(rects[2].getAttribute("opacity")).toBe("0.3");
+  });
+
+  it("all bars have full opacity when selectedFrameworkId is null", () => {
+    const { container } = render(
+      <CoverageHeatmap data={sampleData} selectedFrameworkId={null} />
+    );
+    const rects = container.querySelectorAll("svg rect");
+    for (const rect of rects) {
+      expect(rect.getAttribute("opacity")).toBe("1");
+    }
+  });
+
+  it("bar rects have role='button' and tabindex='0'", () => {
+    const { container } = render(
+      <CoverageHeatmap data={sampleData} onBarClick={vi.fn()} />
+    );
+    const rects = container.querySelectorAll("svg rect");
+    for (const rect of rects) {
+      expect(rect.getAttribute("role")).toBe("button");
+      expect(rect.getAttribute("tabindex")).toBe("0");
+    }
+  });
+
+  it("bar rects have aria-label with framework ID", () => {
+    const { container } = render(<CoverageHeatmap data={sampleData} />);
+    const rects = container.querySelectorAll("svg rect");
+    expect(rects[0].getAttribute("aria-label")).toBe("iso-31000");
+    expect(rects[1].getAttribute("aria-label")).toBe("nist-csf");
+    expect(rects[2].getAttribute("aria-label")).toBe("iso-31010");
   });
 });
