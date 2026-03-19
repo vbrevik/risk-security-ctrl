@@ -18,6 +18,10 @@
     "section-01-types-and-hooks": {
       "status": "complete",
       "commit_hash": "00275d6"
+    },
+    "section-02-i18n-and-navigation": {
+      "status": "complete",
+      "commit_hash": "7c8c19e"
     }
   },
   "pre_commit": {

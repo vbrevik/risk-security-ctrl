@@ -1,6 +1,8 @@
-I now have all the context needed. Here is the section content:
-
 # Section 3: Install New shadcn/ui Components
+
+## Implementation Status: COMPLETE
+
+**Deviation:** shadcn CLI placed files under `@/components/ui/` instead of `src/components/ui/` — manually moved to correct location.
 
 ## Overview
 
