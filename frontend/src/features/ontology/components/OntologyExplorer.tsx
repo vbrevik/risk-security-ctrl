@@ -19,8 +19,8 @@ function ExplorerContent() {
   const [showKeyboardHelp, setShowKeyboardHelp] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
-  const search = useSearch({ from: "/ontology/" });
-  const navigate = useNavigate({ from: "/ontology/" });
+  const search = useSearch({ strict: false });
+  const navigate = useNavigate();
   const navigateRef = useRef(navigate);
   navigateRef.current = navigate;
   const lastSearchRef = useRef("");

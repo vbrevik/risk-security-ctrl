@@ -56,7 +56,7 @@ export function CrosswalkView({ initialSource, initialTarget, initialLevel }: Pr
   const [selectedRelId, setSelectedRelId] = useState<string | null>(null);
 
   // Sync state changes back to URL for bookmarking/sharing
-  const navigate = useNavigate({ from: "/crosswalk/" });
+  const navigate = useNavigate();
   const navigateRef = useRef(navigate);
   navigateRef.current = navigate;
   const lastSearchRef = useRef("");
