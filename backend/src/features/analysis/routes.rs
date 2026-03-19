@@ -278,6 +278,7 @@ pub async fn list_analyses(
     let offset = (page - 1) * limit;
 
     let status_str = query.status.map(|s| String::from(s));
+    let exclude_deleted = !query.include_deleted;
 
     let (rows, total): (Vec<(String, String, Option<String>, String, String, Option<String>, Option<i64>, String, String)>, i64) = if let Some(ref status) = status_str {
         let rows = sqlx::query_as(
@@ -291,6 +292,19 @@ pub async fn list_analyses(
 
         let (total,): (i64,) = sqlx::query_as("SELECT COUNT(*) FROM analyses WHERE status = ?")
             .bind(status)
+            .fetch_one(&state.db)
+            .await?;
+        (rows, total)
+    } else if exclude_deleted {
+        let rows = sqlx::query_as(
+            "SELECT id, name, description, input_type, status, error_message, processing_time_ms, created_at, updated_at FROM analyses WHERE status != 'deleted' ORDER BY created_at DESC LIMIT ? OFFSET ?"
+        )
+        .bind(limit)
+        .bind(offset)
+        .fetch_all(&state.db)
+        .await?;
+
+        let (total,): (i64,) = sqlx::query_as("SELECT COUNT(*) FROM analyses WHERE status != 'deleted'")
             .fetch_one(&state.db)
             .await?;
         (rows, total)
@@ -343,13 +357,35 @@ pub async fn get_analysis(
     Path(id): Path<String>,
 ) -> AppResult<Json<serde_json::Value>> {
     let row: Option<(String, String, Option<String>, String, Option<String>, Option<String>, Option<String>, String, Option<String>, Option<String>, Option<i64>, Option<i64>, String, String)> = sqlx::query_as(
-        "SELECT id, name, description, input_type, input_text, original_filename, file_path, status, error_message, matched_framework_ids, processing_time_ms, token_count, created_at, updated_at FROM analyses WHERE id = ?"
+        "SELECT id, name, description, input_type, input_text, original_filename, file_path, status, error_message, matched_framework_ids, processing_time_ms, token_count, created_at, updated_at FROM analyses WHERE id = ? AND status != 'deleted'"
     )
     .bind(&id)
     .fetch_optional(&state.db)
     .await?;
 
     let r = row.ok_or_else(|| AppError::NotFound(format!("Analysis {} not found", id)))?;
+
+    // Fetch summary statistics
+    let stats: Vec<(String, i64)> = sqlx::query_as(
+        "SELECT finding_type, COUNT(*) FROM analysis_findings WHERE analysis_id = ? GROUP BY finding_type"
+    )
+    .bind(&id)
+    .fetch_all(&state.db)
+    .await?;
+
+    let mut total_findings: i64 = 0;
+    let mut gap_count: i64 = 0;
+    let mut addressed_count: i64 = 0;
+    let mut partially_addressed_count: i64 = 0;
+    for (ft, count) in &stats {
+        total_findings += count;
+        match ft.as_str() {
+            "gap" => gap_count = *count,
+            "addressed" => addressed_count = *count,
+            "partially_addressed" => partially_addressed_count = *count,
+            _ => {}
+        }
+    }
 
     Ok(Json(serde_json::json!({
         "id": r.0, "name": r.1, "description": r.2,
@@ -358,7 +394,11 @@ pub async fn get_analysis(
         "status": r.7, "error_message": r.8,
         "matched_framework_ids": r.9,
         "processing_time_ms": r.10, "token_count": r.11,
-        "created_at": r.12, "updated_at": r.13
+        "created_at": r.12, "updated_at": r.13,
+        "total_findings": total_findings,
+        "gap_count": gap_count,
+        "addressed_count": addressed_count,
+        "partially_addressed_count": partially_addressed_count
     })))
 }
 
@@ -379,39 +419,78 @@ pub async fn get_findings(
     Path(id): Path<String>,
     Query(query): Query<FindingsListQuery>,
 ) -> AppResult<Json<serde_json::Value>> {
+    // Validate sort_by against allowlist
+    const ALLOWED_SORT: &[&str] = &["priority", "confidence_score", "framework_id", "sort_order"];
+    let sort_column = if let Some(ref sort_by) = query.sort_by {
+        if !ALLOWED_SORT.contains(&sort_by.as_str()) {
+            return Err(AppError::BadRequest(format!(
+                "Invalid sort_by '{}'. Allowed: {}",
+                sort_by,
+                ALLOWED_SORT.join(", ")
+            )));
+        }
+        format!("f.{sort_by}")
+    } else {
+        "f.priority ASC, f.sort_order".to_string()
+    };
+
     let page = query.page.max(1);
     let limit = query.limit.min(100);
     let offset = (page - 1) * limit;
 
-    // Build query with optional filters
-    let mut sql = String::from(
-        "SELECT f.id, f.concept_id, f.framework_id, f.finding_type, f.confidence_score, f.evidence_text, f.recommendation, f.priority, f.sort_order, f.created_at, c.code, c.name_en, c.definition_en FROM analysis_findings f LEFT JOIN concepts c ON f.concept_id = c.id WHERE f.analysis_id = ?"
-    );
-    let mut count_sql = String::from("SELECT COUNT(*) FROM analysis_findings WHERE analysis_id = ?");
+    // Verify analysis exists
+    let exists: Option<(i64,)> = sqlx::query_as(
+        "SELECT 1 FROM analyses WHERE id = ? AND status != 'deleted'"
+    )
+    .bind(&id)
+    .fetch_optional(&state.db)
+    .await?;
+
+    if exists.is_none() {
+        return Err(AppError::NotFound(format!("Analysis {} not found", id)));
+    }
+
+    // Build parameterized query with optional filters
+    let mut conditions = vec!["f.analysis_id = ?".to_string()];
+    let mut bind_values: Vec<String> = vec![id.clone()];
 
     if let Some(ref fw) = query.framework_id {
-        sql.push_str(&format!(" AND f.framework_id = '{}'", fw.replace('\'', "''")));
-        count_sql.push_str(&format!(" AND framework_id = '{}'", fw.replace('\'', "''")));
+        conditions.push("f.framework_id = ?".to_string());
+        bind_values.push(fw.clone());
     }
     if let Some(ref ft) = query.finding_type {
-        let ft_str = String::from(ft.clone());
-        sql.push_str(&format!(" AND f.finding_type = '{}'", ft_str.replace('\'', "''")));
-        count_sql.push_str(&format!(" AND finding_type = '{}'", ft_str.replace('\'', "''")));
+        conditions.push("f.finding_type = ?".to_string());
+        bind_values.push(String::from(ft.clone()));
+    }
+    if let Some(priority) = query.priority {
+        conditions.push("f.priority = ?".to_string());
+        bind_values.push(priority.to_string());
     }
 
-    sql.push_str(" ORDER BY f.priority ASC, f.sort_order ASC LIMIT ? OFFSET ?");
+    let where_clause = conditions.join(" AND ");
 
-    let rows: Vec<(String, String, String, String, f64, Option<String>, Option<String>, i64, i64, String, Option<String>, Option<String>, Option<String>)> = sqlx::query_as(&sql)
-        .bind(&id)
-        .bind(limit as i64)
-        .bind(offset as i64)
-        .fetch_all(&state.db)
-        .await?;
+    let sql = format!(
+        "SELECT f.id, f.concept_id, f.framework_id, f.finding_type, f.confidence_score, f.evidence_text, f.recommendation, f.priority, f.sort_order, f.created_at, c.code, c.name_en, c.name_nb, c.definition_en, c.definition_nb, c.source_reference FROM analysis_findings f LEFT JOIN concepts c ON f.concept_id = c.id WHERE {} ORDER BY {} ASC LIMIT ? OFFSET ?",
+        where_clause, sort_column
+    );
+    let count_sql = format!(
+        "SELECT COUNT(*) FROM analysis_findings f WHERE {}",
+        where_clause
+    );
 
-    let (total,): (i64,) = sqlx::query_as(&count_sql)
-        .bind(&id)
-        .fetch_one(&state.db)
-        .await?;
+    // Bind all parameters dynamically
+    let mut q = sqlx::query_as::<_, (String, String, String, String, f64, Option<String>, Option<String>, i64, i64, String, Option<String>, Option<String>, Option<String>, Option<String>, Option<String>, Option<String>)>(&sql);
+    for val in &bind_values {
+        q = q.bind(val);
+    }
+    q = q.bind(limit as i64).bind(offset as i64);
+    let rows = q.fetch_all(&state.db).await?;
+
+    let mut cq = sqlx::query_as::<_, (i64,)>(&count_sql);
+    for val in &bind_values {
+        cq = cq.bind(val);
+    }
+    let (total,) = cq.fetch_one(&state.db).await?;
 
     let items: Vec<serde_json::Value> = rows.iter().map(|r| {
         serde_json::json!({
@@ -419,7 +498,9 @@ pub async fn get_findings(
             "finding_type": r.3, "confidence_score": r.4,
             "evidence_text": r.5, "recommendation": r.6,
             "priority": r.7, "sort_order": r.8, "created_at": r.9,
-            "concept_code": r.10, "concept_name": r.11, "concept_definition": r.12
+            "concept_code": r.10, "concept_name_en": r.11, "concept_name_nb": r.12,
+            "concept_definition_en": r.13, "concept_definition_nb": r.14,
+            "source_reference": r.15
         })
     }).collect();
 
@@ -445,13 +526,28 @@ pub async fn delete_analysis(
     State(state): State<AppState>,
     Path(id): Path<String>,
 ) -> AppResult<StatusCode> {
-    let result = sqlx::query("DELETE FROM analyses WHERE id = ?")
+    let now = chrono::Utc::now().format("%Y-%m-%d %H:%M:%S").to_string();
+    let result = sqlx::query("UPDATE analyses SET status = 'deleted', updated_at = ? WHERE id = ? AND status != 'deleted'")
+        .bind(&now)
         .bind(&id)
         .execute(&state.db)
         .await?;
 
     if result.rows_affected() == 0 {
         return Err(AppError::NotFound(format!("Analysis {} not found", id)));
+    }
+
+    // Audit log (best-effort)
+    if let Err(e) = sqlx::query(
+        r#"INSERT INTO audit_log (id, user_id, action, entity_type, entity_id, created_at)
+           VALUES (?, NULL, 'analysis_deleted', 'analysis', ?, datetime('now'))"#,
+    )
+    .bind(Uuid::new_v4().to_string())
+    .bind(&id)
+    .execute(&state.db)
+    .await
+    {
+        tracing::warn!("Failed to write audit log for analysis {id} deletion: {e}");
     }
 
     Ok(StatusCode::NO_CONTENT)

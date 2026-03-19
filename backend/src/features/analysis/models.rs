@@ -318,6 +318,8 @@ pub struct AnalysisListQuery {
     #[serde(default = "default_limit")]
     pub limit: i64,
     pub status: Option<AnalysisStatus>,
+    #[serde(default)]
+    pub include_deleted: bool,
 }
 
 #[derive(Debug, Deserialize, IntoParams)]
