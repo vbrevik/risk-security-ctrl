@@ -1,6 +1,6 @@
-Now I have all the context needed. Let me generate the section content.
-
 # Section 09: DOCX Export
+
+## Status: Implemented
 
 ## Overview
 
@@ -8,11 +8,21 @@ This section implements the DOCX report generator in `backend/src/features/analy
 
 The module exposes a single public function `generate_docx` that accepts analysis data and returns DOCX bytes suitable for HTTP response streaming.
 
+## Files Created/Modified
+
+- **Created:** `backend/src/features/analysis/export_docx.rs` - DOCX export module
+- **Modified:** `backend/src/features/analysis/mod.rs` - Added `pub mod export_docx;`
+
 ## Dependencies
 
-- **Section 07 (Chart Rendering):** The `charts.rs` module must be implemented first, providing `render_coverage_heatmap`, `render_radar_chart`, and `render_priority_chart` functions that return `Result<Vec<u8>, ChartError>` (PNG bytes).
-- **Section 08 (PDF Export):** The `ExportError` type is shared; it should be defined in `export_pdf.rs` or a shared location. If defined in `export_pdf.rs`, import it from there. Alternatively, define it in a common location accessible to both modules.
+- **Section 07 (Chart Rendering):** Uses `charts::render_coverage_heatmap`, `charts::render_radar_chart`, `charts::render_priority_chart` for PNG chart bytes.
 - **Existing types from `models.rs`:** `Analysis`, `AnalysisFindingWithConcept`, `FindingType`.
+
+## Deviations from Plan
+
+- **Separate error type:** Instead of sharing `ExportError` from `export_pdf.rs`, a new `DocxExportError` type was defined locally with DOCX-specific variants (no `FontLoading` needed). The PDF module's error type has PDF-specific variants that don't apply.
+- **Dynamic chart image sizing:** After code review, `embed_chart_image` reads actual PNG dimensions from the IHDR chunk and computes proportional height, rather than using fixed 400x300 constants. This prevents aspect ratio distortion for variable-height heatmap charts.
+- **Table column widths adjusted:** Review identified that the original grid total (10,000 twips) exceeded A4 margins. Reduced to 8,900 twips to fit within standard 1-inch margins.
 
 ## Cargo Dependency
 
