@@ -22,6 +22,10 @@
     "section-02-heatmap-cross-filter": {
       "status": "complete",
       "commit_hash": "2773327"
+    },
+    "section-03-framework-radar": {
+      "status": "complete",
+      "commit_hash": "c54499b"
     }
   },
   "pre_commit": {

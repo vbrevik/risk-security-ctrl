@@ -19,3 +19,4 @@ export { ExportButtons } from "./components/ExportButtons";
 export { EmptyFindings } from "./components/EmptyFindings";
 export { getFrameworkColor } from "./utils/frameworkColors";
 export { FrameworkRadar } from "./components/FrameworkRadar";
+export { ConceptDrawer } from "./components/ConceptDrawer";

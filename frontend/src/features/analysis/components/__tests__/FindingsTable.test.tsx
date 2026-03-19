@@ -131,4 +131,30 @@ describe("FindingsTable", () => {
     fireEvent.click(screen.getByText("list.pagination.previous"));
     expect(onPage).toHaveBeenCalledWith(1);
   });
+
+  it("concept name cell is clickable when onConceptClick is provided", () => {
+    const onClick = vi.fn();
+    render(<FindingsTable {...defaultProps} onConceptClick={onClick} />);
+    const btn = screen.getByRole("button", { name: "Control One" });
+    expect(btn).toBeInTheDocument();
+  });
+
+  it("clicking concept name fires onConceptClick with concept_id", () => {
+    const onClick = vi.fn();
+    render(<FindingsTable {...defaultProps} onConceptClick={onClick} />);
+    fireEvent.click(screen.getByRole("button", { name: "Control One" }));
+    expect(onClick).toHaveBeenCalledWith("c1");
+  });
+
+  it("concept code cell shows dash when concept_code is null", () => {
+    const onClick = vi.fn();
+    render(<FindingsTable {...defaultProps} onConceptClick={onClick} />);
+    // Second finding has concept_code: null — should show dash, not a button
+    const dashes = screen.getAllByText("\u2014");
+    expect(dashes.length).toBeGreaterThan(0);
+  });
+
+  it("no error when onConceptClick is not provided", () => {
+    expect(() => render(<FindingsTable {...defaultProps} />)).not.toThrow();
+  });
 });
