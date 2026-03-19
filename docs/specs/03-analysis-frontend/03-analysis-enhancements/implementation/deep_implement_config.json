@@ -18,6 +18,10 @@
     "section-01-colors-and-chart-data": {
       "status": "complete",
       "commit_hash": "82bc930"
+    },
+    "section-02-heatmap-cross-filter": {
+      "status": "complete",
+      "commit_hash": "2773327"
     }
   },
   "pre_commit": {
