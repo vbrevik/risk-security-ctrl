@@ -8,7 +8,7 @@ export interface OntologySearch {
   type?: string;
 }
 
-export const Route = createFileRoute("/ontology/")({
+export const Route = createFileRoute("/_authenticated/ontology/")({
   component: OntologyPage,
   validateSearch: (search: Record<string, unknown>): OntologySearch => ({
     view: (search.view as OntologySearch["view"]) ?? undefined,

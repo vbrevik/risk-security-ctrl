@@ -7,7 +7,7 @@ export interface CrosswalkSearch {
   level?: "map" | "submap" | "playbook";
 }
 
-export const Route = createFileRoute("/crosswalk/")({
+export const Route = createFileRoute("/_authenticated/crosswalk/")({
   component: CrosswalkPage,
   validateSearch: (search: Record<string, unknown>): CrosswalkSearch => ({
     source: (search.source as string) ?? undefined,

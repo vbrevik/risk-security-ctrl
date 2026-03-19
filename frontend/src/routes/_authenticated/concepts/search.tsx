@@ -7,7 +7,7 @@ import { SearchResults } from "@/features/ontology/components/SearchResults";
 import { parseCommaSeparated } from "@/features/ontology/utils/urlParams";
 import type { Concept } from "@/features/ontology/types";
 
-export const Route = createFileRoute("/concepts/search")({
+export const Route = createFileRoute("/_authenticated/concepts/search")({
   component: ConceptSearchPage,
   validateSearch: (
     search: Record<string, unknown>

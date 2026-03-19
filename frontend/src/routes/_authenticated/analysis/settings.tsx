@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { SettingsForm } from "@/features/analysis/components/SettingsForm";
 
-export const Route = createFileRoute("/analysis/settings")({
+export const Route = createFileRoute("/_authenticated/analysis/settings")({
   component: AnalysisSettingsPage,
 });
 

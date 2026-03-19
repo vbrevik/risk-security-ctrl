@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { computeFacets } from "../../../../routes/concepts/search";
+import { computeFacets } from "../../../../routes/_authenticated/concepts/search";
 import type { Concept } from "../../types";
 
 function makeConcept(id: string, frameworkId: string, type: string): Concept {

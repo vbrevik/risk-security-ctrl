@@ -1,6 +1,6 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/concepts/")({
+export const Route = createFileRoute("/_authenticated/concepts/")({
   component: ConceptsRedirect,
 });
 

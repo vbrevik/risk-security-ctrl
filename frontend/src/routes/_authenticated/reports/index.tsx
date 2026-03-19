@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download } from "lucide-react";
 
-export const Route = createFileRoute("/reports/")({
+export const Route = createFileRoute("/_authenticated/reports/")({
   component: ReportsPage,
 });
 

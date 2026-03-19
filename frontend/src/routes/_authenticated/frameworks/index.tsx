@@ -4,7 +4,7 @@ import { useFrameworks, useConcepts, useRelationships, useFrameworkStats, useAll
 import { FrameworkSidebar } from "@/features/ontology/components/FrameworkSidebar";
 import { FrameworkProfile } from "@/features/ontology/components/FrameworkProfile";
 
-export const Route = createFileRoute("/frameworks/")({
+export const Route = createFileRoute("/_authenticated/frameworks/")({
   component: FrameworkCatalogPage,
   validateSearch: (search: Record<string, unknown>): { id?: string } => ({
     id: typeof search.id === "string" ? search.id : undefined,

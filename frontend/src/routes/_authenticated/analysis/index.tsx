@@ -12,7 +12,7 @@ import {
 import { useAnalyses } from "@/features/analysis/api";
 import { AnalysisList } from "@/features/analysis/components/AnalysisList";
 
-export const Route = createFileRoute("/analysis/")({
+export const Route = createFileRoute("/_authenticated/analysis/")({
   component: AnalysisListPage,
   validateSearch: (search: Record<string, unknown>) => ({
     page: Number(search.page) || 1,

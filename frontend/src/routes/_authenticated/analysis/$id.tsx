@@ -15,7 +15,7 @@ import { EmptyFindings } from "@/features/analysis/components/EmptyFindings";
 import { useChartData } from "@/features/analysis/hooks/useChartData";
 import type { FindingsFilter } from "@/features/analysis/types";
 
-export const Route = createFileRoute("/analysis/$id")({
+export const Route = createFileRoute("/_authenticated/analysis/$id")({
   component: AnalysisDetailPage,
 });
 

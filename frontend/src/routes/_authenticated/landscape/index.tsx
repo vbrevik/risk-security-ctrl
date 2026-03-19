@@ -6,7 +6,7 @@ import { parseCommaSeparated } from "@/features/ontology/utils/urlParams";
 import { LandscapeSelector } from "@/features/ontology/components/LandscapeSelector";
 import { LandscapeResults } from "@/features/ontology/components/LandscapeResults";
 
-export const Route = createFileRoute("/landscape/")({
+export const Route = createFileRoute("/_authenticated/landscape/")({
   component: RegulatoryLandscapePage,
   validateSearch: (
     search: Record<string, unknown>

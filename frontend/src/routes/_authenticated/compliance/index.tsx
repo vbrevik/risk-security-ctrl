@@ -11,7 +11,7 @@ import {
 } from "@/features/compliance/components";
 import type { AssessmentStatus } from "@/features/compliance/types";
 
-export const Route = createFileRoute("/compliance/")({
+export const Route = createFileRoute("/_authenticated/compliance/")({
   component: CompliancePage,
 });
 
