@@ -28,6 +28,7 @@ async fn test_create_assessment() {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&body).unwrap()))
                 .unwrap(),
         )
@@ -62,6 +63,7 @@ async fn test_create_assessment_invalid_framework() {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&body).unwrap()))
                 .unwrap(),
         )
@@ -88,6 +90,7 @@ async fn test_list_assessments() {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&create_body).unwrap()))
                 .unwrap(),
         )
@@ -135,6 +138,7 @@ async fn test_get_assessment() {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&create_body).unwrap()))
                 .unwrap(),
         )
@@ -203,6 +207,7 @@ async fn test_update_assessment() {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&create_body).unwrap()))
                 .unwrap(),
         )
@@ -227,6 +232,7 @@ async fn test_update_assessment() {
                 .method("PUT")
                 .uri(&format!("/api/compliance/assessments/{}", assessment_id))
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&update_body).unwrap()))
                 .unwrap(),
         )
@@ -261,6 +267,7 @@ async fn test_delete_assessment() {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&create_body).unwrap()))
                 .unwrap(),
         )
@@ -280,6 +287,7 @@ async fn test_delete_assessment() {
             Request::builder()
                 .method("DELETE")
                 .uri(&format!("/api/compliance/assessments/{}", assessment_id))
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::empty())
                 .unwrap(),
         )
@@ -320,6 +328,7 @@ async fn create_test_assessment(app: &axum::Router) -> String {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&body).unwrap()))
                 .unwrap(),
         )
@@ -414,6 +423,7 @@ async fn test_update_compliance_item() {
                     assessment_id, item_id
                 ))
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&update_body).unwrap()))
                 .unwrap(),
         )
@@ -471,6 +481,7 @@ async fn test_add_item_note() {
                     assessment_id, item_id
                 ))
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&note_body).unwrap()))
                 .unwrap(),
         )
@@ -537,6 +548,7 @@ async fn test_add_and_get_evidence() {
                     assessment_id, item_id
                 ))
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&evidence_body).unwrap()))
                 .unwrap(),
         )
@@ -589,6 +601,7 @@ async fn test_add_and_get_evidence() {
             Request::builder()
                 .method("DELETE")
                 .uri(&format!("/api/compliance/evidence/{}", evidence_id))
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::empty())
                 .unwrap(),
         )
@@ -639,6 +652,7 @@ async fn test_add_evidence_requires_url_or_path() {
                     assessment_id, item_id
                 ))
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&evidence_body).unwrap()))
                 .unwrap(),
         )
@@ -693,6 +707,7 @@ async fn test_compliance_score() {
                         assessment_id, item_id
                     ))
                     .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                     .body(Body::from(serde_json::to_string(&update_body).unwrap()))
                     .unwrap(),
             )
@@ -715,6 +730,7 @@ async fn test_compliance_score() {
                         assessment_id, item_id
                     ))
                     .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                     .body(Body::from(serde_json::to_string(&update_body).unwrap()))
                     .unwrap(),
             )
@@ -789,6 +805,7 @@ async fn test_assessment_history() {
                 .method("POST")
                 .uri("/api/compliance/assessments")
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&create_body).unwrap()))
                 .unwrap(),
         )
@@ -811,6 +828,7 @@ async fn test_assessment_history() {
                 .method("PUT")
                 .uri(&format!("/api/compliance/assessments/{}", assessment_id))
                 .header("Content-Type", "application/json")
+                .header("X-Requested-With", "XMLHttpRequest")
                 .body(Body::from(serde_json::to_string(&update_body).unwrap()))
                 .unwrap(),
         )

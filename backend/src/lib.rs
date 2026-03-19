@@ -1,8 +1,9 @@
-use axum::{extract::FromRef, http, routing::get, Router};
+use axum::{extract::FromRef, http, middleware, routing::get, Router};
 use axum_extra::extract::cookie::Key;
 use tower_http::{
     compression::CompressionLayer,
     cors::CorsLayer,
+    sensitive_headers::SetSensitiveHeadersLayer,
     trace::TraceLayer,
 };
 
@@ -135,8 +136,10 @@ pub fn load_topics(path: &std::path::Path) -> Vec<Topic> {
     topics
 }
 
-/// Create the application router (for testing)
+/// Create the application router
 pub fn create_router(state: AppState) -> Router {
+    let enable_https = state.config.enable_https;
+
     let cors = CorsLayer::new()
         .allow_origin(
             state
@@ -158,7 +161,15 @@ pub fn create_router(state: AppState) -> Router {
 
     Router::new()
         .nest("/api", api_routes())
+        .layer(middleware::from_fn(features::auth::middleware::csrf_check))
         .layer(cors)
+        .layer(middleware::from_fn(move |req, next| {
+            features::auth::middleware::security_headers(req, next, enable_https)
+        }))
+        .layer(SetSensitiveHeadersLayer::new([
+            http::header::AUTHORIZATION,
+            http::header::COOKIE,
+        ]))
         .layer(CompressionLayer::new())
         .layer(TraceLayer::new_for_http())
         .with_state(state)

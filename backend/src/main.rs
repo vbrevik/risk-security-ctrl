@@ -163,6 +163,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let topics = ontology_backend::load_topics(std::path::Path::new("../ontology-data/topic-tags.json"));
     tracing::info!("Loaded {} topics for analysis matching", topics.len());
 
+    // Clean up expired sessions from previous runs
+    match ontology_backend::features::auth::service::cleanup_expired_sessions(&db).await {
+        Ok(count) if count > 0 => {
+            tracing::info!("Cleaned up {} expired sessions on startup", count);
+        }
+        Ok(_) => {
+            tracing::debug!("No expired sessions to clean up");
+        }
+        Err(e) => {
+            tracing::warn!("Failed to clean up expired sessions: {}", e);
+        }
+    }
+
     // Initialize cookie key for session encryption
     let cookie_key = ontology_backend::init_cookie_key(&config);
 
@@ -189,7 +202,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     tracing::info!("Swagger UI available at http://{}/swagger-ui", addr);
 
     let listener = tokio::net::TcpListener::bind(addr).await?;
-    axum::serve(listener, app).await?;
+    axum::serve(
+        listener,
+        app.into_make_service_with_connect_info::<SocketAddr>(),
+    )
+    .await?;
 
     Ok(())
 }

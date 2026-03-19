@@ -47,6 +47,7 @@ fn json_request(method: &str, uri: &str, body: serde_json::Value) -> Request<Bod
         .method(method)
         .uri(uri)
         .header("content-type", "application/json")
+        .header("x-requested-with", "XMLHttpRequest")
         .body(Body::from(serde_json::to_string(&body).unwrap()))
         .unwrap()
 }
@@ -56,6 +57,7 @@ fn bearer_request(method: &str, uri: &str, token: &str) -> Request<Body> {
         .method(method)
         .uri(uri)
         .header("authorization", format!("Bearer {token}"))
+        .header("x-requested-with", "XMLHttpRequest")
         .body(Body::empty())
         .unwrap()
 }
