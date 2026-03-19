@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { RegisterPage } from "@/features/auth/components/RegisterPage";
 
 export const Route = createFileRoute("/register")({
-  component: RegisterPagePlaceholder,
+  component: RegisterPage,
 });
-
-function RegisterPagePlaceholder() {
-  return <div>Register page (placeholder — implemented in section 05)</div>;
-}
