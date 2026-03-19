@@ -1,0 +1,62 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/06-auth/03-frontend-auth/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/06-auth/03-frontend-auth/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-api-client",
+    "section-02-auth-context",
+    "section-03-route-protection",
+    "section-04-login-page",
+    "section-05-register-page",
+    "section-06-navbar-layout",
+    "section-07-i18n",
+    "section-08-wiring"
+  ],
+  "sections_state": {
+    "section-01-api-client": {
+      "status": "complete",
+      "commit_hash": "d74573f"
+    },
+    "section-02-auth-context": {
+      "status": "complete",
+      "commit_hash": "b005491"
+    },
+    "section-03-route-protection": {
+      "status": "complete",
+      "commit_hash": "3fc955b"
+    },
+    "section-04-login-page": {
+      "status": "complete",
+      "commit_hash": "bc571b8"
+    },
+    "section-05-register-page": {
+      "status": "complete",
+      "commit_hash": "04f07fc"
+    },
+    "section-06-navbar-layout": {
+      "status": "complete",
+      "commit_hash": "5cac5e7"
+    },
+    "section-07-i18n": {
+      "status": "complete",
+      "commit_hash": "70855a5"
+    },
+    "section-08-wiring": {
+      "status": "complete",
+      "commit_hash": "792424f"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-19T20:00:14.147195+00:00"
+}

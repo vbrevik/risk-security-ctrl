@@ -1,0 +1,62 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/06-auth/01-backend-core-auth/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/06-auth/01-backend-core-auth/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-deps-and-appstate",
+    "section-02-auth-models",
+    "section-03-password-and-session-utils",
+    "section-04-auth-service",
+    "section-05-auth-extractor",
+    "section-06-route-handlers",
+    "section-07-seed-admin",
+    "section-08-wiring-and-integration"
+  ],
+  "sections_state": {
+    "section-01-deps-and-appstate": {
+      "status": "complete",
+      "commit_hash": "8eebe00"
+    },
+    "section-02-auth-models": {
+      "status": "complete",
+      "commit_hash": "a838907"
+    },
+    "section-03-password-and-session-utils": {
+      "status": "complete",
+      "commit_hash": "086773f"
+    },
+    "section-04-auth-service": {
+      "status": "complete",
+      "commit_hash": "a31089d"
+    },
+    "section-05-auth-extractor": {
+      "status": "complete",
+      "commit_hash": "7fbe692"
+    },
+    "section-07-seed-admin": {
+      "status": "complete",
+      "commit_hash": "1b3a0fe"
+    },
+    "section-06-route-handlers": {
+      "status": "complete",
+      "commit_hash": "874d63c"
+    },
+    "section-08-wiring-and-integration": {
+      "status": "complete",
+      "commit_hash": "6a5406b"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-19T19:19:28.651335+00:00"
+}
