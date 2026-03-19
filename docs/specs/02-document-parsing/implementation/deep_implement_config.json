@@ -7,39 +7,12 @@
   "commit_style": "conventional",
   "test_command": "uv run pytest",
   "sections": [
-    "section-01-deps-and-types",
-    "section-02-pdf-parser",
-    "section-03-docx-parser",
-    "section-04-text-parser-dispatch",
-    "section-05-tokenizer",
-    "section-06-wiring"
+    "section-01-upload-handler",
+    "section-02-parser-refinements",
+    "section-03-route-completion",
+    "section-04-integration-tests"
   ],
-  "sections_state": {
-    "section-01-deps-and-types": {
-      "status": "complete",
-      "commit_hash": "418948b"
-    },
-    "section-02-pdf-parser": {
-      "status": "complete",
-      "commit_hash": "418948b"
-    },
-    "section-03-docx-parser": {
-      "status": "complete",
-      "commit_hash": "418948b"
-    },
-    "section-04-text-parser-dispatch": {
-      "status": "complete",
-      "commit_hash": "418948b"
-    },
-    "section-05-tokenizer": {
-      "status": "complete",
-      "commit_hash": "418948b"
-    },
-    "section-06-wiring": {
-      "status": "complete",
-      "commit_hash": "418948b"
-    }
-  },
+  "sections_state": {},
   "pre_commit": {
     "present": false,
     "type": "none",
@@ -48,5 +21,5 @@
     "may_modify_files": false,
     "detected_formatters": []
   },
-  "created_at": "2026-03-18T07:49:57.909518+00:00"
+  "created_at": "2026-03-19T08:11:45.084155+00:00"
 }

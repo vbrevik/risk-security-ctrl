@@ -1,0 +1,41 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/04-backend-api-export/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/04-backend-api-export/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-dependencies-and-appstate",
+    "section-02-route-scaffold-and-wiring",
+    "section-03-create-analysis-text",
+    "section-04-file-upload",
+    "section-05-list-get-delete",
+    "section-06-findings-endpoint",
+    "section-07-chart-rendering",
+    "section-08-pdf-export",
+    "section-09-docx-export",
+    "section-10-export-handler",
+    "section-11-prompt-template"
+  ],
+  "sections_state": {
+    "section-01-dependencies-and-appstate": {
+      "status": "complete",
+      "commit_hash": "e447e2d"
+    },
+    "section-02-route-scaffold-and-wiring": {
+      "status": "complete",
+      "commit_hash": "8766773"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-18T10:07:13.755602+00:00"
+}

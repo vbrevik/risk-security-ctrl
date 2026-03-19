@@ -1,213 +1,129 @@
-# Implementation Plan: 02-document-parsing
+# Implementation Plan: Document Parsing Pipeline (Delta)
 
 ## Overview
 
-This plan adds a text extraction pipeline to the existing `analysis` feature module in the risk-security-ctrl Rust/Axum backend. It creates two new files (`parser.rs` and `tokenizer.rs`) and updates module wiring and Cargo dependencies.
+This plan covers **incremental improvements** to the existing document parsing pipeline in `backend/src/features/analysis/`. The core implementation (parser, tokenizer, matcher) already exists from parallel development. This plan identifies gaps and refinements needed for production readiness.
 
-The pipeline extracts plain text from PDF files (via `pdf-extract`), DOCX files (via manual ZIP + quick-xml parsing), or raw text input. It produces a `ParsedDocument` struct containing the full text, detected sections, word count, and token count estimate. The tokenizer provides utilities for sentence splitting, keyword extraction, n-gram generation, and term frequency computation — all needed by the downstream matching engine (split 03).
+## What Already Exists
 
-This split does NOT add routes or HTTP handlers — those come in split 04. It only creates the library code that the route handlers will call.
+| File | Lines | Tests | Status |
+|------|-------|-------|--------|
+| `parser.rs` | 490 | 14 | Full DocumentParser with parse_pdf, parse_docx, parse_text, ParsedDocument, DocumentSection, ParsingError |
+| `tokenizer.rs` | 187 | 9 | sentence_split, extract_keywords, generate_ngrams, term_frequency |
+| `matcher.rs` | 1273 | 27 | Full DeterministicMatcher implementing MatchingEngine trait |
+| `routes.rs` | 189 | 0 | API route stubs (started) |
+| `engine.rs` | 119 | 0 | MatchingEngine trait, AnalysisError, MatchingResult |
+| `models.rs` | 563 | ~10 | InputType, AnalysisStatus, FindingType enums + all model structs |
 
-## Why This Matters
+**Cargo.toml already has**: `zip = "2"`, `quick-xml = "0.37"`, `pdf-extract`, `unicode-segmentation`, `stop-words`, `rust-stemmers`
 
-The Document Analysis Engine needs to turn user-uploaded files into queryable text before the matching engine can compare it against ontology frameworks. Without this pipeline, there's no way to get from "user uploads a PDF" to "system identifies relevant security controls."
+## What Needs to Be Done
 
-The parser is consumed by:
-- **Split 03 (matching-engine)** — uses `ParsedDocument.full_text` and tokenizer output for FTS5 queries and TF-IDF scoring
-- **Split 04 (backend-api-export)** — calls `DocumentParser::parse()` in the upload handler, stores `extracted_text` in the `analyses` table
+### Section 1: Upload Handler (`upload.rs`)
 
----
+**Status: Does not exist yet.**
 
-## Section 1: Cargo Dependencies
+This is the only genuinely new module. It provides file upload utilities that the route handler (unit 04) will call.
 
-### File: `backend/Cargo.toml`
+**Create `backend/src/features/analysis/upload.rs`:**
 
-Add three new dependencies under `[dependencies]`:
+Constants:
+- `MAX_FILE_SIZE: u64 = 20 * 1024 * 1024`
+- `ALLOWED_EXTENSIONS: &[&str] = &["pdf", "docx"]`
+- `UPLOAD_DIR: &str = "uploads"`
 
-| Crate | Version | Purpose |
-|-------|---------|---------|
-| `pdf-extract` | `0.10` | Extract text from PDF files, page-by-page |
-| `zip` | `2` | Read DOCX files (which are ZIP archives) |
-| `quick-xml` | `0.37` | Parse XML inside DOCX to extract text nodes |
+Functions:
 
-Group them under a `# Document parsing` comment, following the existing section-comment convention in Cargo.toml.
+`validate_upload(filename: &str, size: u64) -> Result<InputType, ParsingError>`
+- Check file size against MAX_FILE_SIZE, return FileTooLarge if exceeded
+- Extract extension case-insensitively, map to InputType
+- Return UnsupportedFormat for unknown extensions
+- **Validate magic bytes**: Check first 4 bytes — `%PDF` for PDF, `PK` (0x504B) for DOCX/ZIP
+- Accept a `&[u8]` header parameter for magic byte checking
 
----
+`save_upload(analysis_id: &str, filename: &str, data: &[u8]) -> Result<PathBuf, ParsingError>`
+- **Validate analysis_id is UUID format** before using in path (prevent path traversal)
+- Create `{UPLOAD_DIR}/{analysis_id}/` directory
+- Generate UUID filename preserving extension
+- Write bytes, return path
 
-## Section 2: Parser Types and Error Handling
+`stream_upload_to_file(analysis_id: &str, filename: &str, field: axum::extract::multipart::Field) -> Result<PathBuf, ParsingError>`
+- For streaming large files: chunk-by-chunk writing via `field.chunk().await`
+- Return path to saved file
 
-### File: `backend/src/features/analysis/parser.rs`
+Update `mod.rs` to export the new module.
 
-#### ParsingError enum
+### Section 2: Parser Refinements
 
-Using `thiserror::Error`. Variants:
+**Status: Exists, needs targeted improvements.**
 
-- `UnsupportedFormat(String)` — file extension is not `.pdf` or `.docx`. Display: `"Unsupported format: {0}"`
-- `CorruptFile(String)` — parser library returned an error. Display: `"Could not parse file: {0}"`
-- `EmptyDocument` — parsing succeeded but no text was extracted. Display: `"No text content found in document"`
-- `FileTooLarge { size: usize, max: usize }` — exceeds 20MB. Display: `"File too large: {size} bytes (max: {max})"`
-- `IoError(std::io::Error)` — with `#[from]` for automatic conversion. Display: `"IO error: {0}"`
+Changes to `parser.rs`:
 
-#### ParsedDocument struct
+1. **Add EmptyDocument message variant**: Change `EmptyDocument` from unit variant to `EmptyDocument(String)` so scanned PDF detection can provide an actionable message like "This appears to be a scanned/image-based PDF. Text-based PDFs are required."
 
-Fields:
-- `full_text: String` — all extracted text concatenated
-- `sections: Vec<DocumentSection>` — detected sections (pages for PDF, headings for DOCX, paragraphs for text)
-- `word_count: usize` — split on whitespace, count
-- `token_count_estimate: usize` — `(word_count as f64 * 1.33) as usize`
+2. **Add From<ParsingError> for AppError**: Implement the conversion in `error.rs` (or in `parser.rs` behind a feature import):
+   - `UnsupportedFormat`, `EmptyDocument`, `FileTooLarge` → `AppError::BadRequest`
+   - `CorruptFile`, `IoError` → `AppError::Internal`
 
-#### DocumentSection struct
+3. **Wrap sync I/O in spawn_blocking**: The `parse_pdf` and `parse_docx` functions use blocking `std::fs` operations. Add a public async wrapper:
+   ```rust
+   pub async fn parse_async(file_path: PathBuf) -> Result<ParsedDocument, ParsingError>
+   ```
+   that calls `tokio::task::spawn_blocking(move || DocumentParser::parse(&file_path))`.
 
-Fields:
-- `heading: Option<String>` — section heading if detected (DOCX headings, or "Page N" for PDF)
-- `text: String` — section text content
-- `page_number: Option<usize>` — page number (PDF only)
+4. **Scanned PDF detection**: After `pdf_extract::extract_text_from_mem`, if `text.trim().len() < 50 && file_size > 10_000`, return `ParsingError::EmptyDocument("scanned/image-based PDF detected".into())`.
 
-Both structs derive `Debug, Clone, Serialize` (Serialize for potential API exposure later).
+### Section 3: Route Handler Completion
 
----
+**Status: Stubs exist, need full implementation.**
 
-## Section 3: PDF Parser
+Complete `routes.rs` with:
 
-### File: `backend/src/features/analysis/parser.rs` (continued)
+1. **POST `/api/analysis/upload`**: Accept multipart upload, validate, save file, parse text, create analysis record in DB, trigger matching engine, return analysis ID.
 
-#### DocumentParser struct
+2. **Router-level size limit**: Add `RequestBodyLimitLayer::new(25 * 1024 * 1024)` (slightly above 20MB to account for multipart overhead) and `DefaultBodyLimit::disable()`.
 
-`pub struct DocumentParser;` — a unit struct with associated functions. No state needed.
+3. **Wire into main router**: Add `.nest("/analysis", features::analysis::routes::router())` in `lib.rs`.
 
-#### DocumentParser::parse_pdf
+4. **OpenAPI annotations**: Add `#[utoipa::path]` attributes matching existing patterns.
 
-Takes `file_path: &Path`, returns `Result<ParsedDocument, ParsingError>`.
+### Section 4: Module Wiring and Integration Tests
 
-**Note:** `extract_text_by_pages()` must be verified to exist in `pdf-extract` 0.10. If not available, fall back to `extract_text()` and produce a single section.
+1. **Update `mod.rs`**: Export `upload` module alongside existing `parser`, `tokenizer`, `matcher`, `models`, `engine`.
 
-Implementation approach:
-1. Call `pdf_extract::extract_text_by_pages(file_path)` to get `Vec<String>` (one string per page)
-2. Map errors to `ParsingError::CorruptFile`
-3. Create one `DocumentSection` per page with `heading: Some("Page N")` and `page_number: Some(n)`
-4. Filter out empty pages
-5. Concatenate all page text with double newlines for `full_text`
-6. If no pages have text, return `ParsingError::EmptyDocument`
-7. Compute `word_count` and `token_count_estimate`
+2. **Integration test**: Add test in `backend/tests/` that uploads a real PDF via multipart → verify extracted text is stored in `analyses.extracted_text`.
 
----
+3. **Test fixture**: Create a small `backend/tests/fixtures/sample.pdf` (1-page text PDF) for integration testing. Do NOT commit a 20MB test file — generate large files at test time using `tempfile`.
 
-## Section 4: DOCX Parser
+## Build Order
 
-### File: `backend/src/features/analysis/parser.rs` (continued)
+1. **Upload handler** (new module, no dependencies on parser changes)
+2. **Parser refinements** (EmptyDocument variant, From impl, async wrapper, scanned detection)
+3. **Route completion** (depends on upload handler + parser being ready)
+4. **Integration tests** (depends on routes being complete)
 
-#### DocumentParser::parse_docx
-
-Takes `file_path: &Path`, returns `Result<ParsedDocument, ParsingError>`.
-
-Implementation approach:
-1. Read file bytes with `std::fs::read()`
-2. Open as ZIP archive with `zip::ZipArchive::new(Cursor::new(bytes))`
-3. Extract `word/document.xml` from the archive
-4. Parse XML with `quick_xml::Reader`
-5. Walk the XML tree:
-   - Track when inside `<w:t>` elements — concatenate text WITHOUT spaces within a paragraph (multiple `<w:t>` in a run are fragments of the same word)
-   - On `</w:p>` (end of paragraph), append newline to current section
-   - On `<w:pStyle>` with `w:val` containing "Heading" (e.g., "Heading1", "Heading2"), start a new `DocumentSection` with the upcoming text as heading
-6. If no headings detected, return a single section with all text
-7. If no text extracted, return `ParsingError::EmptyDocument`
-8. Compute word count and token estimate
-
-#### XML element names to look for:
-- `w:t` — text content
-- `w:p` — paragraph boundary
-- `w:pPr` → `w:pStyle` with attribute `w:val` — paragraph style (heading detection)
-
----
-
-## Section 5: Text Parser and Dispatch
-
-### File: `backend/src/features/analysis/parser.rs` (continued)
-
-#### DocumentParser::parse_text
-
-Takes `text: &str`, returns `Result<ParsedDocument, ParsingError>`.
-
-1. Trim whitespace
-2. If empty, return `ParsingError::EmptyDocument`
-3. Normalize: collapse multiple blank lines to double newlines, trim each line
-4. Split on double newlines for sections (each becomes a `DocumentSection` with no heading)
-5. Compute word count and token estimate
-
-#### DocumentParser::parse
-
-Takes `file_path: &Path`, returns `Result<ParsedDocument, ParsingError>`.
-
-1. Check file size with `std::fs::metadata(file_path)?.len()` — if > 20MB, return `ParsingError::FileTooLarge`
-2. Dispatch based on file extension (case-insensitive):
-   - `.pdf` → `parse_pdf(file_path)`
-   - `.docx` → `parse_docx(file_path)`
-   - Other → `ParsingError::UnsupportedFormat`
-3. Add `tracing::info!` for parse start/completion with timing
-
-**Note:** `parse()` is file-only. For text input, split 04 calls `parse_text()` directly based on `InputType`. This is intentional — text input has no file path.
-
----
-
-## Section 6: Tokenizer
-
-### File: `backend/src/features/analysis/tokenizer.rs`
-
-Utilities consumed by the matching engine (split 03). All functions are pure — no database or async needed.
-
-#### sentence_split
-
-Takes `text: &str`, returns `Vec<String>`.
-
-Split on sentence boundaries: period/exclamation/question mark followed by whitespace and a capital letter. Also split on newlines. Filter out empty strings.
-
-Simple regex or manual approach — no NLP library needed for MVP.
-
-#### extract_keywords
-
-Takes `text: &str`, returns `Vec<String>`.
-
-1. Lowercase the text
-2. Split on non-alphanumeric characters
-3. Filter out stopwords (hardcoded English list: "the", "and", "or", "is", "in", "to", "of", "a", "an", "for", "with", "on", "at", "by", "from", "as", "it", "that", "this", "are", "was", "be", "has", "have", "had", "not", "but", "will", "can", "do", "if", "so", "no", "all", "they", "we", "you", "their", "its", "our", "your", "my", "which", "who", "what", "when", "where", "how", "each", "other", "than", "then", "also", "been", "would", "could", "should", "may", "must", "shall")
-4. Filter out tokens shorter than 3 characters
-5. Deduplicate while preserving order
-
-#### generate_ngrams
-
-Takes `words: &[String]`, `n: usize`, returns `Vec<String>`.
-
-Generate n-grams from a word list. For n=2: `["multi", "factor", "auth"]` → `["multi factor", "factor auth"]`.
-
-#### term_frequency
-
-Takes `text: &str`, returns `HashMap<String, usize>`.
-
-Count occurrences of each keyword (after lowercasing and splitting). Used for TF-IDF scoring in the matching engine.
-
----
-
-## Section 7: Module Wiring
-
-### Files to modify
-
-1. **`backend/src/features/analysis/mod.rs`** — Add `pub mod parser;` and `pub mod tokenizer;`
-
-No route changes — this split only adds library code.
-
----
-
-## Decision Log
-
-| Decision | Choice | Rationale |
-|----------|--------|-----------|
-| DOCX parsing | ZIP + quick-xml | docx-rs is a writer, docx crate unmaintained. Manual parsing is ~30 lines, fully controlled, maintained deps. |
-| PDF sections | Page-by-page | `extract_text_by_pages()` gives sections for free. More useful for evidence extraction. |
-| Stopwords | Hardcoded list | No NLP dependency for MVP. List covers common English words. |
-| Sentence splitting | Simple heuristic | No regex crate needed — manual period+capital check. Good enough for evidence extraction. |
-| No OCR | Scanned PDFs → EmptyDocument | OCR adds large C dependencies (tesseract). Phase 2+. |
-| DocumentParser | Unit struct with associated fns | No state needed. Keeps API clean. |
-| parse() vs parse_text() | Separate entry points | parse() is file-only, parse_text() for text input. Split 04 dispatches based on InputType. |
-| DOCX limitations | Headers/footers/tables/footnotes not extracted | Documented. MVP focuses on body text. |
-| spawn_blocking | Split 04 concern | Parser functions are sync. Route handlers must wrap in spawn_blocking. |
-| Tracing | Add info/warn logging | File received, parse start/complete/fail with timing. |
+## Cargo Dependencies
+
+No new dependencies needed — all required crates are already in `Cargo.toml` from parallel development.
+
+## Testing Strategy
+
+### New tests needed:
+
+**upload.rs unit tests:**
+- Reject file > 20MB → FileTooLarge
+- Reject unknown extension → UnsupportedFormat
+- Accept .pdf → InputType::Pdf
+- Accept .DOCX (case insensitive) → InputType::Docx
+- Reject analysis_id with path traversal chars
+- Validate magic bytes: PDF header, ZIP header, mismatch
+
+**parser.rs additions:**
+- Test scanned PDF detection (near-empty text + large file)
+- Test `parse_async` wrapper
+- Test `From<ParsingError> for AppError` mapping
+
+**Integration tests:**
+- Upload PDF multipart → verify analysis created with extracted text
+- Upload file > 20MB → verify 400 response
+- Upload .exe file → verify 400 response

@@ -1,0 +1,52 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/02-document-parsing/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/02-document-parsing/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-deps-and-types",
+    "section-02-pdf-parser",
+    "section-03-docx-parser",
+    "section-04-text-parser-dispatch",
+    "section-05-tokenizer",
+    "section-06-wiring"
+  ],
+  "sections_state": {
+    "section-01-deps-and-types": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-02-pdf-parser": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-03-docx-parser": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-04-text-parser-dispatch": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-05-tokenizer": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    },
+    "section-06-wiring": {
+      "status": "complete",
+      "commit_hash": "418948b"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-18T07:49:57.909518+00:00"
+}
