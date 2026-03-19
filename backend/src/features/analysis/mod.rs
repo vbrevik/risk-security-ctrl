@@ -4,3 +4,4 @@ pub mod models;
 pub mod parser;
 pub mod routes;
 pub mod tokenizer;
+pub mod upload;
