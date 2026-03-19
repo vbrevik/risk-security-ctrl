@@ -72,6 +72,10 @@ path = "src/lib.rs"
 name = "ontology-backend"
 path = "src/main.rs"
 
+[[bin]]
+name = "seed-admin"
+path = "src/bin/seed_admin.rs"
+
 [dev-dependencies]
 tokio-test = "0.4"
 tower = { version = "0.5", features = ["util"] }
