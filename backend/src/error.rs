@@ -4,6 +4,13 @@ use axum::{
     Json,
 };
 use serde::Serialize;
+use utoipa::ToSchema;
+
+#[derive(Debug, Serialize, Clone, ToSchema)]
+pub struct FieldError {
+    pub field: String,
+    pub message: String,
+}
 
 #[derive(Debug, thiserror::Error)]
 pub enum AppError {
@@ -24,12 +31,23 @@ pub enum AppError {
 
     #[error("Internal server error: {0}")]
     Internal(String),
+
+    #[error("Invalid credentials")]
+    InvalidCredentials,
+
+    #[error("Validation error")]
+    ValidationError(Vec<FieldError>),
+
+    #[error("Session expired")]
+    SessionExpired,
 }
 
 #[derive(Serialize)]
 pub struct ErrorResponse {
     pub error: String,
     pub message: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub fields: Option<Vec<FieldError>>,
 }
 
 impl IntoResponse for AppError {
@@ -63,14 +81,56 @@ impl IntoResponse for AppError {
                     "An internal error occurred".to_string(),
                 )
             }
+            AppError::InvalidCredentials => (
+                StatusCode::UNAUTHORIZED,
+                "invalid_credentials",
+                "Invalid credentials".to_string(),
+            ),
+            AppError::SessionExpired => (
+                StatusCode::UNAUTHORIZED,
+                "session_expired",
+                "Session expired".to_string(),
+            ),
+            AppError::ValidationError(_) => (
+                StatusCode::UNPROCESSABLE_ENTITY,
+                "validation_error",
+                "Validation failed".to_string(),
+            ),
+        };
+
+        let fields = match &self {
+            AppError::ValidationError(f) => Some(f.clone()),
+            _ => None,
         };
 
         let body = Json(ErrorResponse {
             error: error_type.to_string(),
             message,
+            fields,
         });
 
         (status, body).into_response()
+    }
+}
+
+impl From<validator::ValidationErrors> for AppError {
+    fn from(err: validator::ValidationErrors) -> Self {
+        let fields = err
+            .field_errors()
+            .into_iter()
+            .map(|(field, errors)| {
+                let message = errors
+                    .first()
+                    .and_then(|e| e.message.as_ref())
+                    .map(|m| m.to_string())
+                    .unwrap_or_else(|| format!("Invalid value for {field}"));
+                FieldError {
+                    field: field.to_string(),
+                    message,
+                }
+            })
+            .collect();
+        AppError::ValidationError(fields)
     }
 }
 
