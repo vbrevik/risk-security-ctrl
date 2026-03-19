@@ -80,7 +80,22 @@
     "notFound": {
       "title": "Analysis not found",
       "message": "The analysis you are looking for does not exist or has been removed."
-    }
+    },
+    "conceptPanel": {
+      "title": "Concept Details",
+      "close": "Close panel",
+      "openInExplorer": "Open in Ontology Explorer",
+      "definition": "Definition",
+      "type": "Type",
+      "framework": "Framework",
+      "relatedConcepts": "Related Concepts",
+      "crossMappings": "Cross-Framework Mappings",
+      "loading": "Loading concept...",
+      "error": "Failed to load concept details",
+      "retry": "Retry"
+    },
+    "filteredBy": "Showing results for: {{framework}}",
+    "clearFilter": "Clear filter"
   },
   "stats": {
     "totalFindings": "Total Findings",
@@ -100,6 +115,17 @@
       "title": "Priority Breakdown",
       "description": "Distribution of findings by priority level",
       "noData": "No priority data available"
+    },
+    "radar": {
+      "title": "Framework Radar",
+      "description": "Normalized finding type distribution across frameworks",
+      "noData": "No radar data available",
+      "addressed": "Addressed",
+      "partial": "Partial",
+      "gap": "Gap",
+      "notApplicable": "Not Applicable",
+      "legend": "Legend",
+      "percentage": "{{value}}%"
     }
   },
   "findings": {

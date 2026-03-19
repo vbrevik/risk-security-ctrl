@@ -320,3 +320,20 @@ it.each(radarKeys)("radar key '%s' exists in en and nb", (key) => {
 9. Extend `SummaryStats.test.tsx` with overrideTypeCounts tests (3 tests, update makeChartData helper)
 10. Extend `analysis-namespace.test.ts` with enhancement key validation tests
 11. Run `pnpm test` to verify all tests pass
+
+---
+
+## Implementation Notes
+
+### Actual files modified
+- `frontend/src/i18n/locales/en/analysis.json` — Added radar, conceptPanel, and cross-filter keys
+- `frontend/src/i18n/locales/nb/analysis.json` — Added Norwegian Bokmal equivalents
+- `frontend/src/i18n/__tests__/analysis-namespace.test.ts` — Added 22 enhancement key validation tests
+
+### Deviations from plan
+- Test files 1-7 (frameworkColors, useChartData radarData, CoverageHeatmap cross-filter, FrameworkRadar, ConceptDrawer, FindingsTable concept click, SummaryStats override) were already implemented during their respective sections (01-05). This section only needed the i18n keys and validation tests.
+- i18n validation uses a single `it.each(allNewKeys)` block instead of separate describe blocks per category.
+
+### Test count
+- 22 new i18n validation tests in this section
+- All 235 tests passing across the full suite

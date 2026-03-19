@@ -30,6 +30,10 @@
     "section-04-concept-drawer": {
       "status": "complete",
       "commit_hash": "9621d6f"
+    },
+    "section-05-page-assembly": {
+      "status": "complete",
+      "commit_hash": "bdb94ac"
     }
   },
   "pre_commit": {
