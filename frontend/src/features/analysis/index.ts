@@ -10,3 +10,6 @@ export { BoostTermsEditor } from "./components/BoostTermsEditor";
 export { useChartData } from "./hooks/useChartData";
 export type { ChartData } from "./hooks/useChartData";
 export { SummaryStats } from "./components/SummaryStats";
+export { useContainerDimensions } from "./hooks/useContainerDimensions";
+export { CoverageHeatmap } from "./components/CoverageHeatmap";
+export { PriorityChart } from "./components/PriorityChart";
