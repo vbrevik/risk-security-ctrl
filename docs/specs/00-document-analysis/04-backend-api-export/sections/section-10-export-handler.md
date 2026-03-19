@@ -1,10 +1,22 @@
-Now I have all the context needed. Let me write the section.
-
 # Section 10: Export Handler
+
+## Status: Implemented
 
 ## Overview
 
 This section implements the `export_analysis` route handler in `backend/src/features/analysis/routes.rs`. The handler accepts a format parameter ("pdf" or "docx"), loads the analysis and its findings from the database, delegates to the appropriate generator (from sections 08 and 09), and returns the rendered document bytes with correct HTTP headers. An audit log entry is recorded for each export.
+
+## Files Modified
+
+- **Modified:** `backend/src/features/analysis/routes.rs` - Replaced export stub with full implementation
+
+## Deviations from Plan
+
+- **Status validation added:** Code review identified that non-completed analyses could be exported with empty content. Added check requiring `AnalysisStatus::Completed`.
+- **NULL-safe concept JOIN:** All concept columns use COALESCE to prevent panics when findings reference deleted concepts (LEFT JOIN can produce NULLs).
+- **Best-effort audit logging:** Audit INSERT uses warn-and-continue instead of `?` propagation, so audit failures don't discard already-generated export bytes.
+- **ASCII-only filenames:** `sanitize_filename` uses `is_ascii_alphanumeric()` instead of `is_alphanumeric()` to ensure RFC 6266-compliant Content-Disposition headers (relevant for Norwegian characters).
+- **No integration tests:** Section plan specified integration tests requiring `create_test_app()` infrastructure. This test harness doesn't exist in the analysis module yet. Handler logic compiles and existing tests pass.
 
 **Dependencies:** This section depends on:
 - **Section 02** (route scaffold) -- the handler stub and route `GET /:id/export/:format` must exist
