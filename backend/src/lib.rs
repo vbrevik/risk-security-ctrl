@@ -187,6 +187,8 @@ mod tests {
             frontend_url: String::new(),
             cookie_key: Some("aabbccdd".to_string()), // 4 bytes, too short
             session_duration_hours: 8,
+            behind_proxy: false,
+            enable_https: false,
         };
         let result = std::panic::catch_unwind(|| init_cookie_key(&config));
         assert!(result.is_err(), "Should panic on short cookie key");
@@ -202,6 +204,8 @@ mod tests {
             frontend_url: String::new(),
             cookie_key: Some(hex_key),
             session_duration_hours: 8,
+            behind_proxy: false,
+            enable_https: false,
         };
         // Should not panic
         let _key = init_cookie_key(&config);

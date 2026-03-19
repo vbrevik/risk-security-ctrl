@@ -26,6 +26,8 @@ async fn setup_auth_test_app() -> (Router, SqlitePool) {
         frontend_url: "http://localhost:5173".to_string(),
         cookie_key: None,
         session_duration_hours: 8,
+        behind_proxy: false,
+        enable_https: false,
     };
 
     let cookie_key = axum_extra::extract::cookie::Key::generate();

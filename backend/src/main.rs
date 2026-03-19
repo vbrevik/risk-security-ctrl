@@ -3,9 +3,12 @@ use std::net::SocketAddr;
 use ontology_backend::{import, AppState, Config};
 use sqlx::sqlite::SqlitePoolOptions;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
+#[cfg(feature = "swagger")]
 use utoipa::OpenApi;
+#[cfg(feature = "swagger")]
 use utoipa_swagger_ui::SwaggerUi;
 
+#[cfg(feature = "swagger")]
 #[derive(OpenApi)]
 #[openapi(
     info(
@@ -171,13 +174,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         cookie_key,
     };
 
-    // Build router with Swagger UI
-    let app = ontology_backend::create_router(state)
-        .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()));
+    // Build router
+    let app = ontology_backend::create_router(state);
+
+    // Merge Swagger UI when feature enabled
+    #[cfg(feature = "swagger")]
+    let app = app.merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()));
 
     // Start server
     let addr = SocketAddr::from(([127, 0, 0, 1], config.port));
     tracing::info!("Starting server on {}", addr);
+
+    #[cfg(feature = "swagger")]
     tracing::info!("Swagger UI available at http://{}/swagger-ui", addr);
 
     let listener = tokio::net::TcpListener::bind(addr).await?;

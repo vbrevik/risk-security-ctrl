@@ -5,19 +5,23 @@ edition = "2021"
 description = "Risk Management Framework Explorer API"
 authors = ["Ontology Team"]
 
+[features]
+default = ["swagger"]
+swagger = ["dep:utoipa-swagger-ui"]
+
 [dependencies]
 # Web framework
 axum = { version = "0.7", features = ["macros", "multipart"] }
 tokio = { version = "1", features = ["full"] }
 tower = "0.5"
-tower-http = { version = "0.6", features = ["cors", "compression-gzip", "trace"] }
+tower-http = { version = "0.6", features = ["cors", "compression-gzip", "trace", "set-header", "sensitive-headers"] }
 
 # Database
 sqlx = { version = "0.8", features = ["runtime-tokio", "sqlite", "migrate"] }
 
 # OpenAPI / Swagger
 utoipa = { version = "5", features = ["axum_extras"] }
-utoipa-swagger-ui = { version = "8", features = ["axum"] }
+utoipa-swagger-ui = { version = "8", features = ["axum"], optional = true }
 
 # Serialization
 serde = { version = "1", features = ["derive"] }
@@ -48,6 +52,10 @@ rand = "0.9"
 hex = "0.4"
 time = "0.3"
 sha2 = "0.10"
+
+# Rate limiting
+governor = "0.10"
+tower_governor = "0.8"
 
 # Document parsing
 pdf-extract = "0.10"

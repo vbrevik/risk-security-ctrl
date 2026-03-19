@@ -8,6 +8,8 @@ pub struct Config {
     pub frontend_url: String,
     pub cookie_key: Option<String>,
     pub session_duration_hours: u64,
+    pub behind_proxy: bool,
+    pub enable_https: bool,
 }
 
 impl Config {
@@ -27,6 +29,12 @@ impl Config {
                 .ok()
                 .and_then(|s| s.parse().ok())
                 .unwrap_or(8),
+            behind_proxy: env::var("BEHIND_PROXY")
+                .map(|v| v == "true" || v == "1")
+                .unwrap_or(false),
+            enable_https: env::var("ENABLE_HTTPS")
+                .map(|v| v == "true" || v == "1")
+                .unwrap_or(false),
         }
     }
 }
@@ -58,6 +66,40 @@ mod tests {
         env::remove_var("SESSION_DURATION_HOURS");
         let config = Config::from_env();
         assert_eq!(config.session_duration_hours, 8);
+    }
+
+    #[test]
+    fn config_defaults_behind_proxy_to_false() {
+        let _lock = ENV_LOCK.lock().unwrap();
+        env::remove_var("BEHIND_PROXY");
+        let config = Config::from_env();
+        assert!(!config.behind_proxy);
+    }
+
+    #[test]
+    fn config_parses_behind_proxy_true() {
+        let _lock = ENV_LOCK.lock().unwrap();
+        env::set_var("BEHIND_PROXY", "true");
+        let config = Config::from_env();
+        env::remove_var("BEHIND_PROXY");
+        assert!(config.behind_proxy);
+    }
+
+    #[test]
+    fn config_defaults_enable_https_to_false() {
+        let _lock = ENV_LOCK.lock().unwrap();
+        env::remove_var("ENABLE_HTTPS");
+        let config = Config::from_env();
+        assert!(!config.enable_https);
+    }
+
+    #[test]
+    fn config_parses_enable_https_true() {
+        let _lock = ENV_LOCK.lock().unwrap();
+        env::set_var("ENABLE_HTTPS", "true");
+        let config = Config::from_env();
+        env::remove_var("ENABLE_HTTPS");
+        assert!(config.enable_https);
     }
 
     #[test]
