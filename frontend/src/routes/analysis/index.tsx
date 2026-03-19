@@ -48,10 +48,10 @@ function AnalysisListPage() {
       </div>
 
       <Select
-        value={status ?? ""}
+        value={status ?? "__all__"}
         onValueChange={(value) =>
           navigate({
-            search: { status: value || undefined, page: 1 },
+            search: { status: value === "__all__" ? undefined : value, page: 1 },
           })
         }
       >
@@ -59,7 +59,7 @@ function AnalysisListPage() {
           <SelectValue placeholder={t("list.filters.all")} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="">{t("list.filters.all")}</SelectItem>
+          <SelectItem value="__all__">{t("list.filters.all")}</SelectItem>
           <SelectItem value="pending">{t("status.pending")}</SelectItem>
           <SelectItem value="processing">{t("status.processing")}</SelectItem>
           <SelectItem value="completed">{t("status.completed")}</SelectItem>

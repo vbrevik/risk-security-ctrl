@@ -30,7 +30,7 @@ function AnalysisDetailPage() {
     { limit: 1000 },
   );
   const chartData = useChartData(
-    isCompleted ? allFindingsData?.items : undefined
+    isCompleted ? allFindingsData?.data : undefined
   );
 
   // Paginated findings for table
@@ -209,7 +209,7 @@ function AnalysisDetailPage() {
               {t("findings.title")}
             </h2>
             <FindingsTable
-              findings={paginatedFindings?.items ?? []}
+              findings={paginatedFindings?.data ?? []}
               expandedIds={expandedIds}
               onToggleExpand={handleToggleExpand}
               frameworkIds={analysis.matched_framework_ids}
