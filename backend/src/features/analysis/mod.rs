@@ -5,3 +5,4 @@ pub mod parser;
 pub mod routes;
 pub mod tokenizer;
 pub mod upload;
+pub mod charts;
