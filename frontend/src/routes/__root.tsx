@@ -4,6 +4,7 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { useTranslation } from "react-i18next";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { NavbarAuthControls } from "@/features/auth/components/NavbarAuthControls";
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootLayout,
@@ -87,6 +88,7 @@ function RootLayout() {
               </Link>
             </nav>
             <div className="flex flex-1 items-center justify-end space-x-2 flex-shrink-0">
+              <NavbarAuthControls />
               <Button variant="ghost" size="icon" onClick={toggleLanguage} className="h-7 w-7">
                 <Globe className="h-3.5 w-3.5" />
                 <span className="sr-only">Toggle language</span>
