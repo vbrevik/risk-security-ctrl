@@ -14,7 +14,12 @@
     "section-05-cli-integration",
     "section-06-integration-tests"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-extractor-trait-and-types": {
+      "status": "complete",
+      "commit_hash": "f539693"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",
