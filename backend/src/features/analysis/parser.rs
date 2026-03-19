@@ -18,8 +18,8 @@ pub enum ParsingError {
     #[error("Could not parse file: {0}")]
     CorruptFile(String),
 
-    #[error("No text content found in document")]
-    EmptyDocument,
+    #[error("No text content found in document: {0}")]
+    EmptyDocument(String),
 
     #[error("File too large: {size} bytes (max: {max})")]
     FileTooLarge { size: usize, max: usize },
@@ -120,7 +120,7 @@ impl DocumentParser {
     pub fn parse_text(text: &str) -> Result<ParsedDocument, ParsingError> {
         let trimmed = text.trim();
         if trimmed.is_empty() {
-            return Err(ParsingError::EmptyDocument);
+            return Err(ParsingError::EmptyDocument("document contains no extractable text".into()));
         }
 
         // Normalize: collapse 3+ newlines to 2, trim each line
@@ -142,7 +142,7 @@ impl DocumentParser {
             .collect();
 
         if sections.is_empty() {
-            return Err(ParsingError::EmptyDocument);
+            return Err(ParsingError::EmptyDocument("document contains no extractable text".into()));
         }
 
         let full_text = sections
@@ -171,7 +171,7 @@ impl DocumentParser {
             .collect();
 
         if sections.is_empty() {
-            return Err(ParsingError::EmptyDocument);
+            return Err(ParsingError::EmptyDocument("document contains no extractable text".into()));
         }
 
         let full_text = sections
@@ -276,7 +276,7 @@ impl DocumentParser {
         }
 
         if sections.is_empty() {
-            return Err(ParsingError::EmptyDocument);
+            return Err(ParsingError::EmptyDocument("document contains no extractable text".into()));
         }
 
         let full_text = sections
@@ -287,6 +287,14 @@ impl DocumentParser {
 
         Ok(ParsedDocument::new(full_text, sections))
     }
+}
+
+/// Async wrapper around DocumentParser::parse that runs blocking
+/// file I/O on a dedicated thread via spawn_blocking.
+pub async fn parse_async(file_path: std::path::PathBuf) -> Result<ParsedDocument, ParsingError> {
+    tokio::task::spawn_blocking(move || DocumentParser::parse(&file_path))
+        .await
+        .map_err(|e| ParsingError::CorruptFile(format!("task join error: {}", e)))?
 }
 
 #[cfg(test)]
@@ -307,8 +315,8 @@ mod tests {
             "Could not parse file: bad header"
         );
         assert_eq!(
-            format!("{}", ParsingError::EmptyDocument),
-            "No text content found in document"
+            format!("{}", ParsingError::EmptyDocument("test".into())),
+            "No text content found in document: test"
         );
         assert_eq!(
             format!(
@@ -364,7 +372,7 @@ mod tests {
     fn parse_text_empty_string() {
         assert!(matches!(
             DocumentParser::parse_text(""),
-            Err(ParsingError::EmptyDocument)
+            Err(ParsingError::EmptyDocument(_))
         ));
     }
 
@@ -372,7 +380,7 @@ mod tests {
     fn parse_text_whitespace_only() {
         assert!(matches!(
             DocumentParser::parse_text("   \n\n  \t  "),
-            Err(ParsingError::EmptyDocument)
+            Err(ParsingError::EmptyDocument(_))
         ));
     }
 
@@ -484,7 +492,7 @@ mod tests {
         let path = create_test_docx(&dir, xml);
         assert!(matches!(
             DocumentParser::parse_docx(&path),
-            Err(ParsingError::EmptyDocument)
+            Err(ParsingError::EmptyDocument(_))
         ));
     }
 }
