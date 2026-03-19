@@ -439,3 +439,13 @@ mod tests {
         assert_eq!(entry.2.as_deref(), Some("192.168.1.1"));
     }
 }
+
+/// Delete all expired sessions from the database.
+/// Called once during server startup to clean up sessions that expired while offline.
+pub async fn cleanup_expired_sessions(pool: &SqlitePool) -> Result<u64, AppError> {
+    let result = sqlx::query("DELETE FROM sessions WHERE expires_at <= datetime('now')")
+        .execute(pool)
+        .await
+        .map_err(AppError::Database)?;
+    Ok(result.rows_affected())
+}
