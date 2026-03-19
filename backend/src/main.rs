@@ -148,11 +148,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let topics = ontology_backend::load_topics(std::path::Path::new("../ontology-data/topic-tags.json"));
     tracing::info!("Loaded {} topics for analysis matching", topics.len());
 
+    // Initialize cookie key for session encryption
+    let cookie_key = ontology_backend::init_cookie_key(&config);
+
     // Create application state
     let state = AppState {
         db,
         config: config.clone(),
         topics,
+        cookie_key,
     };
 
     // Build router with Swagger UI

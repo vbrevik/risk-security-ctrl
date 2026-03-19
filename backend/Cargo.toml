@@ -40,6 +40,15 @@ dotenvy = "0.15"
 uuid = { version = "1", features = ["v4", "serde"] }
 chrono = { version = "0.4", features = ["serde"] }
 
+# Auth
+argon2 = "0.5"
+axum-extra = { version = "0.10", features = ["cookie-private", "cookie-key-expansion"] }
+validator = { version = "0.20", features = ["derive"] }
+rand = "0.9"
+hex = "0.4"
+time = "0.3"
+sha2 = "0.10"
+
 # Document parsing
 pdf-extract = "0.10"
 zip = "2"

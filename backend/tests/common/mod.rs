@@ -42,10 +42,12 @@ pub async fn create_test_app() -> Router {
 
     let topics = ontology_backend::load_topics(std::path::Path::new("../ontology-data/topic-tags.json"));
 
+    let cookie_key = axum_extra::extract::cookie::Key::generate();
     let state = AppState {
         db: pool,
         config: config.clone(),
         topics,
+        cookie_key,
     };
 
     ontology_backend::create_router(state)

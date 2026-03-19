@@ -29,8 +29,11 @@ Add to `backend/Cargo.toml`:
 - `axum-extra = { version = "0.10", features = ["cookie-private"] }` — AES-GCM encrypted cookies. Maintained by Tokio team.
 - `validator = { version = "0.20", features = ["derive"] }` — Input validation with derive macros.
 - `rand = "0.9"` — CSPRNG for session token generation via OS entropy.
+- `sha2 = "0.10"` — SHA-256 for session token hashing before DB storage. Explicit dep (do not rely on argon2 transitive).
 - `hex = "0.4"` — Decode COOKIE_KEY from hex-encoded environment variable.
-- `time = "0.3"` — Required by cookie crate for `max_age` duration type.
+- `time = "0.3"` — Required by cookie crate for `max_age` duration type. Only used for cookie durations; all other datetime work uses chrono.
+
+**Version compatibility:** Verify that `axum-extra` version is compatible with `axum 0.7`. These version numbers do not move in lockstep — pin the correct compatible version.
 
 ### AppState Changes
 
@@ -46,9 +49,11 @@ Implement `FromRef<AppState> for Key` so that `PrivateCookieJar` can access the 
 On server startup:
 
 1. Check `COOKIE_KEY` env var (hex-encoded, minimum 32 bytes / 64 hex chars)
-2. If not set, read from `.cookie_key` file in working directory
-3. If file doesn't exist, generate 32 random bytes, save as hex to `.cookie_key`, log a warning
-4. Call `Key::derive_from(&master_key_bytes)` to produce signing + encryption keys via HKDF
+2. **Validate minimum length** — decoded bytes must be >= 32. Reject shorter keys with a clear startup error.
+3. If not set, read from `.cookie_key` file in working directory
+4. If file doesn't exist, generate 32 random bytes, save as hex to `.cookie_key`, **set file permissions to 0600 (Unix)**, log a warning
+5. If file exists, **warn if permissions are more open than 0600**
+6. Call `Key::derive_from(&master_key_bytes)` to produce signing + encryption keys via HKDF
 
 Add `.cookie_key` to `.gitignore`.
 
@@ -57,6 +62,16 @@ Add `.cookie_key` to `.gitignore`.
 Add to `Config` struct:
 - `COOKIE_KEY` — optional, hex string
 - `SESSION_DURATION_HOURS` — optional, defaults to 8
+
+### CORS Configuration Update
+
+**Critical for cookie auth:** The existing CORS config uses `allow_origin(Any)`, which prevents browsers from sending cookies cross-origin. Update `src/lib.rs`:
+
+- Replace `allow_origin(Any)` with `allow_origin(frontend_url)` from config (default `http://localhost:5173`)
+- Add `allow_credentials(true)` to enable cookie transmission
+- Keep `allow_methods` and `allow_headers` as needed for the API
+
+Without this, cookie-based authentication will silently fail in any cross-origin deployment.
 
 ## Section 2: Auth Models and Types
 
@@ -70,8 +85,8 @@ struct RegisterRequest {
 }
 
 struct LoginRequest {
-    email: String,
-    password: String,
+    email: String,      // #[validate(email)]
+    password: String,   // #[validate(length(min = 1))]
 }
 ```
 
@@ -103,10 +118,11 @@ struct AuthUser {
     pub email: String,
     pub name: String,
     pub role: String,
+    pub session_id: String,
 }
 ```
 
-This is what handlers receive when authentication succeeds. It's populated from the database after session validation.
+This is what handlers receive when authentication succeeds. It's populated from the database after session validation. The `session_id` is needed by the logout handler to delete the correct session and write the audit log entry.
 
 ### Error Variants
 
@@ -116,6 +132,8 @@ Extend `AppError` in `src/error.rs`:
 - `SessionExpired` → 401 with message "Session expired"
 
 The generic 422 response for duplicate emails is important: the register endpoint must NOT reveal whether an email is already registered. Return the same validation error shape regardless of whether the email exists.
+
+**Validator error conversion:** Implement `From<validator::ValidationErrors> for AppError` to convert the nested field-error structure into the flat `Vec<FieldError>` format used by the API's error response.
 
 ## Section 3: Password and Session Utilities
 
@@ -132,9 +150,19 @@ The PHC string format (`$argon2id$v=19$m=19456,t=2,p=1$<salt>$<hash>`) is self-d
 
 - `generate_session_token() -> String` — generates 32 random bytes via `rand::rngs::OsRng`, returns as 64-char hex string. This gives 256-bit entropy.
 
+### Session Token Hashing
+
+- `hash_session_token(token: &str) -> String` — computes SHA-256 of the raw token, returns as hex string. The database stores the **hash**, not the raw token. On lookup, the presented token is hashed before the `WHERE` clause. This prevents session hijacking from database file exposure.
+
+Use `sha2` crate (already a transitive dependency of `argon2`).
+
 ## Section 4: Auth Service (Database Operations)
 
 Create `src/features/auth/service.rs` with functions that take `&SqlitePool` and perform database operations.
+
+**Transaction boundaries:** Multi-step operations (especially `create_session` which deletes + inserts, and the login flow which spans multiple tables) must use `sqlx::Transaction` or `pool.begin()` to ensure atomicity. If the app crashes between DELETE and INSERT, the user would be left with no valid session.
+
+**DateTime format:** Use `datetime('now')` in SQL for all timestamp operations. This matches the existing migration convention and ensures consistent ISO 8601 comparison in SQLite.
 
 ### User Operations
 
@@ -144,14 +172,14 @@ Create `src/features/auth/service.rs` with functions that take `&SqlitePool` and
 
 ### Session Operations
 
-- `create_session(pool, user_id, ip, user_agent) -> Result<Session>` — First DELETE any existing sessions for this user_id (single-session enforcement). Then INSERT new session with generated UUID, CSPRNG token, expires_at = now + 8h, ip_address, and user_agent.
-- `validate_session(pool, token) -> Result<Option<Session>>` — SELECT from sessions WHERE token = ? AND expires_at > now. Returns None if not found or expired. If found but expired, DELETE the expired session.
+- `create_session(pool, user_id, ip, user_agent) -> Result<(Session, String)>` — First DELETE any existing sessions for this user_id (single-session enforcement). Generate CSPRNG token, hash it with SHA-256, INSERT new session with generated UUID, **hashed** token, expires_at = now + 8h, ip_address, and user_agent. Returns the session and the **raw** token (for cookie/response). The raw token is never stored.
+- `validate_session(pool, raw_token) -> Result<Option<Session>>` — Hash the raw token with SHA-256, then SELECT from sessions WHERE token = hashed_token AND expires_at > now. Returns None if not found or expired. If found but expired, DELETE the expired session.
 - `delete_session(pool, session_id) -> Result<()>` — DELETE from sessions WHERE id = ?.
 - `delete_user_sessions(pool, user_id) -> Result<()>` — DELETE all sessions for a user. Used during login to enforce single-session.
 
 ### Audit Operations
 
-- `log_audit(pool, user_id, action, entity_type, entity_id) -> Result<()>` — INSERT into `audit_log`. Actions: "login", "logout". Entity type: "session".
+- `log_audit(pool, user_id, action, entity_type, entity_id, ip_address) -> Result<()>` — INSERT into `audit_log` including `ip_address` column. Actions: "login", "logout". Entity type: "session".
 
 ## Section 5: AuthUser Extractor
 
@@ -159,11 +187,11 @@ Implement `FromRequestParts<S>` for `AuthUser` where `AppState: FromRef<S>`:
 
 1. Extract `AppState` via `FromRef`
 2. Try `Authorization: Bearer <token>` header first (using `axum_extra::TypedHeader<Authorization<Bearer>>`)
-3. If no header, try `PrivateCookieJar` → get "session_id" cookie value
+3. If no header, try `PrivateCookieJar` → get "session" cookie value
 4. If neither present: return `Err(AppError::Unauthorized)`
 5. Call `validate_session(pool, token)` — if None, return 401
 6. Call `find_user_by_id(pool, session.user_id)` — if None or is_active=0, return 401
-7. Return `AuthUser { id, email, name, role }`
+7. Return `AuthUser { id, email, name, role, session_id: session.id }`
 
 **Important:** The `PrivateCookieJar` uses `FromRef<S>` to get the `Key`. The extractor needs both the DB pool and the cookie key from state.
 
@@ -199,7 +227,7 @@ All handlers receive `State<AppState>`.
 4. Call `verify_password(request.password, user.password_hash)`
 5. If false: return 401 InvalidCredentials
 6. If user.is_active == 0: return 403 Forbidden
-7. Extract client IP and User-Agent from request
+7. Extract client IP via `ConnectInfo<SocketAddr>` and User-Agent header. Note: in reverse proxy setups, ConnectInfo gives the proxy IP — consider X-Forwarded-For if applicable
 8. Call `create_session(pool, user.id, ip, user_agent)` (this deletes previous sessions)
 9. Call `log_audit(pool, user.id, "login", "session", session.id)`
 10. Update `last_login_at` on user record
@@ -208,13 +236,15 @@ All handlers receive `State<AppState>`.
 
 **Cookie settings:** path="/", http_only=true, secure=!cfg!(debug_assertions), same_site=Lax, max_age=8h.
 
+**Token in response body tradeoff:** The raw session token is intentionally returned in the JSON `AuthResponse`. This enables Bearer-header API clients (scripts, integrations) that don't use cookies. For the SPA, the httpOnly cookie provides XSS protection regardless of the JSON body. This is a deliberate design decision accepting that API clients will handle token storage themselves.
+
 ### logout_handler
 
 1. `AuthUser` extractor provides authenticated user
 2. Look up current session by token (from cookie or header)
 3. Call `delete_session(pool, session.id)`
 4. Call `log_audit(pool, user.id, "logout", "session", session.id)`
-5. Return `(jar.remove(Cookie::from("session_id")), StatusCode::NO_CONTENT)`
+5. Return `(jar.remove(Cookie::from("session")), StatusCode::NO_CONTENT)`
 
 ### me_handler
 
@@ -285,3 +315,10 @@ Add auth path structs to the utoipa `OpenApi` derive in `src/lib.rs`:
 - **Database connection failure during auth:** Let SQLx errors propagate through AppError. Existing 500 handling applies.
 - **Cookie key file permissions:** The `.cookie_key` file should be readable only by the application user. Log a warning if permissions are too open (Unix only).
 - **Missing COOKIE_KEY in prod:** If both env var and file are absent, auto-generate and warn. This is safe for single-node deploys but would break multi-node (not applicable for air-gapped single instance).
+
+## Known Gaps (Deferred)
+
+- **Rate limiting:** Login/register have no rate limiting. Deferred to 02-rbac-and-hardening or reverse proxy layer.
+- **Session garbage collection:** Expired sessions cleaned on lookup only. No periodic cleanup task. Acceptable for single-instance air-gapped deploy.
+- **Open registration:** Anyone can register as viewer. This is per spec. Admin-only user creation is a potential follow-up.
+- **Single-session enforcement:** New login invalidates previous session. This is per spec but may surprise multi-tab users.

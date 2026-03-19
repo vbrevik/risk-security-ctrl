@@ -16,6 +16,9 @@
 *.swp
 *.swo
 
+# Auth cookie key (auto-generated)
+.cookie_key
+
 # OS files
 .DS_Store
 Thumbs.db

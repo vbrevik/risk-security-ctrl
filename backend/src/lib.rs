@@ -1,7 +1,8 @@
-use axum::{routing::get, Router};
+use axum::{extract::FromRef, http, routing::get, Router};
+use axum_extra::extract::cookie::Key;
 use tower_http::{
     compression::CompressionLayer,
-    cors::{Any, CorsLayer},
+    cors::CorsLayer,
     trace::TraceLayer,
 };
 
@@ -18,6 +19,76 @@ pub struct AppState {
     pub db: sqlx::SqlitePool,
     pub config: Config,
     pub topics: Vec<Topic>,
+    pub cookie_key: Key,
+}
+
+impl FromRef<AppState> for Key {
+    fn from_ref(state: &AppState) -> Self {
+        state.cookie_key.clone()
+    }
+}
+
+/// Initialize the cookie encryption key from env, file, or auto-generation.
+pub fn init_cookie_key(config: &Config) -> Key {
+    if let Some(ref hex_string) = config.cookie_key {
+        let bytes = hex::decode(hex_string).expect("COOKIE_KEY is not valid hex");
+        if bytes.len() < 32 {
+            panic!(
+                "COOKIE_KEY must be at least 32 bytes (64 hex chars), got {} bytes ({} hex chars)",
+                bytes.len(),
+                hex_string.len()
+            );
+        }
+        return Key::derive_from(&bytes);
+    }
+
+    let key_path = std::path::Path::new(".cookie_key");
+    if key_path.exists() {
+        let contents = std::fs::read_to_string(key_path).expect("Failed to read .cookie_key file");
+        let hex_string = contents.trim();
+        let bytes = hex::decode(hex_string).expect(".cookie_key file contains invalid hex");
+        if bytes.len() < 32 {
+            panic!(
+                ".cookie_key file must contain at least 32 bytes (64 hex chars), got {} bytes",
+                bytes.len()
+            );
+        }
+
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            let mode = std::fs::metadata(key_path)
+                .expect("Failed to read .cookie_key metadata")
+                .permissions()
+                .mode();
+            if mode & 0o077 != 0 {
+                tracing::warn!(
+                    ".cookie_key file has overly permissive permissions ({:o}), recommend 0600",
+                    mode
+                );
+            }
+        }
+
+        return Key::derive_from(&bytes);
+    }
+
+    // Auto-generate a new key
+    let mut bytes = [0u8; 32];
+    rand::Fill::fill(&mut bytes, &mut rand::rng());
+    let hex_string = hex::encode(bytes);
+    std::fs::write(key_path, &hex_string).expect("Failed to write .cookie_key file");
+
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::PermissionsExt;
+        let perms = std::fs::Permissions::from_mode(0o600);
+        std::fs::set_permissions(key_path, perms).expect("Failed to set .cookie_key permissions");
+    }
+
+    tracing::warn!(
+        "Generated new cookie key and saved to .cookie_key. Set COOKIE_KEY env var for production."
+    );
+    Key::derive_from(&bytes)
 }
 
 /// Load topics from a JSON file at the given path.
@@ -67,9 +138,23 @@ pub fn load_topics(path: &std::path::Path) -> Vec<Topic> {
 /// Create the application router (for testing)
 pub fn create_router(state: AppState) -> Router {
     let cors = CorsLayer::new()
-        .allow_origin(Any)
-        .allow_methods(Any)
-        .allow_headers(Any);
+        .allow_origin(
+            state
+                .config
+                .frontend_url
+                .parse::<http::header::HeaderValue>()
+                .expect("Invalid FRONTEND_URL for CORS origin"),
+        )
+        .allow_methods([
+            http::Method::GET,
+            http::Method::POST,
+            http::Method::PUT,
+            http::Method::DELETE,
+            http::Method::PATCH,
+            http::Method::OPTIONS,
+        ])
+        .allow_headers(tower_http::cors::AllowHeaders::mirror_request())
+        .allow_credentials(true);
 
     Router::new()
         .nest("/api", api_routes())
@@ -87,4 +172,38 @@ fn api_routes() -> Router<AppState> {
         .nest("/reports", features::reports::routes::router())
         .nest("/auth", features::auth::routes::router())
         .nest("/analyses", features::analysis::routes::router())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn rejects_short_cookie_key() {
+        let config = Config {
+            database_url: String::new(),
+            host: String::new(),
+            port: 0,
+            frontend_url: String::new(),
+            cookie_key: Some("aabbccdd".to_string()), // 4 bytes, too short
+            session_duration_hours: 8,
+        };
+        let result = std::panic::catch_unwind(|| init_cookie_key(&config));
+        assert!(result.is_err(), "Should panic on short cookie key");
+    }
+
+    #[test]
+    fn accepts_valid_cookie_key() {
+        let hex_key = "ab".repeat(32); // 32 bytes = 64 hex chars
+        let config = Config {
+            database_url: String::new(),
+            host: String::new(),
+            port: 0,
+            frontend_url: String::new(),
+            cookie_key: Some(hex_key),
+            session_duration_hours: 8,
+        };
+        // Should not panic
+        let _key = init_cookie_key(&config);
+    }
 }
