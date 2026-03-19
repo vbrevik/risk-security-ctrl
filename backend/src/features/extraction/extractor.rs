@@ -32,6 +32,12 @@ pub enum ExtractionError {
 pub struct ExtractionConfig {
     pub page_offset_override: Option<i32>,
     pub output_format: OutputFormat,
+    #[serde(default = "default_ontology_path")]
+    pub ontology_path: String,
+}
+
+fn default_ontology_path() -> String {
+    "ontology-data/nist-ai-rmf.json".to_string()
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

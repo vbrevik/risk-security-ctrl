@@ -18,6 +18,10 @@
     "section-01-extractor-trait-and-types": {
       "status": "complete",
       "commit_hash": "f539693"
+    },
+    "section-02-page-offset-detection": {
+      "status": "complete",
+      "commit_hash": "10b2469"
     }
   },
   "pre_commit": {
