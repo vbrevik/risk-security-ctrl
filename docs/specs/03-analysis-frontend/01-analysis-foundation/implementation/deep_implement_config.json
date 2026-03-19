@@ -34,6 +34,10 @@
     "section-05-create-page": {
       "status": "complete",
       "commit_hash": "9f4f4d5"
+    },
+    "section-06-settings-page": {
+      "status": "complete",
+      "commit_hash": "ca27013"
     }
   },
   "pre_commit": {
