@@ -44,6 +44,7 @@ function makeChartData(overrides: Partial<ChartData> = {}): ChartData {
       notApplicable: 3,
       total: 58,
     },
+    radarData: [],
     ...overrides,
   };
 }
@@ -103,5 +104,63 @@ describe("SummaryStats", () => {
     );
     const pulseElements = container.querySelectorAll(".animate-pulse");
     expect(pulseElements.length).toBe(6);
+  });
+
+  it("when overrideTypeCounts is provided, finding-type cards show overridden values", () => {
+    const overrideCounts: ChartData["typeCounts"] = {
+      addressed: 10,
+      partiallyAddressed: 2,
+      gap: 3,
+      notApplicable: 1,
+      total: 16,
+    };
+    render(
+      <SummaryStats
+        analysis={makeAnalysis()}
+        chartData={makeChartData()}
+        overrideTypeCounts={overrideCounts}
+      />
+    );
+    // Overridden values should appear
+    expect(screen.getByText("16")).toBeInTheDocument();
+    expect(screen.getByText("10")).toBeInTheDocument();
+    expect(screen.getByText("3")).toBeInTheDocument();
+    // Original chartData values should NOT appear
+    expect(screen.queryByText("58")).not.toBeInTheDocument();
+    expect(screen.queryByText("42")).not.toBeInTheDocument();
+  });
+
+  it("when overrideTypeCounts is provided, framework/processing/token cards remain unchanged", () => {
+    const overrideCounts: ChartData["typeCounts"] = {
+      addressed: 10,
+      partiallyAddressed: 2,
+      gap: 3,
+      notApplicable: 1,
+      total: 16,
+    };
+    render(
+      <SummaryStats
+        analysis={makeAnalysis()}
+        chartData={makeChartData()}
+        overrideTypeCounts={overrideCounts}
+      />
+    );
+    // Analysis-level cards unchanged
+    expect(screen.getByText("2")).toBeInTheDocument(); // frameworks count
+    expect(screen.getByText("2.3s")).toBeInTheDocument(); // processing time
+    expect(screen.getByText("15,420")).toBeInTheDocument(); // token count
+  });
+
+  it("when overrideTypeCounts is not provided, behaves as before", () => {
+    render(
+      <SummaryStats
+        analysis={makeAnalysis()}
+        chartData={makeChartData()}
+      />
+    );
+    // Original chartData.typeCounts values appear
+    expect(screen.getByText("58")).toBeInTheDocument();
+    expect(screen.getByText("42")).toBeInTheDocument();
+    expect(screen.getByText("8")).toBeInTheDocument();
   });
 });

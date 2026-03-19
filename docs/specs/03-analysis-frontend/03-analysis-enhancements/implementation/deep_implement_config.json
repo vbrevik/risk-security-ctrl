@@ -26,6 +26,10 @@
     "section-03-framework-radar": {
       "status": "complete",
       "commit_hash": "c54499b"
+    },
+    "section-04-concept-drawer": {
+      "status": "complete",
+      "commit_hash": "9621d6f"
     }
   },
   "pre_commit": {

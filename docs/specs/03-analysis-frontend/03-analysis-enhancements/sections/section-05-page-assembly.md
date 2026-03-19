@@ -234,3 +234,20 @@ The `hasFindings` block in the return JSX should follow this order:
 3. Chart grid (3 charts in responsive grid)
 4. Findings table section (with ref)
 5. `<ConceptDrawer>` (always rendered, opens/closes based on `selectedConceptId`)
+
+---
+
+## Implementation Notes
+
+### Actual files modified
+- `frontend/src/features/analysis/components/SummaryStats.tsx` — Added `overrideTypeCounts` optional prop
+- `frontend/src/features/analysis/components/__tests__/SummaryStats.test.tsx` — Added 3 override tests + `radarData` to helper
+- `frontend/src/routes/analysis/$id.tsx` — Full page assembly with cross-filter wiring
+
+### Deviations from plan
+- `filteredTypeCounts` uses a single `for...of` loop instead of multiple `.filter()` calls (code review auto-fix for efficiency)
+- Detail page integration tests deferred to section 06 as the plan suggested
+
+### Test count
+- 3 new SummaryStats tests (override values, analysis cards unchanged, backward compatibility)
+- All 213 tests passing

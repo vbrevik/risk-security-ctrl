@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useCallback, useRef, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X } from "lucide-react";
 import { useAnalysis, useFindings } from "@/features/analysis/api";
 import { StatusBadge } from "@/features/analysis/components/StatusBadge";
 import { SummaryStats } from "@/features/analysis/components/SummaryStats";
 import { CoverageHeatmap } from "@/features/analysis/components/CoverageHeatmap";
 import { PriorityChart } from "@/features/analysis/components/PriorityChart";
+import { FrameworkRadar } from "@/features/analysis/components/FrameworkRadar";
 import { FindingsTable } from "@/features/analysis/components/FindingsTable";
+import { ConceptDrawer } from "@/features/analysis/components/ConceptDrawer";
 import { ExportButtons } from "@/features/analysis/components/ExportButtons";
 import { EmptyFindings } from "@/features/analysis/components/EmptyFindings";
 import { useChartData } from "@/features/analysis/hooks/useChartData";
@@ -41,12 +43,37 @@ function AnalysisDetailPage() {
     priority?: number;
   }>({});
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const [selectedConceptId, setSelectedConceptId] = useState<string | null>(null);
+  const findingsRef = useRef<HTMLDivElement>(null);
 
   const { data: paginatedFindings } = useFindings(id, {
     page,
     limit: 20,
     ...filters,
   });
+
+  const handleBarClick = useCallback((frameworkId: string) => {
+    setFilters(prev => ({
+      ...prev,
+      framework_id: prev.framework_id === frameworkId ? undefined : frameworkId,
+    }));
+    setPage(1);
+    findingsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  const filteredTypeCounts = useMemo(() => {
+    if (!filters.framework_id || !allFindingsData?.data) return undefined;
+    const counts = { addressed: 0, partiallyAddressed: 0, gap: 0, notApplicable: 0, total: 0 };
+    for (const f of allFindingsData.data) {
+      if (f.framework_id !== filters.framework_id) continue;
+      counts.total++;
+      if (f.finding_type === "addressed") counts.addressed++;
+      else if (f.finding_type === "partially_addressed") counts.partiallyAddressed++;
+      else if (f.finding_type === "gap") counts.gap++;
+      else if (f.finding_type === "not_applicable") counts.notApplicable++;
+    }
+    return counts;
+  }, [filters.framework_id, allFindingsData?.data]);
 
   function handleFilterChange(newFilters: typeof filters) {
     setFilters(newFilters);
@@ -195,16 +222,41 @@ function AnalysisDetailPage() {
             analysis={analysis}
             chartData={chartData}
             isLoading={isChartDataLoading}
+            overrideTypeCounts={filteredTypeCounts}
           />
 
+          {/* Filter Banner */}
+          {filters.framework_id && (
+            <div className="flex items-center gap-2 bg-muted rounded px-3 py-1 text-sm">
+              <span>{t("detail.filteredBy", { framework: filters.framework_id })}</span>
+              <button
+                onClick={() => setFilters(prev => ({ ...prev, framework_id: undefined }))}
+                className="ml-auto hover:bg-accent rounded p-0.5"
+                aria-label={t("detail.clearFilter")}
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </div>
+          )}
+
           {/* Charts */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CoverageHeatmap data={chartData.frameworkCoverage} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <CoverageHeatmap
+              data={chartData.frameworkCoverage}
+              onBarClick={handleBarClick}
+              selectedFrameworkId={filters.framework_id}
+              frameworkIds={analysis.matched_framework_ids}
+            />
+            <FrameworkRadar
+              data={chartData.radarData}
+              selectedFrameworkId={filters.framework_id}
+              frameworkIds={analysis.matched_framework_ids}
+            />
             <PriorityChart data={chartData.priorityCounts} />
           </div>
 
           {/* Findings Table */}
-          <div>
+          <div ref={findingsRef}>
             <h2 className="text-lg font-semibold mb-4">
               {t("findings.title")}
             </h2>
@@ -218,8 +270,15 @@ function AnalysisDetailPage() {
               page={page}
               totalPages={paginatedFindings?.total_pages ?? 1}
               onPageChange={setPage}
+              onConceptClick={(conceptId) => setSelectedConceptId(conceptId)}
             />
           </div>
+
+          {/* Concept Drawer */}
+          <ConceptDrawer
+            conceptId={selectedConceptId}
+            onClose={() => setSelectedConceptId(null)}
+          />
         </div>
       )}
     </div>
