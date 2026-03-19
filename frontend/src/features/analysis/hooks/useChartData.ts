@@ -19,6 +19,11 @@ export interface ChartData {
     notApplicable: number;
     total: number;
   };
+  radarData: Array<{
+    frameworkId: string;
+    values: { addressed: number; partial: number; gap: number; notApplicable: number };
+    total: number;
+  }>;
 }
 
 const EMPTY_TYPE_COUNTS: ChartData["typeCounts"] = {
@@ -33,6 +38,7 @@ const EMPTY_CHART_DATA: ChartData = {
   frameworkCoverage: [],
   priorityCounts: [],
   typeCounts: EMPTY_TYPE_COUNTS,
+  radarData: [],
 };
 
 export function useChartData(
@@ -99,6 +105,32 @@ export function useChartData(
       .map(([priority, count]) => ({ priority, count }))
       .sort((a, b) => a.priority - b.priority);
 
-    return { frameworkCoverage, priorityCounts, typeCounts };
+    // Radar data: normalized percentages per framework by finding type
+    const radarMap = new Map<string, { addressed: number; partial: number; gap: number; notApplicable: number; total: number }>();
+    for (const f of findings) {
+      const entry = radarMap.get(f.framework_id) ?? { addressed: 0, partial: 0, gap: 0, notApplicable: 0, total: 0 };
+      entry.total++;
+      switch (f.finding_type) {
+        case "addressed": entry.addressed++; break;
+        case "partially_addressed": entry.partial++; break;
+        case "gap": entry.gap++; break;
+        case "not_applicable": entry.notApplicable++; break;
+      }
+      radarMap.set(f.framework_id, entry);
+    }
+    const radarData = Array.from(radarMap.entries())
+      .map(([frameworkId, counts]) => ({
+        frameworkId,
+        values: {
+          addressed: (counts.addressed / counts.total) * 100,
+          partial: (counts.partial / counts.total) * 100,
+          gap: (counts.gap / counts.total) * 100,
+          notApplicable: (counts.notApplicable / counts.total) * 100,
+        },
+        total: counts.total,
+      }))
+      .sort((a, b) => a.frameworkId.localeCompare(b.frameworkId));
+
+    return { frameworkCoverage, priorityCounts, typeCounts, radarData };
   }, [findings]);
 }

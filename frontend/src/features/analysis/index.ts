@@ -17,3 +17,4 @@ export { FindingTypeTag } from "./components/FindingTypeTag";
 export { FindingsTable } from "./components/FindingsTable";
 export { ExportButtons } from "./components/ExportButtons";
 export { EmptyFindings } from "./components/EmptyFindings";
+export { getFrameworkColor } from "./utils/frameworkColors";
