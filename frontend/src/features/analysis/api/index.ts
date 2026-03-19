@@ -156,7 +156,7 @@ export function useFindings(id: string, params?: FindingsListParams) {
 }
 
 // One-shot export download (not a hook)
-export async function exportAnalysis(id: string, format: string = "pdf") {
+export async function exportAnalysis(id: string, format: string = "pdf", filename?: string) {
   const { data } = await api.get(`/analyses/${id}/export/${format}`, {
     responseType: "blob",
   });
@@ -164,7 +164,7 @@ export async function exportAnalysis(id: string, format: string = "pdf") {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `analysis-${id}.${format}`;
+  a.download = filename ? `${filename}.${format}` : `analysis-${id}.${format}`;
   a.click();
   URL.revokeObjectURL(url);
 }

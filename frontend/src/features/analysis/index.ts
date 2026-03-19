@@ -15,3 +15,5 @@ export { CoverageHeatmap } from "./components/CoverageHeatmap";
 export { PriorityChart } from "./components/PriorityChart";
 export { FindingTypeTag } from "./components/FindingTypeTag";
 export { FindingsTable } from "./components/FindingsTable";
+export { ExportButtons } from "./components/ExportButtons";
+export { EmptyFindings } from "./components/EmptyFindings";
