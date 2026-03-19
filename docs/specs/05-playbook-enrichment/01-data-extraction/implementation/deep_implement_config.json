@@ -30,6 +30,10 @@
     "section-04-validation-logic": {
       "status": "complete",
       "commit_hash": "7a76688"
+    },
+    "section-05-cli-integration": {
+      "status": "complete",
+      "commit_hash": "bb042cd"
     }
   },
   "pre_commit": {

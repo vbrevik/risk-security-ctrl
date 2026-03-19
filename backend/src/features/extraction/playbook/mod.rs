@@ -15,6 +15,11 @@ static HEADER_RE: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?m)^(GOVERN|MAP|MEASURE|MANAGE)\s+(\d+\.\d+)").unwrap()
 });
 
+/// Matches TOC-style lines: concept code followed by dots/dashes/spaces and a page number
+static TOC_LINE_RE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"(GOVERN|MAP|MEASURE|MANAGE)\s+\d+\.\d+\s*[.\-\s]+\s*\d+").unwrap()
+});
+
 /// Concrete extractor for the NIST AI RMF Playbook PDF.
 pub struct PlaybookExtractor;
 
@@ -32,42 +37,69 @@ impl PdfExtractor for PlaybookExtractor {
         pdf_path: &Path,
         config: &ExtractionConfig,
     ) -> Result<ExtractionResult, ExtractionError> {
-        // 1. Read pages
         let pages = read_pdf_pages(pdf_path)?;
+        let mut result = self.extract_from_text(&pages, config)?;
+        result.source_pdf = pdf_path.display().to_string();
+        Ok(result)
+    }
+
+    fn validate(&self, result: &ExtractionResult, ontology_path: &Path) -> ValidationReport {
+        // Stub — implemented in section-04
+        let _ = (result, ontology_path);
+        ValidationReport {
+            total_expected: 0,
+            total_extracted: result.sections.len(),
+            missing_concepts: Vec::new(),
+            unmatched_sections: Vec::new(),
+            warnings: Vec::new(),
+        }
+    }
+}
+
+impl PlaybookExtractor {
+    /// Extract sections from pre-parsed page text.
+    /// Exposed publicly for integration testing with string fixtures.
+    pub fn extract_from_text(
+        &self,
+        pages: &[(usize, String)],
+        config: &ExtractionConfig,
+    ) -> Result<ExtractionResult, ExtractionError> {
         if pages.is_empty() {
             return Err(ExtractionError::NoSectionsFound);
         }
 
-        // 2. Detect page offset
         let (offset, offset_source) =
-            detect_page_offset(&pages, config.page_offset_override);
+            detect_page_offset(pages, config.page_offset_override);
 
-        // 3-4. Scan for concept headers
-        // First pass: find headers in normalized text to handle spaced-out fonts.
-        // Second pass: re-find the header in raw text to get correct byte offsets.
-        let mut headers: Vec<(String, usize, usize)> = Vec::new(); // (code, phys_page, char_offset_in_raw)
+        let mut headers: Vec<(String, usize, usize)> = Vec::new();
         let mut seen_codes = std::collections::HashSet::new();
 
-        for (phys_idx, raw_text) in &pages {
+        for (phys_idx, raw_text) in pages {
             let norm_text = normalize_spaced_headers(raw_text);
             for m in HEADER_RE.find_iter(&norm_text) {
                 let code = m.as_str().to_string();
+
+                // Get the line containing this match to check if it's a TOC entry
+                let match_line = norm_text[m.start()..]
+                    .lines()
+                    .next()
+                    .unwrap_or("");
+                if TOC_LINE_RE.is_match(match_line) {
+                    continue; // Skip TOC entries
+                }
 
                 if seen_codes.contains(&code) {
                     continue;
                 }
                 seen_codes.insert(code.clone());
 
-                // Re-find in raw text to get correct offset
                 let raw_offset = if let Some(raw_m) = HEADER_RE.find(raw_text) {
                     if raw_m.as_str() == code {
                         raw_m.start()
                     } else {
-                        // Fallback: search for the code string directly
                         raw_text.find(&code).unwrap_or(0)
                     }
                 } else {
-                    // Header only found via normalization — use line start
                     raw_text.find(&code).unwrap_or(0)
                 };
 
@@ -79,19 +111,15 @@ impl PdfExtractor for PlaybookExtractor {
             return Err(ExtractionError::NoSectionsFound);
         }
 
-        // Sort by (physical_page, char_offset)
-        headers.sort_by_key(|(_, page, offset)| (*page, *offset));
+        headers.sort_by_key(|(_, page, off)| (*page, *off));
 
-        // 5. Build concept code map for ID resolution
         let ontology_path = Path::new(&config.ontology_path);
         let code_map = build_concept_code_map(ontology_path).unwrap_or_default();
 
-        // 6. Extract section text and split subsections
         let mut sections: Vec<ExtractedSection> = Vec::new();
 
-        for (i, (code, phys_page, _char_offset)) in headers.iter().enumerate() {
-            // Determine text boundaries: from this header to the next (or end)
-            let raw_text = extract_section_text(&pages, &headers, i);
+        for (i, (code, phys_page, _)) in headers.iter().enumerate() {
+            let raw_text = extract_section_text(pages, &headers, i);
 
             if raw_text.len() < 50 {
                 tracing::warn!(
@@ -117,24 +145,12 @@ impl PdfExtractor for PlaybookExtractor {
 
         Ok(ExtractionResult {
             framework_id: self.framework_id().to_string(),
-            source_pdf: pdf_path.display().to_string(),
+            source_pdf: String::new(),
             extracted_at: Utc::now(),
             sections,
             page_offset_detected: offset,
             page_offset_source: offset_source,
         })
-    }
-
-    fn validate(&self, result: &ExtractionResult, ontology_path: &Path) -> ValidationReport {
-        // Stub — implemented in section-04
-        let _ = (result, ontology_path);
-        ValidationReport {
-            total_expected: 0,
-            total_extracted: result.sections.len(),
-            missing_concepts: Vec::new(),
-            unmatched_sections: Vec::new(),
-            warnings: Vec::new(),
-        }
     }
 }
 
