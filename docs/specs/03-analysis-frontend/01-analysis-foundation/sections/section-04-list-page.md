@@ -1,6 +1,17 @@
-Now I have all the context needed. Let me produce the section content.
-
 # Section 4: Analysis List Page
+
+## Implementation Status: COMPLETE
+
+### Deviations from Plan
+- Retry button text changed from `t("common.back")` to `t("common.retry")` per code review
+- Added `list.pagination.*` and `common.retry`/`common.settings` i18n keys
+- Pagination strings fully internationalized (plan had hardcoded English)
+- Settings button has `aria-label` for accessibility
+- Route test uses simplified test component rather than importing actual Route module (TanStack Router requires route context for `useSearch`)
+- Plan references `data?.items` but actual type is `data?.data` (matching PaginatedResponse)
+
+### Final Test Count
+- 4 StatusBadge tests, 2 AnalysisCard tests, 4 AnalysisList tests, 2 route tests = 12 new tests
 
 ## Overview
 

@@ -10,6 +10,11 @@
     "filters": {
       "status": "Status",
       "all": "Alle"
+    },
+    "pagination": {
+      "previous": "Forrige",
+      "next": "Neste",
+      "pageOf": "Side {{page}} av {{total}}"
     }
   },
   "status": {
@@ -57,6 +62,8 @@
     "delete": "Slett",
     "deleteConfirm": "Er du sikker på at du vil slette denne analysen?",
     "cancel": "Avbryt",
-    "error": "Det oppstod en feil"
+    "error": "Det oppstod en feil",
+    "retry": "Prøv igjen",
+    "settings": "Innstillinger"
   }
 }

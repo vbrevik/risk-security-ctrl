@@ -22,6 +22,10 @@
     "section-02-i18n-and-navigation": {
       "status": "complete",
       "commit_hash": "7c8c19e"
+    },
+    "section-03-shadcn-components": {
+      "status": "complete",
+      "commit_hash": "46ab818"
     }
   },
   "pre_commit": {
