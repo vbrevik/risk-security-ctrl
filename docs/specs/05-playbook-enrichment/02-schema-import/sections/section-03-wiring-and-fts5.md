@@ -125,3 +125,18 @@ The `tokio::fs` module is already available since `tokio` is a dependency of the
 6. FTS5 results correctly join back to `concept_guidance` and `concepts` tables
 7. `cargo sqlx prepare` has been run and `.sqlx/` is committed
 8. All existing tests still pass (no regressions from the additive changes)
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Deviations from Plan
+
+1. **Error handling uses warn+continue, not `?` propagation** — The plan text said to propagate errors via `?`. The implementation wraps guidance file errors with `if let Err(e)` and logs warnings, matching the contract requirement and the section-02 error resilience pattern. This is intentional: one malformed guidance file should not prevent other guidance files from importing.
+
+### Files Modified
+- `backend/src/import.rs` — Added 10-line guidance scan block in `import_all_ontologies()`
+- `backend/tests/guidance_tests.rs` — Added 7 new tests (4 wiring + 3 FTS5)
+
+### Test Count
+- 29 total tests in `guidance_tests.rs`

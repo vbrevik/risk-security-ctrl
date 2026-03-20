@@ -16,6 +16,10 @@
     "section-01-migration-schema": {
       "status": "complete",
       "commit_hash": "243add0"
+    },
+    "section-02-import-types-and-function": {
+      "status": "complete",
+      "commit_hash": "b56669a"
     }
   },
   "pre_commit": {

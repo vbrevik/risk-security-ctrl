@@ -483,6 +483,17 @@ pub async fn import_all_ontologies(
         }
     }
 
+    // Scan for *-guidance.json companion files (after frameworks + relationships)
+    let mut guidance_entries = tokio::fs::read_dir(data_dir).await?;
+    while let Some(dir_entry) = guidance_entries.next_entry().await? {
+        let name = dir_entry.file_name().to_string_lossy().to_string();
+        if name.ends_with("-guidance.json") {
+            if let Err(e) = import_guidance_file(db, &dir_entry.path()).await {
+                warn!("Failed to import guidance file {}: {}", name, e);
+            }
+        }
+    }
+
     info!("Full ontology import completed");
     Ok(())
 }

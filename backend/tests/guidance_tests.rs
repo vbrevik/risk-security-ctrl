@@ -650,3 +650,187 @@ async fn test_mismatched_bilingual_array_lengths() {
     assert_eq!(rows[2].get::<String, _>("action_text_en"), "English 3");
     assert!(rows[2].get::<Option<String>, _>("action_text_nb").is_none());
 }
+
+// ============================================================
+// Wiring Tests (import_all_ontologies scans *-guidance.json)
+// ============================================================
+
+#[tokio::test]
+async fn test_import_all_ontologies_picks_up_guidance_files() {
+    let pool = setup_db().await;
+    seed_concept(&pool).await;
+
+    let dir = tempfile::tempdir().unwrap();
+    // Write a guidance file matching the *-guidance.json pattern
+    std::fs::write(
+        dir.path().join("test-guidance.json"),
+        sample_guidance_json(),
+    )
+    .unwrap();
+
+    ontology_backend::import::import_all_ontologies(&pool, dir.path())
+        .await
+        .unwrap();
+
+    let count: (i64,) = sqlx::query_as("SELECT COUNT(*) FROM concept_guidance")
+        .fetch_one(&pool)
+        .await
+        .unwrap();
+    assert_eq!(count.0, 1);
+}
+
+#[tokio::test]
+async fn test_import_all_ontologies_no_guidance_files_ok() {
+    let pool = setup_db().await;
+
+    let dir = tempfile::tempdir().unwrap();
+    // Empty dir — no framework files, no guidance files
+    ontology_backend::import::import_all_ontologies(&pool, dir.path())
+        .await
+        .unwrap();
+
+    let count: (i64,) = sqlx::query_as("SELECT COUNT(*) FROM concept_guidance")
+        .fetch_one(&pool)
+        .await
+        .unwrap();
+    assert_eq!(count.0, 0);
+}
+
+#[tokio::test]
+async fn test_non_guidance_json_files_are_ignored() {
+    let pool = setup_db().await;
+    seed_concept(&pool).await;
+
+    let dir = tempfile::tempdir().unwrap();
+    // Write a file that does NOT match *-guidance.json
+    std::fs::write(
+        dir.path().join("some-other-file.json"),
+        sample_guidance_json(),
+    )
+    .unwrap();
+
+    ontology_backend::import::import_all_ontologies(&pool, dir.path())
+        .await
+        .unwrap();
+
+    let count: (i64,) = sqlx::query_as("SELECT COUNT(*) FROM concept_guidance")
+        .fetch_one(&pool)
+        .await
+        .unwrap();
+    assert_eq!(count.0, 0);
+}
+
+#[tokio::test]
+async fn test_guidance_with_unknown_framework_id_imports() {
+    let pool = setup_db().await;
+    seed_concept(&pool).await;
+
+    // framework_id is metadata only, not a FK — should still import fine
+    let json = r#"{
+        "framework_id": "nonexistent-framework",
+        "source_pdf": "test.pdf",
+        "guidance": [{
+            "concept_id": "test-concept-1",
+            "source_page": 1,
+            "about_en": "Works despite unknown framework"
+        }]
+    }"#;
+
+    let mut tmp = NamedTempFile::new().unwrap();
+    write!(tmp, "{}", json).unwrap();
+
+    ontology_backend::import::import_guidance_file(&pool, tmp.path())
+        .await
+        .unwrap();
+
+    let count: (i64,) = sqlx::query_as("SELECT COUNT(*) FROM concept_guidance")
+        .fetch_one(&pool)
+        .await
+        .unwrap();
+    assert_eq!(count.0, 1);
+}
+
+// ============================================================
+// FTS5 Tests
+// ============================================================
+
+#[tokio::test]
+async fn test_fts5_match_on_about_en() {
+    let pool = setup_db().await;
+    seed_concept(&pool).await;
+
+    // Use a distinctive word only in about_en, not in concept name_en
+    let json = r#"{
+        "framework_id": "test",
+        "source_pdf": "test.pdf",
+        "guidance": [{
+            "concept_id": "test-concept-1",
+            "source_page": 1,
+            "about_en": "Governance orchestration methodology"
+        }]
+    }"#;
+
+    let mut tmp = NamedTempFile::new().unwrap();
+    write!(tmp, "{}", json).unwrap();
+
+    ontology_backend::import::import_guidance_file(&pool, tmp.path())
+        .await
+        .unwrap();
+
+    let rows = sqlx::query("SELECT * FROM concept_guidance_fts WHERE concept_guidance_fts MATCH 'orchestration'")
+        .fetch_all(&pool)
+        .await
+        .unwrap();
+
+    assert!(!rows.is_empty(), "FTS5 should find 'orchestration' in about_en");
+}
+
+#[tokio::test]
+async fn test_fts5_match_on_concept_name() {
+    let pool = setup_db().await;
+    seed_concept(&pool).await; // seeds name_en = "Test Concept"
+
+    let mut tmp = NamedTempFile::new().unwrap();
+    write!(tmp, "{}", sample_guidance_json()).unwrap();
+
+    ontology_backend::import::import_guidance_file(&pool, tmp.path())
+        .await
+        .unwrap();
+
+    let rows = sqlx::query("SELECT * FROM concept_guidance_fts WHERE concept_guidance_fts MATCH '\"Test Concept\"'")
+        .fetch_all(&pool)
+        .await
+        .unwrap();
+
+    assert!(!rows.is_empty(), "FTS5 should find concept name_en via content view");
+}
+
+#[tokio::test]
+async fn test_fts5_join_back_to_source_tables() {
+    let pool = setup_db().await;
+    seed_concept(&pool).await;
+
+    let mut tmp = NamedTempFile::new().unwrap();
+    write!(tmp, "{}", sample_guidance_json()).unwrap();
+
+    ontology_backend::import::import_guidance_file(&pool, tmp.path())
+        .await
+        .unwrap();
+
+    let rows = sqlx::query(
+        "SELECT cg.concept_id, c.name_en, c.code, cg.about_en \
+         FROM concept_guidance_fts \
+         JOIN concept_guidance cg ON cg.rowid = concept_guidance_fts.rowid \
+         JOIN concepts c ON c.id = cg.concept_id \
+         WHERE concept_guidance_fts MATCH 'concept' \
+         ORDER BY rank",
+    )
+    .fetch_all(&pool)
+    .await
+    .unwrap();
+
+    assert!(!rows.is_empty());
+    assert_eq!(rows[0].get::<String, _>("concept_id"), "test-concept-1");
+    assert_eq!(rows[0].get::<String, _>("name_en"), "Test Concept");
+    assert_eq!(rows[0].get::<String, _>("about_en"), "About this concept");
+}
