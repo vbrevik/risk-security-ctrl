@@ -6,9 +6,9 @@ use std::str::FromStr;
 // Re-export the necessary types from the main crate
 use ontology_backend::{AppState, Config};
 
-pub async fn create_test_app() -> Router {
-    // Use the existing database for tests
-    // In a production setup, you'd create a separate test database
+/// Create a test pool with migrations applied and ontology data imported.
+/// Shared by create_test_app() and integration tests needing direct DB access.
+pub async fn create_test_pool() -> SqlitePool {
     let config = Config::from_env();
 
     let options = SqliteConnectOptions::from_str(&config.database_url)
@@ -18,6 +18,12 @@ pub async fn create_test_app() -> Router {
     let pool = SqlitePool::connect_with(options)
         .await
         .expect("Failed to connect to test database");
+
+    // Enable foreign keys
+    sqlx::query("PRAGMA foreign_keys = ON")
+        .execute(&pool)
+        .await
+        .expect("Failed to enable foreign keys");
 
     // Ensure migrations are run
     sqlx::migrate!("./migrations")
@@ -39,6 +45,13 @@ pub async fn create_test_app() -> Router {
                 .expect("Failed to import test data");
         }
     }
+
+    pool
+}
+
+pub async fn create_test_app() -> Router {
+    let pool = create_test_pool().await;
+    let config = Config::from_env();
 
     let topics = ontology_backend::load_topics(std::path::Path::new("../ontology-data/topic-tags.json"));
 

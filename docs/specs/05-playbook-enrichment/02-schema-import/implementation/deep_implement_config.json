@@ -20,6 +20,10 @@
     "section-02-import-types-and-function": {
       "status": "complete",
       "commit_hash": "b56669a"
+    },
+    "section-03-wiring-and-fts5": {
+      "status": "complete",
+      "commit_hash": "3dea655"
     }
   },
   "pre_commit": {

@@ -322,3 +322,22 @@ All of the following must pass with `cargo test` from the `backend/` directory:
 6. FTS5 MATCH queries return results for both `about_en` content and concept `name_en` after import and rebuild.
 7. FTS5 results can be joined back to `concept_guidance` and `concepts` tables via rowid.
 8. Existing API endpoints (`/api/health`, `/api/ontology/frameworks`) continue to return correct responses after migration 004.
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Deviations from Plan
+
+1. **Refactored `common/mod.rs`** — Extracted `create_test_pool()` from `create_test_app()` to eliminate duplication. Integration tests use `create_test_pool()` directly. Added `PRAGMA foreign_keys = ON` to the shared helper (was missing from the original `create_test_app()`).
+
+2. **Skipped migration schema verification against real DB** — Already fully covered by unit tests in sections 01 against in-memory SQLite. The same migration runs in both environments.
+
+3. **Skipped separate invalid concept ID test** — Already covered by `test_invalid_concept_id_is_skipped` in the unit tests.
+
+### Files Modified
+- `backend/tests/guidance_tests.rs` — Added 5 integration tests (import, reimport, FTS5, 2 API regression)
+- `backend/tests/common/mod.rs` — Refactored to expose `create_test_pool()`, added FK pragma
+
+### Test Count
+- 34 total tests in `guidance_tests.rs` (8 schema + 5 deser + 9 import + 7 wiring/FTS5 + 5 integration)
