@@ -1,0 +1,52 @@
+{
+  "plugin_root": "/Users/vidarbrevik/.claude/plugins/cache/piercelamb-plugins/deep-implement/0.2.0",
+  "sections_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/05-playbook-enrichment/03-api-matcher/sections",
+  "target_dir": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "state_dir": "/Users/vidarbrevik/projects/risk-security-ctrl/docs/specs/05-playbook-enrichment/03-api-matcher/implementation",
+  "git_root": "/Users/vidarbrevik/projects/risk-security-ctrl",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-guidance-response-types",
+    "section-02-concept-detail-handler",
+    "section-03-candidate-enrichment",
+    "section-04-tfidf-scoring",
+    "section-05-actionable-recommendations",
+    "section-06-integration-tests"
+  ],
+  "sections_state": {
+    "section-01-guidance-response-types": {
+      "status": "complete",
+      "commit_hash": "1895223"
+    },
+    "section-02-concept-detail-handler": {
+      "status": "complete",
+      "commit_hash": "bec0897"
+    },
+    "section-03-candidate-enrichment": {
+      "status": "complete",
+      "commit_hash": "224fcf5"
+    },
+    "section-04-tfidf-scoring": {
+      "status": "complete",
+      "commit_hash": "18da48d"
+    },
+    "section-05-actionable-recommendations": {
+      "status": "complete",
+      "commit_hash": "5c65d4c"
+    },
+    "section-06-integration-tests": {
+      "status": "complete",
+      "commit_hash": "4868ceb"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-03-20T10:51:00.277793+00:00"
+}
