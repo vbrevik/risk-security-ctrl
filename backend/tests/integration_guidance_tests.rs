@@ -15,90 +15,17 @@ use common::{create_test_app, create_test_pool};
 use ontology_backend::features::analysis::engine::MatchingEngine;
 use ontology_backend::features::analysis::matcher::DeterministicMatcher;
 
-/// Seed guidance data for nist-ai-mp-1 (a concept that gets FTS-matched by AI mapping keywords).
-/// Uses INSERT OR IGNORE for idempotency.
-async fn ensure_integration_guidance(pool: &sqlx::SqlitePool) {
-    // nist-ai-gv-6-2 = a concept that reliably appears in findings for AI governance text
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_guidance (id, concept_id, source_pdf, source_page, about_en) \
-         VALUES ('integ-gv62-guidance', 'nist-ai-gv-6-2', 'nist-ai-rmf-playbook.pdf', 55, \
-         'About AI governance and accountability oversight')",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_actions (id, concept_id, action_text_en, sort_order) \
-         VALUES ('integ-gv62-a1', 'nist-ai-gv-6-2', 'Establish accountability mechanisms', 1)",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_actions (id, concept_id, action_text_en, sort_order) \
-         VALUES ('integ-gv62-a2', 'nist-ai-gv-6-2', 'Document governance oversight', 2)",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_transparency_questions (id, concept_id, question_text_en, sort_order) \
-         VALUES ('integ-gv62-q1', 'nist-ai-gv-6-2', 'How is governance oversight conducted?', 1)",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_references (id, concept_id, reference_type, title, sort_order) \
-         VALUES ('integ-gv62-r1', 'nist-ai-gv-6-2', 'academic', 'AI Governance Paper', 1)",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    // Also seed for nist-ai-gv-4-1 for API tests
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_guidance (id, concept_id, source_pdf, source_page, about_en) \
-         VALUES ('integ-gv41-guidance', 'nist-ai-gv-4-1', 'nist-ai-rmf-playbook.pdf', 55, \
-         'About defining organizational risk tolerances')",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_actions (id, concept_id, action_text_en, sort_order) \
-         VALUES ('integ-gv41-a1', 'nist-ai-gv-4-1', 'Define risk appetite', 1)",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_transparency_questions (id, concept_id, question_text_en, sort_order) \
-         VALUES ('integ-gv41-q1', 'nist-ai-gv-4-1', 'How are risk tolerances defined?', 1)",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    sqlx::query(
-        "INSERT OR IGNORE INTO concept_references (id, concept_id, reference_type, title, sort_order) \
-         VALUES ('integ-gv41-r1', 'nist-ai-gv-4-1', 'academic', 'Risk Tolerance Paper', 1)",
-    )
-    .execute(pool)
-    .await
-    .unwrap();
-
-    // Rebuild FTS index to include new data
-    sqlx::query("INSERT INTO concept_guidance_fts(concept_guidance_fts) VALUES('rebuild')")
-        .execute(pool)
+/// Verify guidance data exists in the DB (imported from nist-ai-rmf-guidance.json by create_test_pool).
+/// No manual seeding needed — the real guidance file is auto-discovered by import_all_ontologies.
+async fn verify_guidance_data_exists(pool: &sqlx::SqlitePool) {
+    let count: (i64,) = sqlx::query_as("SELECT COUNT(*) FROM concept_guidance")
+        .fetch_one(pool)
         .await
         .unwrap();
+    assert!(
+        count.0 > 0,
+        "Guidance data should be imported from nist-ai-rmf-guidance.json"
+    );
 }
 
 /// Helper: build app from pool
@@ -121,7 +48,7 @@ async fn app_from_pool(pool: sqlx::SqlitePool) -> axum::Router {
 #[tokio::test]
 async fn integration_concept_detail_returns_guidance_object() {
     let pool = create_test_pool().await;
-    ensure_integration_guidance(&pool).await;
+    verify_guidance_data_exists(&pool).await;
     let app = app_from_pool(pool).await;
 
     let response = app
@@ -152,7 +79,7 @@ async fn integration_concept_detail_returns_guidance_object() {
 #[tokio::test]
 async fn integration_guidance_response_schema_shape() {
     let pool = create_test_pool().await;
-    ensure_integration_guidance(&pool).await;
+    verify_guidance_data_exists(&pool).await;
     let app = app_from_pool(pool).await;
 
     let response = app
@@ -226,7 +153,7 @@ async fn integration_non_guidance_concept_omits_field() {
 #[tokio::test]
 async fn integration_analysis_with_guidance_enriched_scoring() {
     let pool = create_test_pool().await;
-    ensure_integration_guidance(&pool).await;
+    verify_guidance_data_exists(&pool).await;
 
     let topics =
         ontology_backend::load_topics(std::path::Path::new("../ontology-data/topic-tags.json"));
@@ -250,7 +177,7 @@ async fn integration_candidate_retrieval_populates_actions_text() {
     // Verify the full retrieve_candidates pipeline populates actions_text
     // from the real DB for FTS-matched concepts with guidance data.
     let pool = create_test_pool().await;
-    ensure_integration_guidance(&pool).await;
+    verify_guidance_data_exists(&pool).await;
 
     use ontology_backend::features::analysis::matcher::retrieve_candidates;
     use ontology_backend::features::analysis::tokenizer::extract_keywords;
@@ -309,7 +236,7 @@ async fn integration_non_guidance_framework_no_actions() {
 #[tokio::test]
 async fn integration_existing_relationship_fields_preserved() {
     let pool = create_test_pool().await;
-    ensure_integration_guidance(&pool).await;
+    verify_guidance_data_exists(&pool).await;
     let app = app_from_pool(pool).await;
 
     let response = app
