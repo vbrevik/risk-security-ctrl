@@ -63,6 +63,13 @@
     "viewInGraph": "Vis i graf",
     "crossFrameworkMappings": "Koblinger på tvers av rammeverk"
   },
+  "guidance": {
+    "suggestedActions": "Foreslatte tiltak",
+    "transparencyQuestions": "Transparenssporsmal",
+    "references": "Referanser",
+    "academic": "Akademisk",
+    "transparencyResource": "Transparensressurs"
+  },
   "compare": {
     "title": "Sammenlign rammeverk",
     "selectFramework": "Velg rammeverk...",

@@ -6,6 +6,7 @@ import { useConceptRelationships, useFramework, useConcepts } from "../../api";
 import { useExplorer } from "../../context";
 import { findNodePath, buildTree } from "../../utils";
 import { getFrameworkColor } from "../../utils/graphTransform";
+import { GuidanceSection } from "./GuidanceSection";
 
 export function ContextPanel() {
   const { t, i18n } = useTranslation("ontology");
@@ -193,6 +194,11 @@ export function ContextPanel() {
                   </a>
                 )}
               </div>
+            )}
+
+            {/* Guidance data (NIST AI RMF Playbook) */}
+            {conceptData.guidance && (
+              <GuidanceSection guidance={conceptData.guidance} language={language} />
             )}
 
             {/* Relationships (same framework) */}

@@ -63,6 +63,13 @@
     "viewInGraph": "View in Graph",
     "crossFrameworkMappings": "Cross-Framework Mappings"
   },
+  "guidance": {
+    "suggestedActions": "Suggested Actions",
+    "transparencyQuestions": "Transparency Questions",
+    "references": "References",
+    "academic": "Academic",
+    "transparencyResource": "Transparency Resource"
+  },
   "compare": {
     "title": "Compare Frameworks",
     "selectFramework": "Select framework...",

@@ -44,8 +44,40 @@ export interface RelatedConcept {
   direction: "incoming" | "outgoing";
 }
 
+export interface ActionResponse {
+  sort_order: number;
+  text_en: string;
+  text_nb: string | null;
+}
+
+export interface QuestionResponse {
+  sort_order: number;
+  text_en: string;
+  text_nb: string | null;
+}
+
+export interface ReferenceResponse {
+  type: string;
+  title: string;
+  authors: string | null;
+  year: number | null;
+  venue: string | null;
+  url: string | null;
+}
+
+export interface ConceptGuidanceResponse {
+  source_pdf: string;
+  source_page: number;
+  about_en: string | null;
+  about_nb: string | null;
+  suggested_actions: ActionResponse[];
+  transparency_questions: QuestionResponse[];
+  references: ReferenceResponse[];
+}
+
 export interface ConceptWithRelationships extends Concept {
   related_concepts: RelatedConcept[];
+  guidance?: ConceptGuidanceResponse;
 }
 
 export interface PaginatedResponse<T> {
