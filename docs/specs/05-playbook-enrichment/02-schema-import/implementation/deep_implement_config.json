@@ -24,6 +24,10 @@
     "section-03-wiring-and-fts5": {
       "status": "complete",
       "commit_hash": "3dea655"
+    },
+    "section-04-integration-tests": {
+      "status": "complete",
+      "commit_hash": "69cdf80"
     }
   },
   "pre_commit": {
