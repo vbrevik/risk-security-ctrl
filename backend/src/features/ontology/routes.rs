@@ -294,6 +294,7 @@ pub async fn get_concept_relationships(
     Ok(Json(ConceptWithRelationships {
         concept,
         related_concepts,
+        guidance: None,
     }))
 }
 
