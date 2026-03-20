@@ -41,6 +41,10 @@ use utoipa_swagger_ui::SwaggerUi;
             ontology_backend::features::auth::models::LoginRequest,
             ontology_backend::features::auth::models::AuthResponse,
             ontology_backend::features::auth::models::UserProfile,
+            ontology_backend::features::ontology::models::ConceptGuidanceResponse,
+            ontology_backend::features::ontology::models::ActionResponse,
+            ontology_backend::features::ontology::models::QuestionResponse,
+            ontology_backend::features::ontology::models::ReferenceResponse,
         )
     ),
     tags(
