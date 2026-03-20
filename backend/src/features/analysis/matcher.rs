@@ -689,6 +689,25 @@ pub fn classify_findings(
                 FindingType::NotApplicable => None,
             };
 
+            // Append suggested actions from guidance data if available
+            let recommendation = recommendation.map(|mut rec| {
+                if let Some(ref actions) = sc.candidate.actions_text {
+                    if !actions.is_empty() {
+                        let code_label = sc.candidate.code.as_deref()
+                            .unwrap_or(&sc.candidate.name_en);
+                        let action_lines: String = actions
+                            .split('\n')
+                            .enumerate()
+                            .map(|(i, action)| format!("- {} ({}, Action {})", action.trim(), code_label, i + 1))
+                            .collect::<Vec<_>>()
+                            .join("\n");
+                        rec.push_str("\n\nSuggested Actions:\n");
+                        rec.push_str(&action_lines);
+                    }
+                }
+                rec
+            });
+
             // Step 7: Evidence extraction (non-gap only)
             let evidence_text = if finding_type != FindingType::Gap {
                 let concept_kws: HashSet<String> = extract_keywords(
@@ -1631,6 +1650,77 @@ mod tests {
         assert!(findings.iter().all(|f| f.finding_type != FindingType::Addressed),
             "No Addressed findings should be present");
         assert_eq!(findings.len(), 2);
+    }
+
+    // ========================================================================
+    // Section 05b: Actionable Recommendations Tests
+    // ========================================================================
+
+    fn make_scored_with_actions(
+        id: &str, name: &str, code: Option<&str>, actions: Option<&str>, score: f64,
+    ) -> ScoredCandidate {
+        ScoredCandidate {
+            candidate: ConceptCandidate {
+                id: id.into(),
+                framework_id: "fw-1".into(),
+                parent_id: None,
+                name_en: name.into(),
+                definition_en: "Definition".into(),
+                code: code.map(String::from),
+                source_reference: None,
+                concept_type: "concept".into(),
+                about_en: None,
+                actions_text: actions.map(String::from),
+            },
+            confidence_score: score,
+        }
+    }
+
+    #[test]
+    fn classify_recommendation_with_actions_includes_suggested_actions_heading() {
+        let sc = make_scored_with_actions("c1", "Test", Some("MS-1.1"), Some("Action one\nAction two"), 0.0);
+        let findings = classify_findings(vec![sc], &MatcherConfig::default(), "");
+        let rec = findings[0].recommendation.as_ref().unwrap();
+        assert!(rec.contains("Suggested Actions:"), "Recommendation should include actions heading");
+    }
+
+    #[test]
+    fn classify_recommendation_lists_all_individual_actions() {
+        let sc = make_scored_with_actions(
+            "c1", "Test", Some("GV-1.1"),
+            Some("Establish approaches\nDocument methods\nTrack outcomes"), 0.0,
+        );
+        let findings = classify_findings(vec![sc], &MatcherConfig::default(), "");
+        let rec = findings[0].recommendation.as_ref().unwrap();
+        assert!(rec.contains("Establish approaches"), "Should contain first action");
+        assert!(rec.contains("Document methods"), "Should contain second action");
+        assert!(rec.contains("Track outcomes"), "Should contain third action");
+    }
+
+    #[test]
+    fn classify_recommendation_actions_include_code_and_number() {
+        let sc = make_scored_with_actions(
+            "c1", "Test", Some("GV-1.1"),
+            Some("First action\nSecond action"), 0.0,
+        );
+        let findings = classify_findings(vec![sc], &MatcherConfig::default(), "");
+        let rec = findings[0].recommendation.as_ref().unwrap();
+        assert!(rec.contains("(GV-1.1, Action 1)"), "Should format with code and action number");
+        assert!(rec.contains("(GV-1.1, Action 2)"), "Should format second action");
+    }
+
+    #[test]
+    fn classify_recommendation_without_actions_has_no_suggested_actions() {
+        let sc = make_scored_with_actions("c1", "Test", None, None, 0.0);
+        let findings = classify_findings(vec![sc], &MatcherConfig::default(), "");
+        let rec = findings[0].recommendation.as_ref().unwrap();
+        assert!(!rec.contains("Suggested Actions:"), "No actions section when actions_text is None");
+    }
+
+    #[test]
+    fn classify_findings_is_sync() {
+        let sc = make_scored("c1", "fw", None, "Test", "Def", None, 0.0);
+        let _ = classify_findings(vec![sc], &MatcherConfig::default(), "");
     }
 
     // ========================================================================
