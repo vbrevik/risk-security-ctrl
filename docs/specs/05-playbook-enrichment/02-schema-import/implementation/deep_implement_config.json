@@ -12,7 +12,12 @@
     "section-03-wiring-and-fts5",
     "section-04-integration-tests"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-migration-schema": {
+      "status": "complete",
+      "commit_hash": "243add0"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",

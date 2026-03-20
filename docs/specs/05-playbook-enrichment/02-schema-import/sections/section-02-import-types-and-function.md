@@ -249,3 +249,20 @@ Key implementation notes:
 5. Run `cargo test` to verify deserialization tests pass
 6. Run import tests against in-memory SQLite with migrations applied
 7. Verify no regressions in existing tests (`cargo test`)
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Deviations from Plan
+
+1. **Extracted `import_guidance_entry()` helper** — Per-entry logic was moved into a private async helper function to enable error isolation. If one entry fails, the error is logged as a warning and remaining entries continue processing. This matches the resilience pattern used in `import_relationships()`.
+
+2. **Bilingual array iteration uses max(en, nb) length** — The plan only iterated over `_en` arrays. The implementation iterates over `max(en.len(), nb.len())` so Norwegian-only data is preserved. When `_en` is absent, an empty string is used (the `action_text_en` / `question_text_en` columns are NOT NULL).
+
+### Files Modified
+- `backend/src/import.rs` — Added 4 types + `import_guidance_file()` + `import_guidance_entry()` helper
+- `backend/tests/guidance_tests.rs` — Added 12 new tests (5 deserialization + 7 import function tests including bilingual coverage)
+
+### Test Count
+- 22 total tests in `guidance_tests.rs` (8 existing schema + 5 deserialization + 9 import)
