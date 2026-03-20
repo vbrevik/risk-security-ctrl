@@ -362,3 +362,196 @@ async fn test_pagination() {
     let data2 = &json2["data"][0]["id"];
     assert_ne!(data1, data2, "Different pages should have different data");
 }
+
+// === Guidance enrichment tests (Section 02) ===
+// These tests use guidance data auto-imported from nist-ai-rmf-guidance.json.
+// Concept nist-ai-gv-3-1 (Diverse Perspectives) has guidance data in the real file.
+
+#[tokio::test]
+async fn test_concept_without_guidance_omits_guidance_field() {
+    let app = create_test_app().await;
+
+    let response = app
+        .oneshot(
+            Request::builder()
+                .uri("/api/ontology/concepts/iso31000-principles/relationships")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    assert_eq!(response.status(), StatusCode::OK);
+
+    let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+        .await
+        .unwrap();
+    let json: Value = serde_json::from_slice(&body).unwrap();
+
+    assert!(
+        json.get("guidance").is_none(),
+        "Concept without guidance data should not have a guidance field"
+    );
+    assert_eq!(json["id"], "iso31000-principles");
+    assert!(json["related_concepts"].is_array());
+}
+
+#[tokio::test]
+async fn test_concept_relationships_includes_guidance_when_present() {
+    let app = create_test_app().await;
+
+    let response = app
+        .oneshot(
+            Request::builder()
+                .uri("/api/ontology/concepts/nist-ai-gv-3-1/relationships")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    assert_eq!(response.status(), StatusCode::OK);
+
+    let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+        .await
+        .unwrap();
+    let json: Value = serde_json::from_slice(&body).unwrap();
+
+    let guidance = json
+        .get("guidance")
+        .expect("guidance field should be present for enriched concept");
+
+    assert!(guidance["source_pdf"].is_string(), "source_pdf should be a string");
+    assert!(guidance["source_page"].is_number(), "source_page should be a number");
+    assert!(guidance.get("about_en").is_some());
+    assert!(guidance.get("about_nb").is_some());
+    assert!(guidance["suggested_actions"].is_array());
+    assert!(guidance["transparency_questions"].is_array());
+    assert!(guidance["references"].is_array());
+}
+
+#[tokio::test]
+async fn test_guidance_actions_ordered_by_sort_order() {
+    let app = create_test_app().await;
+
+    let response = app
+        .oneshot(
+            Request::builder()
+                .uri("/api/ontology/concepts/nist-ai-gv-3-1/relationships")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+        .await
+        .unwrap();
+    let json: Value = serde_json::from_slice(&body).unwrap();
+
+    let actions = json["guidance"]["suggested_actions"]
+        .as_array()
+        .expect("suggested_actions should be an array");
+    assert!(
+        !actions.is_empty(),
+        "nist-ai-gv-3-1 should have at least one action"
+    );
+
+    let orders: Vec<i64> = actions
+        .iter()
+        .map(|a| a["sort_order"].as_i64().unwrap())
+        .collect();
+    for window in orders.windows(2) {
+        assert!(
+            window[0] <= window[1],
+            "Actions should be ordered by sort_order"
+        );
+    }
+}
+
+#[tokio::test]
+async fn test_guidance_references_have_correct_types() {
+    let app = create_test_app().await;
+
+    let response = app
+        .oneshot(
+            Request::builder()
+                .uri("/api/ontology/concepts/nist-ai-gv-3-1/relationships")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+        .await
+        .unwrap();
+    let json: Value = serde_json::from_slice(&body).unwrap();
+
+    let references = json["guidance"]["references"]
+        .as_array()
+        .expect("references should be an array");
+
+    for r in references {
+        let ref_type = r["type"].as_str().expect("type field should be a string");
+        assert!(
+            ref_type == "academic" || ref_type == "transparency_resource",
+            "reference type should be academic or transparency_resource, got: {ref_type}"
+        );
+        assert!(r.get("reference_type").is_none());
+    }
+}
+
+#[tokio::test]
+async fn test_guidance_sub_arrays_are_arrays() {
+    // Verify guidance sub-items are arrays (not null) — real data from nist-ai-rmf-guidance.json
+    let app = create_test_app().await;
+
+    let response = app
+        .oneshot(
+            Request::builder()
+                .uri("/api/ontology/concepts/nist-ai-gv-3-1/relationships")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+        .await
+        .unwrap();
+    let json: Value = serde_json::from_slice(&body).unwrap();
+
+    let guidance = json
+        .get("guidance")
+        .expect("guidance should be present for nist-ai-gv-3-1");
+    assert!(guidance["suggested_actions"].is_array());
+    assert!(guidance["transparency_questions"].is_array());
+    assert!(guidance["references"].is_array());
+}
+
+#[tokio::test]
+async fn test_existing_relationship_fields_preserved_with_guidance() {
+    let app = create_test_app().await;
+
+    let response = app
+        .oneshot(
+            Request::builder()
+                .uri("/api/ontology/concepts/nist-ai-gv-3-1/relationships")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+        .await
+        .unwrap();
+    let json: Value = serde_json::from_slice(&body).unwrap();
+
+    assert_eq!(json["id"], "nist-ai-gv-3-1");
+    assert_eq!(json["framework_id"], "nist-ai-rmf");
+    assert!(json["name_en"].is_string());
+    assert!(json["related_concepts"].is_array());
+    assert!(json.get("guidance").is_some());
+}

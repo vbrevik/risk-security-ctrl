@@ -5,12 +5,14 @@ use axum::{
     Json, Router,
 };
 use serde::Serialize;
+use sqlx::Row;
 use utoipa::ToSchema;
 
 use crate::AppState;
 
 use super::models::{
-    Concept, ConceptListQuery, ConceptWithRelationships, Framework, PaginatedResponse,
+    ActionResponse, Concept, ConceptGuidanceResponse, ConceptListQuery,
+    ConceptWithRelationships, Framework, PaginatedResponse, QuestionResponse, ReferenceResponse,
     RelatedConcept, Relationship, SearchQuery, Topic, TopicTagsFile,
 };
 
@@ -291,9 +293,83 @@ pub async fn get_concept_relationships(
     let mut related_concepts = outgoing;
     related_concepts.extend(incoming);
 
+    // Query guidance data concurrently (4 queries in parallel)
+    let guidance_query = sqlx::query(
+        "SELECT source_pdf, source_page, about_en, about_nb FROM concept_guidance WHERE concept_id = ?",
+    )
+    .bind(&id)
+    .fetch_optional(&state.db);
+
+    let actions_query = sqlx::query(
+        "SELECT action_text_en, action_text_nb, sort_order FROM concept_actions WHERE concept_id = ? ORDER BY sort_order",
+    )
+    .bind(&id)
+    .fetch_all(&state.db);
+
+    let questions_query = sqlx::query(
+        "SELECT question_text_en, question_text_nb, sort_order FROM concept_transparency_questions WHERE concept_id = ? ORDER BY sort_order",
+    )
+    .bind(&id)
+    .fetch_all(&state.db);
+
+    let references_query = sqlx::query(
+        "SELECT reference_type, title, authors, year, venue, url, sort_order FROM concept_references WHERE concept_id = ? ORDER BY sort_order",
+    )
+    .bind(&id)
+    .fetch_all(&state.db);
+
+    let (guidance_row, actions_rows, questions_rows, references_rows) = tokio::try_join!(
+        guidance_query,
+        actions_query,
+        questions_query,
+        references_query,
+    )
+    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
+
+    // Assemble guidance if present
+    let guidance = guidance_row.map(|row| {
+        let suggested_actions = actions_rows
+            .iter()
+            .map(|r| ActionResponse {
+                sort_order: r.get("sort_order"),
+                text_en: r.get("action_text_en"),
+                text_nb: r.get("action_text_nb"),
+            })
+            .collect();
+        let transparency_questions = questions_rows
+            .iter()
+            .map(|r| QuestionResponse {
+                sort_order: r.get("sort_order"),
+                text_en: r.get("question_text_en"),
+                text_nb: r.get("question_text_nb"),
+            })
+            .collect();
+        let references = references_rows
+            .iter()
+            .map(|r| ReferenceResponse {
+                reference_type: r.get("reference_type"),
+                title: r.get("title"),
+                authors: r.get("authors"),
+                year: r.get("year"),
+                venue: r.get("venue"),
+                url: r.get("url"),
+            })
+            .collect();
+        ConceptGuidanceResponse {
+            source_pdf: row.get("source_pdf"),
+            source_page: row.get("source_page"),
+            about_en: row.get("about_en"),
+            about_nb: row.get("about_nb"),
+            suggested_actions,
+            transparency_questions,
+            references,
+        }
+    });
+
     Ok(Json(ConceptWithRelationships {
         concept,
         related_concepts,
+        guidance,
     }))
 }
 
