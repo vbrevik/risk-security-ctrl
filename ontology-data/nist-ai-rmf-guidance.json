@@ -56,13 +56,6 @@
           "year": null,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -181,13 +174,6 @@
           "year": null,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -235,13 +221,6 @@
         },
         {
           "title": "GAO-17-63: Enterprise Risk Management: Selected Agencies' Experiences Illustrate Good Practices in Managing Risk",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
           "authors": null,
           "year": null,
           "venue": null,
@@ -361,13 +340,6 @@
           "year": 2022,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -405,13 +377,6 @@
           "title": "Computer Security Incident Handling Guide.",
           "authors": "National Institute of Standards and Technology. (2012)",
           "year": 2012,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
           "venue": null,
           "url": null
         }
@@ -453,13 +418,6 @@
         },
         {
           "title": "VertaAI, \"ModelDB: An open-source system for Machine Learning model versioning, metadata, and experiment management.",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
           "authors": null,
           "year": null,
           "venue": null,
@@ -519,13 +477,6 @@
           "title": "2011",
           "authors": "Information System Decommissioning Guide,\" Bureau of Land Management",
           "year": 2011,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
           "venue": null,
           "url": null
         }
@@ -601,13 +552,6 @@
           "year": 5339,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -651,13 +595,6 @@
           "year": null,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -694,13 +631,6 @@
           "title": "Off. Superintendent Fin. Inst. Canada, Enterprise-Wide Model Risk Management for Deposit-Taking Institutions, E-23 (Sept. 2017)",
           "authors": null,
           "year": 2017,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
           "venue": null,
           "url": null
         }
@@ -791,13 +721,6 @@
           "year": null,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -859,13 +782,6 @@
           "title": "Off. Comptroller Currency, Comptroller's Handbook: Model Risk Management (Aug. 2021)",
           "authors": null,
           "year": 2021,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
           "venue": null,
           "url": null
         }
@@ -940,13 +856,6 @@
           "title": "Seamful XAI: Operationalizing Seamful Design in Explainable AI.",
           "authors": "Upol Ehsan, Q. Vera Liao, Samir Passi, Mark O. Riedl, and Hal Daumé. 2024",
           "year": 2024,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
           "venue": null,
           "url": null
         }
@@ -1085,13 +994,6 @@
           "year": 2024,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -1146,13 +1048,6 @@
         },
         {
           "title": "Using Combined Expertise to Evaluate Web Accessibility,\" W3C Web Accessibility Initiative",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
           "authors": null,
           "year": null,
           "venue": null,
@@ -1227,13 +1122,6 @@
           "year": 1012,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -1284,13 +1172,6 @@
           "year": 2019,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -1337,13 +1218,6 @@
           "title": "Off. Comptroller Currency, Comptroller's Handbook: Model Risk Management (Aug. 2021)",
           "authors": null,
           "year": 2021,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
           "venue": null,
           "url": null
         }
@@ -1475,13 +1349,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://doi.org/10.1145/3351095.3375691"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -1563,13 +1430,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://doi.org/10.1145/3351095.3375691"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -1653,13 +1513,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://doi.org/10.1145/3351095.3375691"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -1747,13 +1600,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://doi.org/10.1145/3351095.3375691"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -1836,13 +1682,6 @@
           "year": 2021,
           "venue": null,
           "url": "https://arxiv.org/abs/1803.09010"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -2368,13 +2207,6 @@
           "year": null,
           "venue": null,
           "url": "https://github.com/VertaAI/modeldb"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -2459,13 +2291,6 @@
           "year": 2019,
           "venue": null,
           "url": "https://doi.org/10.48550/arXiv.1904.07204"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -2514,13 +2339,6 @@
           "year": null,
           "venue": null,
           "url": "https://ussm.gsa.gov/2.8/"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -2573,13 +2391,6 @@
           "year": 2021,
           "venue": null,
           "url": "https://www.occ.gov/news-issuances/news-releases/2021/nr-occ-2021-74a.pdf"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -2627,13 +2438,6 @@
           "year": 2023,
           "venue": null,
           "url": "https://github.com/visenger"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -2678,13 +2482,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://www.mdpi.com/2078-2489/11/3/137"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -2738,13 +2535,6 @@
           "title": "Organizational capabilities that enable big data and predictive analytics diffusion and organizational performance: A resource-based perspective.",
           "authors": "Mishra, Deepa, et al",
           "year": 2018,
-          "venue": null,
-          "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
           "venue": null,
           "url": null
         }
@@ -3020,13 +2810,6 @@
           "year": 2022,
           "venue": null,
           "url": "https://medium.com/@emilymenonbender/on-nyt-magazine-on-ai-resist-the-urge-to-be-impressed-3d92fd9a0edd"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3106,13 +2889,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://arxiv.org/pdf/2005.07572.pdf"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3189,13 +2965,6 @@
           "year": null,
           "venue": null,
           "url": "https://www.peatworks.org/ai-disability-inclusion-toolkit/business-case-for-equitable-ai/"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3268,13 +3037,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://algorithmwatch.org/en/ai-ethics-guidelines-inventory-upgrade-2020/"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3358,13 +3120,6 @@
           "year": null,
           "venue": null,
           "url": "https://csrc.nist.gov/projects/risk-management/about-rmf"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3466,13 +3221,6 @@
           "year": 2022,
           "venue": null,
           "url": "https://www.cambridge.org/core/journals/design-science/article/an-introduction-to-radical-participatory-design-decolonising-participatory-design-processes/63F70ECC408844D3CD6C1A5AC7D35F4D"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3534,13 +3282,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3703,13 +3444,6 @@
           "year": 2019,
           "venue": null,
           "url": "https://sites.nationalacademies.org/cs/groups/dbassesite/documents/webpage/dbasse_196735.pdf"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3884,13 +3618,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://www.nist.gov/publications/nist-privacy-framework-tool-improving-privacy-through-enterprise-risk-management."
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -3966,13 +3693,6 @@
           "year": 2017,
           "venue": null,
           "url": "https://www.sciencedirect.com/science/article/pii/S2405872617300758"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4051,13 +3771,6 @@
           "year": 2022,
           "venue": null,
           "url": "https://doi.org/10.17226/26507"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4116,13 +3829,6 @@
           "year": null,
           "venue": null,
           "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1039146/The_roadmap_to_an_effective_AI_assurance_ecosystem.pdf"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4234,13 +3940,6 @@
           "year": 2018,
           "venue": null,
           "url": "http://dl.acm.org/citation.cfm?doid=3173574.3174014"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4314,13 +4013,6 @@
           "year": 2020,
           "venue": null,
           "url": "https://arxiv.org/pdf/2006.12358.pdf"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4401,13 +4093,6 @@
           "year": 2022,
           "venue": null,
           "url": "https://arxiv.org/pdf/2206.07682.pdf"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4525,13 +4210,6 @@
           "year": 7010,
           "venue": null,
           "url": "https://doi.org/10.1109/smc42975.2020.9283454"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4606,13 +4284,6 @@
           "year": 2021,
           "venue": null,
           "url": "https://doi.org/10.1145/3461702.3462610"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4688,13 +4359,6 @@
           "year": 2022,
           "venue": null,
           "url": "https://arxiv.org/pdf/2206.03275v1"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4787,13 +4451,6 @@
           "year": 2021,
           "venue": null,
           "url": "https://doi.org/10.1016/j.artint.2021.103555"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -4946,13 +4603,6 @@
           "year": 2019,
           "venue": null,
           "url": "https://doi.org/10.1080/01972243.2018.1542648"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -5185,13 +4835,6 @@
           "year": 2022,
           "venue": null,
           "url": "https://assets.iqt.org/pdfs/IQTLabs_RoBERTaAudit_Dec2022_final.pdf/web/viewer.html"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -5344,13 +4987,6 @@
           "year": null,
           "venue": null,
           "url": "https://github.com/visenger/awesome-mlops"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -5542,13 +5178,6 @@
           "year": 2022,
           "venue": null,
           "url": null
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
@@ -5718,13 +5347,6 @@
           "year": 2021,
           "venue": null,
           "url": "https://doi.org/10.1145/3442188.3445921"
-        },
-        {
-          "title": "--",
-          "authors": null,
-          "year": null,
-          "venue": null,
-          "url": null
         }
       ]
     },
