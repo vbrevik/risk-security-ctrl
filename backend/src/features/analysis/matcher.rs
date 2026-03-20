@@ -478,7 +478,13 @@ pub fn score_candidates(
     let candidate_keywords: Vec<Vec<String>> = candidates
         .iter()
         .map(|c| {
-            let text = format!("{} {}", c.name_en, c.definition_en);
+            let text = format!(
+                "{} {} {} {}",
+                c.name_en,
+                c.definition_en,
+                c.about_en.as_deref().unwrap_or(""),
+                c.actions_text.as_deref().unwrap_or(""),
+            );
             extract_keywords(&text)
         })
         .collect();
@@ -1429,6 +1435,106 @@ mod tests {
         for sc in &scored {
             assert!(sc.confidence_score >= 0.0 && sc.confidence_score <= 1.0,
                 "Score {} for {} is outside [0.0, 1.0]", sc.confidence_score, sc.candidate.id);
+        }
+    }
+
+    // ========================================================================
+    // Section 04b: TF-IDF Guidance Enrichment Tests
+    // ========================================================================
+
+    fn make_candidate_with_guidance(
+        id: &str, name: &str, definition: &str,
+        about_en: Option<&str>, actions_text: Option<&str>,
+    ) -> ConceptCandidate {
+        ConceptCandidate {
+            id: id.into(),
+            framework_id: "fw-1".into(),
+            parent_id: None,
+            name_en: name.into(),
+            definition_en: definition.into(),
+            code: None,
+            source_reference: None,
+            concept_type: "concept".into(),
+            about_en: about_en.map(String::from),
+            actions_text: actions_text.map(String::from),
+        }
+    }
+
+    #[test]
+    fn score_candidates_guidance_text_boosts_score() {
+        let c1 = make_candidate_with_guidance(
+            "c1", "Governance", "Establish governance structure",
+            Some("Accountability measures"), Some("Define risk appetite\nEstablish governance board"),
+        );
+        let c2 = make_candidate_with_guidance(
+            "c2", "Governance", "Establish governance structure",
+            None, None,
+        );
+        let candidates = vec![c1, c2];
+        let doc_keywords: Vec<String> = vec!["governance".into(), "risk".into(), "appetite".into(), "board".into()];
+        let doc_tf: HashMap<String, usize> = doc_keywords.iter().map(|k| (k.clone(), 1)).collect();
+        let config = MatcherConfig::default();
+
+        let scored = score_candidates(&candidates, &doc_keywords, &doc_tf, &config);
+        let s1 = scored.iter().find(|s| s.candidate.id == "c1").unwrap().confidence_score;
+        let s2 = scored.iter().find(|s| s.candidate.id == "c2").unwrap().confidence_score;
+        assert!(s1 > s2, "Candidate with guidance keywords should score higher: {s1} vs {s2}");
+    }
+
+    #[test]
+    fn score_candidates_no_guidance_no_regression() {
+        let c1 = make_candidate("c1", "Risk Assessment", "Process of identifying and evaluating risks");
+        let candidates = vec![c1];
+        let doc_keywords: Vec<String> = vec!["risk".into(), "assessment".into(), "identifying".into()];
+        let doc_tf: HashMap<String, usize> = doc_keywords.iter().map(|k| (k.clone(), 1)).collect();
+        let config = MatcherConfig::default();
+
+        let scored = score_candidates(&candidates, &doc_keywords, &doc_tf, &config);
+        let score = scored[0].confidence_score;
+        assert!(score > 0.0, "Candidate without guidance should still score normally: {score}");
+    }
+
+    #[test]
+    fn score_candidates_uses_all_four_text_fields() {
+        // keyword "measurement" only in about_en, "appetite" only in actions_text
+        let c1 = make_candidate_with_guidance(
+            "c1", "Governance", "Structure",
+            Some("measurement approaches"), Some("Define risk appetite"),
+        );
+        let candidates = vec![c1];
+        let doc_keywords: Vec<String> = vec!["measurement".into(), "appetite".into()];
+        let doc_tf: HashMap<String, usize> = doc_keywords.iter().map(|k| (k.clone(), 1)).collect();
+        let config = MatcherConfig::default();
+
+        let scored = score_candidates(&candidates, &doc_keywords, &doc_tf, &config);
+        assert!(
+            scored[0].confidence_score > 0.0,
+            "Keywords from about_en and actions_text should contribute to score"
+        );
+    }
+
+    #[test]
+    fn score_candidates_enriched_scores_in_valid_range() {
+        let c1 = make_candidate_with_guidance(
+            "c1", "Governance", "Structure",
+            Some("About this concept with many keywords risk assessment governance accountability transparency fairness"),
+            Some("Action one\nAction two\nAction three risk governance assessment identify protect detect respond"),
+        );
+        let c2 = make_candidate("c2", "Other", "Different concept");
+        let candidates = vec![c1, c2];
+        let doc_keywords: Vec<String> = vec![
+            "risk".into(), "assessment".into(), "governance".into(),
+            "accountability".into(), "transparency".into(), "fairness".into(),
+        ];
+        let doc_tf: HashMap<String, usize> = doc_keywords.iter().map(|k| (k.clone(), 3)).collect();
+        let config = MatcherConfig::default();
+
+        let scored = score_candidates(&candidates, &doc_keywords, &doc_tf, &config);
+        for sc in &scored {
+            assert!(
+                sc.confidence_score >= 0.0 && sc.confidence_score <= 1.0,
+                "Score {} for {} is outside [0.0, 1.0]", sc.confidence_score, sc.candidate.id
+            );
         }
     }
 
