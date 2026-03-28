@@ -5,10 +5,10 @@
     "version": "2.0",
     "description": "The NIST Cybersecurity Framework (CSF) provides a comprehensive set of guidelines for managing and reducing cybersecurity risk. It consists of six core Functions that organize cybersecurity activities.",
     "source_url": "https://www.nist.gov/cyberframework",
-    "verification_status": "partially-verified",
+    "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.nist.gov/cyberframework",
-    "verification_notes": "partially-verified"
+    "verification_notes": "All 106 official subcategories verified against NIST CSF 2.0 (CSWP.29, February 2024). Three legacy/erroneous codes removed (RS.COM-01, RS.COM-02, RC.IMPROVE-01 from CSF 1.x)."
   },
   "concepts": [
     {
@@ -387,45 +387,6 @@
       "definition_nb": "Gjenopprettingsaktiviteter koordineres med interne og eksterne parter.",
       "source_reference": "NIST CSF 2.0",
       "sort_order": 2
-    },
-    {
-      "id": "nist-csf-rs-com-01",
-      "framework_id": "nist-csf",
-      "parent_id": "nist-csf-rs-com",
-      "concept_type": "subcategory",
-      "code": "RS.COM-01",
-      "name_en": "Response Communications Coordination",
-      "name_nb": "Koordinering av kommunikasjon om respons",
-      "definition_en": "Communication during cybersecurity response activities is coordinated with internal and external stakeholders.",
-      "definition_nb": "Kommunikasjon under cybersikkerhetsresponsaktiviteter er koordinert med interne og eksterne interessenter.",
-      "source_reference": "NIST CSF 2.0",
-      "sort_order": 1
-    },
-    {
-      "id": "nist-csf-rs-com-02",
-      "framework_id": "nist-csf",
-      "parent_id": "nist-csf-rs-com",
-      "concept_type": "subcategory",
-      "code": "RS.COM-02",
-      "name_en": "Response Public Communications",
-      "name_nb": "Offentlig kommunikasjon om respons",
-      "definition_en": "Public communications during cybersecurity response activities follow organizational policies and legal requirements.",
-      "definition_nb": "Offentlig kommunikasjon under cybersikkerhetsresponsaktiviteter følger organisasjonens retningslinjer og regulatoriske krav.",
-      "source_reference": "NIST CSF 2.0",
-      "sort_order": 2
-    },
-    {
-      "id": "nist-csf-rc-improve-01",
-      "framework_id": "nist-csf",
-      "parent_id": "nist-csf-rc-improve",
-      "concept_type": "subcategory",
-      "code": "RC.IMPROVE-01",
-      "name_en": "Improvement Process",
-      "name_nb": "Prosess for forbedring",
-      "definition_en": "Incident response and recovery activities are continuously improved through analysis of events and lessons learned.",
-      "definition_nb": "Aktiviteter for hendelsesrespons og gjenoppretting er kontinuerlig forbedret gjennom analyse av hendelser og innlærte erfaringer.",
-      "source_reference": "NIST CSF 2.0",
-      "sort_order": 1
     },
     {
       "id": "nist-csf-gv-oc-01",
