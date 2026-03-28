@@ -5,10 +5,10 @@
     "version": "2.1",
     "description": "Nasjonal sikkerhetsmyndighets grunnprinsipper for IKT-sikkerhet versjon 2.1. Rammeverket gir anbefalinger for hvordan virksomheter bør sikre sine IKT-systemer. The Norwegian National Security Authority's basic principles for ICT security v2.1, providing recommendations for securing ICT systems.",
     "source_url": "https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ta-i-bruk-grunnprinsippene/grunnprinsipper-for-ikt-sikkerhet-2-1",
-    "verification_status": "unverified",
-    "verification_date": null,
-    "verification_source": null,
-    "verification_notes": null
+    "verification_status": "partially-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ta-i-bruk-grunnprinsippene/grunnprinsipper-for-ikt-sikkerhet-2-1",
+    "verification_notes": "All 4 categories, 21 subcategories, and 118 controls confirmed correct (codes and titles). Definitions are thin — each repeats the control title rather than providing substantive guidance. See docs/sources/nsm-grunnprinsipper-proof.md."
   },
   "concepts": [
     {

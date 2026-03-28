@@ -47,4 +47,27 @@ All 8 Article 5 prohibited practices were present when last verified (items 1-5 
 4. **Missing Art 8** — Fixed: `eu-ai-art-8` concept added as child of `eu-ai-high-risk`.
 
 ### Concept Count
-56 concepts — all legitimate, zero fabricated.
+81 concepts — all legitimate, zero fabricated.
+
+### Coverage Added (2026-03-28)
+22 new concepts added to fill gaps in compliance-relevant articles:
+- **Art 1-2, 4** — Subject matter, scope, AI literacy (General Provisions category added)
+- **Art 18-21** — Documentation keeping, log retention, corrective actions, cooperation with authorities
+- **Art 23-25** — Importers, distributors, value chain responsibilities
+- **Art 54** — Authorised representatives for GPAI model providers
+- **Art 56** — GPAI codes of practice
+- **Art 57** — AI regulatory sandboxes framework (separate from existing Art 60-61)
+- **Art 65-68** — European AI Board, board tasks, advisory forum, scientific panel
+- **Art 74** — Market surveillance and control
+- **Art 87** — Whistleblower protection for AI Act infringement reporting
+- **Art 100-101** — Fines for EU institutions and GPAI providers
+- **Art 113** — Entry into force and phased application timeline
+
+### Intentionally Excluded (procedural, not compliance-relevant for practitioners)
+- Art 3 (Definitions) — 200+ definitions, not useful as a single concept
+- Art 28-49 (Notified bodies notification procedures)
+- Art 58-63 (Detailed sandbox operational arrangements)
+- Art 75-86 (Detailed enforcement machinery, except Art 85-86 already present)
+- Art 88-94 (GPAI investigation and enforcement procedures)
+- Art 97-98 (Delegation, committee procedure)
+- Art 102-112 (Amendments to other regulations, evaluation)

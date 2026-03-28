@@ -6,19 +6,17 @@ Splits 01-06 of ontology verification are **complete**. 30 framework JSON files 
 
 | Status | Count | Frameworks |
 |--------|-------|------------|
-| verified | 12 | cisa-ztmm, cve-cwe, data-centric, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-rmf, xai-dataops, zero-trust |
+| verified | 14 | cisa-ztmm, cve-cwe, data-centric, eu-ai-act, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-csf, nist-rmf, xai-dataops, zero-trust |
 | corrected | 2 | nist-ai-genai, nist-sp-800-53 |
 | structure-verified | 5 | iso23894, iso24028, iso31000, iso42001, mitre-attack |
-| partially-verified | 8 | cer-directive, dora, fmn, iso10015, iso31010, iso42005, iso9000, nist-csf |
-| needs-correction | 1 | eu-ai-act |
-| unverified | 2 | nsl-sikkerhetsloven, nsm-grunnprinsipper |
+| partially-verified | 8 | cer-directive, dora, fmn, iso10015, iso31010, iso42005, iso9000, nsm-grunnprinsipper |
+| needs-correction | 1 | nsl-sikkerhetsloven |
 
 ## Pending Verification Work
 
 - [ ] **FMN deeper restructuring** — 71% of concepts have fabricated names/codes. 6 service areas should be replaced with 21 official Spiral 6 Service Instruction areas. Architecture component codes need renaming. See `docs/sources/fmn-proof.md`.
-- [ ] **EU AI Act corrections** — needs-correction status, see `docs/sources/eu-ai-act-proof.md`
-- [ ] **NSL Sikkerhetsloven / NSM Grunnprinsipper** — unverified, JSON files exist but no proof files yet
-- [ ] **NIST CSF 2.0 subcategories** — 85 remaining subcategories to add
+- [ ] **NSL Sikkerhetsloven** — needs-correction: Chapter 12 missing, Kap. 2/3/10/11 header-only, several §§ missing. See `docs/sources/nsl-sikkerhetsloven-proof.md`.
+- [ ] **NSM Grunnprinsipper** — partially-verified: structure confirmed, definitions are thin (titles only). See `docs/sources/nsm-grunnprinsipper-proof.md`.
 
 ## New Frameworks to Add
 
@@ -240,7 +238,7 @@ Backend is ready — migration 005 adds `verification_status/date/source/notes` 
 
 1. ~~Complete verification splits 01-06~~ DONE (2026-03-28)
 2. Frontend proof view feature (see above)
-3. Pending verification work (FMN, EU AI Act, NSL/NSM GP, CSF 2.0 subcategories)
+3. Pending verification work (FMN restructuring, NSL/NSM GP)
 4. Build HIGH priority NIST frameworks (Privacy Framework, SSDF, C-SCRM)
 4. Build HIGH priority MITRE frameworks (D3FEND, CAPEC, CREF, SoT) — leverage built-in cross-mappings
 5. Build HIGH priority ISO standards (27005, 27701, 27017, 27018, 27035, 22301, 38500, etc.)
