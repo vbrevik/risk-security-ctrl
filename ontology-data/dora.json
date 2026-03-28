@@ -5,10 +5,10 @@
     "version": "Regulation (EU) 2022/2554",
     "description": "The Digital Operational Resilience Act (DORA) is an EU regulation that establishes a comprehensive framework for digital operational resilience in the financial sector. It sets uniform requirements for the security of network and information systems supporting the business processes of financial entities, covering ICT risk management, incident reporting, resilience testing, third-party risk management, and information sharing.",
     "source_url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
-    "verification_status": "partially-verified",
+    "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
-    "verification_notes": "partially-verified"
+    "verification_notes": "Issues 1-5 from initial partial verification all resolved 2026-03-28. ART-28-4 code corrected to ART-29. Art 15, 16, 20, 23 added. Chapter III title and Art 12 title corrected to match official regulation text. 36 concepts total — all legitimate."
   },
   "concepts": [
     {
@@ -121,8 +121,8 @@
       "parent_id": "dora-ict-risk-management",
       "concept_type": "requirement",
       "code": "ART-12",
-      "name_en": "Backup Policies and Recovery Methods",
-      "name_nb": "Retningslinjer for sikkerhetskopiering og gjenopprettingsmetoder",
+      "name_en": "Backup Policies and Procedures, Restoration and Recovery Procedures and Methods",
+      "name_nb": "Retningslinjer og prosedyrer for sikkerhetskopiering, gjenoppretting og reparasjon",
       "definition_en": "Financial entities shall develop and document backup policies and procedures specifying the scope of data subject to backup, minimum frequency, recovery time and recovery point objectives. Backup systems shall be geographically separated from the primary site. Restoration from backups shall be periodically tested.",
       "definition_nb": "Finansielle enheter skal utvikle og dokumentere retningslinjer og prosedyrer for sikkerhetskopiering som spesifiserer omfanget av data som skal sikkerhetskopieres, minimumsfrekvens, mål for gjenopprettingstid og gjenopprettingspunkt. Sikkerhetskopieringssystemer skal være geografisk adskilt fra hovedsiten. Gjenoppretting fra sikkerhetskopier skal testes periodisk.",
       "source_reference": "DORA Article 12",
@@ -155,13 +155,39 @@
       "sort_order": 9
     },
     {
+      "id": "dora-ict-harmonisation",
+      "framework_id": "dora",
+      "parent_id": "dora-ict-risk-management",
+      "concept_type": "requirement",
+      "code": "ART-15",
+      "name_en": "Further Harmonisation of ICT Risk Management Tools, Methods, Processes and Policies",
+      "name_nb": "Ytterligere harmonisering av IKT-risikostyringsverktøy, -metoder, -prosesser og -retningslinjer",
+      "definition_en": "The ESAs, through the Joint Committee in consultation with ENISA, shall develop common regulatory technical standards specifying further elements of the ICT risk management framework, including policies on ICT security, access controls, incident detection, business continuity, and related reporting requirements. Financial entities shall comply with these RTS once adopted.",
+      "definition_nb": "ETT-myndighetene skal gjennom Fellesutvalget i samråd med ENISA utvikle felles regulatoriske tekniske standarder som nærmere spesifiserer elementer i rammeverket for IKT-risikostyring, inkludert retningslinjer for IKT-sikkerhet, tilgangskontroll, hendelsesdeteksjon, forretningskontinuitet og tilhørende rapporteringskrav.",
+      "source_reference": "DORA Article 15",
+      "sort_order": 10
+    },
+    {
+      "id": "dora-ict-simplified-framework",
+      "framework_id": "dora",
+      "parent_id": "dora-ict-risk-management",
+      "concept_type": "requirement",
+      "code": "ART-16",
+      "name_en": "Simplified ICT Risk Management Framework",
+      "name_nb": "Forenklet rammeverk for IKT-risikostyring",
+      "definition_en": "Certain smaller or exempted financial entities — including small and non-interconnected investment firms, exempted payment institutions and electronic money institutions, and small IORPs — are subject to a simplified ICT risk management framework. They are exempt from the full Articles 5–15 requirements but must still document an ICT risk framework covering monitoring, resilience, third-party dependency identification, and business continuity.",
+      "definition_nb": "Visse mindre eller unntatte finansielle enheter — inkludert små og ikke-sammenkoblede investeringsforetak, unntatte betalingsinstitusjoner og e-pengeinstitusjoner, og små IORPer — er underlagt et forenklet rammeverk for IKT-risikostyring. De er unntatt fra kravene i artiklene 5–15, men må likevel dokumentere et IKT-risikostyringssystem som dekker overvåking, motstandsdyktighet, identifisering av tredjepartsavhengigheter og forretningskontinuitet.",
+      "source_reference": "DORA Article 16",
+      "sort_order": 11
+    },
+    {
       "id": "dora-incident-management",
       "framework_id": "dora",
       "parent_id": null,
       "concept_type": "category",
       "code": null,
-      "name_en": "ICT-Related Incident Management",
-      "name_nb": "Håndtering av IKT-relaterte hendelser",
+      "name_en": "ICT-Related Incident Management, Classification and Reporting",
+      "name_nb": "Håndtering, klassifisering og rapportering av IKT-relaterte hendelser",
       "definition_en": "Chapter III (Articles 17-23) establishes requirements for classifying, managing and reporting ICT-related incidents, including major incidents and significant cyber threats, to competent authorities.",
       "definition_nb": "Kapittel III (artikkel 17-23) fastsetter krav til klassifisering, håndtering og rapportering av IKT-relaterte hendelser, inkludert alvorlige hendelser og vesentlige cybertrusler, til kompetente myndigheter.",
       "source_reference": "DORA Chapter III, Articles 17-23",
@@ -207,6 +233,19 @@
       "sort_order": 3
     },
     {
+      "id": "dora-incident-reporting-templates",
+      "framework_id": "dora",
+      "parent_id": "dora-incident-management",
+      "concept_type": "requirement",
+      "code": "ART-20",
+      "name_en": "Harmonisation of Reporting Content and Templates",
+      "name_nb": "Harmonisering av rapporteringsinnhold og maler",
+      "definition_en": "The ESAs, via the Joint Committee and in consultation with ENISA and the ECB, shall develop implementing technical standards establishing the content, formats, templates, and timelines for major ICT incident reports and voluntary significant cyber threat notifications. Financial entities shall use these standardised templates when reporting to competent authorities.",
+      "definition_nb": "ETT-myndighetene skal via Fellesutvalget og i samråd med ENISA og ECB utvikle tekniske gjennomføringsstandarder som fastsetter innhold, formater, maler og tidsfrister for rapportering av alvorlige IKT-hendelser og frivillig varsling av vesentlige cybertrusler.",
+      "source_reference": "DORA Article 20",
+      "sort_order": 4
+    },
+    {
       "id": "dora-incident-notification",
       "framework_id": "dora",
       "parent_id": "dora-incident-management",
@@ -217,7 +256,7 @@
       "definition_en": "ESAs shall develop common draft regulatory technical standards to establish the content, timelines and templates for incident reports, including initial notification and final reporting on major ICT-related incidents.",
       "definition_nb": "De europeiske tilsynsmyndighetene skal utvikle felles utkast til regulatoriske tekniske standarder for å fastsette innhold, tidsfrister og maler for hendelsesrapporter, inkludert innledende varsling og sluttrapportering om alvorlige IKT-relaterte hendelser.",
       "source_reference": "DORA Article 21",
-      "sort_order": 4
+      "sort_order": 5
     },
     {
       "id": "dora-incident-early-warning",
@@ -230,7 +269,20 @@
       "definition_en": "Competent authorities shall provide feedback or high-level guidance on reported incidents. Financial entities may, on a voluntary basis, notify significant cyber threats to the relevant competent authority when deemed relevant for the financial system.",
       "definition_nb": "Kompetente myndigheter skal gi tilbakemelding eller overordnet veiledning om rapporterte hendelser. Finansielle enheter kan på frivillig basis varsle om vesentlige cybertrusler til den relevante kompetente myndigheten når det anses relevant for det finansielle systemet.",
       "source_reference": "DORA Article 22",
-      "sort_order": 5
+      "sort_order": 6
+    },
+    {
+      "id": "dora-payment-incident-reporting",
+      "framework_id": "dora",
+      "parent_id": "dora-incident-management",
+      "concept_type": "requirement",
+      "code": "ART-23",
+      "name_en": "Operational or Security Payment-Related Incidents",
+      "name_nb": "Drifts- eller sikkerhetshendelser knyttet til betalinger",
+      "definition_en": "All Chapter III obligations on ICT-related incident management, classification, and reporting apply equally to operational or security payment-related incidents for credit institutions, payment institutions, account information service providers, and electronic money institutions. This integrates PSD2-legacy payment incident reporting obligations into the DORA framework.",
+      "definition_nb": "Alle forpliktelsene i kapittel III om håndtering, klassifisering og rapportering av IKT-relaterte hendelser gjelder tilsvarende for drifts- eller sikkerhetshendelser knyttet til betalinger for kredittinstitusjoner, betalingsinstitusjoner, leverandører av kontoinformasjonstjenester og e-pengeinstitusjoner.",
+      "source_reference": "DORA Article 23",
+      "sort_order": 7
     },
     {
       "id": "dora-resilience-testing",
