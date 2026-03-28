@@ -5,10 +5,10 @@
     "version": "2019",
     "description": "Risk management - Risk assessment techniques. Provides guidance on the selection and application of techniques for assessing risk in a wide range of situations.",
     "source_url": "https://www.iso.org/standard/72140.html",
-    "verification_status": "partially-verified",
+    "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.iso.org/standard/72140.html",
-    "verification_notes": "partially-verified"
+    "verification_notes": "Verified against IEC 31010:2019 (official standard PDF). 2019 edition has 41 techniques in Annex B vs 28 in our ontology. Added 7 missing techniques: Nominal group (B.1.4), Bayesian networks (B.5.3), PIA/DPIA (B.5.11), Causal mapping (B.6.1), ALARP/SFAIRP (B.8.2), F-N diagrams (B.8.3), Risk indices (B.8.6). T07 (RCA) updated: was removed from IEC 31010:2019 (now in IEC 62740:2015). Intentionally excluded: domain-specific techniques (VaR, CVaR, toxicological, game theory) and editorial tools (risk registers, S-curves, Pareto charts) not central to security risk practice."
   },
   "concepts": [
     {
@@ -504,6 +504,136 @@
       "definition_nb": "En strukturert metode for å identifisere potensielle årsaker til et problem eller en effekt ved bruk av et fiskebein (Ishikawa)-diagram. Årsaker organiseres i hovedkategorier (typisk: metoder, maskiner, materialer, arbeidskraft, måling, miljø) for systematisk å utforske rotårsaker.",
       "source_reference": "ISO 31010:2019 Annex B",
       "sort_order": 5
+    },
+    {
+      "id": "iso31010-cat-causes",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-techniques",
+      "concept_type": "category",
+      "code": "B.3",
+      "name_en": "Sources, Causes and Drivers (B.3)",
+      "name_nb": "Kilder, årsaker og drivkrefter (B.3)",
+      "definition_en": "Techniques for determining sources, causes and drivers of risk (IEC 31010:2019 Annex B.3).",
+      "definition_nb": "Teknikker for å fastslå kilder, årsaker og drivkrefter for risiko.",
+      "source_reference": "IEC 31010:2019 Annex B.3",
+      "sort_order": 11
+    },
+    {
+      "id": "iso31010-cat-consequences",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-techniques",
+      "concept_type": "category",
+      "code": "B.5–B.6",
+      "name_en": "Consequences, Likelihood and Dependencies (B.5–B.6)",
+      "name_nb": "Konsekvenser, sannsynlighet og avhengigheter (B.5-B.6)",
+      "definition_en": "Techniques for understanding consequences, likelihood, and dependencies/interactions between risks (IEC 31010:2019 Annex B.5–B.6).",
+      "definition_nb": "Teknikker for å forstå konsekvenser, sannsynlighet og avhengigheter.",
+      "source_reference": "IEC 31010:2019 Annex B.5-B.6",
+      "sort_order": 12
+    },
+    {
+      "id": "iso31010-cat-significance",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-techniques",
+      "concept_type": "category",
+      "code": "B.8",
+      "name_en": "Evaluating Significance of Risk (B.8)",
+      "name_nb": "Evaluering av risikobetydning (B.8)",
+      "definition_en": "Techniques for evaluating the significance or tolerability of risk (IEC 31010:2019 Annex B.8).",
+      "definition_nb": "Teknikker for å evaluere risikoens betydning eller toleranse.",
+      "source_reference": "IEC 31010:2019 Annex B.8",
+      "sort_order": 13
+    },
+    {
+      "id": "iso31010-t29",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-additional",
+      "concept_type": "technique",
+      "code": "B.1.4",
+      "name_en": "Nominal Group Technique",
+      "name_nb": "Nominell gruppeteknikk",
+      "definition_en": "A structured group decision-making technique in which participants individually generate ideas in writing, then share them in a round-robin format, followed by group discussion and anonymous voting to prioritise. Used for eliciting and combining expert judgements on risk identification or prioritisation.",
+      "definition_nb": "En strukturert gruppebasert beslutningsmetode der deltakerne individuelt genererer ideer skriftlig, deretter deler dem i rundgang, etterfulgt av gruppediskusjon og anonym stemmegivning for prioritering.",
+      "source_reference": "IEC 31010:2019 Annex B.1.4",
+      "sort_order": 29
+    },
+    {
+      "id": "iso31010-t30",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-consequences",
+      "concept_type": "technique",
+      "code": "B.5.3",
+      "name_en": "Bayesian Networks and Influence Diagrams",
+      "name_nb": "Bayesianske nettverk og innflytelsesdiagrammer",
+      "definition_en": "A probabilistic graphical model representing conditional dependencies between variables using directed acyclic graphs. Nodes represent variables (causes, conditions, consequences); edges represent conditional probability relationships. Used to model complex risk scenarios with interacting uncertainties and to update probability estimates as new evidence becomes available.",
+      "definition_nb": "En sannsynlighetsbasert grafisk modell som representerer betingede avhengigheter mellom variabler ved hjelp av dirigerte acykliske grafer. Noder representerer variabler; kanter representerer betingede sannsynlighetsforhold.",
+      "source_reference": "IEC 31010:2019 Annex B.5.3",
+      "sort_order": 30
+    },
+    {
+      "id": "iso31010-t31",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-consequences",
+      "concept_type": "technique",
+      "code": "B.5.11",
+      "name_en": "Privacy Impact Analysis / Data Protection Impact Assessment (PIA/DPIA)",
+      "name_nb": "Personvernkonsekvensanalyse (PIA/DPIA)",
+      "definition_en": "A risk assessment process that identifies and evaluates privacy risks associated with processing personal data. Required under GDPR (Article 35) for high-risk processing activities. Identifies data flows, assesses necessity and proportionality, evaluates risks to rights and freedoms, and defines risk treatment measures. Closely related to the CER and NIS2 frameworks in the context of resilience of digital services.",
+      "definition_nb": "En risikovurderingsprosess som identifiserer og evaluerer personvernrisikoer knyttet til behandling av personopplysninger. Påkrevet etter GDPR (artikkel 35) for høyrisikobehandlingsaktiviteter.",
+      "source_reference": "IEC 31010:2019 Annex B.5.11",
+      "sort_order": 31
+    },
+    {
+      "id": "iso31010-t32",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-consequences",
+      "concept_type": "technique",
+      "code": "B.6.1",
+      "name_en": "Causal Mapping",
+      "name_nb": "Årsakssammenhengskartlegging",
+      "definition_en": "A diagrammatic technique that maps cause-and-effect relationships between risk factors to reveal systemic dependencies and feedback loops. Unlike static fishbone or fault tree diagrams, causal maps can represent circular causality and dynamic interactions. Useful for understanding how risks propagate through complex systems.",
+      "definition_nb": "En diagrammatisk teknikk som kartlegger årsak-virkning-sammenhenger mellom risikofaktorer for å avsløre systemiske avhengigheter og tilbakekoblingsløkker.",
+      "source_reference": "IEC 31010:2019 Annex B.6.1",
+      "sort_order": 32
+    },
+    {
+      "id": "iso31010-t33",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-significance",
+      "concept_type": "technique",
+      "code": "B.8.2",
+      "name_en": "ALARP / SFAIRP",
+      "name_nb": "ALARP / SFAIRP",
+      "definition_en": "Criteria for evaluating whether a risk has been reduced to a tolerable level. ALARP (As Low As Reasonably Practicable) and SFAIRP (So Far As Is Reasonably Practicable) define a tolerable region between broadly acceptable and unacceptable risk, where risk must be reduced unless the cost is grossly disproportionate to the benefit. Widely used in safety-critical sectors and increasingly applied in ICT and operational resilience contexts.",
+      "definition_nb": "Kriterier for å vurdere om en risiko er redusert til et tolererbart nivå. ALARP definerer en tolererbar sone mellom bredt akseptabel og uakseptabel risiko, der risiko må reduseres med mindre kostnaden er grovt uforholdsmessig stor.",
+      "source_reference": "IEC 31010:2019 Annex B.8.2",
+      "sort_order": 33
+    },
+    {
+      "id": "iso31010-t34",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-significance",
+      "concept_type": "technique",
+      "code": "B.8.3",
+      "name_en": "Frequency-Number (F-N) Diagrams",
+      "name_nb": "Frekvens-antall (F-N) diagrammer",
+      "definition_en": "A graphical representation plotting cumulative frequency of events against the number of consequences (e.g., fatalities, system failures). F-N curves are used to compare risk levels against acceptability criteria and to visualise the distribution of risk across scenarios of different severity. Commonly used in safety risk assessments and critical infrastructure protection.",
+      "definition_nb": "En grafisk fremstilling som plotter kumulativ hendelsesfrekvens mot antall konsekvenser. F-N-kurver brukes til å sammenligne risikonivåer mot akseptabilitetskriterier.",
+      "source_reference": "IEC 31010:2019 Annex B.8.3",
+      "sort_order": 34
+    },
+    {
+      "id": "iso31010-t35",
+      "framework_id": "iso31010",
+      "parent_id": "iso31010-cat-significance",
+      "concept_type": "technique",
+      "code": "B.8.6",
+      "name_en": "Risk Indices",
+      "name_nb": "Risikoindekser",
+      "definition_en": "Relative, dimensionless scores or rankings used to compare risks or entities against each other or against benchmarks. Risk indices aggregate multiple risk factors into a single score, enabling prioritisation across a portfolio. Common examples include security risk scoring systems, threat indices, and composite resilience metrics.",
+      "definition_nb": "Relative, dimensjonsløse score eller rangeringer brukt til å sammenligne risikoer mot hverandre eller mot referanseverdier.",
+      "source_reference": "IEC 31010:2019 Annex B.8.6",
+      "sort_order": 35
     }
   ]
 }

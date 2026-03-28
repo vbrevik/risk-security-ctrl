@@ -3,7 +3,8 @@
 **Source:** https://eur-lex.europa.eu/eli/dir/2022/2557/oj
 **Reference:** Directive (EU) 2022/2557 of 14 December 2022, Official Journal L 333, 27.12.2022
 **Verified:** 2026-03-28
-**Status:** partially-verified
+**Status:** corrected
+
 ## How to Verify
 
 1. **EUR-Lex Full Text (EN):** https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2557
@@ -51,11 +52,27 @@ Each article can be verified by searching for "Article X" in the full text. The 
 - 9-month entity risk assessment deadline (Art 12) correct
 - Hydrogen inclusion in energy sector correct
 
-### Issues Found
-1. **Misleading codes:** `cer-background-checks` has code ART-8 but references Art 14; `cer-supervisory-powers` has code ART-10 but references Art 21; `cer-sector-equivalence` has code ART-14 but references Art 8. Codes are sequential within category, not article references — ART- prefix is misleading.
-2. **Missing Art 2** (Definitions) — substantive article with key terms
-3. **Missing Art 7** (Significant disruptive effect criteria)
-4. **Duplicate coverage:** Both `cer-entity-risk-assessment` and `cer-entity-risk-assessment-obligation` cover Art 12
+### Issues Found — All Resolved (2026-03-28)
+
+1. **Wrong codes on 3 concepts** — Three concepts under Governance used sequential ART-X codes that did not match their actual article references. Fixed:
+   - `cer-background-checks`: ART-8 → ART-14 ("Background Checks", Chapter IV). Also moved to Resilience Obligations parent.
+   - `cer-supervisory-powers`: ART-10 → ART-21, name corrected to "Supervision and Enforcement"
+   - `cer-sector-equivalence`: ART-14 → ART-8, name corrected to "Critical Entities in Banking, Financial Market Infrastructure and Digital Infrastructure Sectors"
+
+2. **Missing Art 2 (Definitions)** — Added `cer-definitions` under Governance and Oversight. Key terms defined: critical entity, resilience, incident, critical infrastructure, essential service, risk, risk assessment, public administration entity.
+
+3. **Missing Art 7 (Significant disruptive effect criteria)** — Added `cer-significant-disruptive-effect` under Risk Assessment. Documents the 6 criteria (a–f) used by Member States to determine whether a disruption qualifies as "significant" for the purpose of identifying critical entities.
+
+4. **Duplicate Art 12 coverage** — Both `cer-entity-risk-assessment` (RA2, Risk Assessment category) and `cer-entity-risk-assessment-obligation` (RO1, Resilience Obligations) covered Article 12. Removed RA2; RO1 provides the canonical coverage.
 
 ### Concept Count
-42 concepts — all legitimate, zero fabricated
+43 concepts — all legitimate, zero fabricated. (Was 42; removed 1 duplicate, added 2 new.)
+
+### Intentionally Excluded
+- Arts 1, 3: General scope and relationship with other Union acts
+- Arts 4, 5, 6: National strategy, risk assessment, and identification process (covered by GO1, RA1, RA3 rollup concepts)
+- Arts 9-11: Competent authority designation details (covered by GO2-GO3 rollup)
+- Arts 15-16: Incident notification details (covered by IN1-IN3)
+- Arts 17-18: Advisory missions and enhanced cooperation mechanics (covered by ES2-ES3)
+- Arts 19-22: Enforcement details beyond supervisory powers (covered by ART-21 rollup)
+- Arts 23-27: Final provisions, transposition, entry into force

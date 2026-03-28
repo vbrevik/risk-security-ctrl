@@ -5,10 +5,10 @@
     "version": "Directive (EU) 2022/2557",
     "description": "The Critical Entities Resilience Directive establishes a framework to enhance the resilience of critical entities across 11 sectors against physical, cyber, and hybrid threats. It complements NIS2 by covering overall entity resilience beyond just cybersecurity.",
     "source_url": "https://eur-lex.europa.eu/eli/dir/2022/2557/oj",
-    "verification_status": "partially-verified",
+    "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://eur-lex.europa.eu/eli/dir/2022/2557/oj",
-    "verification_notes": "partially-verified"
+    "verification_notes": "All issues resolved 2026-03-28. Fixed 3 wrong ART-X codes: ART-8→ART-14 (background checks), ART-10→ART-21 (supervision), ART-14→ART-8 (sector equivalence). Moved background checks to Resilience Obligations (Chapter IV). Removed duplicate Art 12 concept (cer-entity-risk-assessment). Added Art 2 (Definitions) and Art 7 (Significant disruptive effect criteria). 43 concepts total, all legitimate."
   },
   "concepts": [
     {
@@ -311,19 +311,6 @@
       "sort_order": 1
     },
     {
-      "id": "cer-entity-risk-assessment",
-      "framework_id": "cer-directive",
-      "parent_id": "cer-risk-assessment",
-      "concept_type": "process",
-      "code": "RA2",
-      "name_en": "Entity-Level Risk Assessment",
-      "name_nb": "Risikovurdering på virksomhetsnivå",
-      "definition_en": "Critical entities shall carry out their own risk assessment within nine months of receiving notification of identification, and subsequently at least every four years, taking into account the national risk assessment and other relevant sources. The assessment shall cover all relevant risks that could disrupt the provision of essential services.",
-      "definition_nb": "Kritiske virksomheter skal gjennomføre sin egen risikovurdering innen ni måneder etter å ha mottatt melding om identifisering, og deretter minst hvert fjerde år, under hensyntagen til den nasjonale risikovurderingen og andre relevante kilder. Vurderingen skal dekke alle relevante risikoer som kan forstyrre leveringen av essensielle tjenester.",
-      "source_reference": "CER Directive Article 12",
-      "sort_order": 2
-    },
-    {
       "id": "cer-identification-criteria",
       "framework_id": "cer-directive",
       "parent_id": "cer-risk-assessment",
@@ -335,6 +322,19 @@
       "definition_nb": "Medlemsstater skal bruke den nasjonale risikovurderingen til å identifisere kritiske virksomheter i hver sektor, med hensyn til effekten en vesentlig forstyrrelse ville hatt. Kriterier inkluderer antall brukere som er avhengige av virksomhetens tjenester, graden av avhengighet fra andre sektorer, konsekvensenes omfang og varighet, virksomhetens markedsandel, det geografiske området som kan påvirkes, og virksomhetens betydning for opprettholdelse av tilstrekkelige nivåer av den essensielle tjenesten.",
       "source_reference": "CER Directive Article 6",
       "sort_order": 3
+    },
+    {
+      "id": "cer-significant-disruptive-effect",
+      "framework_id": "cer-directive",
+      "parent_id": "cer-risk-assessment",
+      "concept_type": "requirement",
+      "code": "ART-7",
+      "name_en": "Significant Disruptive Effect Criteria",
+      "name_nb": "Kriterier for vesentlig forstyrrende effekt",
+      "definition_en": "Criteria for determining whether a disruption has a 'significant disruptive effect', used when identifying critical entities under Article 6. Member States shall consider: (a) number of users relying on the essential service; (b) dependency of other sectors on the service; (c) impact in terms of degree and duration on economic/societal activities, environment, or public safety; (d) the entity's market share; (e) geographic area affected including cross-border impact; (f) importance in maintaining a sufficient level of the service, taking into account availability of alternatives.",
+      "definition_nb": "Kriterier for å fastslå om en forstyrrelse har 'vesentlig forstyrrende effekt', brukt ved identifisering av kritiske enheter etter artikkel 6. Medlemsstatene skal vurdere: (a) antall brukere som er avhengige av tjenesten; (b) avhengigheten fra andre sektorer; (c) innvirkning på økonomi, samfunn, miljø og offentlig sikkerhet; (d) enhetens markedsandel; (e) berørt geografisk område inkl. grenseoverskridende effekter; (f) viktigheten for å opprettholde tilstrekkelig tjenestenivå.",
+      "source_reference": "CER Directive Article 7",
+      "sort_order": 4
     },
     {
       "id": "cer-incident-notification",
@@ -400,6 +400,19 @@
       "definition_nb": "CER-direktivet etablerer styringsstrukturer som krever at medlemsstater vedtar nasjonale strategier, utpeker kompetente myndigheter og kontaktpunkter, og legger til rette for grenseoverskridende samarbeid (artikkel 4, 9-11).",
       "source_reference": "CER Directive Articles 4, 9-11",
       "sort_order": 5
+    },
+    {
+      "id": "cer-definitions",
+      "framework_id": "cer-directive",
+      "parent_id": "cer-governance-oversight",
+      "concept_type": "requirement",
+      "code": "ART-2",
+      "name_en": "Definitions",
+      "name_nb": "Definisjoner",
+      "definition_en": "Key definitions for the CER Directive: 'critical entity' means a public or private entity identified by a Member State as belonging to one of the Annex sectors; 'resilience' means ability to prevent, protect against, respond to, resist, mitigate, absorb, accommodate and recover from an incident; 'incident' means an event which has the potential to significantly disrupt provision of an essential service; 'critical infrastructure' means an asset, facility, equipment, network or system necessary for provision of an essential service; 'essential service' means a service crucial for vital societal functions, economic activities, public health and safety, or the environment; 'risk' means potential for loss or disruption expressed as a combination of magnitude and likelihood.",
+      "definition_nb": "Nøkkeldefinisjoner for CER-direktivet: 'kritisk enhet' er en offentlig eller privat enhet identifisert av en medlemsstat som tilhørende en av vedleggssektorene; 'robusthet' betyr evnen til å forebygge, beskytte mot, reagere på, motstå, redusere, absorbere, tilpasse seg og gjenopprette etter en hendelse; 'hendelse' betyr en begivenhet med potensial til å forstyrre leveringen av en essensiell tjeneste vesentlig; 'kritisk infrastruktur' betyr en eiendel, et anlegg, utstyr, et nettverk eller et system som er nødvendig for levering av en essensiell tjeneste.",
+      "source_reference": "CER Directive Article 2",
+      "sort_order": 1
     },
     {
       "id": "cer-national-strategy",
@@ -521,41 +534,41 @@
     {
       "id": "cer-background-checks",
       "framework_id": "cer-directive",
-      "parent_id": "cer-governance-oversight",
+      "parent_id": "cer-resilience-obligations",
       "concept_type": "requirement",
-      "code": "ART-8",
+      "code": "ART-14",
       "name_en": "Background Checks",
-      "name_nb": "Bakgrunnssjekk",
+      "name_nb": "Bakgrunnssjekker",
       "definition_en": "Member States shall ensure that critical entities may submit requests for background checks on persons who fill sensitive roles in or for the critical entity, including persons with access to premises, information systems, or sensitive areas. Background checks shall be assessed by the competent authorities of the Member State in which the person is resident.",
       "definition_nb": "Medlemsstater skal sikre at kritiske virksomheter kan sende inn forespørsler om bakgrunnssjekk av personer som fyller sensitive roller i eller for den kritiske virksomheten, inkludert personer med tilgang til lokaler, informasjonssystemer eller sensitive områder. Bakgrunnssjekker skal vurderes av kompetente myndigheter i medlemsstaten der personen er bosatt.",
       "source_reference": "CER Directive Article 14",
-      "sort_order": 6
+      "sort_order": 4
     },
     {
       "id": "cer-supervisory-powers",
       "framework_id": "cer-directive",
       "parent_id": "cer-governance-oversight",
       "concept_type": "requirement",
-      "code": "ART-10",
-      "name_en": "Supervisory Powers of Competent Authorities",
-      "name_nb": "Tilsynsmyndigheter for kompetente myndigheter",
+      "code": "ART-21",
+      "name_en": "Supervision and Enforcement",
+      "name_nb": "Tilsyn og håndheving",
       "definition_en": "Competent authorities shall have the power to conduct on-site inspections of critical infrastructure and premises, conduct audits, require critical entities to provide information necessary for assessment, require critical entities to submit their risk assessments and resilience plans, and issue binding instructions requiring entities to take specific measures within defined timeframes.",
       "definition_nb": "Kompetente myndigheter skal ha myndighet til å gjennomføre inspeksjoner på stedet av kritisk infrastruktur og lokaler, gjennomføre revisjoner, kreve at kritiske virksomheter gir informasjon nødvendig for vurdering, kreve at kritiske virksomheter oversender sine risikovurderinger og resiliensplaner, og utstede bindende pålegg som krever at virksomhetene iverksetter spesifikke tiltak innenfor definerte tidsfrister.",
       "source_reference": "CER Directive Article 21",
-      "sort_order": 7
+      "sort_order": 6
     },
     {
       "id": "cer-sector-equivalence",
       "framework_id": "cer-directive",
       "parent_id": "cer-governance-oversight",
       "concept_type": "requirement",
-      "code": "ART-14",
-      "name_en": "Equivalent Measures for Specific Sectors",
-      "name_nb": "Likeverdige tiltak for spesifikke sektorer",
+      "code": "ART-8",
+      "name_en": "Critical Entities in Banking, Financial Market Infrastructure and Digital Infrastructure Sectors",
+      "name_nb": "Kritiske enheter i bank-, finansmarkedsinfrastruktur- og digital infrastruktur-sektorene",
       "definition_en": "Where sector-specific Union legal acts (such as DORA for financial entities or specific energy sector legislation) require critical entities to take measures at least equivalent to those in this Directive, the corresponding provisions of this Directive shall not apply, avoiding duplication of requirements while ensuring a consistent level of resilience.",
       "definition_nb": "Der sektorspesifikke EU-rettsakter (som DORA for finansielle enheter eller spesifikk energisektorlovgivning) krever at kritiske virksomheter iverksetter tiltak som er minst likeverdige med dem i dette direktivet, skal de tilsvarende bestemmelsene i dette direktivet ikke gjelde, for å unngå duplisering av krav og samtidig sikre et konsistent motstandsdyktighetsnivå.",
       "source_reference": "CER Directive Article 8",
-      "sort_order": 8
+      "sort_order": 7
     }
   ]
 }
