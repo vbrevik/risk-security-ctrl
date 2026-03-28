@@ -10,6 +10,10 @@ pub struct Framework {
     pub version: Option<String>,
     pub description: Option<String>,
     pub source_url: Option<String>,
+    pub verification_status: Option<String>,
+    pub verification_date: Option<String>,
+    pub verification_source: Option<String>,
+    pub verification_notes: Option<String>,
     pub created_at: String,
     pub updated_at: String,
 }
@@ -126,6 +130,17 @@ impl<T> PaginatedResponse<T> {
             total_pages,
         }
     }
+}
+
+/// Verification proof response for a framework
+#[derive(Debug, Serialize, ToSchema)]
+pub struct ProofResponse {
+    pub framework_id: String,
+    pub verification_status: Option<String>,
+    pub verification_date: Option<String>,
+    pub verification_source: Option<String>,
+    pub verification_notes: Option<String>,
+    pub proof_content: Option<String>,
 }
 
 /// Topic tag for cross-cutting theme filtering

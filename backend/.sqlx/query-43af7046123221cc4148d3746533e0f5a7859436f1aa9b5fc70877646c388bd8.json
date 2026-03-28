@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            INSERT INTO relationships (id, source_concept_id, target_concept_id, relationship_type, description)\n            VALUES (?, ?, ?, ?, ?)\n            ON CONFLICT(id) DO UPDATE SET\n                source_concept_id = excluded.source_concept_id,\n                target_concept_id = excluded.target_concept_id,\n                relationship_type = excluded.relationship_type,\n                description = excluded.description\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 5
+    },
+    "nullable": []
+  },
+  "hash": "43af7046123221cc4148d3746533e0f5a7859436f1aa9b5fc70877646c388bd8"
+}

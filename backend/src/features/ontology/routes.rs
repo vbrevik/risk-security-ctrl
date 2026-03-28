@@ -12,8 +12,8 @@ use crate::AppState;
 
 use super::models::{
     ActionResponse, Concept, ConceptGuidanceResponse, ConceptListQuery,
-    ConceptWithRelationships, Framework, PaginatedResponse, QuestionResponse, ReferenceResponse,
-    RelatedConcept, Relationship, SearchQuery, Topic, TopicTagsFile,
+    ConceptWithRelationships, Framework, PaginatedResponse, ProofResponse, QuestionResponse,
+    ReferenceResponse, RelatedConcept, Relationship, SearchQuery, Topic, TopicTagsFile,
 };
 
 /// Health check response
@@ -52,7 +52,7 @@ pub async fn list_frameworks(
     State(state): State<AppState>,
 ) -> Result<Json<Vec<Framework>>, StatusCode> {
     let frameworks = sqlx::query_as::<_, Framework>(
-        r#"SELECT id, name, version, description, source_url, created_at, updated_at FROM frameworks ORDER BY name"#
+        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, created_at, updated_at FROM frameworks ORDER BY name"#
     )
     .fetch_all(&state.db)
     .await
@@ -79,7 +79,7 @@ pub async fn get_framework(
     Path(id): Path<String>,
 ) -> Result<Json<Framework>, StatusCode> {
     let framework = sqlx::query_as::<_, Framework>(
-        r#"SELECT id, name, version, description, source_url, created_at, updated_at FROM frameworks WHERE id = ?"#
+        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, created_at, updated_at FROM frameworks WHERE id = ?"#
     )
     .bind(id)
     .fetch_optional(&state.db)
@@ -509,10 +509,52 @@ pub async fn list_topics() -> Result<Json<Vec<Topic>>, StatusCode> {
     Ok(Json(topic_tags.topics))
 }
 
+/// Get verification proof for a framework
+#[utoipa::path(
+    get,
+    path = "/api/ontology/frameworks/{id}/proof",
+    tag = "ontology",
+    params(
+        ("id" = String, Path, description = "Framework ID")
+    ),
+    responses(
+        (status = 200, description = "Verification proof data", body = ProofResponse),
+        (status = 404, description = "Framework not found")
+    )
+)]
+pub async fn get_framework_proof(
+    State(state): State<AppState>,
+    Path(id): Path<String>,
+) -> Result<Json<ProofResponse>, StatusCode> {
+    // Validate framework exists and get verification metadata
+    let row = sqlx::query_as::<_, Framework>(
+        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, created_at, updated_at FROM frameworks WHERE id = ?"#
+    )
+    .bind(&id)
+    .fetch_optional(&state.db)
+    .await
+    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
+    .ok_or(StatusCode::NOT_FOUND)?;
+
+    // Derive proof file path server-side from framework ID (never from client input)
+    let proof_path = format!("../docs/sources/{}-proof.md", row.id);
+    let proof_content = tokio::fs::read_to_string(&proof_path).await.ok();
+
+    Ok(Json(ProofResponse {
+        framework_id: row.id,
+        verification_status: row.verification_status,
+        verification_date: row.verification_date,
+        verification_source: row.verification_source,
+        verification_notes: row.verification_notes,
+        proof_content,
+    }))
+}
+
 pub fn router() -> Router<AppState> {
     Router::new()
         .route("/frameworks", get(list_frameworks))
         .route("/frameworks/:id", get(get_framework))
+        .route("/frameworks/:id/proof", get(get_framework_proof))
         .route("/concepts", get(list_concepts))
         .route("/concepts/search", get(search_concepts))
         .route("/concepts/:id", get(get_concept))

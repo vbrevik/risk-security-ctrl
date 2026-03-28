@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            INSERT INTO concepts (\n                id, framework_id, parent_id, concept_type, code,\n                name_en, name_nb, definition_en, definition_nb,\n                source_reference, sort_order\n            )\n            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n            ON CONFLICT(id) DO UPDATE SET\n                framework_id = excluded.framework_id,\n                parent_id = excluded.parent_id,\n                concept_type = excluded.concept_type,\n                code = excluded.code,\n                name_en = excluded.name_en,\n                name_nb = excluded.name_nb,\n                definition_en = excluded.definition_en,\n                definition_nb = excluded.definition_nb,\n                source_reference = excluded.source_reference,\n                sort_order = excluded.sort_order,\n                updated_at = datetime('now')\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 11
+    },
+    "nullable": []
+  },
+  "hash": "177181cc4df1f861a94a49fce63e4807e0cf92a3c8ca252ecdc0d8e51a6d0cf7"
+}

@@ -12,6 +12,10 @@ pub struct FrameworkData {
     pub version: Option<String>,
     pub description: Option<String>,
     pub source_url: Option<String>,
+    pub verification_status: Option<String>,
+    pub verification_date: Option<String>,
+    pub verification_source: Option<String>,
+    pub verification_notes: Option<String>,
 }
 
 /// Concept definition from JSON
@@ -113,20 +117,29 @@ pub async fn import_ontology_file(
     );
     sqlx::query!(
         r#"
-        INSERT INTO frameworks (id, name, version, description, source_url)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO frameworks (id, name, version, description, source_url,
+            verification_status, verification_date, verification_source, verification_notes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(id) DO UPDATE SET
             name = excluded.name,
             version = excluded.version,
             description = excluded.description,
             source_url = excluded.source_url,
+            verification_status = excluded.verification_status,
+            verification_date = excluded.verification_date,
+            verification_source = excluded.verification_source,
+            verification_notes = excluded.verification_notes,
             updated_at = datetime('now')
         "#,
         ontology.framework.id,
         ontology.framework.name,
         ontology.framework.version,
         ontology.framework.description,
-        ontology.framework.source_url
+        ontology.framework.source_url,
+        ontology.framework.verification_status,
+        ontology.framework.verification_date,
+        ontology.framework.verification_source,
+        ontology.framework.verification_notes
     )
     .execute(db)
     .await?;
@@ -446,6 +459,10 @@ pub async fn import_all_ontologies(
         "xai-dataops.json",
         "mitre-attack.json",
         "cve-cwe.json",
+        "iso10015.json",
+        "iso24028.json",
+        "nsl-sikkerhetsloven.json",
+        "nsm-grunnprinsipper.json",
     ];
 
     for file_name in &framework_files {
