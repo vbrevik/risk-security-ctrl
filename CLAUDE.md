@@ -88,12 +88,16 @@ SQLite3 with SQLx for compile-time query checking. Key tables:
 
 ## Domain Context
 
-The ontology covers:
-- **ISO 31000:2018** - Risk management principles, framework, process
-- **ISO 31010** - Risk assessment techniques (FMEA, fault trees, etc.)
-- **NIST CSF** - Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover)
+30 frameworks across EU legislation, NIST publications, ISO standards, MITRE databases, and industry frameworks. Key ones:
+- **ISO 31000/31010/27000/42001** — Risk management, information security, AI management
+- **NIST CSF/RMF/AI RMF/SP 800-53** — Cybersecurity, risk, AI governance, security controls
+- **MITRE ATT&CK/ATLAS/CWE** — Threat intelligence, AI threats, software weaknesses
+- **EU AI Act/GDPR/NIS2/DORA** — EU regulatory frameworks
+- **Zero Trust (NIST 800-207)/CISA ZTMM** — Zero trust architecture and maturity
 
-Cross-framework mappings link equivalent concepts between standards.
+Cross-framework relationships (585) link equivalent concepts between standards.
+Verification proof files in `docs/sources/{framework-id}-proof.md`.
+Full backlog at `docs/BACKLOG.md`.
 
 ## Deep Workflow Integration Rules
 
@@ -111,3 +115,21 @@ Every prompt contract MUST run `/stig-compliance guard` after drafting CONSTRAIN
 
 ### Ontology Concept ID Naming
 NIST AI RMF concept IDs use abbreviated prefixes: `gv-` (Govern), `mp-` (Map), `ms-` (Measure), `mg-` (Manage) — not full words. Always verify actual IDs from the JSON before writing cross-framework relationships.
+
+### Import Pipeline: Framework Files vs Relationship Files
+Framework JSON files must be **manually listed** in the `framework_files` array in `backend/src/import.rs`. Relationship files (`relationships-*.json`) are **auto-discovered by glob**. If you add a new framework JSON and its relationship file without adding the framework to `import.rs`, the relationship glob will find and try to import relationships for a framework that was never loaded — causing FK constraint failures.
+
+### FK Ordering in JSON Arrays
+SQLite FK constraints require parent concepts to exist before children during INSERT. Concepts in JSON files must be topologically sorted (parents before children in the array). If a framework has hierarchical concepts, verify sort order.
+
+### Stale DB After JSON Changes
+After modifying ontology JSON files, always `rm -f ontology.db` before running `cargo test`. The test suite creates and populates the DB from scratch. A stale DB from a prior run will have old data.
+
+### SQLx Offline Mode
+When `ontology.db` doesn't exist at compile time, use `SQLX_OFFLINE=true` for builds and tests. To regenerate offline query data after schema changes: `sqlx database create && sqlx migrate run && cargo sqlx prepare`.
+
+### Bulk Ontology JSON Edits
+For changes across many JSON files, write a Python script to `/tmp/` rather than editing each file individually. This avoids token limits and is less error-prone.
+
+### Flaky Guidance Tests
+The `guidance_tests` integration tests share a single SQLite file across parallel test threads. Two tests (`integration_import_with_real_concept_ids`, `integration_fts5_search_with_real_data`) occasionally fail due to race conditions. They pass reliably with `--test-threads=1`. This is a pre-existing issue, not caused by your changes.
