@@ -7,9 +7,9 @@ Splits 01-06 of ontology verification are **complete**. 30 framework JSON files 
 | Status | Count | Frameworks |
 |--------|-------|------------|
 | verified | 16 | cisa-ztmm, cve-cwe, data-centric, eu-ai-act, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-csf, nist-rmf, nsl-sikkerhetsloven, nsm-grunnprinsipper, xai-dataops, zero-trust |
-| corrected | 7 | cer-directive, dora, iso10015, iso31010, iso42005, nist-ai-genai, nist-sp-800-53 |
+| corrected | 8 | cer-directive, dora, iso10015, iso31010, iso42005, iso9000, nist-ai-genai, nist-sp-800-53 |
 | structure-verified | 5 | iso23894, iso24028, iso31000, iso42001, mitre-attack |
-| partially-verified | 2 | fmn, iso9000 |
+| partially-verified | 1 | fmn |
 
 ## Pending Verification Work
 
@@ -219,23 +219,23 @@ D3FEND and CAPEC ship with built-in MITRE mappings (D3FEND↔ATT&CK, CAPEC↔CWE
 
 ---
 
-## Frontend Proof View Feature (Deferred)
+## Frontend Proof View Feature — DONE (2026-03-28)
 
-Backend is ready — migration 005 adds `verification_status/date/source/notes` columns to `frameworks`, all 30 JSON files have verification metadata, and `GET /api/ontology/frameworks/{id}/proof` endpoint returns DB metadata + proof file markdown content.
+Backend: migration 005 adds `verification_status/date/source/notes` columns, `GET /api/ontology/frameworks/{id}/proof` endpoint returns metadata + markdown. Frontend: all items implemented and committed.
 
-**Remaining frontend work:**
-- [ ] API hook for `GET /api/ontology/frameworks/{id}/proof`
-- [ ] Proof view route (`/ontology/frameworks/:frameworkId/proof` or panel in detail view)
-- [ ] Verification status badge (color-coded: verified=green, partially-verified=yellow, unverified=gray, needs-correction=red)
-- [ ] Rendered markdown proof content with source links
-- [ ] `pnpm build` passes
+- [x] API hook `useFrameworkProof` for `GET /api/ontology/frameworks/{id}/proof`
+- [x] `ProofPanel` component with lazy proof fetching and rendered markdown
+- [x] `VerificationBadge` component (WCAG-compliant, color-coded status display)
+- [x] Integrated into `FrameworkProfile` page
+- [x] i18n keys added for all proof view strings
+- [x] `pnpm build` passes
 
 ---
 
 # Execution Plan
 
 1. ~~Complete verification splits 01-06~~ DONE (2026-03-28)
-2. Frontend proof view feature (see above)
+2. ~~Frontend proof view feature~~ DONE (2026-03-28)
 3. Pending verification work (FMN restructuring, NSL/NSM GP)
 4. Build HIGH priority NIST frameworks (Privacy Framework, SSDF, C-SCRM)
 4. Build HIGH priority MITRE frameworks (D3FEND, CAPEC, CREF, SoT) — leverage built-in cross-mappings
