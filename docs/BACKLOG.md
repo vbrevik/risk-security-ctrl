@@ -7,9 +7,9 @@ Splits 01-06 of ontology verification are **complete**. 30 framework JSON files 
 | Status | Count | Frameworks |
 |--------|-------|------------|
 | verified | 15 | cisa-ztmm, cve-cwe, data-centric, eu-ai-act, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-csf, nist-rmf, nsl-sikkerhetsloven, xai-dataops, zero-trust |
-| corrected | 5 | cer-directive, dora, iso31010, nist-ai-genai, nist-sp-800-53 |
+| corrected | 6 | cer-directive, dora, iso10015, iso31010, nist-ai-genai, nist-sp-800-53 |
 | structure-verified | 5 | iso23894, iso24028, iso31000, iso42001, mitre-attack |
-| partially-verified | 5 | fmn, iso10015, iso42005, iso9000, nsm-grunnprinsipper |
+| partially-verified | 4 | fmn, iso42005, iso9000, nsm-grunnprinsipper |
 
 ## Pending Verification Work
 
