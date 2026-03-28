@@ -137,5 +137,26 @@
     "mappingDetail": "Mapping Detail",
     "rationale": "Rationale",
     "level": "Level"
+  },
+  "common": {
+    "source": "Source"
+  },
+  "proof": {
+    "viewProof": "View Proof",
+    "hideProof": "Hide Proof",
+    "date": "Verified",
+    "source": "Source",
+    "notes": "Notes",
+    "noProof": "No proof document available",
+    "error": "Could not load proof document.",
+    "status": {
+      "verified": "Verified",
+      "partially-verified": "Partially Verified",
+      "structure-verified": "Structure Verified",
+      "corrected": "Corrected",
+      "unverified": "Unverified",
+      "needs-correction": "Needs Correction",
+      "unknown": "Unknown"
+    }
   }
 }

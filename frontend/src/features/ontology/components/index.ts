@@ -6,3 +6,5 @@ export { CompareView } from "./Compare";
 export { ContextPanel } from "./ContextPanel";
 export { ExportDialog } from "./ExportDialog";
 export { CrosswalkView } from "./Crosswalk";
+export { VerificationBadge } from "./VerificationBadge";
+export { ProofPanel } from "./ProofPanel";

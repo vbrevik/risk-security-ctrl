@@ -6,7 +6,8 @@ import { FrameworkSidebar } from "../FrameworkSidebar";
 import type { Framework, FrameworkStats } from "../../types";
 
 function makeFramework(id: string, name: string): Framework {
-  return { id, name, version: "1.0", description: null, source_url: null, created_at: "", updated_at: "" };
+  return { id, name, version: "1.0", description: null, source_url: null, created_at: "", updated_at: "",
+    verification_status: null, verification_date: null, verification_source: null, verification_notes: null };
 }
 
 const FRAMEWORKS: Framework[] = [

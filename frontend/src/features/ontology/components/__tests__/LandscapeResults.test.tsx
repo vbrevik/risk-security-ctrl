@@ -4,9 +4,9 @@ import { LandscapeResults } from "../LandscapeResults";
 import type { Framework } from "../../types";
 
 const FRAMEWORKS: Framework[] = [
-  { id: "iso31000", name: "ISO 31000", version: null, description: "Risk management", source_url: null, created_at: "", updated_at: "" },
-  { id: "gdpr", name: "GDPR", version: null, description: "Data protection", source_url: null, created_at: "", updated_at: "" },
-  { id: "dora", name: "DORA", version: null, description: null, source_url: null, created_at: "", updated_at: "" },
+  { id: "iso31000", name: "ISO 31000", version: null, description: "Risk management", source_url: null, created_at: "", updated_at: "", verification_status: null, verification_date: null, verification_source: null, verification_notes: null },
+  { id: "gdpr", name: "GDPR", version: null, description: "Data protection", source_url: null, created_at: "", updated_at: "", verification_status: null, verification_date: null, verification_source: null, verification_notes: null },
+  { id: "dora", name: "DORA", version: null, description: null, source_url: null, created_at: "", updated_at: "", verification_status: null, verification_date: null, verification_source: null, verification_notes: null },
 ];
 
 const CONCEPT_COUNT = new Map([["iso31000", 42], ["gdpr", 30], ["dora", 10]]);

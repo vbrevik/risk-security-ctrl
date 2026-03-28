@@ -137,5 +137,26 @@
     "mappingDetail": "Koblingsdetaljer",
     "rationale": "Begrunnelse",
     "level": "Niva"
+  },
+  "common": {
+    "source": "Kilde"
+  },
+  "proof": {
+    "viewProof": "Vis bevis",
+    "hideProof": "Skjul bevis",
+    "date": "Verifisert",
+    "source": "Kilde",
+    "notes": "Notater",
+    "noProof": "Ingen bevisdokument tilgjengelig",
+    "error": "Kunne ikke laste bevisdokument.",
+    "status": {
+      "verified": "Verifisert",
+      "partially-verified": "Delvis verifisert",
+      "structure-verified": "Struktur verifisert",
+      "corrected": "Korrigert",
+      "unverified": "Ikke verifisert",
+      "needs-correction": "Trenger korrigering",
+      "unknown": "Ukjent"
+    }
   }
 }

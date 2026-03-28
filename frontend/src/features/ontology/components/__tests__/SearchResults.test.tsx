@@ -13,8 +13,8 @@ import {
 } from "@tanstack/react-router";
 
 const FRAMEWORKS: Framework[] = [
-  { id: "gdpr", name: "GDPR", version: null, description: null, source_url: null, created_at: "", updated_at: "" },
-  { id: "nis2", name: "NIS2", version: null, description: null, source_url: null, created_at: "", updated_at: "" },
+  { id: "gdpr", name: "GDPR", version: null, description: null, source_url: null, created_at: "", updated_at: "", verification_status: null, verification_date: null, verification_source: null, verification_notes: null },
+  { id: "nis2", name: "NIS2", version: null, description: null, source_url: null, created_at: "", updated_at: "", verification_status: null, verification_date: null, verification_source: null, verification_notes: null },
 ];
 
 function makeConcept(id: string, fwId: string, type: string): Concept {

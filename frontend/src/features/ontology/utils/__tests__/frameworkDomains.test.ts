@@ -11,6 +11,10 @@ function makeFramework(id: string): Framework {
     source_url: null,
     created_at: "",
     updated_at: "",
+    verification_status: null,
+    verification_date: null,
+    verification_source: null,
+    verification_notes: null,
   };
 }
 
