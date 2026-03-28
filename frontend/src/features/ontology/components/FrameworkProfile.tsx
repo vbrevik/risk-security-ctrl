@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { BookOpen, ExternalLink, ChevronRight, ChevronDown } from "lucide-react";
+import { BookOpen, ExternalLink, ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import type { Framework, Concept, Relationship, FrameworkStats } from "../types";
 import { getFrameworkColor } from "../utils/graphTransform";
+import { VerificationBadge } from "./VerificationBadge";
+import { ProofPanel } from "./ProofPanel";
 
 interface FrameworkProfileProps {
   framework: Framework | null;
@@ -36,10 +39,17 @@ export function FrameworkProfile({
   isLoading,
 }: FrameworkProfileProps) {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [showProof, setShowProof] = useState(false);
+  const { t } = useTranslation("ontology");
 
   // Reset expanded state when framework changes
   useEffect(() => {
     setExpanded(new Set());
+  }, [framework?.id]);
+
+  // Reset proof panel when framework changes
+  useEffect(() => {
+    setShowProof(false);
   }, [framework?.id]);
 
   if (!framework) {
@@ -113,22 +123,37 @@ export function FrameworkProfile({
           {framework.version && (
             <span className="tech-badge">{framework.version}</span>
           )}
+          <VerificationBadge status={framework.verification_status} />
         </div>
         {framework.description && (
           <p className="text-sm text-foreground/70 mb-2">{framework.description}</p>
         )}
-        {framework.source_url && (
-          <a
-            href={framework.source_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs text-foreground/50 hover:text-foreground/80 transition-colors"
-          >
-            <ExternalLink className="w-3 h-3" />
-            Source
-          </a>
-        )}
+        <div className="flex flex-wrap items-center gap-3">
+          {framework.source_url && (
+            <a
+              href={framework.source_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-foreground/50 hover:text-foreground/80 transition-colors"
+            >
+              <ExternalLink className="w-3 h-3" />
+              {t("common.source", "Source")}
+            </a>
+          )}
+          {framework.verification_status !== null && (
+            <button
+              onClick={() => setShowProof((prev) => !prev)}
+              className="inline-flex items-center gap-1 text-xs text-foreground/50 hover:text-foreground/80 transition-colors"
+            >
+              <ShieldCheck className="w-3 h-3" />
+              {showProof ? t("proof.hideProof", "Hide Proof") : t("proof.viewProof", "View Proof")}
+            </button>
+          )}
+        </div>
       </div>
+
+      {/* Proof Panel */}
+      {showProof && <ProofPanel frameworkId={framework.id} />}
 
       {/* Stats Strip */}
       {stats && (
@@ -203,12 +228,12 @@ export function FrameworkProfile({
                 />
                 <span className="flex-1 font-mono text-xs">{conn.name}</span>
                 <span className="tech-badge text-[10px]">{conn.count}</span>
-                {conn.types.map((t) => (
+                {conn.types.map((relType) => (
                   <span
-                    key={t}
-                    className={`text-[9px] px-1.5 py-0.5 rounded-full ${REL_TYPE_COLORS[t] ?? "bg-gray-500/20 text-gray-700"}`}
+                    key={relType}
+                    className={`text-[9px] px-1.5 py-0.5 rounded-full ${REL_TYPE_COLORS[relType] ?? "bg-gray-500/20 text-gray-700"}`}
                   >
-                    {t.replace(/_/g, " ")}
+                    {relType.replace(/_/g, " ")}
                   </span>
                 ))}
               </div>
