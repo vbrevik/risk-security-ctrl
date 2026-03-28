@@ -4,7 +4,11 @@
     "name": "GDPR - General Data Protection Regulation",
     "version": "Regulation (EU) 2016/679",
     "description": "The General Data Protection Regulation (GDPR) is the European Union's comprehensive data protection law that governs the collection, processing, and storage of personal data of individuals within the EU/EEA. It establishes principles for data processing, rights for data subjects, obligations for controllers and processors, and enforcement mechanisms including significant fines.",
-    "source_url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    "source_url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+    "verification_notes": "verified"
   },
   "concepts": [
     {

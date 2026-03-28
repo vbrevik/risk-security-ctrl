@@ -4,7 +4,11 @@
     "name": "CER - Critical Entities Resilience Directive",
     "version": "Directive (EU) 2022/2557",
     "description": "The Critical Entities Resilience Directive establishes a framework to enhance the resilience of critical entities across 11 sectors against physical, cyber, and hybrid threats. It complements NIS2 by covering overall entity resilience beyond just cybersecurity.",
-    "source_url": "https://eur-lex.europa.eu/eli/dir/2022/2557/oj"
+    "source_url": "https://eur-lex.europa.eu/eli/dir/2022/2557/oj",
+    "verification_status": "partially-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://eur-lex.europa.eu/eli/dir/2022/2557/oj",
+    "verification_notes": "partially-verified"
   },
   "concepts": [
     {
@@ -514,7 +518,6 @@
       "source_reference": "CER Directive Articles 17-18",
       "sort_order": 3
     },
-
     {
       "id": "cer-background-checks",
       "framework_id": "cer-directive",

@@ -4,7 +4,11 @@
     "name": "ISO 31000:2018",
     "version": "2018",
     "description": "Risk management - Guidelines. Provides principles, a framework and a process for managing risk.",
-    "source_url": "https://www.iso.org/standard/65694.html"
+    "source_url": "https://www.iso.org/standard/65694.html",
+    "verification_status": "structure-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/standard/65694.html",
+    "verification_notes": "structure-verified"
   },
   "concepts": [
     {

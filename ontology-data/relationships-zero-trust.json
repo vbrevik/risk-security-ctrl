@@ -1,53 +1,32 @@
 {
-    "relationships": [
-        {
-            "id": "rel-zt-iso27000-access-control",
-            "source_concept_id": "zt-p2-least-privilege",
-            "target_concept_id": "iso27000-technological",
-            "relationship_type": "implements",
-            "description": "Zero Trust least privilege access implements ISO 27000 Technological controls for access management."
-        },
-        {
-            "id": "rel-zt-nist-identity",
-            "source_concept_id": "zt-p1-verify-explicitly",
-            "target_concept_id": "nist-csf-pr-aa",
-            "relationship_type": "implements",
-            "description": "Zero Trust verify explicitly principle implements NIST CSF Identity Management and Access Control."
-        },
-        {
-            "id": "rel-zt-nist-detect",
-            "source_concept_id": "zt-t5-device-security",
-            "target_concept_id": "nist-csf-de-cm",
-            "relationship_type": "implements",
-            "description": "Zero Trust device monitoring implements NIST CSF Continuous Monitoring."
-        },
-        {
-            "id": "rel-zt-iso31000-assume-breach",
-            "source_concept_id": "zt-p3-assume-breach",
-            "target_concept_id": "iso31000-p5-dynamic",
-            "relationship_type": "related_to",
-            "description": "Zero Trust assume breach principle relates to ISO 31000 Dynamic principle - both recognize changing threat landscape."
-        },
-        {
-            "id": "rel-zt-fmn-identity",
-            "source_concept_id": "zt-pep",
-            "target_concept_id": "fmn-identity",
-            "relationship_type": "implements",
-            "description": "Zero Trust Policy Enforcement Point can implement FMN Federated Identity Management."
-        },
-        {
-            "id": "rel-zt-dca-policy-driven",
-            "source_concept_id": "zt-t4-dynamic-policy",
-            "target_concept_id": "dca-p3-policy-driven",
-            "relationship_type": "maps_to",
-            "description": "Zero Trust dynamic policy maps to Data Centric policy-driven access - both embed policy with data/resources."
-        },
-        {
-            "id": "rel-zt-iso27000-evaluation",
-            "source_concept_id": "zt-t6-dynamic-authentication",
-            "target_concept_id": "iso27000-evaluation",
-            "relationship_type": "implements",
-            "description": "Zero Trust continuous authentication implements ISO 27000 Performance evaluation requirements."
-        }
-    ]
+  "relationships": [
+    {
+      "id": "rel-zt-nist-detect",
+      "source_concept_id": "zt-t5-device-security",
+      "target_concept_id": "nist-csf-de-cm",
+      "relationship_type": "implements",
+      "description": "Zero Trust device monitoring implements NIST CSF Continuous Monitoring."
+    },
+    {
+      "id": "rel-zt-fmn-identity",
+      "source_concept_id": "zt-pep",
+      "target_concept_id": "fmn-identity",
+      "relationship_type": "implements",
+      "description": "Zero Trust Policy Enforcement Point can implement FMN Federated Identity Management."
+    },
+    {
+      "id": "rel-zt-dca-policy-driven",
+      "source_concept_id": "zt-t4-dynamic-policy",
+      "target_concept_id": "dca-p3-policy-driven",
+      "relationship_type": "maps_to",
+      "description": "Zero Trust dynamic policy maps to Data Centric policy-driven access - both embed policy with data/resources."
+    },
+    {
+      "id": "rel-zt-iso27000-evaluation",
+      "source_concept_id": "zt-t6-dynamic-authentication",
+      "target_concept_id": "iso27000-evaluation",
+      "relationship_type": "implements",
+      "description": "Zero Trust continuous authentication implements ISO 27000 Performance evaluation requirements."
+    }
+  ]
 }

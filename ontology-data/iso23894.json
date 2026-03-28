@@ -4,7 +4,11 @@
     "name": "ISO/IEC 23894 - AI Risk Management Guidance",
     "version": "2023",
     "description": "ISO/IEC 23894 provides guidance on how organizations that develop, produce, deploy, or use products, systems, and services that utilize AI can manage risk specifically related to AI. It is based on ISO 31000 and extends its principles and process to the AI context, covering the entire AI system lifecycle.",
-    "source_url": "https://www.iso.org/standard/77304.html"
+    "source_url": "https://www.iso.org/standard/77304.html",
+    "verification_status": "structure-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/standard/77304.html",
+    "verification_notes": "structure-verified"
   },
   "concepts": [
     {
@@ -135,7 +139,7 @@
       "definition_en": "ISO/IEC 23894 applies ISO 31000's framework components — leadership and commitment, integration, design, implementation, evaluation, and improvement — to the AI context, providing guidance on how organizations should structure their AI risk management framework.",
       "definition_nb": "ISO/IEC 23894 anvender ISO 31000s rammeverkkomponenter — lederskap og forpliktelse, integrasjon, design, implementering, evaluering og forbedring — i KI-konteksten, og gir veiledning om hvordan organisasjoner bør strukturere sitt rammeverk for KI-risikostyring.",
       "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework)",
-      "sort_order": 5
+      "sort_order": 2
     },
     {
       "id": "iso23894-fw-integration",
@@ -164,6 +168,58 @@
       "sort_order": 2
     },
     {
+      "id": "iso23894-fw-leadership",
+      "framework_id": "iso23894",
+      "parent_id": "iso23894-framework",
+      "concept_type": "framework-component",
+      "code": "FW.3",
+      "name_en": "Leadership and Commitment",
+      "name_nb": "Lederskap og forpliktelse",
+      "definition_en": "Top management should demonstrate leadership and commitment to AI risk management by ensuring adequate resources, defining roles and responsibilities, and establishing an organizational culture that supports responsible AI development and deployment.",
+      "definition_nb": "Toppledelsen bør demonstrere lederskap og forpliktelse til KI-risikostyring ved å sikre tilstrekkelige ressurser, definere roller og ansvar, og etablere en organisasjonskultur som støtter ansvarlig KI-utvikling og -utrulling.",
+      "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework - Leadership and Commitment)",
+      "sort_order": 3
+    },
+    {
+      "id": "iso23894-fw-implementation",
+      "framework_id": "iso23894",
+      "parent_id": "iso23894-framework",
+      "concept_type": "framework-component",
+      "code": "FW.4",
+      "name_en": "Implementation",
+      "name_nb": "Implementering",
+      "definition_en": "The organization should implement the AI risk management framework by establishing processes, allocating resources, defining information flows, and ensuring that AI risk management activities are executed consistently across all AI initiatives.",
+      "definition_nb": "Organisasjonen bør implementere rammeverket for KI-risikostyring ved å etablere prosesser, tildele ressurser, definere informasjonsflyt og sikre at KI-risikostyringsaktiviteter utføres konsistent på tvers av alle KI-initiativer.",
+      "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework - Implementation)",
+      "sort_order": 4
+    },
+    {
+      "id": "iso23894-fw-evaluation",
+      "framework_id": "iso23894",
+      "parent_id": "iso23894-framework",
+      "concept_type": "framework-component",
+      "code": "FW.5",
+      "name_en": "Evaluation",
+      "name_nb": "Evaluering",
+      "definition_en": "The organization should periodically evaluate the effectiveness and adequacy of the AI risk management framework, measuring whether it achieves its intended purpose and identifying areas for improvement.",
+      "definition_nb": "Organisasjonen bør periodisk evaluere effektiviteten og tilstrekkeligheten av rammeverket for KI-risikostyring, måle om det oppnår sitt tiltenkte formål og identifisere forbedringsområder.",
+      "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework - Evaluation)",
+      "sort_order": 5
+    },
+    {
+      "id": "iso23894-fw-improvement",
+      "framework_id": "iso23894",
+      "parent_id": "iso23894-framework",
+      "concept_type": "framework-component",
+      "code": "FW.6",
+      "name_en": "Improvement",
+      "name_nb": "Forbedring",
+      "definition_en": "The organization should continually improve the suitability, adequacy, and effectiveness of the AI risk management framework based on evaluation results, lessons learned from AI incidents, and evolving best practices in AI governance.",
+      "definition_nb": "Organisasjonen bør kontinuerlig forbedre egnetheten, tilstrekkeligheten og effektiviteten av rammeverket for KI-risikostyring basert på evalueringsresultater, erfaringer fra KI-hendelser og utviklende beste praksis innen KI-styring.",
+      "source_reference": "ISO/IEC 23894:2023 Clause 5 (Framework - Improvement)",
+      "sort_order": 6
+    },
+    {
       "id": "iso23894-process",
       "framework_id": "iso23894",
       "parent_id": null,
@@ -173,20 +229,20 @@
       "name_nb": "Prosess for KI-risikostyring",
       "definition_en": "The AI risk management process follows the ISO 31000 process structure — communication and consultation, scope/context/criteria, risk assessment (identification, analysis, evaluation), risk treatment, monitoring and review, and recording and reporting — with AI-specific guidance for each step.",
       "definition_nb": "Prosessen for KI-risikostyring følger ISO 31000-prosessstrukturen — kommunikasjon og konsultasjon, omfang/kontekst/kriterier, risikovurdering (identifisering, analyse, evaluering), risikobehandling, overvåking og gjennomgang, og registrering og rapportering — med KI-spesifikk veiledning for hvert steg.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5",
-      "sort_order": 2
+      "source_reference": "ISO/IEC 23894:2023 Clause 6",
+      "sort_order": 3
     },
     {
       "id": "iso23894-communication",
       "framework_id": "iso23894",
       "parent_id": "iso23894-process",
       "concept_type": "process",
-      "code": "5.1",
+      "code": "6.1",
       "name_en": "Communication and Consultation",
       "name_nb": "Kommunikasjon og konsultasjon",
       "definition_en": "Engaging AI stakeholders throughout the AI system lifecycle, including developers, operators, affected individuals, regulators, and domain experts. Communication should address AI-specific topics such as explainability of decisions, data usage, system limitations, and the level of human oversight applied.",
       "definition_nb": "Engasjere KI-interessenter gjennom hele KI-systemets livssyklus, inkludert utviklere, operatører, berørte enkeltpersoner, regulatorer og domeneeksperter. Kommunikasjon bør dekke KI-spesifikke emner som forklarbarhet av beslutninger, databruk, systembegrensninger og nivået av menneskelig tilsyn.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.1",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.1",
       "sort_order": 1
     },
     {
@@ -194,12 +250,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-process",
       "concept_type": "process",
-      "code": "5.2",
+      "code": "6.2",
       "name_en": "Scope, Context and Criteria",
       "name_nb": "Omfang, kontekst og kriterier",
       "definition_en": "Defining the AI system boundaries, intended use, operational context, and risk criteria. This includes specifying the AI system's purpose, the populations and environments it affects, acceptable performance thresholds, fairness requirements, and the regulatory and ethical constraints that apply.",
       "definition_nb": "Definere KI-systemets grenser, tiltenkt bruk, operasjonell kontekst og risikokriterier. Dette inkluderer å spesifisere KI-systemets formål, populasjonene og miljøene det påvirker, akseptable ytelsesterskler, rettferdighetskrav, og de regulatoriske og etiske begrensningene som gjelder.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.2",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.2",
       "sort_order": 2
     },
     {
@@ -207,12 +263,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-process",
       "concept_type": "process",
-      "code": "5.3",
+      "code": "6.3",
       "name_en": "AI Risk Assessment",
       "name_nb": "KI-risikovurdering",
       "definition_en": "The overall process of AI risk identification, AI risk analysis, and AI risk evaluation. AI risk assessment should consider the unique characteristics of AI systems including their data dependencies, learning capabilities, opacity, and potential for emergent behaviors.",
       "definition_nb": "Den overordnede prosessen for KI-risikoidentifisering, KI-risikoanalyse og KI-risikoevaluering. KI-risikovurdering bør ta hensyn til de unike egenskapene til KI-systemer, inkludert deres dataavhengigheter, læringsevner, uklarhet og potensial for fremvoksende atferd.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.3",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.3",
       "sort_order": 3
     },
     {
@@ -220,12 +276,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-assessment",
       "concept_type": "process",
-      "code": "5.3.1",
+      "code": "6.3.1",
       "name_en": "AI Risk Identification",
       "name_nb": "KI-risikoidentifisering",
       "definition_en": "Identifying sources of AI risk across the system lifecycle. Key AI risk sources include data quality issues, model bias, adversarial attacks, lack of explainability, unintended behaviors, privacy risks, safety risks, security vulnerabilities, and environmental impacts. Risk identification should be systematic and consider both technical and sociotechnical factors.",
       "definition_nb": "Identifisere kilder til KI-risiko gjennom hele systemets livssyklus. Sentrale KI-risikokilder inkluderer datakvalitetsproblemer, modellskjevhet, motstandsangrep, mangel på forklarbarhet, utilsiktede atferder, personvernrisikoer, sikkerhetsrisikoer, sikkerhetssårbarheter og miljøpåvirkninger. Risikoidentifisering bør være systematisk og vurdere både tekniske og sosiotekniske faktorer.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.3.1",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.3.1",
       "sort_order": 1
     },
     {
@@ -233,12 +289,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-assessment",
       "concept_type": "process",
-      "code": "5.3.2",
+      "code": "6.3.2",
       "name_en": "AI Risk Analysis",
       "name_nb": "KI-risikoanalyse",
       "definition_en": "Analyzing the likelihood and consequences of identified AI risks. AI risk analysis should account for the inherent uncertainty in AI system behavior, potential cascading effects when AI systems interact with other systems or processes, the difficulty of predicting emergent behaviors, and the variability of AI performance across different populations and contexts.",
       "definition_nb": "Analysere sannsynligheten for og konsekvensene av identifiserte KI-risikoer. KI-risikoanalyse bør ta hensyn til den iboende usikkerheten i KI-systemers atferd, potensielle kaskadeeffekter når KI-systemer samhandler med andre systemer eller prosesser, vanskeligheten med å forutsi fremvoksende atferd, og variasjonen i KI-ytelse på tvers av ulike populasjoner og kontekster.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.3.2",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.3.2",
       "sort_order": 2
     },
     {
@@ -246,12 +302,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-assessment",
       "concept_type": "process",
-      "code": "5.3.3",
+      "code": "6.3.3",
       "name_en": "AI Risk Evaluation",
       "name_nb": "KI-risikoevaluering",
       "definition_en": "Comparing AI risk analysis results against established risk criteria to determine which risks need treatment and their priority. AI risk evaluation should consider the severity of potential harms to individuals and groups, the reversibility of negative outcomes, the breadth of population affected, and regulatory requirements specific to AI applications.",
       "definition_nb": "Sammenligne resultater fra KI-risikoanalyse mot etablerte risikokriterier for å bestemme hvilke risikoer som trenger behandling og deres prioritet. KI-risikoevaluering bør vurdere alvorlighetsgraden av potensielle skader for enkeltpersoner og grupper, reversibiliteten av negative utfall, bredden av berørt befolkning, og regulatoriske krav spesifikke for KI-applikasjoner.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.3.3",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.3.3",
       "sort_order": 3
     },
     {
@@ -259,12 +315,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-process",
       "concept_type": "process",
-      "code": "5.4",
+      "code": "6.4",
       "name_en": "AI Risk Treatment",
       "name_nb": "KI-risikobehandling",
       "definition_en": "Selecting and implementing controls to modify AI risks. AI-specific treatment options include bias mitigation techniques, rigorous testing and validation, continuous monitoring, human oversight mechanisms, transparency and explainability measures, fallback mechanisms for system failure, data governance controls, and adversarial robustness measures.",
       "definition_nb": "Velge og implementere kontroller for å modifisere KI-risikoer. KI-spesifikke behandlingsalternativer inkluderer teknikker for skjevhetsreduksjon, grundig testing og validering, kontinuerlig overvåking, mekanismer for menneskelig tilsyn, transparens- og forkarbarhetsimidler, reservemekanismer for systemfeil, datastyringskontroller og tiltak for motstandsdyktighet mot angrep.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.4",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.4",
       "sort_order": 4
     },
     {
@@ -272,12 +328,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-process",
       "concept_type": "process",
-      "code": "5.5",
+      "code": "6.5",
       "name_en": "Monitoring and Review",
       "name_nb": "Overvåking og gjennomgang",
       "definition_en": "Continuous monitoring of AI system performance, data drift detection, model degradation, emerging risks, and the effectiveness of implemented controls. Regular reviews should assess whether the AI system continues to operate within acceptable risk levels and whether the risk context has changed.",
       "definition_nb": "Kontinuerlig overvåking av KI-systemets ytelse, datadriftdeteksjon, modellforringelse, fremvoksende risikoer og effektiviteten av implementerte kontroller. Regelmessige gjennomganger bør vurdere om KI-systemet fortsetter å operere innenfor akseptable risikonivåer og om risikokonteksten har endret seg.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.5",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.5",
       "sort_order": 5
     },
     {
@@ -285,12 +341,12 @@
       "framework_id": "iso23894",
       "parent_id": "iso23894-process",
       "concept_type": "process",
-      "code": "5.6",
+      "code": "6.6",
       "name_en": "Recording and Reporting",
       "name_nb": "Registrering og rapportering",
       "definition_en": "Documenting AI risk management decisions, maintaining audit trails for AI system development and deployment, reporting AI incidents, and providing transparency to stakeholders about AI risk management activities. Documentation should support accountability, regulatory compliance, and organizational learning.",
       "definition_nb": "Dokumentere beslutninger om KI-risikostyring, opprettholde revisjonsspor for KI-systemutvikling og -distribusjon, rapportere KI-hendelser, og gi transparens til interessenter om KI-risikostyringsaktiviteter. Dokumentasjon bør støtte ansvarlighet, regulatorisk etterlevelse og organisatorisk læring.",
-      "source_reference": "ISO/IEC 23894:2023 Clause 5.6",
+      "source_reference": "ISO/IEC 23894:2023 Clause 6.6",
       "sort_order": 6
     },
     {
@@ -304,7 +360,7 @@
       "definition_en": "Key categories of risk that are specific to or amplified by AI systems. These risk sources span technical, operational, and societal dimensions and should be considered throughout the AI system lifecycle.",
       "definition_nb": "Sentrale risikokategorier som er spesifikke for eller forsterket av KI-systemer. Disse risikokildene spenner over tekniske, operasjonelle og samfunnsmessige dimensjoner og bør vurderes gjennom hele KI-systemets livssyklus.",
       "source_reference": "ISO/IEC 23894:2023 Annex A",
-      "sort_order": 3
+      "sort_order": 4
     },
     {
       "id": "iso23894-data-risks",
@@ -395,7 +451,7 @@
       "definition_en": "Risk management considerations specific to each phase of the AI system lifecycle. Different risks emerge, evolve, and require different management approaches at each stage from initial planning through to system retirement.",
       "definition_nb": "Risikostyringshensyn spesifikke for hver fase av KI-systemets livssyklus. Ulike risikoer oppstår, utvikler seg og krever ulike styringstilnærminger i hvert stadium fra innledende planlegging til systemavvikling.",
       "source_reference": "ISO/IEC 23894:2023 Annex B",
-      "sort_order": 4
+      "sort_order": 5
     },
     {
       "id": "iso23894-lc-planning",

@@ -1,109 +1,109 @@
 {
-    "relationships": [
-        {
-            "id": "rel-atlas-recon-csf-identify",
-            "source_concept_id": "mitre-atlas-reconnaissance",
-            "target_concept_id": "nist-csf-identify",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Reconnaissance tactic relates to NIST CSF Identify function. Understanding reconnaissance threats informs asset identification."
-        },
-        {
-            "id": "rel-atlas-defense-evasion-csf-detect",
-            "source_concept_id": "mitre-atlas-defense-evasion",
-            "target_concept_id": "nist-csf-detect",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Defense Evasion tactic relates to NIST CSF Detect function. Detection must account for AI-specific evasion techniques."
-        },
-        {
-            "id": "rel-atlas-impact-csf-respond",
-            "source_concept_id": "mitre-atlas-impact",
-            "target_concept_id": "nist-csf-respond",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Impact tactic relates to NIST CSF Respond function. AI system impacts require incident response."
-        },
-        {
-            "id": "rel-atlas-staging-nist-ai-secure",
-            "source_concept_id": "mitre-atlas-ml-attack-staging",
-            "target_concept_id": "nist-ai-tw-secure-resilient",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS ML Attack Staging relates to NIST AI RMF Secure and Resilient characteristic. AI systems must be resilient against these attacks."
-        },
-        {
-            "id": "rel-atlas-data-poisoning-eu-ai-data",
-            "source_concept_id": "mitre-atlas-staging-data-poisoning",
-            "target_concept_id": "eu-ai-hr-data-governance",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Data Poisoning technique relates to EU AI Act data governance requirement. Data governance must address poisoning risks."
-        },
-        {
-            "id": "rel-atlas-supply-chain-800-53-sr",
-            "source_concept_id": "mitre-atlas-ia-ml-supply-chain",
-            "target_concept_id": "nist-800-53-sr",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS ML Supply Chain Compromise relates to NIST SP 800-53 Supply Chain Risk Management."
-        },
-        {
-            "id": "rel-atlas-model-extraction-eu-ai-accuracy",
-            "source_concept_id": "mitre-atlas-coll-model-extraction",
-            "target_concept_id": "eu-ai-hr-accuracy",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Model Extraction relates to EU AI Act accuracy and cybersecurity requirement. Systems must be resilient against extraction attacks."
-        },
-        {
-            "id": "rel-atlas-prompt-injection-nist-ai-safe",
-            "source_concept_id": "mitre-atlas-exec-prompt-injection",
-            "target_concept_id": "nist-ai-tw-safe",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Prompt Injection relates to NIST AI RMF Safety characteristic. Prompt injection undermines AI system safety."
-        },
-        {
-            "id": "rel-atlas-exfil-iso27000-tech",
-            "source_concept_id": "mitre-atlas-exfiltration",
-            "target_concept_id": "iso27000-technological",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Exfiltration tactics relate to ISO 27000 Technological controls for preventing data and model theft."
-        },
-        {
-            "id": "rel-atlas-guardrails-saif-adaptive",
-            "source_concept_id": "mitre-atlas-de-erode-guardrails",
-            "target_concept_id": "google-saif-element-5-adaptive",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Erode Guardrails technique relates to Google SAIF Adaptive Risk Mitigation. Guardrail evasion requires adaptive controls."
-        },
-        {
-            "id": "rel-atlas-poisoning-saif-supply",
-            "source_concept_id": "mitre-atlas-staging-data-poisoning",
-            "target_concept_id": "google-saif-element-1-supply",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Data Poisoning relates to Google SAIF AI Supply Chain Security. Poisoning attacks target training pipelines that SAIF supply chain controls protect."
-        },
-        {
-            "id": "rel-atlas-prompt-injection-saif-detection",
-            "source_concept_id": "mitre-atlas-exec-prompt-injection",
-            "target_concept_id": "google-saif-element-3-automated-detection",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Prompt Injection relates to Google SAIF Automated Threat Detection for detecting adversarial instructions at scale."
-        },
-        {
-            "id": "rel-atlas-extraction-saif-access",
-            "source_concept_id": "mitre-atlas-coll-model-extraction",
-            "target_concept_id": "google-saif-element-1-access",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Model Extraction relates to Google SAIF AI Pipeline Access Controls. SAIF access controls mitigate extraction via rate limiting and monitoring."
-        },
-        {
-            "id": "rel-atlas-impact-nis2-incident",
-            "source_concept_id": "mitre-atlas-impact",
-            "target_concept_id": "nis2-rm-incident-handling",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Impact tactics relate to NIS2 incident handling. AI-specific attack impacts require NIS2-compliant incident response."
-        },
-        {
-            "id": "rel-atlas-recon-nis2-risk-analysis",
-            "source_concept_id": "mitre-atlas-reconnaissance",
-            "target_concept_id": "nis2-rm-risk-analysis",
-            "relationship_type": "related_to",
-            "description": "MITRE ATLAS Reconnaissance tactics relate to NIS2 risk analysis. AI-specific reconnaissance threats should inform NIS2 risk analysis for entities deploying AI."
-        }
-    ]
+  "relationships": [
+    {
+      "id": "rel-atlas-recon-csf-identify",
+      "source_concept_id": "mitre-atlas-reconnaissance",
+      "target_concept_id": "nist-csf-identify",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Reconnaissance tactic relates to NIST CSF Identify function. Understanding reconnaissance threats informs asset identification."
+    },
+    {
+      "id": "rel-atlas-defense-evasion-csf-detect",
+      "source_concept_id": "mitre-atlas-defense-evasion",
+      "target_concept_id": "nist-csf-detect",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Defense Evasion tactic relates to NIST CSF Detect function. Detection must account for AI-specific evasion techniques."
+    },
+    {
+      "id": "rel-atlas-impact-csf-respond",
+      "source_concept_id": "mitre-atlas-impact",
+      "target_concept_id": "nist-csf-respond",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Impact tactic relates to NIST CSF Respond function. AI system impacts require incident response."
+    },
+    {
+      "id": "rel-atlas-staging-nist-ai-secure",
+      "source_concept_id": "mitre-atlas-ai-attack-staging",
+      "target_concept_id": "nist-ai-tw-secure-resilient",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS ML Attack Staging relates to NIST AI RMF Secure and Resilient characteristic. AI systems must be resilient against these attacks."
+    },
+    {
+      "id": "rel-atlas-data-poisoning-eu-ai-data",
+      "source_concept_id": "mitre-atlas-aml-t0020",
+      "target_concept_id": "eu-ai-hr-data-governance",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Data Poisoning technique relates to EU AI Act data governance requirement. Data governance must address poisoning risks."
+    },
+    {
+      "id": "rel-atlas-supply-chain-800-53-sr",
+      "source_concept_id": "mitre-atlas-aml-t0010",
+      "target_concept_id": "nist-800-53-sr",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS ML Supply Chain Compromise relates to NIST SP 800-53 Supply Chain Risk Management."
+    },
+    {
+      "id": "rel-atlas-model-extraction-eu-ai-accuracy",
+      "source_concept_id": "mitre-atlas-aml-t0024",
+      "target_concept_id": "eu-ai-hr-accuracy",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Model Extraction relates to EU AI Act accuracy and cybersecurity requirement. Systems must be resilient against extraction attacks."
+    },
+    {
+      "id": "rel-atlas-prompt-injection-nist-ai-safe",
+      "source_concept_id": "mitre-atlas-aml-t0051",
+      "target_concept_id": "nist-ai-tw-safe",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Prompt Injection relates to NIST AI RMF Safety characteristic. Prompt injection undermines AI system safety."
+    },
+    {
+      "id": "rel-atlas-exfil-iso27000-tech",
+      "source_concept_id": "mitre-atlas-exfiltration",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Exfiltration tactics relate to ISO 27000 Technological controls for preventing data and model theft."
+    },
+    {
+      "id": "rel-atlas-guardrails-saif-adaptive",
+      "source_concept_id": "mitre-atlas-aml-t0054",
+      "target_concept_id": "google-saif-element-5-adaptive",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Erode Guardrails technique relates to Google SAIF Adaptive Risk Mitigation. Guardrail evasion requires adaptive controls."
+    },
+    {
+      "id": "rel-atlas-poisoning-saif-supply",
+      "source_concept_id": "mitre-atlas-aml-t0020",
+      "target_concept_id": "google-saif-element-1-supply",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Data Poisoning relates to Google SAIF AI Supply Chain Security. Poisoning attacks target training pipelines that SAIF supply chain controls protect."
+    },
+    {
+      "id": "rel-atlas-prompt-injection-saif-detection",
+      "source_concept_id": "mitre-atlas-aml-t0051",
+      "target_concept_id": "google-saif-element-3-automated-detection",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Prompt Injection relates to Google SAIF Automated Threat Detection for detecting adversarial instructions at scale."
+    },
+    {
+      "id": "rel-atlas-extraction-saif-access",
+      "source_concept_id": "mitre-atlas-aml-t0024",
+      "target_concept_id": "google-saif-element-1-access",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Model Extraction relates to Google SAIF AI Pipeline Access Controls. SAIF access controls mitigate extraction via rate limiting and monitoring."
+    },
+    {
+      "id": "rel-atlas-impact-nis2-incident",
+      "source_concept_id": "mitre-atlas-impact",
+      "target_concept_id": "nis2-rm-incident-handling",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Impact tactics relate to NIS2 incident handling. AI-specific attack impacts require NIS2-compliant incident response."
+    },
+    {
+      "id": "rel-atlas-recon-nis2-risk-analysis",
+      "source_concept_id": "mitre-atlas-reconnaissance",
+      "target_concept_id": "nis2-rm-risk-analysis",
+      "relationship_type": "related_to",
+      "description": "MITRE ATLAS Reconnaissance tactics relate to NIS2 risk analysis. AI-specific reconnaissance threats should inform NIS2 risk analysis for entities deploying AI."
+    }
+  ]
 }

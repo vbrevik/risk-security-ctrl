@@ -4,7 +4,11 @@
     "name": "Federated Mission Networking",
     "version": "5.0",
     "description": "NATO standard for enabling secure, interoperable information sharing and service provisioning across coalition mission networks through federation principles.",
-    "source_url": "https://www.nato.int/cps/en/natohq/topics_157575.htm"
+    "source_url": "https://www.nato.int/cps/en/natohq/topics_157575.htm",
+    "verification_status": "partially-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.nato.int/cps/en/natohq/topics_157575.htm",
+    "verification_notes": "partially-verified (significant issues remain)"
   },
   "concepts": [
     {
@@ -25,12 +29,12 @@
       "framework_id": "fmn",
       "parent_id": "fmn-principles",
       "concept_type": "principle",
-      "code": "FP1",
+      "code": null,
       "name_en": "Federation",
       "name_nb": "Føderasjon",
       "definition_en": "Nations and organizations maintain authority over their own networks while enabling controlled information sharing through federation.",
       "definition_nb": "Nasjoner og organisasjoner opprettholder myndighet over sine egne nettverk samtidig som de muliggjør kontrollert informasjonsdeling gjennom føderasjon.",
-      "source_reference": "FMN 5.0 Core Principles",
+      "source_reference": "FMN design theme (editorial summary)",
       "sort_order": 1
     },
     {
@@ -38,12 +42,12 @@
       "framework_id": "fmn",
       "parent_id": "fmn-principles",
       "concept_type": "principle",
-      "code": "FP2",
+      "code": null,
       "name_en": "Technical interoperability",
       "name_nb": "Teknisk interoperabilitet",
       "definition_en": "Systems from different nations must be able to exchange information and use shared services through common technical standards.",
       "definition_nb": "Systemer fra forskjellige nasjoner må kunne utveksle informasjon og bruke delte tjenester gjennom felles tekniske standarder.",
-      "source_reference": "FMN 5.0 Core Principles",
+      "source_reference": "FMN design theme (editorial summary)",
       "sort_order": 2
     },
     {
@@ -51,12 +55,12 @@
       "framework_id": "fmn",
       "parent_id": "fmn-principles",
       "concept_type": "principle",
-      "code": "FP3",
+      "code": null,
       "name_en": "Multilevel security",
       "name_nb": "Flernivåsikkerhet",
       "definition_en": "Support for multiple security classifications and need-to-know principles within the federated environment.",
       "definition_nb": "Støtte for flere sikkerhetsklassifiseringer og behov-for-å-vite-prinsipper i det fødererte miljøet.",
-      "source_reference": "FMN 5.0 Core Principles",
+      "source_reference": "FMN design theme (editorial summary)",
       "sort_order": 3
     },
     {
@@ -64,12 +68,12 @@
       "framework_id": "fmn",
       "parent_id": "fmn-principles",
       "concept_type": "principle",
-      "code": "FP4",
+      "code": null,
       "name_en": "Service-oriented architecture",
       "name_nb": "Tjenesteorientert arkitektur",
       "definition_en": "Information and capabilities are exposed as discoverable, reusable services.",
       "definition_nb": "Informasjon og kapabiliteter eksponeres som oppdagbare, gjenbrukbare tjenester.",
-      "source_reference": "FMN 5.0 Core Principles",
+      "source_reference": "FMN design theme (editorial summary)",
       "sort_order": 4
     },
     {
@@ -196,7 +200,7 @@
       "concept_type": "service_area",
       "code": "GEOINT",
       "name_en": "Geospatial Intelligence Services",
-      "name_nb": "Geospatiale etterretningtjenester",
+      "name_nb": "Geospatiale etterretningstjenester",
       "definition_en": "Services for sharing and accessing geospatial information, imagery, and mapping data.",
       "definition_nb": "Tjenester for deling og tilgang til geospatial informasjon, bilder og kartdata.",
       "source_reference": "FMN 5.0 GEOINT",
@@ -262,7 +266,7 @@
       "code": "S5",
       "name_en": "FMN Spiral 5",
       "name_nb": "FMN Spiral 5",
-      "definition_en": "FMN Spiral 5 is the current specification defining interoperability profiles and compliance requirements for federated mission networking, establishing the standards and technical baselines that nations must meet for mission network participation.",
+      "definition_en": "FMN Spiral 5 is the specification defining interoperability profiles and compliance requirements for federated mission networking, establishing the standards and technical baselines that nations must meet for mission network participation.",
       "definition_nb": "FMN Spiral 5 er den gjeldende spesifikasjonen som definerer interoperabilitetsprofiler og samsvarskrav for føderert misjonsnettverk, og etablerer standardene og tekniske grunnlinjene som nasjoner må oppfylle for deltakelse i misjonsnettverk.",
       "source_reference": "FMN Spiral 5.0",
       "sort_order": 1

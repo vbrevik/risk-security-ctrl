@@ -4,7 +4,11 @@
     "name": "NIST Risk Management Framework",
     "version": "SP 800-37 Rev. 2",
     "description": "The NIST Risk Management Framework (RMF) provides a disciplined, structured, and flexible process for managing security and privacy risk. It includes seven steps: Prepare, Categorize, Select, Implement, Assess, Authorize, and Monitor.",
-    "source_url": "https://csrc.nist.gov/projects/risk-management/about-rmf"
+    "source_url": "https://csrc.nist.gov/projects/risk-management/about-rmf",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://csrc.nist.gov/projects/risk-management/about-rmf",
+    "verification_notes": "verified"
   },
   "concepts": [
     {
@@ -20,7 +24,6 @@
       "source_reference": "NIST SP 800-37 Rev. 2",
       "sort_order": 1
     },
-
     {
       "id": "nist-rmf-prepare",
       "framework_id": "nist-rmf",
@@ -268,7 +271,6 @@
       "source_reference": "NIST SP 800-37 Rev. 2",
       "sort_order": 18
     },
-
     {
       "id": "nist-rmf-categorize",
       "framework_id": "nist-rmf",
@@ -321,7 +323,6 @@
       "source_reference": "NIST SP 800-37 Rev. 2",
       "sort_order": 3
     },
-
     {
       "id": "nist-rmf-select",
       "framework_id": "nist-rmf",
@@ -413,7 +414,6 @@
       "source_reference": "NIST SP 800-37 Rev. 2",
       "sort_order": 6
     },
-
     {
       "id": "nist-rmf-implement",
       "framework_id": "nist-rmf",
@@ -453,7 +453,6 @@
       "source_reference": "NIST SP 800-37 Rev. 2",
       "sort_order": 2
     },
-
     {
       "id": "nist-rmf-assess",
       "framework_id": "nist-rmf",
@@ -545,7 +544,6 @@
       "source_reference": "NIST SP 800-37 Rev. 2",
       "sort_order": 6
     },
-
     {
       "id": "nist-rmf-authorize",
       "framework_id": "nist-rmf",
@@ -624,7 +622,6 @@
       "source_reference": "NIST SP 800-37 Rev. 2",
       "sort_order": 5
     },
-
     {
       "id": "nist-rmf-monitor",
       "framework_id": "nist-rmf",

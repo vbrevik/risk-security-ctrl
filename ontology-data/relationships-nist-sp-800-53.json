@@ -1,305 +1,291 @@
 {
-    "relationships": [
-        {
-            "id": "rel-800-53-ac-csf-pr-aa",
-            "source_concept_id": "nist-800-53-ac",
-            "target_concept_id": "nist-csf-pr-aa",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Access Control family implements NIST CSF Identity Management, Authentication and Access Control category."
-        },
-        {
-            "id": "rel-800-53-ac-iso27000-tech",
-            "source_concept_id": "nist-800-53-ac",
-            "target_concept_id": "iso27000-technological",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 Access Control family maps to ISO 27001 Technological controls for access management."
-        },
-        {
-            "id": "rel-800-53-ac-zt-least-priv",
-            "source_concept_id": "nist-800-53-ac",
-            "target_concept_id": "zt-p2-least-privilege",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Access Control family implements Zero Trust least privileged access principle."
-        },
-        {
-            "id": "rel-800-53-at-csf-protect",
-            "source_concept_id": "nist-800-53-at",
-            "target_concept_id": "nist-csf-protect",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Awareness and Training family implements NIST CSF Protect function through security awareness."
-        },
-        {
-            "id": "rel-800-53-at-iso27000-people",
-            "source_concept_id": "nist-800-53-at",
-            "target_concept_id": "iso27000-people",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 Awareness and Training family maps to ISO 27001 People controls for security awareness."
-        },
-        {
-            "id": "rel-800-53-au-csf-de-cm",
-            "source_concept_id": "nist-800-53-au",
-            "target_concept_id": "nist-csf-de-cm",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Audit and Accountability family implements NIST CSF Continuous Monitoring through audit logging."
-        },
-        {
-            "id": "rel-800-53-au-iso27000-eval",
-            "source_concept_id": "nist-800-53-au",
-            "target_concept_id": "iso27000-evaluation",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 Audit and Accountability family maps to ISO 27001 Performance evaluation through audit records."
-        },
-        {
-            "id": "rel-800-53-ca-csf-id-ra",
-            "source_concept_id": "nist-800-53-ca",
-            "target_concept_id": "nist-csf-id-ra",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Assessment, Authorization, and Monitoring family implements NIST CSF Risk Assessment category."
-        },
-        {
-            "id": "rel-800-53-ca-csf-gv-rm",
-            "source_concept_id": "nist-800-53-ca",
-            "target_concept_id": "nist-csf-gv-rm",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Assessment, Authorization, and Monitoring family implements NIST CSF Risk Management Strategy."
-        },
-        {
-            "id": "rel-800-53-ca-iso31000-assessment",
-            "source_concept_id": "nist-800-53-ca",
-            "target_concept_id": "iso31000-proc3-risk-assessment",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Assessment, Authorization, and Monitoring family implements ISO 31000 Risk Assessment process."
-        },
-        {
-            "id": "rel-800-53-cm-csf-pr-ds",
-            "source_concept_id": "nist-800-53-cm",
-            "target_concept_id": "nist-csf-pr-ds",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Configuration Management family implements NIST CSF Data Security through configuration baselines."
-        },
-        {
-            "id": "rel-800-53-cm-csf-pr-ps",
-            "source_concept_id": "nist-800-53-cm",
-            "target_concept_id": "nist-csf-pr-ps",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Configuration Management family implements NIST CSF Platform Security through secure configurations."
-        },
-        {
-            "id": "rel-800-53-cp-csf-recover",
-            "source_concept_id": "nist-800-53-cp",
-            "target_concept_id": "nist-csf-recover",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Contingency Planning family implements NIST CSF Recover function through business continuity plans."
-        },
-        {
-            "id": "rel-800-53-cp-csf-pr-ir",
-            "source_concept_id": "nist-800-53-cp",
-            "target_concept_id": "nist-csf-pr-ir",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Contingency Planning family implements NIST CSF Technology Infrastructure Resilience."
-        },
-        {
-            "id": "rel-800-53-cp-iso31000-treatment",
-            "source_concept_id": "nist-800-53-cp",
-            "target_concept_id": "iso31000-proc4-treatment",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Contingency Planning family implements ISO 31000 Risk Treatment through continuity planning."
-        },
-        {
-            "id": "rel-800-53-ia-csf-pr-aa",
-            "source_concept_id": "nist-800-53-ia",
-            "target_concept_id": "nist-csf-pr-aa",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Identification and Authentication family implements NIST CSF Identity Management and Access Control."
-        },
-        {
-            "id": "rel-800-53-ia-zt-verify",
-            "source_concept_id": "nist-800-53-ia",
-            "target_concept_id": "zt-p1-verify-explicitly",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Identification and Authentication family implements Zero Trust verify explicitly principle."
-        },
-        {
-            "id": "rel-800-53-ir-csf-respond",
-            "source_concept_id": "nist-800-53-ir",
-            "target_concept_id": "nist-csf-respond",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Incident Response family implements NIST CSF Respond function."
-        },
-        {
-            "id": "rel-800-53-ir-iso27000-operation",
-            "source_concept_id": "nist-800-53-ir",
-            "target_concept_id": "iso27000-operation",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 Incident Response family maps to ISO 27001 Operation requirements for incident handling."
-        },
-        {
-            "id": "rel-800-53-ma-csf-protect",
-            "source_concept_id": "nist-800-53-ma",
-            "target_concept_id": "nist-csf-protect",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Maintenance family implements NIST CSF Protect function through controlled system maintenance."
-        },
-        {
-            "id": "rel-800-53-mp-csf-pr-ds",
-            "source_concept_id": "nist-800-53-mp",
-            "target_concept_id": "nist-csf-pr-ds",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Media Protection family implements NIST CSF Data Security through media handling controls."
-        },
-        {
-            "id": "rel-800-53-pe-csf-protect",
-            "source_concept_id": "nist-800-53-pe",
-            "target_concept_id": "nist-csf-protect",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Physical and Environmental Protection family implements NIST CSF Protect function."
-        },
-        {
-            "id": "rel-800-53-pe-iso27000-physical",
-            "source_concept_id": "nist-800-53-pe",
-            "target_concept_id": "iso27000-physical",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 Physical and Environmental Protection family maps to ISO 27001 Physical controls."
-        },
-        {
-            "id": "rel-800-53-pl-csf-gv-rm",
-            "source_concept_id": "nist-800-53-pl",
-            "target_concept_id": "nist-csf-gv-rm",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Planning family implements NIST CSF Risk Management Strategy through security planning."
-        },
-        {
-            "id": "rel-800-53-pl-iso31000-design",
-            "source_concept_id": "nist-800-53-pl",
-            "target_concept_id": "iso31000-f3-design",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Planning family implements ISO 31000 Risk Management Framework Design."
-        },
-        {
-            "id": "rel-800-53-pm-csf-govern",
-            "source_concept_id": "nist-800-53-pm",
-            "target_concept_id": "nist-csf-govern",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Program Management family implements NIST CSF Govern function through organizational security governance."
-        },
-        {
-            "id": "rel-800-53-pm-iso31000-leadership",
-            "source_concept_id": "nist-800-53-pm",
-            "target_concept_id": "iso31000-f1-leadership",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Program Management family implements ISO 31000 Leadership and commitment."
-        },
-        {
-            "id": "rel-800-53-pm-iso27000-isms",
-            "source_concept_id": "nist-800-53-pm",
-            "target_concept_id": "iso27000-isms",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 Program Management family maps to ISO 27001 ISMS management system framework."
-        },
-        {
-            "id": "rel-800-53-ps-csf-protect",
-            "source_concept_id": "nist-800-53-ps",
-            "target_concept_id": "nist-csf-protect",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Personnel Security family implements NIST CSF Protect function through personnel screening and management."
-        },
-        {
-            "id": "rel-800-53-ps-iso27000-people",
-            "source_concept_id": "nist-800-53-ps",
-            "target_concept_id": "iso27000-people",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 Personnel Security family maps to ISO 27001 People controls."
-        },
-        {
-            "id": "rel-800-53-pt-csf-govern",
-            "source_concept_id": "nist-800-53-pt",
-            "target_concept_id": "nist-csf-govern",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 PII Processing and Transparency family implements NIST CSF Govern function for privacy governance."
-        },
-        {
-            "id": "rel-800-53-ra-csf-id-ra",
-            "source_concept_id": "nist-800-53-ra",
-            "target_concept_id": "nist-csf-id-ra",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Risk Assessment family implements NIST CSF Risk Assessment category."
-        },
-        {
-            "id": "rel-800-53-ra-iso31000-assessment",
-            "source_concept_id": "nist-800-53-ra",
-            "target_concept_id": "iso31000-proc3-risk-assessment",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Risk Assessment family implements ISO 31000 Risk Assessment process."
-        },
-        {
-            "id": "rel-800-53-sa-csf-gv-oc",
-            "source_concept_id": "nist-800-53-sa",
-            "target_concept_id": "nist-csf-gv-oc",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 System and Services Acquisition family implements NIST CSF Organizational Context for supply chain awareness."
-        },
-        {
-            "id": "rel-800-53-sa-iso27000-org",
-            "source_concept_id": "nist-800-53-sa",
-            "target_concept_id": "iso27000-organizational",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 System and Services Acquisition family maps to ISO 27001 Organizational controls for supplier management."
-        },
-        {
-            "id": "rel-800-53-sc-csf-pr-ds",
-            "source_concept_id": "nist-800-53-sc",
-            "target_concept_id": "nist-csf-pr-ds",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 System and Communications Protection family implements NIST CSF Data Security through encryption and boundary protection."
-        },
-        {
-            "id": "rel-800-53-sc-iso27000-tech",
-            "source_concept_id": "nist-800-53-sc",
-            "target_concept_id": "iso27000-technological",
-            "relationship_type": "maps_to",
-            "description": "NIST SP 800-53 System and Communications Protection family maps to ISO 27001 Technological controls."
-        },
-        {
-            "id": "rel-800-53-sc-dca-data-protection",
-            "source_concept_id": "nist-800-53-sc",
-            "target_concept_id": "dca-p2-data-protection",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 System and Communications Protection family implements Data Centric data-level protection principles."
-        },
-        {
-            "id": "rel-800-53-si-csf-detect",
-            "source_concept_id": "nist-800-53-si",
-            "target_concept_id": "nist-csf-detect",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 System and Information Integrity family implements NIST CSF Detect function through integrity monitoring."
-        },
-        {
-            "id": "rel-800-53-si-csf-de-ae",
-            "source_concept_id": "nist-800-53-si",
-            "target_concept_id": "nist-csf-de-ae",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 System and Information Integrity family implements NIST CSF Adverse Event Analysis."
-        },
-        {
-            "id": "rel-800-53-sr-iso31000-treatment",
-            "source_concept_id": "nist-800-53-sr",
-            "target_concept_id": "iso31000-proc4-treatment",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Supply Chain Risk Management family implements ISO 31000 Risk Treatment for supply chain risks."
-        },
-        {
-            "id": "rel-800-53-sr-csf-gv-oc",
-            "source_concept_id": "nist-800-53-sr",
-            "target_concept_id": "nist-csf-gv-oc",
-            "relationship_type": "implements",
-            "description": "NIST SP 800-53 Supply Chain Risk Management family implements NIST CSF Organizational Context for supply chain governance."
-        },
-        {
-            "id": "rel-800-53-sr-fmn-security",
-            "source_concept_id": "nist-800-53-sr",
-            "target_concept_id": "fmn-p3-security",
-            "relationship_type": "related_to",
-            "description": "NIST SP 800-53 Supply Chain Risk Management relates to FMN Multilevel security for coalition supply chain assurance."
-        }
-    ]
+  "relationships": [
+    {
+      "id": "rel-800-53-ac-csf-pr-aa",
+      "source_concept_id": "nist-800-53-ac",
+      "target_concept_id": "nist-csf-pr-aa",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Access Control family implements NIST CSF Identity Management, Authentication and Access Control category."
+    },
+    {
+      "id": "rel-800-53-ac-iso27000-tech",
+      "source_concept_id": "nist-800-53-ac",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 Access Control family maps to ISO 27001 Technological controls for access management."
+    },
+    {
+      "id": "rel-800-53-at-csf-protect",
+      "source_concept_id": "nist-800-53-at",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Awareness and Training family implements NIST CSF Protect function through security awareness."
+    },
+    {
+      "id": "rel-800-53-at-iso27000-people",
+      "source_concept_id": "nist-800-53-at",
+      "target_concept_id": "iso27000-people",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 Awareness and Training family maps to ISO 27001 People controls for security awareness."
+    },
+    {
+      "id": "rel-800-53-au-csf-de-cm",
+      "source_concept_id": "nist-800-53-au",
+      "target_concept_id": "nist-csf-de-cm",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Audit and Accountability family implements NIST CSF Continuous Monitoring through audit logging."
+    },
+    {
+      "id": "rel-800-53-au-iso27000-eval",
+      "source_concept_id": "nist-800-53-au",
+      "target_concept_id": "iso27000-evaluation",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 Audit and Accountability family maps to ISO 27001 Performance evaluation through audit records."
+    },
+    {
+      "id": "rel-800-53-ca-csf-id-ra",
+      "source_concept_id": "nist-800-53-ca",
+      "target_concept_id": "nist-csf-id-ra",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Assessment, Authorization, and Monitoring family implements NIST CSF Risk Assessment category."
+    },
+    {
+      "id": "rel-800-53-ca-csf-gv-rm",
+      "source_concept_id": "nist-800-53-ca",
+      "target_concept_id": "nist-csf-gv-rm",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Assessment, Authorization, and Monitoring family implements NIST CSF Risk Management Strategy."
+    },
+    {
+      "id": "rel-800-53-ca-iso31000-assessment",
+      "source_concept_id": "nist-800-53-ca",
+      "target_concept_id": "iso31000-proc3-risk-assessment",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Assessment, Authorization, and Monitoring family implements ISO 31000 Risk Assessment process."
+    },
+    {
+      "id": "rel-800-53-cm-csf-pr-ds",
+      "source_concept_id": "nist-800-53-cm",
+      "target_concept_id": "nist-csf-pr-ds",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Configuration Management family implements NIST CSF Data Security through configuration baselines."
+    },
+    {
+      "id": "rel-800-53-cm-csf-pr-ps",
+      "source_concept_id": "nist-800-53-cm",
+      "target_concept_id": "nist-csf-pr-ps",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Configuration Management family implements NIST CSF Platform Security through secure configurations."
+    },
+    {
+      "id": "rel-800-53-cp-csf-recover",
+      "source_concept_id": "nist-800-53-cp",
+      "target_concept_id": "nist-csf-recover",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Contingency Planning family implements NIST CSF Recover function through business continuity plans."
+    },
+    {
+      "id": "rel-800-53-cp-csf-pr-ir",
+      "source_concept_id": "nist-800-53-cp",
+      "target_concept_id": "nist-csf-pr-ir",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Contingency Planning family implements NIST CSF Technology Infrastructure Resilience."
+    },
+    {
+      "id": "rel-800-53-cp-iso31000-treatment",
+      "source_concept_id": "nist-800-53-cp",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Contingency Planning family implements ISO 31000 Risk Treatment through continuity planning."
+    },
+    {
+      "id": "rel-800-53-ia-csf-pr-aa",
+      "source_concept_id": "nist-800-53-ia",
+      "target_concept_id": "nist-csf-pr-aa",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Identification and Authentication family implements NIST CSF Identity Management and Access Control."
+    },
+    {
+      "id": "rel-800-53-ir-csf-respond",
+      "source_concept_id": "nist-800-53-ir",
+      "target_concept_id": "nist-csf-respond",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Incident Response family implements NIST CSF Respond function."
+    },
+    {
+      "id": "rel-800-53-ir-iso27000-operation",
+      "source_concept_id": "nist-800-53-ir",
+      "target_concept_id": "iso27000-operation",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 Incident Response family maps to ISO 27001 Operation requirements for incident handling."
+    },
+    {
+      "id": "rel-800-53-ma-csf-protect",
+      "source_concept_id": "nist-800-53-ma",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Maintenance family implements NIST CSF Protect function through controlled system maintenance."
+    },
+    {
+      "id": "rel-800-53-mp-csf-pr-ds",
+      "source_concept_id": "nist-800-53-mp",
+      "target_concept_id": "nist-csf-pr-ds",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Media Protection family implements NIST CSF Data Security through media handling controls."
+    },
+    {
+      "id": "rel-800-53-pe-csf-protect",
+      "source_concept_id": "nist-800-53-pe",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Physical and Environmental Protection family implements NIST CSF Protect function."
+    },
+    {
+      "id": "rel-800-53-pe-iso27000-physical",
+      "source_concept_id": "nist-800-53-pe",
+      "target_concept_id": "iso27000-physical",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 Physical and Environmental Protection family maps to ISO 27001 Physical controls."
+    },
+    {
+      "id": "rel-800-53-pl-csf-gv-rm",
+      "source_concept_id": "nist-800-53-pl",
+      "target_concept_id": "nist-csf-gv-rm",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Planning family implements NIST CSF Risk Management Strategy through security planning."
+    },
+    {
+      "id": "rel-800-53-pl-iso31000-design",
+      "source_concept_id": "nist-800-53-pl",
+      "target_concept_id": "iso31000-f3-design",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Planning family implements ISO 31000 Risk Management Framework Design."
+    },
+    {
+      "id": "rel-800-53-pm-csf-govern",
+      "source_concept_id": "nist-800-53-pm",
+      "target_concept_id": "nist-csf-govern",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Program Management family implements NIST CSF Govern function through organizational security governance."
+    },
+    {
+      "id": "rel-800-53-pm-iso31000-leadership",
+      "source_concept_id": "nist-800-53-pm",
+      "target_concept_id": "iso31000-f1-leadership",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Program Management family implements ISO 31000 Leadership and commitment."
+    },
+    {
+      "id": "rel-800-53-pm-iso27000-isms",
+      "source_concept_id": "nist-800-53-pm",
+      "target_concept_id": "iso27000-isms",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 Program Management family maps to ISO 27001 ISMS management system framework."
+    },
+    {
+      "id": "rel-800-53-ps-csf-protect",
+      "source_concept_id": "nist-800-53-ps",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Personnel Security family implements NIST CSF Protect function through personnel screening and management."
+    },
+    {
+      "id": "rel-800-53-ps-iso27000-people",
+      "source_concept_id": "nist-800-53-ps",
+      "target_concept_id": "iso27000-people",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 Personnel Security family maps to ISO 27001 People controls."
+    },
+    {
+      "id": "rel-800-53-pt-csf-govern",
+      "source_concept_id": "nist-800-53-pt",
+      "target_concept_id": "nist-csf-govern",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 PII Processing and Transparency family implements NIST CSF Govern function for privacy governance."
+    },
+    {
+      "id": "rel-800-53-ra-csf-id-ra",
+      "source_concept_id": "nist-800-53-ra",
+      "target_concept_id": "nist-csf-id-ra",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Risk Assessment family implements NIST CSF Risk Assessment category."
+    },
+    {
+      "id": "rel-800-53-ra-iso31000-assessment",
+      "source_concept_id": "nist-800-53-ra",
+      "target_concept_id": "iso31000-proc3-risk-assessment",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Risk Assessment family implements ISO 31000 Risk Assessment process."
+    },
+    {
+      "id": "rel-800-53-sa-csf-gv-oc",
+      "source_concept_id": "nist-800-53-sa",
+      "target_concept_id": "nist-csf-gv-oc",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 System and Services Acquisition family implements NIST CSF Organizational Context for supply chain awareness."
+    },
+    {
+      "id": "rel-800-53-sa-iso27000-org",
+      "source_concept_id": "nist-800-53-sa",
+      "target_concept_id": "iso27000-organizational",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 System and Services Acquisition family maps to ISO 27001 Organizational controls for supplier management."
+    },
+    {
+      "id": "rel-800-53-sc-csf-pr-ds",
+      "source_concept_id": "nist-800-53-sc",
+      "target_concept_id": "nist-csf-pr-ds",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 System and Communications Protection family implements NIST CSF Data Security through encryption and boundary protection."
+    },
+    {
+      "id": "rel-800-53-sc-iso27000-tech",
+      "source_concept_id": "nist-800-53-sc",
+      "target_concept_id": "iso27000-technological",
+      "relationship_type": "maps_to",
+      "description": "NIST SP 800-53 System and Communications Protection family maps to ISO 27001 Technological controls."
+    },
+    {
+      "id": "rel-800-53-sc-dca-data-protection",
+      "source_concept_id": "nist-800-53-sc",
+      "target_concept_id": "dca-p2-data-protection",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 System and Communications Protection family implements Data Centric data-level protection principles."
+    },
+    {
+      "id": "rel-800-53-si-csf-detect",
+      "source_concept_id": "nist-800-53-si",
+      "target_concept_id": "nist-csf-detect",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 System and Information Integrity family implements NIST CSF Detect function through integrity monitoring."
+    },
+    {
+      "id": "rel-800-53-si-csf-de-ae",
+      "source_concept_id": "nist-800-53-si",
+      "target_concept_id": "nist-csf-de-ae",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 System and Information Integrity family implements NIST CSF Adverse Event Analysis."
+    },
+    {
+      "id": "rel-800-53-sr-iso31000-treatment",
+      "source_concept_id": "nist-800-53-sr",
+      "target_concept_id": "iso31000-proc4-treatment",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Supply Chain Risk Management family implements ISO 31000 Risk Treatment for supply chain risks."
+    },
+    {
+      "id": "rel-800-53-sr-csf-gv-oc",
+      "source_concept_id": "nist-800-53-sr",
+      "target_concept_id": "nist-csf-gv-oc",
+      "relationship_type": "implements",
+      "description": "NIST SP 800-53 Supply Chain Risk Management family implements NIST CSF Organizational Context for supply chain governance."
+    },
+    {
+      "id": "rel-800-53-sr-fmn-security",
+      "source_concept_id": "nist-800-53-sr",
+      "target_concept_id": "fmn-p3-security",
+      "relationship_type": "related_to",
+      "description": "NIST SP 800-53 Supply Chain Risk Management relates to FMN Multilevel security for coalition supply chain assurance."
+    }
+  ]
 }

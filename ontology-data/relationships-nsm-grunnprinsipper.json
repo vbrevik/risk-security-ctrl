@@ -1,0 +1,305 @@
+{
+  "relationships": [
+    {
+      "id": "rel-nsm-gp-1-nist-identify",
+      "source_concept_id": "nsm-gp-1",
+      "target_concept_id": "nist-csf-identify",
+      "relationship_type": "maps_to",
+      "description": "NSM GP Category 1 'Identifisere og kartlegge' maps to NIST CSF 'Identify' function. Both establish situational awareness of assets, governance, and risk."
+    },
+    {
+      "id": "rel-nsm-gp-2-nist-protect",
+      "source_concept_id": "nsm-gp-2",
+      "target_concept_id": "nist-csf-protect",
+      "relationship_type": "maps_to",
+      "description": "NSM GP Category 2 'Beskytte og opprettholde' maps to NIST CSF 'Protect' function. Both cover safeguards including access control, data security, and secure configuration."
+    },
+    {
+      "id": "rel-nsm-gp-3-nist-detect",
+      "source_concept_id": "nsm-gp-3",
+      "target_concept_id": "nist-csf-detect",
+      "relationship_type": "maps_to",
+      "description": "NSM GP Category 3 'Oppdage' maps to NIST CSF 'Detect' function. Both cover vulnerability detection, security monitoring, and analysis."
+    },
+    {
+      "id": "rel-nsm-gp-4-nist-respond",
+      "source_concept_id": "nsm-gp-4",
+      "target_concept_id": "nist-csf-respond",
+      "relationship_type": "maps_to",
+      "description": "NSM GP Category 4 'Håndtere og gjenopprette' maps to NIST CSF 'Respond' function. Both cover incident response preparation, handling, and communications."
+    },
+    {
+      "id": "rel-nsm-gp-4-nist-recover",
+      "source_concept_id": "nsm-gp-4",
+      "target_concept_id": "nist-csf-recover",
+      "relationship_type": "maps_to",
+      "description": "NSM GP Category 4 'Håndtere og gjenopprette' also maps to NIST CSF 'Recover' function, covering recovery planning and post-incident improvement."
+    },
+    {
+      "id": "rel-nsm-gp-1-1-nist-id-am",
+      "source_concept_id": "nsm-gp-1-1",
+      "target_concept_id": "nist-csf-id-am",
+      "relationship_type": "maps_to",
+      "description": "NSM GP 1.1 'Kartlegg styringsstrukturer, leveranser og understøttende systemer' maps to NIST CSF ID.AM (Asset Management), covering governance structures and asset inventory."
+    },
+    {
+      "id": "rel-nsm-gp-1-1-iso31000",
+      "source_concept_id": "nsm-gp-1-1",
+      "target_concept_id": "iso31000-proc3-risk-assessment",
+      "relationship_type": "related_to",
+      "description": "NSM GP 1.1 includes identifying risk management processes (tiltak 1.1.3) and risk tolerance limits (1.1.4), relating to ISO 31000 risk assessment methodology."
+    },
+    {
+      "id": "rel-nsm-gp-1-1-nis2-rm",
+      "source_concept_id": "nsm-gp-1-1",
+      "target_concept_id": "nis2-rm-risk-analysis",
+      "relationship_type": "related_to",
+      "description": "NSM GP 1.1 risk management identification (tiltak 1.1.3-1.1.4) relates to NIS2 risk analysis obligation. Both require understanding risk processes and tolerance."
+    },
+    {
+      "id": "rel-nsm-gp-1-2-nist-id-am",
+      "source_concept_id": "nsm-gp-1-2",
+      "target_concept_id": "nist-csf-id-am",
+      "relationship_type": "maps_to",
+      "description": "NSM GP 1.2 'Kartlegg enheter og programvare' maps to NIST CSF ID.AM asset inventory requirements. Both require maintaining hardware and software inventories."
+    },
+    {
+      "id": "rel-nsm-gp-1-3-nist-csf-pr-aa",
+      "source_concept_id": "nsm-gp-1-3",
+      "target_concept_id": "nist-csf-pr-aa",
+      "relationship_type": "related_to",
+      "description": "NSM GP 1.3 'Kartlegg brukere og behov for tilgang' relates to NIST CSF PR.AA identity management by mapping user categories and access needs as input to access control."
+    },
+    {
+      "id": "rel-nsm-gp-2-1-nist-800-53-sa",
+      "source_concept_id": "nsm-gp-2-1",
+      "target_concept_id": "nist-800-53-sa",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.1 'Ivareta sikkerhet i anskaffelses- og utviklingsprosesser' implements NIST SP 800-53 System and Services Acquisition (SA) family, covering procurement security and secure development."
+    },
+    {
+      "id": "rel-nsm-gp-2-1-nis2-acquisition",
+      "source_concept_id": "nsm-gp-2-1",
+      "target_concept_id": "nis2-rm-acquisition-security",
+      "relationship_type": "maps_to",
+      "description": "NSM GP 2.1 security in acquisition maps to NIS2 acquisition security requirement. Both mandate security criteria in ICT procurement."
+    },
+    {
+      "id": "rel-nsm-gp-2-1-nis2-supply",
+      "source_concept_id": "nsm-gp-2-1",
+      "target_concept_id": "nis2-rm-supply-chain",
+      "relationship_type": "related_to",
+      "description": "NSM GP 2.1 includes outsourcing security (tiltak 2.1.9-2.1.10), relating to NIS2 supply chain security requirements for service provider management."
+    },
+    {
+      "id": "rel-nsm-gp-2-1-nist-800-53-sr",
+      "source_concept_id": "nsm-gp-2-1",
+      "target_concept_id": "nist-800-53-sr",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.1 outsourcing and procurement controls (tiltak 2.1.9-2.1.10) implement NIST SP 800-53 Supply Chain Risk Management (SR) family for supplier assessment."
+    },
+    {
+      "id": "rel-nsm-gp-2-2-nist-800-53-sc",
+      "source_concept_id": "nsm-gp-2-2",
+      "target_concept_id": "nist-800-53-sc",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.2 'Etabler en sikker IKT-arkitektur' implements NIST SP 800-53 System and Communications Protection (SC) family, covering network segmentation and boundary protection."
+    },
+    {
+      "id": "rel-nsm-gp-2-3-nist-800-53-cm",
+      "source_concept_id": "nsm-gp-2-3",
+      "target_concept_id": "nist-800-53-cm",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.3 'Ivareta en sikker konfigurasjon' implements NIST SP 800-53 Configuration Management (CM) family, covering baseline configurations and change control."
+    },
+    {
+      "id": "rel-nsm-gp-2-4-nist-800-53-sc",
+      "source_concept_id": "nsm-gp-2-4",
+      "target_concept_id": "nist-800-53-sc",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.4 'Beskytt virksomhetens nettverk' implements NIST SP 800-53 SC family for network access control, firewall, and encryption requirements."
+    },
+    {
+      "id": "rel-nsm-gp-2-5-nist-800-53-sc",
+      "source_concept_id": "nsm-gp-2-5",
+      "target_concept_id": "nist-800-53-sc",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.5 'Kontroller dataflyt' implements NIST SP 800-53 SC family controls for data flow enforcement between network zones and boundary protection."
+    },
+    {
+      "id": "rel-nsm-gp-2-6-nist-800-53-ac",
+      "source_concept_id": "nsm-gp-2-6",
+      "target_concept_id": "nist-800-53-ac",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.6 'Ha kontroll på identiteter og tilganger' implements NIST SP 800-53 Access Control (AC) family, covering account management and least privilege."
+    },
+    {
+      "id": "rel-nsm-gp-2-6-nist-800-53-ia",
+      "source_concept_id": "nsm-gp-2-6",
+      "target_concept_id": "nist-800-53-ia",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.6 identity and authentication controls (including MFA in 2.6.7) implement NIST SP 800-53 Identification and Authentication (IA) family."
+    },
+    {
+      "id": "rel-nsm-gp-2-6-nist-csf-pr-aa",
+      "source_concept_id": "nsm-gp-2-6",
+      "target_concept_id": "nist-csf-pr-aa",
+      "relationship_type": "maps_to",
+      "description": "NSM GP 2.6 'Ha kontroll på identiteter og tilganger' maps to NIST CSF PR.AA (Identity Management and Access Control)."
+    },
+    {
+      "id": "rel-nsm-gp-2-6-nis2-hr-access",
+      "source_concept_id": "nsm-gp-2-6",
+      "target_concept_id": "nis2-rm-hr-access",
+      "relationship_type": "maps_to",
+      "description": "NSM GP 2.6 identity and access control maps to NIS2 HR security and access control requirements."
+    },
+    {
+      "id": "rel-nsm-gp-2-6-7-nis2-mfa",
+      "source_concept_id": "nsm-gp-2-6-7",
+      "target_concept_id": "nis2-rm-mfa",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.6.7 'Bruk multi-faktor autentisering' implements NIS2 multi-factor authentication requirement."
+    },
+    {
+      "id": "rel-nsm-gp-2-7-nist-csf-pr-ds",
+      "source_concept_id": "nsm-gp-2-7",
+      "target_concept_id": "nist-csf-pr-ds",
+      "relationship_type": "maps_to",
+      "description": "NSM GP 2.7 'Beskytt data i ro og i transitt' maps to NIST CSF PR.DS (Data Security), covering encryption and data protection."
+    },
+    {
+      "id": "rel-nsm-gp-2-7-nis2-crypto",
+      "source_concept_id": "nsm-gp-2-7",
+      "target_concept_id": "nis2-rm-cryptography",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.7 data protection with cryptography implements NIS2 cryptography and encryption requirement."
+    },
+    {
+      "id": "rel-nsm-gp-2-7-nist-800-53-mp",
+      "source_concept_id": "nsm-gp-2-7",
+      "target_concept_id": "nist-800-53-mp",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.7 data protection implements NIST SP 800-53 Media Protection (MP) family for data classification, encryption, and secure handling."
+    },
+    {
+      "id": "rel-nsm-gp-2-7-iso27000",
+      "source_concept_id": "nsm-gp-2-7",
+      "target_concept_id": "iso27000-controls",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.7 data protection implements ISO 27001 Annex A cryptography and information classification controls."
+    },
+    {
+      "id": "rel-nsm-gp-2-8-nis2-hygiene",
+      "source_concept_id": "nsm-gp-2-8",
+      "target_concept_id": "nis2-rm-cyber-hygiene",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.8 'Beskytt e-post og nettleser' implements NIS2 cyber hygiene requirements for email and web security."
+    },
+    {
+      "id": "rel-nsm-gp-2-9-nist-800-53-cp",
+      "source_concept_id": "nsm-gp-2-9",
+      "target_concept_id": "nist-800-53-cp",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.9 'Etabler evne til gjenoppretting av data' implements NIST SP 800-53 Contingency Planning (CP) family, including backup and recovery testing."
+    },
+    {
+      "id": "rel-nsm-gp-2-9-nis2-bcp",
+      "source_concept_id": "nsm-gp-2-9",
+      "target_concept_id": "nis2-rm-business-continuity",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.9 data recovery capability implements NIS2 business continuity requirement for backup management and disaster recovery."
+    },
+    {
+      "id": "rel-nsm-gp-2-10-nist-800-53-cm",
+      "source_concept_id": "nsm-gp-2-10",
+      "target_concept_id": "nist-800-53-cm",
+      "relationship_type": "related_to",
+      "description": "NSM GP 2.10 'Integrer sikkerhet i prosess for endringshåndtering' relates to NIST SP 800-53 Configuration Management (CM) change control processes."
+    },
+    {
+      "id": "rel-nsm-gp-3-1-nist-800-53-ra",
+      "source_concept_id": "nsm-gp-3-1",
+      "target_concept_id": "nist-800-53-ra",
+      "relationship_type": "implements",
+      "description": "NSM GP 3.1 'Oppdag og fjern kjente sårbarheter og trusler' implements NIST SP 800-53 Risk Assessment (RA) vulnerability scanning and threat monitoring controls."
+    },
+    {
+      "id": "rel-nsm-gp-3-1-nist-800-53-si",
+      "source_concept_id": "nsm-gp-3-1",
+      "target_concept_id": "nist-800-53-si",
+      "relationship_type": "implements",
+      "description": "NSM GP 3.1 automated threat handling (tiltak 3.1.3) implements NIST SP 800-53 System and Information Integrity (SI) malware protection controls."
+    },
+    {
+      "id": "rel-nsm-gp-3-2-nist-800-53-au",
+      "source_concept_id": "nsm-gp-3-2",
+      "target_concept_id": "nist-800-53-au",
+      "relationship_type": "implements",
+      "description": "NSM GP 3.2 'Etabler sikkerhetsovervåkning' implements NIST SP 800-53 Audit and Accountability (AU) family for logging, monitoring, and data integrity."
+    },
+    {
+      "id": "rel-nsm-gp-3-2-nis2-rm",
+      "source_concept_id": "nsm-gp-3-2",
+      "target_concept_id": "nis2-risk-management",
+      "relationship_type": "implements",
+      "description": "NSM GP 3.2 security monitoring implements NIS2 monitoring and logging requirements as part of risk management measures."
+    },
+    {
+      "id": "rel-nsm-gp-3-3-iso27000",
+      "source_concept_id": "nsm-gp-3-3",
+      "target_concept_id": "iso27000-operation",
+      "relationship_type": "implements",
+      "description": "NSM GP 3.3 'Analyser data fra sikkerhetsovervåkning' implements ISO 27001 Annex A operational security controls for event analysis and threat intelligence."
+    },
+    {
+      "id": "rel-nsm-gp-3-4-nist-800-53-ra",
+      "source_concept_id": "nsm-gp-3-4",
+      "target_concept_id": "nist-800-53-ra",
+      "relationship_type": "implements",
+      "description": "NSM GP 3.4 'Gjennomfør inntrengningstester' implements NIST SP 800-53 RA penetration testing requirements (RA-5) for proactive vulnerability discovery."
+    },
+    {
+      "id": "rel-nsm-gp-4-1-nist-800-53-ir",
+      "source_concept_id": "nsm-gp-4-1",
+      "target_concept_id": "nist-800-53-ir",
+      "relationship_type": "implements",
+      "description": "NSM GP 4.1 'Forbered virksomheten på håndtering av hendelser' implements NIST SP 800-53 Incident Response (IR) planning, training, and testing requirements."
+    },
+    {
+      "id": "rel-nsm-gp-4-2-nis2-incident",
+      "source_concept_id": "nsm-gp-4-2",
+      "target_concept_id": "nis2-rm-incident-handling",
+      "relationship_type": "maps_to",
+      "description": "NSM GP 4.2 'Vurder og klassifiser hendelser' maps to NIS2 incident handling requirement for structured incident assessment."
+    },
+    {
+      "id": "rel-nsm-gp-4-2-3-nis2-ir",
+      "source_concept_id": "nsm-gp-4-2-3",
+      "target_concept_id": "nis2-incident-reporting",
+      "relationship_type": "implements",
+      "description": "NSM GP 4.2.3 'Informer relevante interesseparter' implements NIS2 incident reporting obligation to competent authorities."
+    },
+    {
+      "id": "rel-nsm-gp-4-3-nis2-bcp",
+      "source_concept_id": "nsm-gp-4-3",
+      "target_concept_id": "nis2-rm-business-continuity",
+      "relationship_type": "implements",
+      "description": "NSM GP 4.3 'Kontroller og håndter hendelser' implements NIS2 business continuity requirement for incident containment and recovery."
+    },
+    {
+      "id": "rel-nsm-gp-4-3-nist-800-53-ir",
+      "source_concept_id": "nsm-gp-4-3",
+      "target_concept_id": "nist-800-53-ir",
+      "relationship_type": "implements",
+      "description": "NSM GP 4.3 incident control and handling implements NIST SP 800-53 IR incident response execution controls."
+    },
+    {
+      "id": "rel-nsm-gp-2-1-iso27000",
+      "source_concept_id": "nsm-gp-2-1",
+      "target_concept_id": "iso27000-organizational",
+      "relationship_type": "implements",
+      "description": "NSM GP 2.1 security in acquisition and development implements ISO 27001 Annex A supplier relationship and system acquisition controls."
+    }
+  ]
+}

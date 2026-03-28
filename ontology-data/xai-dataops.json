@@ -4,7 +4,11 @@
     "name": "Explainable AI in Data Operations",
     "version": "1.0",
     "description": "A comprehensive framework for Explainable Artificial Intelligence (XAI) principles applied within Data Operations (DataOps) methodology. Synthesized from NISTIR 8312 Four Principles of XAI, DARPA XAI Program taxonomy, ISO/IEC 22989 AI terminology, OECD AI Principles, EU AI Act transparency requirements, and academic XAI literature. Covers the full DataOps lifecycle with explainability requirements at each phase, XAI technique taxonomy, governance integration, data lineage, and stakeholder-specific explanation design.",
-    "source_url": "https://nvlpubs.nist.gov/nistpubs/ir/2021/nist.ir.8312.pdf"
+    "source_url": "https://nvlpubs.nist.gov/nistpubs/ir/2021/nist.ir.8312.pdf",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "Synthesized from NISTIR 8312, DARPA XAI, ISO/IEC 22989, OECD AI Principles, EU AI Act, academic literature",
+    "verification_notes": "verified (synthesized framework)"
   },
   "concepts": [
     {
@@ -72,7 +76,6 @@
       "source_reference": "NISTIR 8312 Principle 4",
       "sort_order": 4
     },
-
     {
       "id": "xai-method-taxonomy",
       "framework_id": "xai-dataops",
@@ -346,7 +349,6 @@
       "source_reference": "Molnar 2022",
       "sort_order": 2
     },
-
     {
       "id": "xai-dataops-lifecycle",
       "framework_id": "xai-dataops",
@@ -555,7 +557,6 @@
       "source_reference": "DataOps Manifesto",
       "sort_order": 2
     },
-
     {
       "id": "xai-governance",
       "framework_id": "xai-dataops",
@@ -634,7 +635,6 @@
       "source_reference": "NISTIR 8312; ISO 31000",
       "sort_order": 5
     },
-
     {
       "id": "xai-lineage",
       "framework_id": "xai-dataops",
@@ -713,7 +713,6 @@
       "source_reference": "MLOps Best Practices; EU AI Act Article 12",
       "sort_order": 5
     },
-
     {
       "id": "xai-stakeholders",
       "framework_id": "xai-dataops",
@@ -792,7 +791,6 @@
       "source_reference": "EU AI Act Articles 43-44; ISO/IEC 42001",
       "sort_order": 5
     },
-
     {
       "id": "xai-explanation-types",
       "framework_id": "xai-dataops",

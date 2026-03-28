@@ -59,7 +59,21 @@
         "cwe-862",
         "cwe-863",
         "cwe-269",
-        "cwe-276"
+        "cwe-276",
+        "nsm-gp-2-5",
+        "nsm-gp-2-5-1",
+        "nsm-gp-2-5-2",
+        "nsm-gp-2-5-3",
+        "nsm-gp-2-5-4",
+        "nsm-gp-2-5-5",
+        "nsm-gp-2-5-6",
+        "nsl-need-to-know",
+        "nsl-clearance-obligation",
+        "nsl-authorization",
+        "nsl-strengt-hemmelig",
+        "nsl-hemmelig",
+        "nsl-konfidensielt",
+        "nsl-begrenset"
       ]
     },
     {
@@ -112,7 +126,17 @@
         "cwe-89",
         "cwe-22",
         "cwe-918",
-        "cwe-502"
+        "cwe-502",
+        "nsm-gp-2-6",
+        "nsm-gp-2-6-1",
+        "nsm-gp-2-6-2",
+        "nsm-gp-2-6-3",
+        "nsm-gp-2-6-4",
+        "nsl-ch5",
+        "nsl-classification-levels",
+        "nsl-info-security-mgmt",
+        "nsl-ict-security",
+        "nsl-need-to-know"
       ]
     },
     {
@@ -145,7 +169,22 @@
         "mitre-attack-impact",
         "mitre-attack-impact-data-encrypted-for-impact",
         "mitre-attack-impact-data-destruction",
-        "mitre-attack-impact-service-stop"
+        "mitre-attack-impact-service-stop",
+        "nsm-gp-4",
+        "nsm-gp-4-1",
+        "nsm-gp-4-1-1",
+        "nsm-gp-4-1-2",
+        "nsm-gp-4-1-3",
+        "nsm-gp-4-2",
+        "nsm-gp-4-2-1",
+        "nsm-gp-4-2-2",
+        "nsm-gp-4-2-3",
+        "nsm-gp-4-2-4",
+        "nsm-gp-4-3",
+        "nsm-gp-4-3-1",
+        "nsm-gp-4-3-2",
+        "nsm-gp-4-3-3",
+        "nsl-reporting-duty"
       ]
     },
     {
@@ -210,7 +249,19 @@
         "iso24028-human-oversight",
         "iso24028-audit-certification",
         "mitre-attack-tactics",
-        "cwe-pillars"
+        "cwe-pillars",
+        "nsm-gp-1",
+        "nsm-gp-1-4",
+        "nsm-gp-1-4-1",
+        "nsm-gp-1-4-2",
+        "nsm-gp-1-4-3",
+        "nsl-ch4",
+        "nsl-security-org",
+        "nsl-risk-assessment",
+        "nsl-security-measures",
+        "nsl-reporting-duty",
+        "nsl-general",
+        "nsl-scope"
       ]
     },
     {
@@ -244,7 +295,22 @@
         "fmn-p3-security",
         "fmn-isa",
         "mitre-attack-ia-supply-chain-compromise",
-        "mitre-attack-resdev-compromise-accounts"
+        "mitre-attack-resdev-compromise-accounts",
+        "nsm-gp-2-12",
+        "nsm-gp-2-12-1",
+        "nsm-gp-2-12-2",
+        "nsm-gp-2-12-3",
+        "nsm-gp-2-12-4",
+        "nsm-gp-1-5",
+        "nsm-gp-1-5-1",
+        "nsm-gp-1-5-2",
+        "nsm-gp-1-5-3",
+        "nsl-ch8",
+        "nsl-facility-clearance",
+        "nsl-security-agreement",
+        "nsl-subcontractor-requirements",
+        "nsl-contracting-authority-duties",
+        "nsl-foreign-contracts"
       ]
     },
     {
@@ -285,7 +351,17 @@
         "mitre-attack-persistence",
         "mitre-attack-command-and-control",
         "mitre-attack-c2-encrypted-channel",
-        "mitre-attack-defevade-impair-defenses"
+        "mitre-attack-defevade-impair-defenses",
+        "nsm-gp-3",
+        "nsm-gp-3-1",
+        "nsm-gp-3-1-1",
+        "nsm-gp-3-1-2",
+        "nsm-gp-3-1-3",
+        "nsm-gp-3-1-4",
+        "nsm-gp-3-2",
+        "nsm-gp-3-2-1",
+        "nsm-gp-3-2-2",
+        "nsm-gp-3-2-3"
       ]
     },
     {
@@ -314,7 +390,18 @@
         "nist-800-53-pe-17",
         "nist-csf-protect",
         "nist-csf-de-cm-02",
-        "iso27000-physical"
+        "iso27000-physical",
+        "nsm-gp-2-11",
+        "nsm-gp-2-11-1",
+        "nsm-gp-2-11-2",
+        "nsm-gp-2-11-3",
+        "nsm-gp-2-11-4",
+        "nsl-ch7",
+        "nsl-object-classification",
+        "nsl-object-protection",
+        "nsl-object-access-control",
+        "nsl-object-designation",
+        "nsl-object-security-plan"
       ]
     },
     {
@@ -348,7 +435,18 @@
         "mitre-attack-lateral-movement",
         "mitre-attack-latmov-remote-services",
         "mitre-attack-c2-application-layer-protocol",
-        "mitre-attack-c2-proxy"
+        "mitre-attack-c2-proxy",
+        "nsm-gp-2-4",
+        "nsm-gp-2-4-1",
+        "nsm-gp-2-4-2",
+        "nsm-gp-2-4-3",
+        "nsm-gp-2-4-4",
+        "nsm-gp-2-4-5",
+        "nsm-gp-2-2",
+        "nsm-gp-2-2-1",
+        "nsm-gp-2-2-2",
+        "nsm-gp-2-2-3",
+        "nsm-gp-2-2-4"
       ]
     },
     {
@@ -382,7 +480,18 @@
         "iso10015-development-methods",
         "iso10015-evaluating",
         "iso10015-people-development",
-        "iso10015-engagement"
+        "iso10015-engagement",
+        "nsm-gp-2-13",
+        "nsm-gp-2-13-1",
+        "nsm-gp-2-13-2",
+        "nsm-gp-2-13-3",
+        "nsm-gp-2-13-4",
+        "nsl-ch6",
+        "nsl-clearance-obligation",
+        "nsl-security-investigation",
+        "nsl-clearance-validity",
+        "nsl-authorization",
+        "nsl-vetting-criteria"
       ]
     },
     {
@@ -411,7 +520,15 @@
         "iso31000-proc4-treatment",
         "iso31000-p8-continual-improvement",
         "iso31010-bcp-bia",
-        "cisa-ztmm-net-resilience"
+        "cisa-ztmm-net-resilience",
+        "nsm-gp-2-9",
+        "nsm-gp-2-9-1",
+        "nsm-gp-2-9-2",
+        "nsm-gp-2-9-3",
+        "nsm-gp-2-10",
+        "nsm-gp-2-10-1",
+        "nsm-gp-2-10-2",
+        "nsm-gp-2-10-3"
       ]
     },
     {
@@ -440,7 +557,11 @@
         "mitre-atlas-reconnaissance",
         "mitre-atlas-defense-evasion",
         "mitre-atlas-impact",
-        "mitre-atlas-exfiltration"
+        "mitre-atlas-exfiltration",
+        "nsm-gp-1-3",
+        "nsm-gp-1-3-1",
+        "nsm-gp-1-3-2",
+        "nsm-gp-1-3-3"
       ]
     },
     {
@@ -488,7 +609,15 @@
         "nist-800-53-ra-5",
         "nist-800-53-si-2",
         "nist-csf-id-ra",
-        "nist-csf-id-ra-01"
+        "nist-csf-id-ra-01",
+        "nsm-gp-1-2",
+        "nsm-gp-1-2-1",
+        "nsm-gp-1-2-2",
+        "nsm-gp-1-2-3",
+        "nsm-gp-2-7-4",
+        "nsm-gp-2-3",
+        "nsm-gp-2-3-1",
+        "nsm-gp-2-3-3"
       ]
     }
   ]

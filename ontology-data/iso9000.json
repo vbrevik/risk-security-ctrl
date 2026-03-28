@@ -4,7 +4,11 @@
     "name": "ISO 9000:2015",
     "version": "2015",
     "description": "Quality management systems - Fundamentals and vocabulary. Provides quality management principles and terminology.",
-    "source_url": "https://www.iso.org/standard/45481.html"
+    "source_url": "https://www.iso.org/standard/45481.html",
+    "verification_status": "partially-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/standard/45481.html",
+    "verification_notes": "partially-verified"
   },
   "concepts": [
     {
@@ -106,8 +110,8 @@
       "code": "QMP7",
       "name_en": "Relationship management",
       "name_nb": "Relasjonsstyring",
-      "definition_en": "For sustained success, organizations manage their relationships with interested parties, such as suppliers.",
-      "definition_nb": "For vedvarende suksess styrer organisasjoner sine relasjoner med interesserte parter, for eksempel leverandører.",
+      "definition_en": "For sustained success, an organization manages its relationships with interested parties, such as providers.",
+      "definition_nb": "For vedvarende suksess styrer en organisasjon sine relasjoner med interesserte parter, for eksempel leverandører.",
       "source_reference": "ISO 9000:2015 Clause 2.3.7",
       "sort_order": 7
     },
@@ -196,7 +200,7 @@
       "concept_type": "requirement",
       "code": "9",
       "name_en": "Performance evaluation",
-      "name_nb": "Ytelsesevvaluering",
+      "name_nb": "Ytelsesevaluering",
       "definition_en": "Monitoring, measurement, analysis and evaluation, internal audit, and management review.",
       "definition_nb": "Overvåking, måling, analyse og evaluering, intern revisjon og ledelsens gjennomgang.",
       "source_reference": "ISO 9001:2015 Clause 9",

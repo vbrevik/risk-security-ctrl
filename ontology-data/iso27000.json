@@ -4,7 +4,11 @@
     "name": "ISO/IEC 27000 series",
     "version": "2022",
     "description": "Information security management systems (ISMS). Family of standards that help organizations keep information assets secure.",
-    "source_url": "https://www.iso.org/isoiec-27001-information-security.html"
+    "source_url": "https://www.iso.org/isoiec-27001-information-security.html",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/isoiec-27001-information-security.html",
+    "verification_notes": "verified"
   },
   "concepts": [
     {

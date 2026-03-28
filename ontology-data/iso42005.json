@@ -4,7 +4,11 @@
     "name": "ISO/IEC 42005 - AI System Impact Assessment",
     "version": "2025",
     "description": "ISO/IEC 42005 provides guidance for assessing the potential impacts of AI systems on individuals, groups, communities, society, and the environment throughout the AI system lifecycle. It supports organizations in identifying, analyzing, evaluating, treating, and monitoring impacts, aligning with ISO 31000 risk management and ISO/IEC 42001 AIMS requirements.",
-    "source_url": "https://www.iso.org/standard/44546.html"
+    "source_url": "https://www.iso.org/standard/44545.html",
+    "verification_status": "partially-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/standard/44545.html",
+    "verification_notes": "partially-verified"
   },
   "concepts": [
     {

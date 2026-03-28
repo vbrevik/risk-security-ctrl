@@ -4,7 +4,11 @@
     "name": "Data Centric Security Architecture",
     "version": "1.0",
     "description": "Security architecture paradigm that focuses on protecting data itself rather than the perimeter, network, or applications. Data remains protected regardless of where it resides or travels.",
-    "source_url": "https://www.gartner.com/en/information-technology/glossary/data-centric-security"
+    "source_url": "https://www.gartner.com/en/information-technology/glossary/data-centric-security",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.gartner.com/en/information-technology/glossary/data-centric-security",
+    "verification_notes": "verified (synthesized framework)"
   },
   "concepts": [
     {
@@ -17,7 +21,7 @@
       "name_nb": "Datasentrerte prinsipper",
       "definition_en": "Core principles of data-centric security architecture.",
       "definition_nb": "Kjerneprinsippene for datasentrert sikkerhetsarkitektur.",
-      "source_reference": "Data Centric Security Model",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 1
     },
     {
@@ -30,7 +34,7 @@
       "name_nb": "Databevissthet",
       "definition_en": "Know what data you have, where it is, who has access, and how it's being used.",
       "definition_nb": "Vit hvilke data du har, hvor de er, hvem som har tilgang, og hvordan de brukes.",
-      "source_reference": "Data Centric Security Principles",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 1
     },
     {
@@ -43,7 +47,7 @@
       "name_nb": "Databeskyttelse på datanivå",
       "definition_en": "Security controls are applied directly to data objects, not just infrastructure. Protection travels with the data.",
       "definition_nb": "Sikkerhetskontroller anvendes direkte på dataobjekter, ikke bare infrastruktur. Beskyttelsen følger med dataene.",
-      "source_reference": "Data Centric Security Principles",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 2
     },
     {
@@ -56,7 +60,7 @@
       "name_nb": "Policybasert tilgang",
       "definition_en": "Access control policies are embedded with the data and enforced regardless of location or access method.",
       "definition_nb": "Tilgangskontrollpolicyer er innebygd i dataene og håndheves uavhengig av plassering eller tilgangsmetode.",
-      "source_reference": "Data Centric Security Principles",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 3
     },
     {
@@ -69,7 +73,7 @@
       "name_nb": "Vedvarende beskyttelse",
       "definition_en": "Data remains protected throughout its lifecycle, from creation to deletion, regardless of storage location or transmission.",
       "definition_nb": "Data forblir beskyttet gjennom hele livssyklusen, fra opprettelse til sletting, uavhengig av lagringssted eller overføring.",
-      "source_reference": "Data Centric Security Principles",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 4
     },
     {
@@ -82,7 +86,7 @@
       "name_nb": "Datasentrerte kontroller",
       "definition_en": "Technical controls implementing data-centric security.",
       "definition_nb": "Tekniske kontroller som implementerer datasentrert sikkerhet.",
-      "source_reference": "Data Centric Security Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 2
     },
     {
@@ -95,7 +99,7 @@
       "name_nb": "Dataklassifisering og merking",
       "definition_en": "Identifying, categorizing, and labeling data based on sensitivity, value, and regulatory requirements.",
       "definition_nb": "Identifisere, kategorisere og merke data basert på sensitivitet, verdi og regulatoriske krav.",
-      "source_reference": "Data Centric Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 1
     },
     {
@@ -108,7 +112,7 @@
       "name_nb": "Kryptering på datanivå",
       "definition_en": "Encrypting individual data elements or files with encryption keys managed independently of storage infrastructure.",
       "definition_nb": "Kryptere individuelle dataelementer eller filer med krypteringsnøkler som administreres uavhengig av lagringsinfrastruktur.",
-      "source_reference": "Data Centric Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 2
     },
     {
@@ -121,7 +125,7 @@
       "name_nb": "Datamaskering og tokenisering",
       "definition_en": "Replacing sensitive data with surrogate values that maintain usability while protecting the original data.",
       "definition_nb": "Erstatte sensitive data med erstatningsverdier som opprettholder brukbarhet samtidig som de originale dataene beskyttes.",
-      "source_reference": "Data Centric Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 3
     },
     {
@@ -134,7 +138,7 @@
       "name_nb": "Informasjonsrettighetsstyring",
       "definition_en": "Embedding usage rights and restrictions directly in documents and data objects, enforced through technical controls.",
       "definition_nb": "Innbygging av bruksrettigheter og restriksjoner direkte i dokumenter og dataobjekter, håndhevet gjennom tekniske kontroller.",
-      "source_reference": "Data Centric Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 4
     },
     {
@@ -147,7 +151,7 @@
       "name_nb": "Dataaktivitetsovervåking",
       "definition_en": "Monitoring and logging all access, use, and movement of sensitive data for audit and threat detection.",
       "definition_nb": "Overvåke og logge all tilgang, bruk og bevegelse av sensitive data for revisjon og trusseldeteksjon.",
-      "source_reference": "Data Centric Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 5
     },
     {
@@ -160,7 +164,7 @@
       "name_nb": "Dataoppdagelse og inventar",
       "definition_en": "Automated discovery and cataloging of sensitive data across all storage locations and environments.",
       "definition_nb": "Automatisert oppdagelse og katalogisering av sensitive data på tvers av alle lagringslokasjoner og miljøer.",
-      "source_reference": "Data Centric Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 6
     },
     {
@@ -173,7 +177,7 @@
       "name_nb": "Datatapsforebygging",
       "definition_en": "Preventing unauthorized exfiltration, transfer, or leakage of sensitive data through policy enforcement and monitoring.",
       "definition_nb": "Forebygge uautorisert eksfiltrering, overføring eller lekkasje av sensitive data gjennom policyhåndhevelse og overvåking.",
-      "source_reference": "Data Centric Controls",
+      "source_reference": "Industry consensus (synthesized)",
       "sort_order": 7
     }
   ]

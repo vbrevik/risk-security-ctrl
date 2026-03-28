@@ -1,0 +1,151 @@
+{
+  "relationships": [
+    {
+      "id": "rel-nsl-ch4-nis2-risk",
+      "source_concept_id": "nsl-ch4",
+      "target_concept_id": "nis2-risk-management",
+      "relationship_type": "maps_to",
+      "description": "NSL Chapter 4 general security duties map to NIS2 risk management measures. Both establish a legal obligation for proportionate security measures based on risk assessment."
+    },
+    {
+      "id": "rel-nsl-ch4-nsm-gp-1",
+      "source_concept_id": "nsl-ch4",
+      "target_concept_id": "nsm-gp-1",
+      "relationship_type": "related_to",
+      "description": "NSL Chapter 4 general security duties require systematic identification and risk assessment (§ 4-2), aligning with NSM GP Category 1 identification and mapping principles."
+    },
+    {
+      "id": "rel-nsl-4-5-nsm-gp-4-1",
+      "source_concept_id": "nsl-4-5",
+      "target_concept_id": "nsm-gp-4-1",
+      "relationship_type": "related_to",
+      "description": "NSL § 4-5 Varslingsplikt (reporting duty) requires notification of security-threatening events. NSM GP 4.1 establishes incident preparation frameworks including communication channels and notification procedures."
+    },
+    {
+      "id": "rel-nsl-5-2-nsm-gp-2-7",
+      "source_concept_id": "nsl-5-2",
+      "target_concept_id": "nsm-gp-2-7",
+      "relationship_type": "implements",
+      "description": "NSL § 5-2 obligation to protect classified information is operationally implemented through NSM GP 2.7 data protection controls for data at rest and in transit."
+    },
+    {
+      "id": "rel-nsl-5-3-nis2-risk",
+      "source_concept_id": "nsl-5-3",
+      "target_concept_id": "nis2-risk-management",
+      "relationship_type": "related_to",
+      "description": "NSL § 5-3 security classification levels provide a Norwegian government-specific data classification framework. NIS2 risk management mandates data classification as a risk management measure."
+    },
+    {
+      "id": "rel-nsl-5-3-iso27000",
+      "source_concept_id": "nsl-5-3",
+      "target_concept_id": "iso27000-organizational",
+      "relationship_type": "maps_to",
+      "description": "NSL § 5-3 security classification levels (STRENGT HEMMELIG, HEMMELIG, KONFIDENSIELT, BEGRENSET) map to ISO 27001 Annex A information classification and labeling controls."
+    },
+    {
+      "id": "rel-nsl-5-4-nsm-gp-2-6",
+      "source_concept_id": "nsl-5-4",
+      "target_concept_id": "nsm-gp-2-6",
+      "relationship_type": "implements",
+      "description": "NSL § 5-4 need-to-know principle and access restrictions for classified information are operationally implemented through NSM GP 2.6 identity and access control measures."
+    },
+    {
+      "id": "rel-nsl-5-6-nsm-gp-2-7",
+      "source_concept_id": "nsl-5-6",
+      "target_concept_id": "nsm-gp-2-7",
+      "relationship_type": "related_to",
+      "description": "NSL § 5-6 Kryptosikkerhet (cryptographic security) requirements support NSM GP 2.7 data protection principles, particularly encryption of data at rest and in transit."
+    },
+    {
+      "id": "rel-nsl-ch6-nsm-gp-2-2",
+      "source_concept_id": "nsl-ch6",
+      "target_concept_id": "nsm-gp-2-2",
+      "relationship_type": "implements",
+      "description": "NSL Chapter 6 information system security requirements are implemented through NSM GP 2.2 secure ICT architecture principles, including segmentation and isolation for classified systems."
+    },
+    {
+      "id": "rel-nsl-6-2-nsm-gp-2-3",
+      "source_concept_id": "nsl-6-2",
+      "target_concept_id": "nsm-gp-2-3",
+      "relationship_type": "implements",
+      "description": "NSL § 6-2 protection of classified information systems includes secure configuration requirements, implemented through NSM GP 2.3 secure configuration controls."
+    },
+    {
+      "id": "rel-nsl-6-4-nsm-gp-3-2",
+      "source_concept_id": "nsl-6-4",
+      "target_concept_id": "nsm-gp-3-2",
+      "relationship_type": "implements",
+      "description": "NSL § 6-4 mandatory monitoring of classified information systems is implemented through NSM GP 3.2 security monitoring establishment principles."
+    },
+    {
+      "id": "rel-nsl-6-5-nsm-gp-3-4",
+      "source_concept_id": "nsl-6-5",
+      "target_concept_id": "nsm-gp-3-4",
+      "relationship_type": "implements",
+      "description": "NSL § 6-5 penetration testing requirement for classified systems is implemented through NSM GP 3.4 penetration testing principles."
+    },
+    {
+      "id": "rel-nsl-7-3-nist-800-53-pe",
+      "source_concept_id": "nsl-7-3",
+      "target_concept_id": "nist-800-53-pe",
+      "relationship_type": "maps_to",
+      "description": "NSL § 7-3 protection requirements for classified objects and infrastructure map to NIST SP 800-53 Physical and Environmental Protection (PE) family, both requiring proportionate physical security measures."
+    },
+    {
+      "id": "rel-nsl-ch8-nist-800-53-ps",
+      "source_concept_id": "nsl-ch8",
+      "target_concept_id": "nist-800-53-ps",
+      "relationship_type": "maps_to",
+      "description": "NSL Chapter 8 Personellsikkerhet maps to NIST SP 800-53 Personnel Security (PS) family. Both establish screening requirements, clearance procedures, and personnel termination controls."
+    },
+    {
+      "id": "rel-nsl-ch8-nis2-hr",
+      "source_concept_id": "nsl-ch8",
+      "target_concept_id": "nis2-rm-hr-access",
+      "relationship_type": "maps_to",
+      "description": "NSL Chapter 8 Personellsikkerhet maps to NIS2 human resources security and access control requirements. NSL provides the Norwegian government security vetting framework addressing NIS2 personnel security obligations."
+    },
+    {
+      "id": "rel-nsl-8-9-nsm-gp-2-6",
+      "source_concept_id": "nsl-8-9",
+      "target_concept_id": "nsm-gp-2-6",
+      "relationship_type": "related_to",
+      "description": "NSL § 8-9 Autorisasjon formalizes the access grant for cleared personnel, complementing NSM GP 2.6 identity and access control lifecycle management."
+    },
+    {
+      "id": "rel-nsl-ch9-nsm-gp-2-1",
+      "source_concept_id": "nsl-ch9",
+      "target_concept_id": "nsm-gp-2-1",
+      "relationship_type": "implements",
+      "description": "NSL Chapter 9 security-graded procurement adds legal clearance obligations to NSM GP 2.1 security in acquisition and development processes."
+    },
+    {
+      "id": "rel-nsl-ch9-nis2-supply",
+      "source_concept_id": "nsl-ch9",
+      "target_concept_id": "nis2-rm-supply-chain",
+      "relationship_type": "maps_to",
+      "description": "NSL Chapter 9 security-graded procurement maps to NIS2 supply chain security requirement. Both mandate that suppliers meet appropriate security standards when handling sensitive information."
+    },
+    {
+      "id": "rel-nsl-9-2-iso27000",
+      "source_concept_id": "nsl-9-2",
+      "target_concept_id": "iso27000-organizational",
+      "relationship_type": "implements",
+      "description": "NSL § 9-2 Sikkerhetsavtale med leverandør implements ISO 27001 Annex A supplier relationship controls, specifically the requirement for security agreements in contracts."
+    },
+    {
+      "id": "rel-nsl-9-1-nist-800-53-sr",
+      "source_concept_id": "nsl-9-1",
+      "target_concept_id": "nist-800-53-sr",
+      "relationship_type": "maps_to",
+      "description": "NSL § 9-1 facility security clearance for businesses maps to NIST SP 800-53 Supply Chain Risk Management (SR) family controls for supplier vetting and qualification."
+    },
+    {
+      "id": "rel-nsl-1-2-nis2-governance",
+      "source_concept_id": "nsl-1-2",
+      "target_concept_id": "nis2-governance",
+      "relationship_type": "related_to",
+      "description": "NSL § 1-2 scope definition (national security-significant entities) and NIS2 governance (essential/important entities) address overlapping but distinct entity populations subject to security obligations."
+    }
+  ]
+}

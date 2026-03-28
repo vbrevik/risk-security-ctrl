@@ -1,88 +1,67 @@
 {
-    "relationships": [
-        {
-            "id": "rel-iso10015-iso9000-engagement",
-            "source_concept_id": "iso10015-engagement",
-            "target_concept_id": "iso9000-p3-engagement",
-            "relationship_type": "implements",
-            "description": "ISO 10015 Engagement and motivation implements ISO 9000 Engagement of people principle by providing specific guidance on fostering engagement through development opportunities."
-        },
-        {
-            "id": "rel-iso10015-iso9000-support",
-            "source_concept_id": "iso10015-developing",
-            "target_concept_id": "iso9000-support",
-            "relationship_type": "supports",
-            "description": "ISO 10015 Developing competence supports ISO 9001 Support requirements (Clause 7), specifically competence and awareness requirements."
-        },
-        {
-            "id": "rel-iso10015-iso9000-improvement",
-            "source_concept_id": "iso10015-continual-improvement",
-            "target_concept_id": "iso9000-improvement-req",
-            "relationship_type": "maps_to",
-            "description": "ISO 10015 Continual improvement maps to ISO 9001 Continual improvement requirement. Both address ongoing enhancement of management systems."
-        },
-        {
-            "id": "rel-iso10015-iso9000-leadership",
-            "source_concept_id": "iso10015-planning-objectives",
-            "target_concept_id": "iso9000-p2-leadership",
-            "relationship_type": "related_to",
-            "description": "ISO 10015 Competence management objectives relate to ISO 9000 Leadership principle. Effective competence management requires leadership commitment and strategic alignment."
-        },
-        {
-            "id": "rel-iso10015-iso9000-evaluation",
-            "source_concept_id": "iso10015-evaluating",
-            "target_concept_id": "iso9000-evaluation",
-            "relationship_type": "maps_to",
-            "description": "ISO 10015 Evaluating competence development maps to ISO 9001 Performance evaluation. Both address monitoring, measurement, and evaluation of system effectiveness."
-        },
-        {
-            "id": "rel-iso10015-iso9000-context",
-            "source_concept_id": "iso10015-context",
-            "target_concept_id": "iso9000-context",
-            "relationship_type": "maps_to",
-            "description": "ISO 10015 Context of the organization maps to ISO 9001 Context of the organization. Both require understanding internal and external issues affecting the management system."
-        },
-        {
-            "id": "rel-iso10015-iso31000-human-cultural",
-            "source_concept_id": "iso10015-people-development",
-            "target_concept_id": "iso31000-p7-human-cultural",
-            "relationship_type": "implements",
-            "description": "ISO 10015 People development implements ISO 31000 Human and cultural factors principle by providing systematic approaches to developing people's competence in risk management."
-        },
-        {
-            "id": "rel-iso10015-iso27000-people",
-            "source_concept_id": "iso10015-determining-needs",
-            "target_concept_id": "iso27000-people",
-            "relationship_type": "supports",
-            "description": "ISO 10015 Determining competence needs supports ISO 27001 People controls by providing methodology for identifying and addressing security competence requirements."
-        },
-        {
-            "id": "rel-iso10015-nist-at",
-            "source_concept_id": "iso10015-development-methods",
-            "target_concept_id": "nist-800-53-at-2",
-            "relationship_type": "supports",
-            "description": "ISO 10015 competence development methods support NIST SP 800-53 AT-2 Literacy Training and Awareness by providing structured approaches for training delivery."
-        },
-        {
-            "id": "rel-iso10015-nist-at3",
-            "source_concept_id": "iso10015-competence-required",
-            "target_concept_id": "nist-800-53-at-3",
-            "relationship_type": "supports",
-            "description": "ISO 10015 Determining required competence supports NIST SP 800-53 AT-3 Role-Based Training by providing methodology for identifying role-specific competence requirements."
-        },
-        {
-            "id": "rel-iso10015-iso42001-competence",
-            "source_concept_id": "iso10015-developing",
-            "target_concept_id": "iso42001-clause7",
-            "relationship_type": "supports",
-            "description": "ISO 10015 Developing competence supports ISO 42001 Support requirements for AI management systems, specifically competence development for AI practitioners."
-        },
-        {
-            "id": "rel-iso10015-knowledge-iso9000-process",
-            "source_concept_id": "iso10015-knowledge-management",
-            "target_concept_id": "iso9000-p4-process-approach",
-            "relationship_type": "related_to",
-            "description": "ISO 10015 Knowledge management relates to ISO 9000 Process approach. Capturing and sharing organizational knowledge supports process-based quality management."
-        }
-    ]
+  "relationships": [
+    {
+      "id": "rel-iso10015-iso9000-engagement",
+      "source_concept_id": "iso10015-engagement",
+      "target_concept_id": "iso9000-p3-engagement",
+      "relationship_type": "implements",
+      "description": "ISO 10015 Engagement and motivation implements ISO 9000 Engagement of people principle by providing specific guidance on fostering engagement through development opportunities."
+    },
+    {
+      "id": "rel-iso10015-iso9000-support",
+      "source_concept_id": "iso10015-developing",
+      "target_concept_id": "iso9000-support",
+      "relationship_type": "supports",
+      "description": "ISO 10015 Developing competence supports ISO 9001 Support requirements (Clause 7), specifically competence and awareness requirements."
+    },
+    {
+      "id": "rel-iso10015-iso9000-evaluation",
+      "source_concept_id": "iso10015-evaluating",
+      "target_concept_id": "iso9000-evaluation",
+      "relationship_type": "maps_to",
+      "description": "ISO 10015 Evaluating competence development maps to ISO 9001 Performance evaluation. Both address monitoring, measurement, and evaluation of system effectiveness."
+    },
+    {
+      "id": "rel-iso10015-iso31000-human-cultural",
+      "source_concept_id": "iso10015-people-development",
+      "target_concept_id": "iso31000-p7-human-cultural",
+      "relationship_type": "implements",
+      "description": "ISO 10015 People development implements ISO 31000 Human and cultural factors principle by providing systematic approaches to developing people's competence in risk management."
+    },
+    {
+      "id": "rel-iso10015-iso27000-people",
+      "source_concept_id": "iso10015-determining-needs",
+      "target_concept_id": "iso27000-people",
+      "relationship_type": "supports",
+      "description": "ISO 10015 Determining competence needs supports ISO 27001 People controls by providing methodology for identifying and addressing security competence requirements."
+    },
+    {
+      "id": "rel-iso10015-nist-at",
+      "source_concept_id": "iso10015-development-methods",
+      "target_concept_id": "nist-800-53-at-2",
+      "relationship_type": "supports",
+      "description": "ISO 10015 competence development methods support NIST SP 800-53 AT-2 Literacy Training and Awareness by providing structured approaches for training delivery."
+    },
+    {
+      "id": "rel-iso10015-nist-at3",
+      "source_concept_id": "iso10015-competence-required",
+      "target_concept_id": "nist-800-53-at-3",
+      "relationship_type": "supports",
+      "description": "ISO 10015 Determining required competence supports NIST SP 800-53 AT-3 Role-Based Training by providing methodology for identifying role-specific competence requirements."
+    },
+    {
+      "id": "rel-iso10015-iso42001-competence",
+      "source_concept_id": "iso10015-developing",
+      "target_concept_id": "iso42001-clause7",
+      "relationship_type": "supports",
+      "description": "ISO 10015 Developing competence supports ISO 42001 Support requirements for AI management systems, specifically competence development for AI practitioners."
+    },
+    {
+      "id": "rel-iso10015-knowledge-iso9000-process",
+      "source_concept_id": "iso10015-knowledge-management",
+      "target_concept_id": "iso9000-p4-process-approach",
+      "relationship_type": "related_to",
+      "description": "ISO 10015 Knowledge management relates to ISO 9000 Process approach. Capturing and sharing organizational knowledge supports process-based quality management."
+    }
+  ]
 }

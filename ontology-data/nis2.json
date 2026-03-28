@@ -4,7 +4,11 @@
     "name": "NIS2 Directive",
     "version": "Directive (EU) 2022/2555",
     "description": "Directive on measures for a high common level of cybersecurity across the Union. Establishes cybersecurity risk management and reporting obligations for essential and important entities across critical sectors, and sets out rules on supervision, enforcement, and cooperation.",
-    "source_url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"
+    "source_url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj",
+    "verification_notes": "verified"
   },
   "concepts": [
     {
@@ -51,7 +55,7 @@
       "framework_id": "nis2",
       "parent_id": "nis2-entity-classification",
       "concept_type": "category",
-      "code": "ART-4",
+      "code": "ART-3-2",
       "name_en": "Important Entities",
       "name_nb": "Viktige virksomheter",
       "definition_en": "Entities in sectors listed in Annex I or Annex II that do not qualify as essential entities but still meet the size thresholds, including medium-sized enterprises in high criticality sectors and entities in other critical sectors.",

@@ -4,7 +4,11 @@
     "name": "NIST AI Risk Management Framework",
     "version": "AI 100-1",
     "description": "The NIST AI Risk Management Framework (AI RMF) provides a structured approach for managing risks associated with AI systems throughout their lifecycle. It is organized around four core functions — Govern, Map, Measure, and Manage — and emphasizes trustworthy AI characteristics including validity, safety, fairness, transparency, accountability, and privacy.",
-    "source_url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+    "source_url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+    "verification_notes": "verified"
   },
   "concepts": [
     {
@@ -111,7 +115,6 @@
       "source_reference": "NIST AI 100-1 Section 3.7",
       "sort_order": 7
     },
-
     {
       "id": "nist-ai-functions",
       "framework_id": "nist-ai-rmf",
@@ -125,7 +128,6 @@
       "source_reference": "NIST AI 100-1 Section 5",
       "sort_order": 2
     },
-
     {
       "id": "nist-ai-govern",
       "framework_id": "nist-ai-rmf",
@@ -490,7 +492,6 @@
       "source_reference": "NIST AI 100-1 / AI 600-1 Playbook",
       "sort_order": 3
     },
-
     {
       "id": "nist-ai-map",
       "framework_id": "nist-ai-rmf",
@@ -816,7 +817,6 @@
       "source_reference": "NIST AI 100-1 / AI 600-1 Playbook",
       "sort_order": 2
     },
-
     {
       "id": "nist-ai-measure",
       "framework_id": "nist-ai-rmf",
@@ -1155,7 +1155,6 @@
       "source_reference": "NIST AI 100-1 / AI 600-1 Playbook",
       "sort_order": 2
     },
-
     {
       "id": "nist-ai-manage",
       "framework_id": "nist-ai-rmf",
@@ -1403,7 +1402,6 @@
       "source_reference": "NIST AI 100-1 / AI 600-1 Playbook",
       "sort_order": 3
     },
-
     {
       "id": "nist-ai-lifecycle",
       "framework_id": "nist-ai-rmf",
@@ -1508,7 +1506,6 @@
       "source_reference": "NIST AI 100-1 Section 4",
       "sort_order": 7
     },
-
     {
       "id": "nist-ai-actors",
       "framework_id": "nist-ai-rmf",
@@ -1600,7 +1597,6 @@
       "source_reference": "NIST AI 100-1 Appendix A",
       "sort_order": 6
     },
-
     {
       "id": "nist-ai-tevv",
       "framework_id": "nist-ai-rmf",

@@ -4,7 +4,11 @@
     "name": "EU AI Act",
     "version": "Regulation (EU) 2024/1689",
     "description": "The EU Artificial Intelligence Act establishes a comprehensive regulatory framework for AI systems based on a risk-based approach. It classifies AI systems into risk categories and imposes requirements proportionate to the level of risk, covering the entire AI lifecycle from development to deployment and monitoring.",
-    "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "verification_notes": "All 8 Article 5 prohibited practices present. Social scoring scope corrected to include private actors. AI Office reference corrected from Art 64 to Art 74. Art 8 standalone concept added."
   },
   "concepts": [
     {
@@ -28,8 +32,8 @@
       "code": "ART-5",
       "name_en": "Unacceptable Risk — Prohibited Practices",
       "name_nb": "Uakseptabel risiko — Forbudte praksiser",
-      "definition_en": "AI practices that are considered a clear threat to safety, livelihoods, and fundamental rights of people are prohibited. This includes social scoring by governments, exploitation of vulnerabilities, real-time remote biometric identification in public spaces (with exceptions), and manipulative AI techniques.",
-      "definition_nb": "KI-praksiser som anses som en klar trussel mot sikkerhet, levebrød og grunnleggende rettigheter for personer er forbudt. Dette inkluderer sosial poenggiving av myndigheter, utnyttelse av sårbarheter, sanntids fjernbiometrisk identifikasjon på offentlige steder (med unntak) og manipulerende KI-teknikker.",
+      "definition_en": "AI practices that are considered a clear threat to safety, livelihoods, and fundamental rights of people are prohibited. This includes social scoring by public or private actors, exploitation of vulnerabilities, real-time remote biometric identification in public spaces (with exceptions), manipulative AI techniques, predictive policing based on profiling, untargeted facial image scraping, emotion recognition in workplaces and schools, and biometric categorisation to infer sensitive characteristics.",
+      "definition_nb": "KI-praksiser som anses som en klar trussel mot sikkerhet, levebrød og grunnleggende rettigheter for personer er forbudt. Dette inkluderer sosial poenggiving av offentlige eller private aktører, utnyttelse av sårbarheter, sanntids fjernbiometrisk identifikasjon på offentlige steder (med unntak), manipulerende KI-teknikker, prediktivt politiarbeid basert på profilering, umålrettet innhenting av ansiktsbilder, følelsesgjenkjenning på arbeidsplassen og i utdanning, og biometrisk kategorisering for å utlede sensitive egenskaper.",
       "source_reference": "EU AI Act Article 5",
       "sort_order": 1
     },
@@ -41,8 +45,8 @@
       "code": "ART-5(1)(c)",
       "name_en": "Social Scoring Prohibition",
       "name_nb": "Forbud mot sosial poenggiving",
-      "definition_en": "Prohibition on AI systems used for social scoring by public authorities, evaluating or classifying persons based on social behaviour or personality characteristics leading to detrimental or unfavourable treatment.",
-      "definition_nb": "Forbud mot KI-systemer brukt til sosial poenggiving av offentlige myndigheter, vurdering eller klassifisering av personer basert på sosial atferd eller personlighetsegenskaper som fører til skadelig eller ugunstig behandling.",
+      "definition_en": "Prohibition on AI systems used for social scoring, evaluating or classifying natural persons over a certain period of time based on their social behaviour or known, inferred or predicted personal or personality characteristics, where the resulting social score leads to detrimental or unfavourable treatment in social contexts unrelated to the original data collection, or treatment that is disproportionate or unjustified.",
+      "definition_nb": "Forbud mot KI-systemer brukt til sosial poenggiving, vurdering eller klassifisering av fysiske personer over en viss tidsperiode basert på deres sosiale atferd eller kjente, antatte eller predikerte personlige egenskaper eller personlighetstrekk, der den resulterende sosiale poengsummen fører til skadelig eller ugunstig behandling i sosiale sammenhenger som ikke er relatert til den opprinnelige datainnsamlingen, eller behandling som er uforholdsmessig eller uberettiget.",
       "source_reference": "EU AI Act Article 5(1)(c)",
       "sort_order": 1
     },
@@ -72,7 +76,71 @@
       "source_reference": "EU AI Act Article 5(1)(h)",
       "sort_order": 3
     },
-
+    {
+      "id": "eu-ai-unacceptable-vulnerability-exploitation",
+      "framework_id": "eu-ai-act",
+      "parent_id": "eu-ai-unacceptable",
+      "concept_type": "requirement",
+      "code": "ART-5(1)(b)",
+      "name_en": "Exploitation of Vulnerabilities Prohibition",
+      "name_nb": "Forbud mot utnyttelse av sårbarheter",
+      "definition_en": "Prohibition on AI systems that exploit vulnerabilities of a specific group of persons due to their age, disability, or a specific social or economic situation, with the objective or effect of materially distorting their behaviour in a manner that causes or is reasonably likely to cause significant harm.",
+      "definition_nb": "Forbud mot KI-systemer som utnytter sårbarhetene til en bestemt gruppe personer på grunn av deres alder, funksjonshemming eller en spesifikk sosial eller økonomisk situasjon, med mål om eller virkning av å vesentlig forvri deres atferd på en måte som forårsaker eller med rimelig sannsynlighet kan forårsake betydelig skade.",
+      "source_reference": "EU AI Act Article 5(1)(b)",
+      "sort_order": 4
+    },
+    {
+      "id": "eu-ai-unacceptable-predictive-policing",
+      "framework_id": "eu-ai-act",
+      "parent_id": "eu-ai-unacceptable",
+      "concept_type": "requirement",
+      "code": "ART-5(1)(d)",
+      "name_en": "Predictive Policing Based on Profiling Prohibition",
+      "name_nb": "Forbud mot prediktivt politiarbeid basert på profilering",
+      "definition_en": "Prohibition on AI systems for making risk assessments of natural persons in order to assess or predict the risk of a natural person committing a criminal offence, based solely on the profiling of a natural person or on assessing their personality traits and characteristics.",
+      "definition_nb": "Forbud mot KI-systemer for risikovurdering av fysiske personer for å vurdere eller forutsi risikoen for at en fysisk person begår en straffbar handling, utelukkende basert på profilering av en fysisk person eller vurdering av deres personlighetstrekk og egenskaper.",
+      "source_reference": "EU AI Act Article 5(1)(d)",
+      "sort_order": 5
+    },
+    {
+      "id": "eu-ai-unacceptable-facial-scraping",
+      "framework_id": "eu-ai-act",
+      "parent_id": "eu-ai-unacceptable",
+      "concept_type": "requirement",
+      "code": "ART-5(1)(e)",
+      "name_en": "Untargeted Facial Image Scraping Prohibition",
+      "name_nb": "Forbud mot umålrettet innhenting av ansiktsbilder",
+      "definition_en": "Prohibition on AI systems that create or expand facial recognition databases through the untargeted scraping of facial images from the internet or CCTV footage.",
+      "definition_nb": "Forbud mot KI-systemer som oppretter eller utvider ansiktsgjenkjenningsdatabaser gjennom umålrettet innhenting av ansiktsbilder fra internett eller videoovervåkningsopptak.",
+      "source_reference": "EU AI Act Article 5(1)(e)",
+      "sort_order": 6
+    },
+    {
+      "id": "eu-ai-unacceptable-emotion-recognition",
+      "framework_id": "eu-ai-act",
+      "parent_id": "eu-ai-unacceptable",
+      "concept_type": "requirement",
+      "code": "ART-5(1)(f)",
+      "name_en": "Emotion Recognition in Workplace and Education Prohibition",
+      "name_nb": "Forbud mot følelsesgjenkjenning på arbeidsplassen og i utdanning",
+      "definition_en": "Prohibition on AI systems that infer emotions of a natural person in the areas of workplace and education institutions, except where the AI system is intended to be placed on the market or put into service for medical or safety reasons.",
+      "definition_nb": "Forbud mot KI-systemer som utleder følelser hos en fysisk person på arbeidsplassen og i utdanningsinstitusjoner, med unntak der KI-systemet er beregnet på å bli plassert på markedet eller tatt i bruk av medisinske eller sikkerhetsmessige grunner.",
+      "source_reference": "EU AI Act Article 5(1)(f)",
+      "sort_order": 7
+    },
+    {
+      "id": "eu-ai-unacceptable-biometric-categorisation",
+      "framework_id": "eu-ai-act",
+      "parent_id": "eu-ai-unacceptable",
+      "concept_type": "requirement",
+      "code": "ART-5(1)(g)",
+      "name_en": "Biometric Categorisation for Sensitive Inference Prohibition",
+      "name_nb": "Forbud mot biometrisk kategorisering for sensitiv inferens",
+      "definition_en": "Prohibition on AI systems that categorise natural persons based on their biometric data to deduce or infer their race, political opinions, trade union membership, religious or philosophical beliefs, sex life or sexual orientation. This does not apply to labelling or filtering of lawfully acquired biometric datasets or to categorisation by law enforcement.",
+      "definition_nb": "Forbud mot KI-systemer som kategoriserer fysiske personer basert på deres biometriske data for å utlede eller slutte seg til deres rase, politiske meninger, fagforeningsmedlemskap, religiøse eller filosofiske overbevisninger, seksualliv eller seksuell legning. Dette gjelder ikke merking eller filtrering av lovlig innhentede biometriske datasett eller kategorisering av rettshåndhevelse.",
+      "source_reference": "EU AI Act Article 5(1)(g)",
+      "sort_order": 8
+    },
     {
       "id": "eu-ai-high-risk",
       "framework_id": "eu-ai-act",
@@ -86,7 +154,19 @@
       "source_reference": "EU AI Act Articles 6-7, Annexes I & III",
       "sort_order": 2
     },
-
+    {
+      "id": "eu-ai-art-8",
+      "framework_id": "eu-ai-act",
+      "parent_id": "eu-ai-high-risk",
+      "concept_type": "requirement",
+      "code": "ART-8",
+      "name_en": "Compliance with Requirements",
+      "name_nb": "Overholdelse av krav",
+      "definition_en": "High-risk AI systems shall comply with the requirements laid down in this Section. Those requirements shall apply taking into account the intended purpose and the reasonably foreseeable misuse of the high-risk AI system.",
+      "definition_nb": "Høyrisiko KI-systemer skal overholde kravene fastsatt i dette avsnittet. Disse kravene skal anvendes under hensyntagen til det tiltenkte formålet og den rimelig forutsigbare misbruken av høyrisiko KI-systemet.",
+      "source_reference": "EU AI Act Article 8",
+      "sort_order": 0
+    },
     {
       "id": "eu-ai-high-risk-requirements",
       "framework_id": "eu-ai-act",
@@ -204,7 +284,6 @@
       "source_reference": "EU AI Act Article 17",
       "sort_order": 8
     },
-
     {
       "id": "eu-ai-high-risk-areas",
       "framework_id": "eu-ai-act",
@@ -322,7 +401,6 @@
       "source_reference": "EU AI Act Annex III(8)",
       "sort_order": 8
     },
-
     {
       "id": "eu-ai-limited-risk",
       "framework_id": "eu-ai-act",
@@ -375,7 +453,6 @@
       "source_reference": "EU AI Act Article 50(4)",
       "sort_order": 3
     },
-
     {
       "id": "eu-ai-minimal-risk",
       "framework_id": "eu-ai-act",
@@ -389,7 +466,6 @@
       "source_reference": "EU AI Act Recital 28",
       "sort_order": 4
     },
-
     {
       "id": "eu-ai-gpai",
       "framework_id": "eu-ai-act",
@@ -442,7 +518,6 @@
       "source_reference": "EU AI Act Article 52",
       "sort_order": 3
     },
-
     {
       "id": "eu-ai-governance",
       "framework_id": "eu-ai-act",
@@ -464,8 +539,8 @@
       "code": "ART-64",
       "name_en": "European AI Office",
       "name_nb": "Det europeiske KI-kontoret",
-      "definition_en": "The EU body responsible for enforcing rules on GPAI models, promoting standards and testing frameworks, and coordinating between national authorities.",
-      "definition_nb": "EU-organet ansvarlig for å håndheve regler for GPAI-modeller, fremme standarder og testrammeverk, og koordinere mellom nasjonale myndigheter.",
+      "definition_en": "The Commission body responsible for developing Union expertise and capabilities in AI, supervising and enforcing rules on GPAI models, promoting standards and testing frameworks, and coordinating between national authorities.",
+      "definition_nb": "Kommisjonsorganet ansvarlig for å utvikle EUs ekspertise og kapasitet innen KI, overvåke og håndheve regler for GPAI-modeller, fremme standarder og testrammeverk, og koordinere mellom nasjonale myndigheter.",
       "source_reference": "EU AI Act Article 64",
       "sort_order": 1
     },
@@ -560,7 +635,6 @@
       "source_reference": "EU AI Act Article 73",
       "sort_order": 8
     },
-
     {
       "id": "eu-ai-obligations",
       "framework_id": "eu-ai-act",
@@ -626,7 +700,6 @@
       "source_reference": "EU AI Act Article 22",
       "sort_order": 4
     },
-
     {
       "id": "eu-ai-affected-persons",
       "framework_id": "eu-ai-act",

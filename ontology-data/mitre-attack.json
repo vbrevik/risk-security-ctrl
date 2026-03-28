@@ -2,9 +2,13 @@
   "framework": {
     "id": "mitre-attack",
     "name": "MITRE ATT&CK Enterprise",
-    "version": "15.1",
+    "version": "16.1",
     "description": "Knowledge base of adversary tactics, techniques, and procedures (TTPs) based on real-world observations of cyber adversary behavior.",
-    "source_url": "https://attack.mitre.org/"
+    "source_url": "https://attack.mitre.org/",
+    "verification_status": "structure-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://attack.mitre.org/",
+    "verification_notes": "structure-verified"
   },
   "concepts": [
     {
@@ -20,7 +24,6 @@
       "source_reference": "MITRE ATT&CK Enterprise",
       "sort_order": 1
     },
-
     {
       "id": "mitre-attack-reconnaissance",
       "framework_id": "mitre-attack",
@@ -86,7 +89,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1593/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-resource-development",
       "framework_id": "mitre-attack",
@@ -152,7 +154,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1588/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-initial-access",
       "framework_id": "mitre-attack",
@@ -231,7 +232,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1195/",
       "sort_order": 5
     },
-
     {
       "id": "mitre-attack-execution",
       "framework_id": "mitre-attack",
@@ -297,7 +297,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1204/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-persistence",
       "framework_id": "mitre-attack",
@@ -363,7 +362,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1053/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-privilege-escalation",
       "framework_id": "mitre-attack",
@@ -429,7 +427,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1134/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-defense-evasion",
       "framework_id": "mitre-attack",
@@ -508,7 +505,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1055/",
       "sort_order": 5
     },
-
     {
       "id": "mitre-attack-credential-access",
       "framework_id": "mitre-attack",
@@ -574,7 +570,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1056/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-discovery",
       "framework_id": "mitre-attack",
@@ -640,7 +635,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1069/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-lateral-movement",
       "framework_id": "mitre-attack",
@@ -706,7 +700,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1550/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-collection",
       "framework_id": "mitre-attack",
@@ -772,7 +765,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1114/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-command-and-control",
       "framework_id": "mitre-attack",
@@ -838,7 +830,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1090/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-exfiltration",
       "framework_id": "mitre-attack",
@@ -904,7 +895,6 @@
       "source_reference": "https://attack.mitre.org/techniques/T1020/",
       "sort_order": 4
     },
-
     {
       "id": "mitre-attack-impact",
       "framework_id": "mitre-attack",

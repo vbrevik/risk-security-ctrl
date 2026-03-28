@@ -4,7 +4,11 @@
     "name": "ISO 31010:2019",
     "version": "2019",
     "description": "Risk management - Risk assessment techniques. Provides guidance on the selection and application of techniques for assessing risk in a wide range of situations.",
-    "source_url": "https://www.iso.org/standard/72140.html"
+    "source_url": "https://www.iso.org/standard/72140.html",
+    "verification_status": "partially-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/standard/72140.html",
+    "verification_notes": "partially-verified"
   },
   "concepts": [
     {

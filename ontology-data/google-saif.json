@@ -4,7 +4,11 @@
     "name": "Google Secure AI Framework",
     "version": "1.0",
     "description": "The Google Secure AI Framework (SAIF) is a conceptual framework for secure AI systems. It provides a comprehensive approach to managing AI-specific security risks across the AI lifecycle, with six core elements that address security foundations, threat detection, automation, platform controls, adaptive mitigations, and business process contextualization.",
-    "source_url": "https://safety.google/cybersecurity-advancements/saif/"
+    "source_url": "https://safety.google/cybersecurity-advancements/saif/",
+    "verification_status": "verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://safety.google/cybersecurity-advancements/saif/",
+    "verification_notes": "verified"
   },
   "concepts": [
     {

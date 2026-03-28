@@ -4,7 +4,11 @@
     "name": "ISO/IEC 42001 - AI Management System",
     "version": "2023",
     "description": "ISO/IEC 42001 specifies requirements for establishing, implementing, maintaining, and continually improving an Artificial Intelligence Management System (AIMS) within the context of an organization. It provides a systematic approach for managing AI-related risks and opportunities, ensuring responsible development and use of AI systems.",
-    "source_url": "https://www.iso.org/standard/81230.html"
+    "source_url": "https://www.iso.org/standard/81230.html",
+    "verification_status": "structure-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/standard/81230.html",
+    "verification_notes": "structure-verified"
   },
   "concepts": [
     {

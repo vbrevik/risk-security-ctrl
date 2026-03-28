@@ -4,7 +4,11 @@
     "name": "ISO/IEC TR 24028 - AI Trustworthiness Overview",
     "version": "2020",
     "description": "ISO/IEC TR 24028 provides an overview of trustworthiness in artificial intelligence, including threats and vulnerabilities, approaches to establishing trust, and engineering pitfalls. It covers key properties of trustworthy AI including transparency, explainability, controllability, resiliency, reliability, accuracy, safety, security, and privacy.",
-    "source_url": "https://www.iso.org/standard/77608.html"
+    "source_url": "https://www.iso.org/standard/77608.html",
+    "verification_status": "structure-verified",
+    "verification_date": "2026-03-28",
+    "verification_source": "https://www.iso.org/standard/77608.html",
+    "verification_notes": "structure-verified"
   },
   "concepts": [
     {
