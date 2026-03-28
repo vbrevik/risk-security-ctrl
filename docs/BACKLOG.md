@@ -6,16 +6,14 @@ Splits 01-06 of ontology verification are **complete**. 30 framework JSON files 
 
 | Status | Count | Frameworks |
 |--------|-------|------------|
-| verified | 14 | cisa-ztmm, cve-cwe, data-centric, eu-ai-act, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-csf, nist-rmf, xai-dataops, zero-trust |
+| verified | 15 | cisa-ztmm, cve-cwe, data-centric, eu-ai-act, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-csf, nist-rmf, nsl-sikkerhetsloven, xai-dataops, zero-trust |
 | corrected | 2 | nist-ai-genai, nist-sp-800-53 |
 | structure-verified | 5 | iso23894, iso24028, iso31000, iso42001, mitre-attack |
 | partially-verified | 8 | cer-directive, dora, fmn, iso10015, iso31010, iso42005, iso9000, nsm-grunnprinsipper |
-| needs-correction | 1 | nsl-sikkerhetsloven |
 
 ## Pending Verification Work
 
 - [ ] **FMN deeper restructuring** — 71% of concepts have fabricated names/codes. 6 service areas should be replaced with 21 official Spiral 6 Service Instruction areas. Architecture component codes need renaming. See `docs/sources/fmn-proof.md`.
-- [ ] **NSL Sikkerhetsloven** — needs-correction: Chapter 12 missing, Kap. 2/3/10/11 header-only, several §§ missing. See `docs/sources/nsl-sikkerhetsloven-proof.md`.
 - [ ] **NSM Grunnprinsipper** — partially-verified: structure confirmed, definitions are thin (titles only). See `docs/sources/nsm-grunnprinsipper-proof.md`.
 
 ## New Frameworks to Add

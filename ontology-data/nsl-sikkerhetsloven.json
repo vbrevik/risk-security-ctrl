@@ -5,10 +5,10 @@
     "version": "2019",
     "description": "Lov om nasjonal sikkerhet (sikkerhetsloven) av 1. juni 2018, i kraft 1. januar 2019 (LOV-2018-06-01-24). Loven skal bidra til å trygge Norges suverenitet, territorielle integritet og demokratiske styreform og andre nasjonale sikkerhetsinteresser. The Norwegian National Security Act establishing security obligations for entities whose activities are of significance for national security.",
     "source_url": "https://lovdata.no/dokument/NL/lov/2018-06-01-24",
-    "verification_status": "needs-correction",
+    "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "https://lovdata.no/dokument/NL/lov/2018-06-01-24",
-    "verification_notes": "Chapter 12 missing entirely. Kap. 2, 3, 10, 11 have headers only (no individual §§). §1-4 missing. Kap. 8 missing §§ 8-6, 8-7, 8-10, 8-12 to 8-15, 8-17. See docs/sources/nsl-sikkerhetsloven-proof.md."
+    "verification_notes": "All 12 chapters present. All §§ verified: Kap. 1 (§§1-1 to 1-5), Kap. 2 (§§2-1 to 2-5), Kap. 3 (§§3-1 to 3-6), Kap. 4 (§§4-1 to 4-5), Kap. 5 (§§5-1 to 5-6), Kap. 6 (§§6-1 to 6-6), Kap. 7 (§§7-1 to 7-6), Kap. 8 (§§8-1 to 8-17), Kap. 9 (§§9-1 to 9-4), Kap. 10 (§§10-1 to 10-4), Kap. 11 (§§11-1 to 11-4), Kap. 12 (§§12-1 to 12-2). Corrections applied 2026-03-28. See docs/sources/nsl-sikkerhetsloven-proof.md."
   },
   "concepts": [
     {
@@ -64,6 +64,19 @@
       "sort_order": 3
     },
     {
+      "id": "nsl-1-4",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch1",
+      "concept_type": "control",
+      "code": "§ 1-4",
+      "name_en": "Application to Parliament, government, and courts",
+      "name_nb": "Lovens anvendelse for Stortinget, regjeringen og domstolene",
+      "definition_en": "The Act applies to Parliament and its bodies to the extent Parliament decides. Security clearance provisions in Chapter 8 do not apply to parliamentary representatives, government members, or Supreme Court justices. The Act applies to courts with specific adaptations from court and criminal procedure legislation. The King may establish additional special regulations.",
+      "definition_nb": "Loven gjelder for Stortinget og organer under Stortinget i den utstrekning Stortinget bestemmer. Sikkerhetsklareringskrav i kapittel 8 gjelder ikke for stortingsrepresentanter, regjeringsmedlemmer eller Høyesterettsdommere. Loven gjelder for domstolene med tilpasninger fra domstollovgivning og straffeprosesslovgivning. Kongen kan fastsette ytterligere særlige forskrifter.",
+      "source_reference": "NSL § 1-4",
+      "sort_order": 4
+    },
+    {
       "id": "nsl-1-5",
       "framework_id": "nsl",
       "parent_id": "nsl-ch1",
@@ -90,6 +103,71 @@
       "sort_order": 2
     },
     {
+      "id": "nsl-2-1",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch2",
+      "concept_type": "control",
+      "code": "§ 2-1",
+      "name_en": "Responsibilities and authority of government departments",
+      "name_nb": "Departementenes ansvar og myndighet",
+      "definition_en": "Each government department is responsible for preventive security work within its sector. Departments shall issue regulations for the entities they are responsible for, follow up compliance with the Act, and may provide guidance on the application of the Act.",
+      "definition_nb": "Hvert departement er ansvarlig for forebyggende sikkerhetsarbeid innenfor sin sektor. Departementene skal fastsette forskrifter for virksomheter de er ansvarlige for, følge opp etterlevelse av loven og kan gi veiledning om lovens anvendelse.",
+      "source_reference": "NSL § 2-1",
+      "sort_order": 1
+    },
+    {
+      "id": "nsl-2-2",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch2",
+      "concept_type": "control",
+      "code": "§ 2-2",
+      "name_en": "The security authority's responsibilities",
+      "name_nb": "Sikkerhetslovens ansvar",
+      "definition_en": "NSM (Nasjonal sikkerhetsmyndighet) is the national security authority and shall coordinate preventive security work, provide guidance and supervision across sectors, develop standards and technical requirements, and report on the security situation to responsible departments.",
+      "definition_nb": "NSM (Nasjonal sikkerhetsmyndighet) er nasjonal sikkerhetsmyndighet og skal koordinere forebyggende sikkerhetsarbeid, gi veiledning og føre tilsyn på tvers av sektorer, utvikle standarder og tekniske krav, og rapportere om sikkerhetssituasjonen til ansvarlige departementer.",
+      "source_reference": "NSL § 2-2",
+      "sort_order": 2
+    },
+    {
+      "id": "nsl-2-3",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch2",
+      "concept_type": "control",
+      "code": "§ 2-3",
+      "name_en": "Exchange of threat assessments and security information",
+      "name_nb": "Utveksling av trusselvurderinger og sikkerhetsinformasjon",
+      "definition_en": "NSM, the Police Security Service (PST), and the intelligence services shall share threat assessments and security information relevant to preventive security work. The King may by regulation establish further rules on this exchange.",
+      "definition_nb": "NSM, Politiets sikkerhetstjeneste (PST) og etterretningstjenestene skal dele trusselvurderinger og sikkerhetsinformasjon relevant for forebyggende sikkerhetsarbeid. Kongen kan ved forskrift fastsette nærmere regler om denne utvekslingen.",
+      "source_reference": "NSL § 2-3",
+      "sort_order": 3
+    },
+    {
+      "id": "nsl-2-4",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch2",
+      "concept_type": "control",
+      "code": "§ 2-4",
+      "name_en": "Response function and warning system for digital infrastructure",
+      "name_nb": "Responsfunksjon og varslingssystem for digital infrastruktur",
+      "definition_en": "NSM shall operate a national response function and warning system for digital infrastructure (VDI — Varslingssystem for digital infrastruktur) that detects and responds to serious cyber attacks against critical infrastructure and government systems.",
+      "definition_nb": "NSM skal operere en nasjonal responsfunksjon og et varslingssystem for digital infrastruktur (VDI) som oppdager og responderer på alvorlige cyberangrep mot kritisk infrastruktur og statlige systemer.",
+      "source_reference": "NSL § 2-4",
+      "sort_order": 4
+    },
+    {
+      "id": "nsl-2-5",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch2",
+      "concept_type": "control",
+      "code": "§ 2-5",
+      "name_en": "Measures against risk to national security interests",
+      "name_nb": "Vedtak om risiko for nasjonale sikkerhetsinteresser",
+      "definition_en": "When an activity presents an unacceptable risk to national security interests, the competent ministry may by royal decree impose conditions or prohibit the activity. Affected parties must be given an opportunity to comment before such a decision is made.",
+      "definition_nb": "Når en aktivitet utgjør en uakseptabel risiko for nasjonale sikkerhetsinteresser, kan ansvarlig departement ved kongelig resolusjon pålegge vilkår eller forby aktiviteten. Berørte parter må gis mulighet til å uttale seg før en slik beslutning treffes.",
+      "source_reference": "NSL § 2-5",
+      "sort_order": 5
+    },
+    {
       "id": "nsl-ch3",
       "framework_id": "nsl",
       "parent_id": null,
@@ -101,6 +179,84 @@
       "definition_nb": "Kapittel 3 etablerer tilsynsrammeverket, inkludert myndighet til å gjennomføre tilsyn, samarbeid mellom tilsynsmyndigheter, og myndighet til å gi pålegg.",
       "source_reference": "NSL Kap. 3",
       "sort_order": 3
+    },
+    {
+      "id": "nsl-3-1",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch3",
+      "concept_type": "control",
+      "code": "§ 3-1",
+      "name_en": "Supervision of entities",
+      "name_nb": "Tilsyn med virksomheter",
+      "definition_en": "NSM and sector supervisory authorities shall supervise compliance with the Act and regulations. NSM has authority to conduct inspections and demand information from entities subject to the Act.",
+      "definition_nb": "NSM og sektortilsynsmyndigheter skal føre tilsyn med etterlevelse av loven og forskrifter. NSM har myndighet til å gjennomføre inspeksjoner og kreve opplysninger fra virksomheter underlagt loven.",
+      "source_reference": "NSL § 3-1",
+      "sort_order": 1
+    },
+    {
+      "id": "nsl-3-2",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch3",
+      "concept_type": "control",
+      "code": "§ 3-2",
+      "name_en": "Cooperation between the security authority and sector supervisory authorities",
+      "name_nb": "Samarbeid mellom sikkerhetsmyndigheten og sektortilsynsmyndigheter",
+      "definition_en": "NSM and sector supervisory authorities shall coordinate their supervisory activities. They shall exchange information and cooperate to ensure consistent application of the Act across sectors and to avoid duplication of supervisory effort.",
+      "definition_nb": "NSM og sektortilsynsmyndigheter skal koordinere sine tilsynsaktiviteter. De skal utveksle informasjon og samarbeide for å sikre konsistent anvendelse av loven på tvers av sektorer og for å unngå dobbelt tilsynsarbeid.",
+      "source_reference": "NSL § 3-2",
+      "sort_order": 2
+    },
+    {
+      "id": "nsl-3-3",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch3",
+      "concept_type": "control",
+      "code": "§ 3-3",
+      "name_en": "General supervision principles",
+      "name_nb": "Alminnelige tilsynsprinsipper",
+      "definition_en": "Supervision shall be risk-based and proportionate. Supervisory authorities shall consider the nature and significance of the entities' activities, the potential consequences of non-compliance, and the entity's history of compliance when planning and conducting supervision.",
+      "definition_nb": "Tilsyn skal være risikobasert og forholdsmessig. Tilsynsmyndigheter skal vurdere arten og betydningen av virksomhetenes aktiviteter, de potensielle konsekvensene av manglende etterlevelse og virksomhetens etterlevelseshistorikk ved planlegging og gjennomføring av tilsyn.",
+      "source_reference": "NSL § 3-3",
+      "sort_order": 3
+    },
+    {
+      "id": "nsl-3-4",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch3",
+      "concept_type": "control",
+      "code": "§ 3-4",
+      "name_en": "Right of access and notification duty during supervision",
+      "name_nb": "Rett til innsyn og varslingsplikt ved tilsyn",
+      "definition_en": "Entities subject to supervision shall give supervisory authorities access to premises, systems, and documentation necessary to carry out supervision. Supervisory authorities shall normally give advance notice of inspections. Unannounced inspections may be conducted when there are grounds to believe advance notice would compromise the inspection.",
+      "definition_nb": "Virksomheter underlagt tilsyn skal gi tilsynsmyndigheter tilgang til lokaler, systemer og dokumentasjon nødvendig for å gjennomføre tilsyn. Tilsynsmyndigheter skal normalt gi forhåndsvarsel om inspeksjoner. Uanmeldte inspeksjoner kan gjennomføres når det er grunn til å tro at forhåndsvarsel vil kompromittere inspeksjonen.",
+      "source_reference": "NSL § 3-4",
+      "sort_order": 4
+    },
+    {
+      "id": "nsl-3-5",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch3",
+      "concept_type": "control",
+      "code": "§ 3-5",
+      "name_en": "Processing of personal data by supervisory authorities",
+      "name_nb": "Tilsynsmyndighetenes behandling av personopplysninger",
+      "definition_en": "Supervisory authorities may process personal data to the extent necessary for carrying out their supervisory functions under this Act. Processing shall comply with applicable data protection legislation. Special rules apply for information obtained in connection with security clearance matters.",
+      "definition_nb": "Tilsynsmyndigheter kan behandle personopplysninger i den utstrekning det er nødvendig for å utføre sine tilsynsfunksjoner etter denne loven. Behandling skal overholde gjeldende personvernlovgivning. Særlige regler gjelder for informasjon innhentet i forbindelse med sikkerhetsklareringsforhold.",
+      "source_reference": "NSL § 3-5",
+      "sort_order": 5
+    },
+    {
+      "id": "nsl-3-6",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch3",
+      "concept_type": "control",
+      "code": "§ 3-6",
+      "name_en": "Orders",
+      "name_nb": "Pålegg",
+      "definition_en": "Supervisory authorities may issue binding orders to entities that do not comply with requirements under the Act or regulations. Orders shall specify the required measures and set a reasonable deadline for compliance. Non-compliance with orders may trigger coercive fines under Chapter 11.",
+      "definition_nb": "Tilsynsmyndigheter kan gi bindende pålegg til virksomheter som ikke oppfyller krav etter loven eller forskrifter. Pålegg skal spesifisere de nødvendige tiltakene og sette en rimelig frist for etterlevelse. Manglende etterlevelse av pålegg kan utløse tvangsmulkt etter kapittel 11.",
+      "source_reference": "NSL § 3-6",
+      "sort_order": 6
     },
     {
       "id": "nsl-ch4",
@@ -584,6 +740,32 @@
       "sort_order": 5
     },
     {
+      "id": "nsl-8-6",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-6",
+      "name_en": "Conditional clearance",
+      "name_nb": "Betinget klarering",
+      "definition_en": "A security clearance may be granted on a conditional basis when the clearance authority finds that certain risk factors exist but are not sufficient to deny clearance outright. Conditions may include restrictions on access to specific categories of information, requirements for enhanced supervision, or other appropriate measures.",
+      "definition_nb": "En sikkerhetsklarering kan gis på betinget basis når klareringmyndigheten finner at visse risikofaktorer foreligger, men ikke er tilstrekkelige til å nekte klarering. Betingelser kan inkludere begrensninger i adgang til bestemte kategorier informasjon, krav om økt tilsyn eller andre hensiktsmessige tiltak.",
+      "source_reference": "NSL § 8-6",
+      "sort_order": 6
+    },
+    {
+      "id": "nsl-8-7",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-7",
+      "name_en": "Clearance of foreign nationals",
+      "name_nb": "Klarering av utenlandske statsborgere",
+      "definition_en": "Foreign nationals may be granted security clearance when this is necessary for Norway's international obligations or cooperation. The clearance authority shall assess the risk associated with granting clearance to foreign nationals, taking into account the person's ties to their country of origin and other relevant factors.",
+      "definition_nb": "Utenlandske statsborgere kan gis sikkerhetsklarering når dette er nødvendig for Norges internasjonale forpliktelser eller samarbeid. Klareringmyndigheten skal vurdere risikoen forbundet med å gi klarering til utenlandske statsborgere, med hensyn til personens tilknytning til sitt opprinnelsesland og andre relevante faktorer.",
+      "source_reference": "NSL § 8-7",
+      "sort_order": 7
+    },
+    {
       "id": "nsl-8-8",
       "framework_id": "nsl",
       "parent_id": "nsl-ch8",
@@ -610,6 +792,19 @@
       "sort_order": 9
     },
     {
+      "id": "nsl-8-10",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-10",
+      "name_en": "Reduction, suspension and revocation of authorisation",
+      "name_nb": "Nedsettelse, suspensjon og tilbakekallelse av autorisasjon",
+      "definition_en": "An authorisation (autorisasjon) may be reduced in scope, suspended, or revoked when circumstances arise that would warrant denial of security clearance, or when the person no longer needs access to classified information. Suspension may be applied as an interim measure pending a full review of the clearance.",
+      "definition_nb": "En autorisasjon kan nedsettes i omfang, suspenderes eller tilbakekalles når omstendigheter oppstår som ville berettige avslag på sikkerhetsklarering, eller når personen ikke lenger trenger tilgang til sikkerhetsgradert informasjon. Suspensjon kan anvendes som et foreløpig tiltak i påvente av en full gjennomgang av klareringen.",
+      "source_reference": "NSL § 8-10",
+      "sort_order": 10
+    },
+    {
       "id": "nsl-8-11",
       "framework_id": "nsl",
       "parent_id": "nsl-ch8",
@@ -623,6 +818,58 @@
       "sort_order": 11
     },
     {
+      "id": "nsl-8-12",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-12",
+      "name_en": "Disclosure of information to PST",
+      "name_nb": "Informasjonsformidling til PST",
+      "definition_en": "The clearance authority shall disclose to the Police Security Service (PST) information obtained in clearance proceedings that may be of significance for PST's work to prevent crimes against national security. This applies notwithstanding duty-of-confidentiality provisions that would otherwise apply.",
+      "definition_nb": "Klareringmyndigheten skal formidle til Politiets sikkerhetstjeneste (PST) informasjon innhentet i klareringssaker som kan ha betydning for PSTs arbeid med å forebygge forbrytelser mot nasjonal sikkerhet. Dette gjelder uavhengig av taushetspliktbestemmelser som ellers ville gjelde.",
+      "source_reference": "NSL § 8-12",
+      "sort_order": 12
+    },
+    {
+      "id": "nsl-8-13",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-13",
+      "name_en": "Justification and notification of clearance decisions",
+      "name_nb": "Begrunnelse og underretning om klareringsavgjørelser",
+      "definition_en": "Persons who are denied, have their clearance reduced, suspended, or revoked shall be notified of the decision and given a statement of reasons. The statement of reasons may be limited to the extent that disclosure would jeopardize national security or ongoing security service operations.",
+      "definition_nb": "Personer som nektes klarering, får sin klarering nedsatt, suspendert eller tilbakekalt, skal underrettes om beslutningen og gis en begrunnelse. Begrunnelsen kan begrenses i den utstrekning offentliggjøring vil sette nasjonal sikkerhet eller pågående sikkerhetstjenestoperasjoner i fare.",
+      "source_reference": "NSL § 8-13",
+      "sort_order": 13
+    },
+    {
+      "id": "nsl-8-14",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-14",
+      "name_en": "Access to clearance case documents",
+      "name_nb": "Innsyn i klareringssakens dokumenter",
+      "definition_en": "The subject of a clearance case has the right to access the documents in their case. However, access may be restricted for documents containing classified information or information whose disclosure would jeopardize national security interests or the sources and methods of security services.",
+      "definition_nb": "Personen som er gjenstand for en klareringssak har rett til innsyn i sakens dokumenter. Innsyn kan imidlertid begrenses for dokumenter som inneholder sikkerhetsgradert informasjon eller informasjon hvis offentliggjøring vil sette nasjonale sikkerhetsinteresser eller sikkerhetstjenestenes kilder og metoder i fare.",
+      "source_reference": "NSL § 8-14",
+      "sort_order": 14
+    },
+    {
+      "id": "nsl-8-15",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-15",
+      "name_en": "Presentation to a specially appointed counsel",
+      "name_nb": "Fremleggelse for særskilt oppnevnt advokat",
+      "definition_en": "Where access to case documents is restricted on grounds of national security, the subject shall be entitled to have a specially appointed security-cleared counsel review the restricted documents on their behalf. The counsel may communicate the substance of the restricted information to the subject to the extent this can be done without jeopardizing national security.",
+      "definition_nb": "Der innsyn i saksdokumenter er begrenset av hensyn til nasjonal sikkerhet, skal den det gjelder ha rett til å få en særskilt oppnevnt sikkerhetsklarert advokat til å gjennomgå de begrensede dokumentene på sine vegne. Advokaten kan kommunisere innholdet i den begrensede informasjonen til den det gjelder i den utstrekning dette kan gjøres uten å sette nasjonal sikkerhet i fare.",
+      "source_reference": "NSL § 8-15",
+      "sort_order": 15
+    },
+    {
       "id": "nsl-8-16",
       "framework_id": "nsl",
       "parent_id": "nsl-ch8",
@@ -634,6 +881,19 @@
       "definition_nb": "NSM forvalter et sentralt register over alle klareringsavgjørelser. NSM og utpekte sektorklareringsmyndigheter fungerer som klareringsmyndigheter.",
       "source_reference": "NSL § 8-16",
       "sort_order": 16
+    },
+    {
+      "id": "nsl-8-17",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch8",
+      "concept_type": "control",
+      "code": "§ 8-17",
+      "name_en": "Appeals against clearance decisions",
+      "name_nb": "Klage på klareringsavgjørelser",
+      "definition_en": "Decisions on security clearance may be appealed to the appeal authority (Klagenemnda for sikkerhetsklarering). The appeal authority's decisions are final and cannot be appealed further within the administrative system. The clearance subject may bring the appeal authority's decision before the courts.",
+      "definition_nb": "Vedtak om sikkerhetsklarering kan påklages til klageorganet (Klagenemnda for sikkerhetsklarering). Klageorganets avgjørelser er endelige og kan ikke påklages videre innen forvaltningssystemet. Den klarerte kan bringe klageorganets avgjørelse inn for domstolene.",
+      "source_reference": "NSL § 8-17",
+      "sort_order": 17
     },
     {
       "id": "nsl-ch9",
@@ -714,6 +974,58 @@
       "sort_order": 10
     },
     {
+      "id": "nsl-10-1",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch10",
+      "concept_type": "control",
+      "code": "§ 10-1",
+      "name_en": "Notification duty for acquisition of entities",
+      "name_nb": "Meldeplikt ved erverv av virksomheter",
+      "definition_en": "Acquisitions of entities that are subject to this Act, or that carry out activities of significance to national security, shall be notified to the responsible ministry before the acquisition is completed. The notification obligation applies when the acquirer obtains control over such an entity.",
+      "definition_nb": "Erverv av virksomheter som er underlagt denne loven, eller som utfører aktiviteter av betydning for nasjonal sikkerhet, skal meldes til ansvarlig departement før ervervet fullføres. Meldeplikten gjelder når erververen oppnår kontroll over en slik virksomhet.",
+      "source_reference": "NSL § 10-1",
+      "sort_order": 1
+    },
+    {
+      "id": "nsl-10-2",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch10",
+      "concept_type": "control",
+      "code": "§ 10-2",
+      "name_en": "Processing of acquisition notifications",
+      "name_nb": "Behandling av ervervsmelding",
+      "definition_en": "The responsible ministry shall process acquisition notifications within 60 working days of receiving a complete notification. During the processing period, the acquisition may not be completed. The ministry shall assess whether the acquisition poses an unacceptable risk to national security interests.",
+      "definition_nb": "Ansvarlig departement skal behandle ervervsmeldinger innen 60 arbeidsdager etter å ha mottatt en fullstendig melding. I behandlingsperioden kan ervervet ikke fullføres. Departementet skal vurdere om ervervet utgjør en uakseptabel risiko for nasjonale sikkerhetsinteresser.",
+      "source_reference": "NSL § 10-2",
+      "sort_order": 2
+    },
+    {
+      "id": "nsl-10-3",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch10",
+      "concept_type": "control",
+      "code": "§ 10-3",
+      "name_en": "Decision to halt acquisition of entities",
+      "name_nb": "Vedtak om å stanse erverv av virksomheter",
+      "definition_en": "The King in Council may by decision prohibit an acquisition or impose conditions on it when the acquisition poses an unacceptable risk to national security interests. A decision to prohibit or impose conditions must be made within the 60-day processing period, unless the acquirer agrees to a longer period.",
+      "definition_nb": "Kongen i statsråd kan ved vedtak forby et erverv eller pålegge betingelser for det når ervervet utgjør en uakseptabel risiko for nasjonale sikkerhetsinteresser. Et vedtak om forbud eller betingelser må treffes innen 60-dagersfristen, med mindre erververen samtykker i en lengre periode.",
+      "source_reference": "NSL § 10-3",
+      "sort_order": 3
+    },
+    {
+      "id": "nsl-10-4",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch10",
+      "concept_type": "control",
+      "code": "§ 10-4",
+      "name_en": "Information sharing in connection with acquisitions",
+      "name_nb": "Informasjonsdeling ved erverv",
+      "definition_en": "The responsible ministry may share information about acquisition notifications with NSM, PST, and other relevant authorities when this is necessary for the assessment of national security risks. Information sharing shall be proportionate and subject to confidentiality obligations.",
+      "definition_nb": "Ansvarlig departement kan dele informasjon om ervervsmeldinger med NSM, PST og andre relevante myndigheter når dette er nødvendig for vurderingen av nasjonale sikkerhetsrisikoer. Informasjonsdeling skal være forholdsmessig og underlagt taushetspliktforpliktelser.",
+      "source_reference": "NSL § 10-4",
+      "sort_order": 4
+    },
+    {
       "id": "nsl-ch11",
       "framework_id": "nsl",
       "parent_id": null,
@@ -725,6 +1037,97 @@
       "definition_nb": "Kapittel 11 etablerer håndhevingsmekanismer inkludert tvangsmulkt, overtredelsesgebyr for manglende overholdelse, og straffebestemmelser for alvorlige brudd på loven.",
       "source_reference": "NSL Kap. 11",
       "sort_order": 11
+    },
+    {
+      "id": "nsl-11-1",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch11",
+      "concept_type": "control",
+      "code": "§ 11-1",
+      "name_en": "Special oversight and control arrangements",
+      "name_nb": "Særskilte kontroll- og tilsynsordninger",
+      "definition_en": "The Storting's oversight committee for intelligence and security services (EOS-utvalget) shall oversee the intelligence services, PST, and NSM in accordance with the Parliamentary Act on the oversight of the intelligence services. NSM shall annually report to the responsible department on the security situation in Norway.",
+      "definition_nb": "Stortingets kontrollutvalg for etterretnings-, overvåkings- og sikkerhetstjeneste (EOS-utvalget) skal føre tilsyn med etterretningstjenestene, PST og NSM i samsvar med stortingsloven om kontroll med etterretningstjenestene. NSM skal årlig rapportere til ansvarlig departement om sikkerhetssituasjonen i Norge.",
+      "source_reference": "NSL § 11-1",
+      "sort_order": 1
+    },
+    {
+      "id": "nsl-11-2",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch11",
+      "concept_type": "control",
+      "code": "§ 11-2",
+      "name_en": "Coercive fines",
+      "name_nb": "Tvangsmulkt",
+      "definition_en": "The supervisory authority may impose coercive fines (tvangsmulkt) on entities that fail to comply with orders issued under § 3-6 within the specified deadline. Coercive fines shall be proportionate to the extent of non-compliance and the entity's capacity to comply.",
+      "definition_nb": "Tilsynsmyndigheten kan ilegge tvangsmulkt for virksomheter som ikke etterkommer pålegg gitt etter § 3-6 innen angitt frist. Tvangsmulkt skal være forholdsmessig i forhold til omfanget av manglende etterlevelse og virksomhetens evne til å etterleve.",
+      "source_reference": "NSL § 11-2",
+      "sort_order": 2
+    },
+    {
+      "id": "nsl-11-3",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch11",
+      "concept_type": "control",
+      "code": "§ 11-3",
+      "name_en": "Administrative penalties",
+      "name_nb": "Overtredelsesgebyr",
+      "definition_en": "The supervisory authority may impose administrative penalties (overtredelsesgebyr) on entities that have violated the Act or regulations issued pursuant to it. Penalties shall be proportionate to the severity and duration of the violation, the degree of culpability, and the size and financial capacity of the entity.",
+      "definition_nb": "Tilsynsmyndigheten kan ilegge overtredelsesgebyr for virksomheter som har overtrådt loven eller forskrifter gitt i medhold av den. Gebyr skal være forholdsmessig i forhold til alvorlighetsgraden og varigheten av overtredelsen, graden av skyld, og størrelsen og den finansielle kapasiteten til virksomheten.",
+      "source_reference": "NSL § 11-3",
+      "sort_order": 3
+    },
+    {
+      "id": "nsl-11-4",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch11",
+      "concept_type": "control",
+      "code": "§ 11-4",
+      "name_en": "Criminal penalties",
+      "name_nb": "Straff",
+      "definition_en": "Wilful or grossly negligent violation of the Act or regulations is punishable by fines or imprisonment of up to six months. Particularly serious violations may be punished by imprisonment of up to one year. This applies to security-graded information, classified objects, and personnel security clearances.",
+      "definition_nb": "Forsettlig eller grovt uaktsom overtredelse av loven eller forskrifter kan straffes med bøter eller fengsel inntil seks måneder. Særlig alvorlige overtredelser kan straffes med fengsel inntil ett år. Dette gjelder for sikkerhetsgradert informasjon, skjermingsverdige objekter og personellsikkerhetsklareringer.",
+      "source_reference": "NSL § 11-4",
+      "sort_order": 4
+    },
+    {
+      "id": "nsl-ch12",
+      "framework_id": "nsl",
+      "parent_id": null,
+      "concept_type": "category",
+      "code": "NSL Kap. 12",
+      "name_en": "Entry into force and amendments to other Acts",
+      "name_nb": "Ikrafttredelse og endringer i andre lover",
+      "definition_en": "Chapter 12 specifies when the Act entered into force and the consequential amendments to other Norwegian laws, in particular the repeal of the previous Security Act of 20 March 1998.",
+      "definition_nb": "Kapittel 12 fastsetter når loven trådte i kraft og de konsekvensendringer i andre norske lover, særlig opphevelse av den tidligere sikkerhetsloven av 20. mars 1998.",
+      "source_reference": "NSL Kap. 12",
+      "sort_order": 12
+    },
+    {
+      "id": "nsl-12-1",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch12",
+      "concept_type": "control",
+      "code": "§ 12-1",
+      "name_en": "Entry into force",
+      "name_nb": "Ikrafttredelse",
+      "definition_en": "The Act entered into force on 1 January 2019. From that date, the King may by regulation determine that specific provisions shall enter into force at a different time.",
+      "definition_nb": "Loven trådte i kraft 1. januar 2019. Fra den dato kan Kongen ved forskrift bestemme at bestemte bestemmelser skal tre i kraft på et annet tidspunkt.",
+      "source_reference": "NSL § 12-1",
+      "sort_order": 1
+    },
+    {
+      "id": "nsl-12-2",
+      "framework_id": "nsl",
+      "parent_id": "nsl-ch12",
+      "concept_type": "control",
+      "code": "§ 12-2",
+      "name_en": "Amendments to other Acts",
+      "name_nb": "Endringer i andre lover",
+      "definition_en": "The Act of 20 March 1998 No. 10 relating to preventive security services (the previous Security Act) is repealed with effect from 1 January 2019. Consequential amendments are made to several other Acts including the Police Act, the Criminal Procedure Act, and the Civil Service Act.",
+      "definition_nb": "Lov av 20. mars 1998 nr. 10 om forebyggende sikkerhetstjeneste (den tidligere sikkerhetsloven) oppheves med virkning fra 1. januar 2019. Det gjøres konsekvensendringer i flere andre lover, inkludert politiloven, straffeprosessloven og statsansatteloven.",
+      "source_reference": "NSL § 12-2",
+      "sort_order": 2
     }
   ]
 }
