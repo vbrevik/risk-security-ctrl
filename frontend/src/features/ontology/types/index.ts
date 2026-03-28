@@ -7,6 +7,11 @@ export interface Framework {
   source_url: string | null;
   created_at: string;
   updated_at: string;
+  // Verification provenance (returned by the API, added in split 07)
+  verification_status: string | null;
+  verification_date: string | null;
+  verification_source: string | null;
+  verification_notes: string | null;
 }
 
 export interface Concept {
@@ -192,4 +197,49 @@ export interface LandscapeProfile {
   sector: string;
   activities: string[];
   applicableFrameworks: string[];
+}
+
+// Verification Provenance Types (split 07)
+export type VerificationStatus =
+  | "verified"
+  | "partially-verified"
+  | "structure-verified"
+  | "corrected"
+  | "unverified"
+  | "needs-correction";
+
+const KNOWN_STATUSES: ReadonlySet<string> = new Set<VerificationStatus>([
+  "verified",
+  "partially-verified",
+  "structure-verified",
+  "corrected",
+  "unverified",
+  "needs-correction",
+]);
+
+/**
+ * Normalizes a raw backend verification_status string to a typed
+ * VerificationStatus or "unknown" for null/unrecognized values.
+ * Used by VerificationBadge and ProofPanel for safe style mapping.
+ */
+export function toVerificationStatus(
+  value: string | null,
+): VerificationStatus | "unknown" {
+  if (value !== null && KNOWN_STATUSES.has(value)) {
+    return value as VerificationStatus;
+  }
+  return "unknown";
+}
+
+/**
+ * Response shape of GET /api/ontology/frameworks/{id}/proof
+ * Used by useFrameworkProof hook and ProofPanel component.
+ */
+export interface FrameworkProof {
+  framework_id: string;
+  verification_status: string | null;
+  verification_date: string | null;
+  verification_source: string | null;
+  verification_notes: string | null;
+  proof_content: string | null; // raw markdown; null if no proof file exists
 }
