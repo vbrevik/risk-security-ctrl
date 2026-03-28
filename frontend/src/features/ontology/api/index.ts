@@ -1,4 +1,4 @@
-import { useQuery, useQueries } from "@tanstack/react-query";
+import { useQuery, useQueries, skipToken } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { api } from "@/lib/api";
 import type {
@@ -9,6 +9,7 @@ import type {
   PaginatedResponse,
   Topic,
   FrameworkStats,
+  FrameworkProof,
 } from "../types";
 
 // Query keys
@@ -25,6 +26,7 @@ export const ontologyKeys = {
   search: (query: string, frameworkId?: string) =>
     [...ontologyKeys.all, "search", { query, frameworkId }] as const,
   topics: () => [...ontologyKeys.all, "topics"] as const,
+  proof: (id: string) => [...ontologyKeys.framework(id), "proof"] as const,
 };
 
 // Fetch all frameworks
@@ -258,4 +260,25 @@ export function useFrameworkStats(): {
   }, [frameworks, allConcepts, relationships, conceptToFramework]);
 
   return { data, isLoading };
+}
+
+/**
+ * Lazily fetches proof and verification metadata for a framework.
+ * Only fires when frameworkId is non-null (user has opened the proof panel).
+ * Uses skipToken (TanStack Query v5) for type-safe conditional fetching.
+ * staleTime: Infinity because proof files are static verification artifacts.
+ */
+export function useFrameworkProof(frameworkId: string | null) {
+  return useQuery({
+    queryKey: frameworkId ? ontologyKeys.proof(frameworkId) : ["__disabled__"],
+    queryFn: frameworkId
+      ? async () => {
+          const { data } = await api.get<FrameworkProof>(
+            `/ontology/frameworks/${frameworkId}/proof`
+          );
+          return data;
+        }
+      : skipToken,
+    staleTime: Infinity,
+  });
 }
