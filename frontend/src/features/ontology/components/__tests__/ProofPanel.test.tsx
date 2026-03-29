@@ -44,6 +44,7 @@ function makeProof(overrides: Partial<FrameworkProof> = {}): FrameworkProof {
     verification_date: "2025-01-15",
     verification_source: null,
     verification_notes: null,
+    source_trust_tier: null,
     proof_content: null,
     ...overrides,
   };

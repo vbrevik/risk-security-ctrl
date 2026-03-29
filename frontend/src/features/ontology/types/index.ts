@@ -241,5 +241,6 @@ export interface FrameworkProof {
   verification_date: string | null;
   verification_source: string | null;
   verification_notes: string | null;
+  source_trust_tier: number | null; // 1 = primary official, 2 = secondary, 3 = unofficial
   proof_content: string | null; // raw markdown; null if no proof file exists
 }

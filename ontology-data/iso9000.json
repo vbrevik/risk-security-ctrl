@@ -8,7 +8,8 @@
     "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.iso.org/standard/45481.html",
-    "verification_notes": "ISO 9000:2015 QMPs (Clauses 2.3.1-2.3.7): all 7 present with accurate clause references and definitions. ISO 9001:2015 Clauses 4-10: all 7 top-level clauses present with correct source_references. Three clause names corrected to match official ISO 9001:2015 titles: Clause 5 \"Leadership\" (was \"Leadership and commitment\" — that is the sub-clause 5.1 title), Clause 6 \"Planning\" (was \"Planning for the QMS\"), Clause 10 \"Improvement\" (was \"Continual improvement\" — that is the sub-clause 10.3 title)."
+    "verification_notes": "ISO 9000:2015 QMPs (Clauses 2.3.1-2.3.7): all 7 present with accurate clause references and definitions. ISO 9001:2015 Clauses 4-10: all 7 top-level clauses present with correct source_references. Three clause names corrected to match official ISO 9001:2015 titles: Clause 5 \"Leadership\" (was \"Leadership and commitment\" — that is the sub-clause 5.1 title), Clause 6 \"Planning\" (was \"Planning for the QMS\"), Clause 10 \"Improvement\" (was \"Continual improvement\" — that is the sub-clause 10.3 title).",
+    "source_trust_tier": 1
   },
   "concepts": [
     {

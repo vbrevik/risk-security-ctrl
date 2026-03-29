@@ -8,7 +8,8 @@
     "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "Synthesized from NISTIR 8312, DARPA XAI, ISO/IEC 22989, OECD AI Principles, EU AI Act, academic literature",
-    "verification_notes": "verified (synthesized framework)"
+    "verification_notes": "verified (synthesized framework)",
+    "source_trust_tier": 2
   },
   "concepts": [
     {

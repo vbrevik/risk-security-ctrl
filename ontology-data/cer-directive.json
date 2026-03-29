@@ -8,7 +8,8 @@
     "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://eur-lex.europa.eu/eli/dir/2022/2557/oj",
-    "verification_notes": "All issues resolved 2026-03-28. Fixed 3 wrong ART-X codes: ART-8→ART-14 (background checks), ART-10→ART-21 (supervision), ART-14→ART-8 (sector equivalence). Moved background checks to Resilience Obligations (Chapter IV). Removed duplicate Art 12 concept (cer-entity-risk-assessment). Added Art 2 (Definitions) and Art 7 (Significant disruptive effect criteria). 43 concepts total, all legitimate."
+    "verification_notes": "All issues resolved 2026-03-28. Fixed 3 wrong ART-X codes: ART-8→ART-14 (background checks), ART-10→ART-21 (supervision), ART-14→ART-8 (sector equivalence). Moved background checks to Resilience Obligations (Chapter IV). Removed duplicate Art 12 concept (cer-entity-risk-assessment). Added Art 2 (Definitions) and Art 7 (Significant disruptive effect criteria). 43 concepts total, all legitimate.",
+    "source_trust_tier": 1
   },
   "concepts": [
     {

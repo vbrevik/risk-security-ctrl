@@ -14,6 +14,7 @@ pub struct Framework {
     pub verification_date: Option<String>,
     pub verification_source: Option<String>,
     pub verification_notes: Option<String>,
+    pub source_trust_tier: Option<i64>,
     pub created_at: String,
     pub updated_at: String,
 }
@@ -140,6 +141,7 @@ pub struct ProofResponse {
     pub verification_date: Option<String>,
     pub verification_source: Option<String>,
     pub verification_notes: Option<String>,
+    pub source_trust_tier: Option<i64>,
     pub proof_content: Option<String>,
 }
 

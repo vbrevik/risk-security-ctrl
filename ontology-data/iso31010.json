@@ -8,7 +8,8 @@
     "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.iso.org/standard/72140.html",
-    "verification_notes": "Verified against IEC 31010:2019 (official standard PDF). 2019 edition has 41 techniques in Annex B vs 28 in our ontology. Added 7 missing techniques: Nominal group (B.1.4), Bayesian networks (B.5.3), PIA/DPIA (B.5.11), Causal mapping (B.6.1), ALARP/SFAIRP (B.8.2), F-N diagrams (B.8.3), Risk indices (B.8.6). T07 (RCA) updated: was removed from IEC 31010:2019 (now in IEC 62740:2015). Intentionally excluded: domain-specific techniques (VaR, CVaR, toxicological, game theory) and editorial tools (risk registers, S-curves, Pareto charts) not central to security risk practice."
+    "verification_notes": "Verified against IEC 31010:2019 (official standard PDF). 2019 edition has 41 techniques in Annex B vs 28 in our ontology. Added 7 missing techniques: Nominal group (B.1.4), Bayesian networks (B.5.3), PIA/DPIA (B.5.11), Causal mapping (B.6.1), ALARP/SFAIRP (B.8.2), F-N diagrams (B.8.3), Risk indices (B.8.6). T07 (RCA) updated: was removed from IEC 31010:2019 (now in IEC 62740:2015). Intentionally excluded: domain-specific techniques (VaR, CVaR, toxicological, game theory) and editorial tools (risk registers, S-curves, Pareto charts) not central to security risk practice.",
+    "source_trust_tier": 3
   },
   "concepts": [
     {

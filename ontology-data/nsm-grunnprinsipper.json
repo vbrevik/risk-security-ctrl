@@ -5,10 +5,11 @@
     "version": "2.1",
     "description": "Nasjonal sikkerhetsmyndighets grunnprinsipper for IKT-sikkerhet versjon 2.1. Rammeverket gir anbefalinger for hvordan virksomheter bør sikre sine IKT-systemer. The Norwegian National Security Authority's basic principles for ICT security v2.1, providing recommendations for securing ICT systems.",
     "source_url": "https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ta-i-bruk-grunnprinsippene/grunnprinsipper-for-ikt-sikkerhet-2-1",
-    "verification_status": "partially-verified",
+    "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ta-i-bruk-grunnprinsippene/grunnprinsipper-for-ikt-sikkerhet-2-1",
-    "verification_notes": "All 4 categories, 21 subcategories, and 118 controls confirmed correct (codes and titles). Definitions are thin — each repeats the control title rather than providing substantive guidance. See docs/sources/nsm-grunnprinsipper-proof.md."
+    "verification_notes": "All 4 categories, 21 subcategories, and 118 controls confirmed correct (codes and titles). Definitions are thin — each repeats the control title rather than providing substantive guidance. See docs/sources/nsm-grunnprinsipper-proof.md.",
+    "source_trust_tier": 1
   },
   "concepts": [
     {
@@ -59,7 +60,7 @@
       "name_en": "Identify the organisation's structures and processes for security management",
       "name_nb": "Identifiser virksomhetens strukturer og prosesser for sikkerhetsstyring",
       "definition_en": "Identify the organisation's structures and processes for security management",
-      "definition_nb": "Identifiser virksomhetens strukturer og prosesser for sikkerhetsstyring",
+      "definition_nb": "Identifiser virksomhetens strukturer og prosesser for sikkerhetsstyring. Dette inkluderer normalt a) policyer fra ledelsen, b) ledelsesstruktur med veldefinert ansvar og ansvarslinjer, c) prosesser for risikostyring (se 1.1.3) d) fastsatte toleransegrenser for risiko (se 1.1.4), e) tilføring av tilstrekkelige ressurser og fagkompetanse for å støtte ledelsen i arbeidet. f) Etabler strukturer og prosesser for sikkerhetsstyring dersom dette mangler. Sørg for at det tilpasses virksomheten og er en inkludert del av virksomhetsstyringen. Se «Utdypende informasjon» for ytterligere informasjon.",
       "source_reference": "NSM GP 1.1.2",
       "sort_order": 4
     },
@@ -72,7 +73,7 @@
       "name_en": "Identify the organisation's ICT risk management processes",
       "name_nb": "Identifiser virksomhetens prosesser for risikostyring knyttet til IKT",
       "definition_en": "Identify the organisation's ICT risk management processes",
-      "definition_nb": "Identifiser virksomhetens prosesser for risikostyring knyttet til IKT",
+      "definition_nb": "Identifiser virksomhetens prosesser for risikostyring knyttet til IKT. Dette inkluderer normalt a) verdivurdering, b) trusselvurdering, c) kartlegge eksisterende sikkerhetstiltak, d) risikoidentifisering, e) risikovurdering, f) risikorapportering, g) risikohåndtering, h) etablere eller justere sikkerhetstiltak for å redusere risiko g) verifisere at sikkerhetstiltakene fungerer etter hensikt. h) Etabler prosesser for risikostyring dersom dette mangler. Sørg for at prosessene tilpasses virksomheten og er en inkludert del av virksomhetsstyringen og sikkerhetsstyringen. Se «Utdypende informasjon» for ytterligere informasjon.",
       "source_reference": "NSM GP 1.1.3",
       "sort_order": 5
     },
@@ -85,7 +86,7 @@
       "name_en": "Identify the organisation's risk tolerance limits for ICT",
       "name_nb": "Identifiser virksomhetens toleransegrenser for risiko knyttet til IKT",
       "definition_en": "Identify the organisation's risk tolerance limits for ICT",
-      "definition_nb": "Identifiser virksomhetens toleransegrenser for risiko knyttet til IKT",
+      "definition_nb": "Identifiser virksomhetens toleransegrenser for risiko knyttet til IKT. Ledelsen må fastsette hvilke grenser for risiko virksomheten aksepterer og hva som er uakseptabel risiko. Dette må kommuniseres på tvers i organisasjonen. Det er vanlig å fastsette risikogrenser basert på konsekvens for virksomheten ved tap av konfidensialitet, integritet og tilgjengelighet for informasjon og informasjonssystemer. Se 4.1.1, 4.1.2 og «Utdypende informasjon» for ytterligere informasjon.",
       "source_reference": "NSM GP 1.1.4",
       "sort_order": 6
     },
@@ -98,7 +99,7 @@
       "name_en": "Map the organisation's deliveries, information systems, and supporting ICT functions",
       "name_nb": "Kartlegg virksomhetens leveranser, informasjonssystemer og understøttende IKT-funksjoner",
       "definition_en": "Map the organisation's deliveries, information systems, and supporting ICT functions",
-      "definition_nb": "Kartlegg virksomhetens leveranser, informasjonssystemer og understøttende IKT-funksjoner",
+      "definition_nb": "Kartlegg virksomhetens leveranser, informasjonssystemer og understøttende IKT-funksjoner. Kartlegg a) IKT-systemer, data og tjenester, inkludert eierskap, b) kritiske forretningsroller og c) interne og eksterne IKT-avhengigheter. d) Gruppér i henhold til virksomhetens risikoaksept (1.1.4) og bruk resultatet som grunnlag for etablering av en sikker IKT-arkitektur, se prinsipp 2.2 - Etabler en sikker IKT-arkitektur",
       "source_reference": "NSM GP 1.1.5",
       "sort_order": 7
     },
@@ -111,7 +112,7 @@
       "name_en": "Map information processing and data flow in the organisation",
       "name_nb": "Kartlegg informasjonsbehandling og dataflyt i virksomheten",
       "definition_en": "Map information processing and data flow in the organisation",
-      "definition_nb": "Kartlegg informasjonsbehandling og dataflyt i virksomheten",
+      "definition_nb": "Kartlegg informasjonsbehandling og dataflyt i virksomheten. Kartlegg informasjonsflyt mellom arbeidsprosesser, brukere, enheter og tjenester og bruk resultatet som grunnlag for etablering av en sikker IKT-arkitektur, se prinsipp 2.2 - Etabler en sikker IKT-arkitektur.",
       "source_reference": "NSM GP 1.1.6",
       "sort_order": 8
     },
@@ -137,7 +138,7 @@
       "name_en": "Establish a process for mapping devices and software in use",
       "name_nb": "Etabler en prosess for å kartlegge enheter og programvare som er i bruk i virksomheten",
       "definition_en": "Establish a process for mapping devices and software in use",
-      "definition_nb": "Etabler en prosess for å kartlegge enheter og programvare som er i bruk i virksomheten",
+      "definition_nb": "Etabler en prosess for å kartlegge enheter og programvare som er i bruk i virksomheten. Benytt fortrinnsvis automatiserte og sentraliserte verktøy til å oppdage og holde oversikt over enheter og programvare, og vise hvilke programvare som er på hvilke enheter. Oversikten bør også inkludere eierskap, eldre ikke-støttede produkter (bør merkes eksplisitt), samt enheter og programvare som ikke er koblet til virksomhetens nettverk (f.eks. USB-enheter). Dette utdypes i 1.2.3 (enheter) og 1.2.4 (programvare).",
       "source_reference": "NSM GP 1.2.1",
       "sort_order": 10
     },
@@ -150,7 +151,7 @@
       "name_en": "Establish guidelines for approved devices and software",
       "name_nb": "Fastsett retningslinjer for godkjente enheter og programvare i virksomheten",
       "definition_en": "Establish guidelines for approved devices and software",
-      "definition_nb": "Fastsett retningslinjer for godkjente enheter og programvare i virksomheten",
+      "definition_nb": "Fastsett retningslinjer for godkjente enheter og programvare i virksomheten. a) Virksomheten bør f.eks. avgjøre i) hva slags enheter og programvare som ansatte har behov for, ii) hva som det ikke er tjenstlig behov for men likevel lov, iii) hva som er uønsket og iv) hvordan dette skal håndteres i virksomheten. b) Utarbeid og vedlikehold en oversikt over enheter og programvare godkjent for bruk i virksomheten (inkludert hvis hensiktsmessig versjonsnummer). Vurder behov opp imot anbefalte tiltak i prinsipp 2.1-2.3. c) Kommuniser retningslinjene til ansatte. Beskriv formål og lovlig bruk av enheter og programvare.",
       "source_reference": "NSM GP 1.2.2",
       "sort_order": 11
     },
@@ -163,7 +164,7 @@
       "name_en": "Map devices in use in the organisation",
       "name_nb": "Kartlegg enheter i bruk i virksomheten iht. prosess i 1.2.1",
       "definition_en": "Map devices in use in the organisation",
-      "definition_nb": "Kartlegg enheter i bruk i virksomheten iht. prosess i 1.2.1",
+      "definition_nb": "Kartlegg enheter i bruk i virksomheten iht. prosess i 1.2.1. a) Kartlegg informasjon etter en hensiktsmessig vurdering, for eksempel nettverksadresse, maskinvareadresse, enhetsnavn, avdelingstilknytning, samt om enhetene er forvaltet av virksomheten. Hver enhet som har en IP-adresse på nettverket bør være med i oversikten, inkludert stasjonære og bærbare datamaskiner, servere, nettverksutstyr (rutere, svitsjer, brannmurer, osv.), skrivere, lagringsnettverk, IP-telefoner, IoT-enheter, osv. b) Få oversikt over alle mobile enheter og lagringsmedier som benyttes utenfor virksomhetens nett som inneholder virksomhetsinformasjon. c) Lag en plan for håndtering av enheter som ikke er godkjent for bruk i virksomheten (se 1.2.2). For håndtering se 2.4.1.b. d) Virksomheten bør også ha oversikt over virtuelle enheter (enten de kjører hos virksomheten eller i en leverandørs «sky»). Se og prinsipp 2.4 - Beskytt virksomhetens nettverk.",
       "source_reference": "NSM GP 1.2.3",
       "sort_order": 12
     },
@@ -176,7 +177,7 @@
       "name_en": "Map software in use in the organisation",
       "name_nb": "Kartlegg programvare i bruk i virksomheten iht. prosess i 1.2.1",
       "definition_en": "Map software in use in the organisation",
-      "definition_nb": "Kartlegg programvare i bruk i virksomheten iht. prosess i 1.2.1",
+      "definition_nb": "Kartlegg programvare i bruk i virksomheten iht. prosess i 1.2.1. a) Kartlegg firmware, operativsystem og applikasjoner (navn, versjonsnummer, produsent, installasjonsdato, om den støttes lengre) som er installert på servere, klienter og nettverksutstyr med mer. b) Lag en plan for håndtering av programvare som skal godkjennes for bruk i virksomheten (se 1.2.2). Ved mest mulig konsekvent bruk av godkjentlisting (spesielt mht. klienter) av alle applikasjoner (alternativt bruk av applikasjonsbutikker) kan kartlegging av programvare gjøres enklere enn beskrevet over.",
       "source_reference": "NSM GP 1.2.4",
       "sort_order": 13
     },
@@ -202,7 +203,7 @@
       "name_en": "Map users in the information systems",
       "name_nb": "Kartlegg brukere i informasjonssystemene",
       "definition_en": "Map users in the information systems",
-      "definition_nb": "Kartlegg brukere i informasjonssystemene",
+      "definition_nb": "Kartlegg brukere i informasjonssystemene, inkludert: a) brukeridentitet, b) arbeidslokasjon(er) c) tilgangsbehov til IKT-systemer, tjenester/applikasjoner d) spesielle rettighetsbehov, se 1.3.2. Se og prinsipp 2.2 - Etabler en sikker IKT-arkitektur og 2.6 - Ha kontroll på identiteter og tilganger",
       "source_reference": "NSM GP 1.3.1",
       "sort_order": 15
     },
@@ -215,7 +216,7 @@
       "name_en": "Map and define user categories in the organisation",
       "name_nb": "Kartlegg og definer de ulike brukerkategoriene som finnes i virksomheten for å definere tilgangsnivåer og behov for oppfølging og kontroll",
       "definition_en": "Map and define user categories in the organisation",
-      "definition_nb": "Kartlegg og definer de ulike brukerkategoriene som finnes i virksomheten for å definere tilgangsnivåer og behov for oppfølging og kontroll",
+      "definition_nb": "Kartlegg og definer de ulike brukerkategoriene som finnes i virksomheten for å definere tilgangsnivåer og behov for oppfølging og kontroll. Eksempler på brukerkategorier kan være: - Normale brukere som kun har behov for kontorstøtte. - Brukere med spesialbehov, med behov for utvidede rettigheter, f.eks. utviklere. - Brukere som drifter virksomhetens systemer. - Leverandører og konsulenter. - Systembrukere, f.eks. systemprosesser som sikkerhetskopiering og lignende som går i bakgrunnen.",
       "source_reference": "NSM GP 1.3.2",
       "sort_order": 16
     },
@@ -228,7 +229,7 @@
       "name_en": "Map ICT security roles and responsibilities",
       "name_nb": "Kartlegg ansvar og roller spesielt knyttet til IKT-sikkerhet",
       "definition_en": "Map ICT security roles and responsibilities",
-      "definition_nb": "Kartlegg ansvar og roller spesielt knyttet til IKT-sikkerhet",
+      "definition_nb": "Kartlegg ansvar og roller spesielt knyttet til IKT-sikkerhet. a) Dette gjelder ansvar internt i virksomheten: f.eks. sikkerhetssjef, IT-sjef, applikasjonsansvarlig, plattformansvarlig mm. b) Klargjør hvem som skal kontaktes ved hendelser. Se 4.1.1 og 4.1.3. c) Kartlegg roller og oppgaver som innehas av eksterne leverandører og partnere.",
       "source_reference": "NSM GP 1.3.3",
       "sort_order": 17
     },
@@ -267,7 +268,7 @@
       "name_en": "Integrate security in the organisation's acquisition processes",
       "name_nb": "Integrer sikkerhet i virksomhetens prosess for anskaffelser",
       "definition_en": "Integrate security in the organisation's acquisition processes",
-      "definition_nb": "Integrer sikkerhet i virksomhetens prosess for anskaffelser",
+      "definition_nb": "Integrer sikkerhet i virksomhetens prosess for anskaffelser. Fastsett krav til IKT-sikkerhet ved anskaffelse av alle IKT-produkter og IKT-tjenester, se prinsipp 2.2 - Etabler en sikker IKT-arkitektur. Inkluder sikkerhet i hele livsløpet fra anskaffelse til avhending.",
       "source_reference": "NSM GP 2.1.1",
       "sort_order": 20
     },
@@ -280,7 +281,7 @@
       "name_en": "Purchase modern and up-to-date hardware and software",
       "name_nb": "Kjøp moderne og oppdatert maskin- og programvare",
       "definition_en": "Purchase modern and up-to-date hardware and software",
-      "definition_nb": "Kjøp moderne og oppdatert maskin- og programvare",
+      "definition_nb": "Kjøp moderne og oppdatert maskin- og programvare slik at nyere sikkerhetsfunksjonalitet er innebygd. Sørg for a) å kun benytte IKT-produkter som støttes og mottar sikkerhetsoppdateringer fra leverandør b) å kun anskaffe IKT-produkter som inneholder nyere sikkerhetsfunksjonalitet og protokoller og c) at eldre IKT-produkter fases ut. d) Der det er hensiktsmessig bør man be leverandør (som kjenner IKT-produktet best) i) å informere om risikoer og sårbarheter produktet kan utsettes for og ii) spesifisere nærmere hvordan IKT-produktet kan sikkerhetsherdes og beskyttes.",
       "source_reference": "NSM GP 2.1.2",
       "sort_order": 21
     },
@@ -293,7 +294,7 @@
       "name_en": "Prefer certified and evaluated ICT products",
       "name_nb": "Foretrekk IKT-produkter som er sertifiserte og evaluert",
       "definition_en": "Prefer certified and evaluated ICT products",
-      "definition_nb": "Foretrekk IKT-produkter som er sertifiserte og evaluert",
+      "definition_nb": "Foretrekk IKT-produkter som er sertifiserte og evaluert av en tiltrodd tredjepart. Et eksempel på et sertifiseringsregime er Common Criteria. Common Criteria er en internasjonal standard for evaluering av sikkerhetsegenskaper i IKT-produkter og systemer.",
       "source_reference": "NSM GP 2.1.3",
       "sort_order": 22
     },
@@ -306,7 +307,7 @@
       "name_en": "Reduce risk of targeted manipulation of ICT products",
       "name_nb": "Reduser risiko for målrettet manipulasjon av IKT-produkter",
       "definition_en": "Reduce risk of targeted manipulation of ICT products",
-      "definition_nb": "Reduser risiko for målrettet manipulasjon av IKT-produkter",
+      "definition_nb": "Reduser risiko for målrettet manipulasjon av IKT-produkter i leverandørkjeden. a) Virksomheter bør vurdere risiko for om de kan bli utsatt for slike målrettede angrep. b) Be nasjonale forhandlere/importører vise diskresjon, og ikke videreformidle for mye kundeinformasjon. c) Beskytt produktintegritet til fysiske produkter så tidlig som mulig i leverandørkjeden. Produkter bør inspiseres for brutte forseglinger og oppbevares slik at kun et begrenset sett av personell har fysisk adgang. d) Programvare-produkter bør kun lastes ned fra leverandørens offisielle webside (kun via https). e) Leverandørers fysiske adgang ifm. vedlikehold av IKT-produkter bør reguleres og kontrolleres.",
       "source_reference": "NSM GP 2.1.4",
       "sort_order": 23
     },
@@ -319,7 +320,7 @@
       "name_en": "Use a method for secure software development",
       "name_nb": "Benytt en metode for sikker utvikling av programvare",
       "definition_en": "Use a method for secure software development",
-      "definition_nb": "Benytt en metode for sikker utvikling av programvare",
+      "definition_nb": "Benytt en metode for sikker utvikling av programvare for å redusere sårbarhetene i programvaren. Dette inkluderer: a) Hensiktsmessig planlegging, inkludert virksomhetens behov, rammebetingelser, IKT-sikkerhets hensyn og behov for opplæring av personell. b) Analyse av brukerbehov, inkludert IKT-sikkerhetskrav. c) Design av programvare basert på fastsatte krav, d) Utvikling av programvaren, inkludert sikker koding og testing (se 2.1.6 og 2.1.7). e) Implementasjon og idriftsetting av programvaren. f) Sikkerhetsmessig forvaltning av programvaren, bl.a. i) planlegge for gjennomføring og distribusjon av sikkerhetsoppdateringer og ii) planlegge støtte for nyere og mer tidsriktig sikkerhetsfunksjonalitet.",
       "source_reference": "NSM GP 2.1.5",
       "sort_order": 24
     },
@@ -332,7 +333,7 @@
       "name_en": "Use separate environments for development, test, and production",
       "name_nb": "Benytt separate miljøer for utvikling, test og produksjon",
       "definition_en": "Use separate environments for development, test, and production",
-      "definition_nb": "Benytt separate miljøer for utvikling, test og produksjon",
+      "definition_nb": "Benytt separate miljøer for utvikling, test og produksjon slik at operative virksomhetsprosesser og data ikke blir påvirket ved feil i utviklings- og testløp. Vurder også soneinndeling som beskrevet i tiltak 2.2.3. Sensitive produksjonsdata bør bare benyttes på utviklings- og testmiljø som er sikret.",
       "source_reference": "NSM GP 2.1.6",
       "sort_order": 25
     },
@@ -345,7 +346,7 @@
       "name_en": "Conduct sufficient testing throughout the development process",
       "name_nb": "Gjennomfør tilstrekkelig med testing gjennom hele utviklingsprosessen",
       "definition_en": "Conduct sufficient testing throughout the development process",
-      "definition_nb": "Gjennomfør tilstrekkelig med testing gjennom hele utviklingsprosessen",
+      "definition_nb": "Gjennomfør tilstrekkelig med testing gjennom hele utviklingsprosessen. Gjør dette slik at feil, sårbarheter og mangler rettes opp før idriftsetting. a) Dette inkluderer test av at sikkerhetsfunksjonalitet fra forskjellige berørte IKT-produkter fungerer godt sammen, samt enhetstesting, integrasjonstesting, systemtest, akseptansetest, pilottest, inntrengingstest og stresstest. b) Utfør kontroll på at kun tillate handlinger virker samt stikkprøver på at andre handlinger blir avvist.",
       "source_reference": "NSM GP 2.1.7",
       "sort_order": 26
     },
@@ -358,7 +359,7 @@
       "name_en": "Maintain software code developed/used in the organisation",
       "name_nb": "Vedlikehold programvarekode som utvikles/benyttes i virksomheten",
       "definition_en": "Maintain software code developed/used in the organisation",
-      "definition_nb": "Vedlikehold programvarekode som utvikles/benyttes i virksomheten",
+      "definition_nb": "Vedlikehold programvarekode som utvikles/benyttes i virksomheten. a) Ha en utviklingsprosess som inneholder metodisk sikkerhetsvurdering av koden. b) Vær spesielt oppmerksom på kode som har spesiell betydning for sikkerheten, f.eks. kode for i) tilgangskontroll, ii) kryptering av trafikk, iii) logging, iv) «parsing» av bruker-input, v) «buffer overflow». c) Ved bruk av offentlig tilgjengelig kode («open source») og kommersielle «toolkits» bør virksomheten regelmessig sjekke for nye versjoner. d) Ved bruk av DevOps/DevSecOps bør også sikkerhetssjekk av egen kode automatiseres der det er hensiktsmessig.",
       "source_reference": "NSM GP 2.1.8",
       "sort_order": 27
     },
@@ -371,7 +372,7 @@
       "name_en": "Take responsibility for security also when outsourcing services",
       "name_nb": "Ta ansvar for virksomhetens sikkerhet også ved tjenesteutsetting",
       "definition_en": "Take responsibility for security also when outsourcing services",
-      "definition_nb": "Ta ansvar for virksomhetens sikkerhet også ved tjenesteutsetting",
+      "definition_nb": "Ta ansvar for virksomhetens sikkerhet også ved tjenesteutsetting. Dette inkluderer å a) ha oversikt og kontroll på hele livsløpet til tjenesten(e) som skal settes ut, b) ivareta behovet for bestillerkompetanse gjennom hele livsløpet til tjenesteutsettingen c) gjennomføre gode risikovurderinger som inkluderer IKT og hensyntar hele livsløpet, d) utarbeide et kravdokument for alle faser av tjenesteutsettingen hvor krav kan verifiseres, e) avtaler om tjenesteutsetting av IKT-tjenester behandles i henhold til virksomhetens fullmaktsstruktur. Virksomhetens ansvar for sikkerheten forsvinner ikke selv om man tjenesteutsetter.",
       "source_reference": "NSM GP 2.1.9",
       "sort_order": 28
     },
@@ -384,7 +385,7 @@
       "name_en": "Examine the security of service providers when outsourcing",
       "name_nb": "Undersøk sikkerheten hos tjenesteleverandør ved tjenesteutsetting",
       "definition_en": "Examine the security of service providers when outsourcing",
-      "definition_nb": "Undersøk sikkerheten hos tjenesteleverandør ved tjenesteutsetting",
+      "definition_nb": "Undersøk sikkerheten hos tjenesteleverandør ved tjenesteutsetting. Det bør som minimum undersøkes om leverandøren: a) har et etablert styringssystem for informasjonssikkerhet og eventuelt sertifisering (f.eks. ISO/IEC 27001), b) gir innsyn i sikkerhetsarkitekturen som benyttes for å levere tjenesten, c) har utviklingsplaner for fremtidig sikkerhetsfunksjonalitet, d) har oversikt over hvem som skal ha innsyn i virksomhetens informasjon, e) har sikkerhetsfunksjonalitet som tilfredsstiller virksomhetens behov, f) har sikkerhetsovervåkning, g) har rutiner for hendelseshåndtering, h) har krise- og beredskapsplaner, i) har godkjenningsprosedyrer for bruk av underleverandører og j) har spesifisert aktiviteter ved terminering av kontrakten.",
       "source_reference": "NSM GP 2.1.10",
       "sort_order": 29
     },
@@ -410,7 +411,7 @@
       "name_en": "Establish and maintain a holistic security architecture",
       "name_nb": "Etabler og vedlikehold en helhetlig sikkerhetsarkitektur som ivaretar et sikkert og forsvarbart IKT-system",
       "definition_en": "Establish and maintain a holistic security architecture",
-      "definition_nb": "Etabler og vedlikehold en helhetlig sikkerhetsarkitektur som ivaretar et sikkert og forsvarbart IKT-system",
+      "definition_nb": "Etabler og vedlikehold en helhetlig sikkerhetsarkitektur som ivaretar et sikkert og forsvarbart IKT-system. Følgende funksjoner i et IKT-system bør implementeres, sikres og fungere godt sammen sikkerhetsmessig: a) Funksjonalitet for å styre brukere og kontoer b) Funksjonalitet for å ha kontroll og oversikt på enheter c) Funksjonalitet for å styre tilgang til ressurser og tjenester d) Funksjonalitet for å ha kontroll på programvare e) Operativsystemer f) Verktøy for drift og virtualisering g) Nettverksenheter og brannmurer h) Mekanismer for å håndtere skadevare i) Kryptografiske moduler j) Digitale sertifikater og PKI k) Databaser l) Verktøy for systemovervåkning m) Verktøy for styring av sikkerhetskonfigurasjoner n) IDS og IPS systemer o) Sikkerhetskopiering og gjenoppretting p) Maskinvare og fastvare. Alle funksjonene bør kunne driftes mest mulig sentralisert og automatisert.",
       "source_reference": "NSM GP 2.2.1",
       "sort_order": 31
     },
@@ -423,7 +424,7 @@
       "name_en": "Build the ICT system with products that work well together security-wise",
       "name_nb": "Bygg IKT-systemet med IKT-produkter som fungerer godt sammen sikkerhetsmessig",
       "definition_en": "Build the ICT system with products that work well together security-wise",
-      "definition_nb": "Bygg IKT-systemet med IKT-produkter som fungerer godt sammen sikkerhetsmessig",
+      "definition_nb": "Bygg IKT-systemet med IKT-produkter som fungerer godt sammen sikkerhetsmessig. a) Produktene bør være modulbaserte (mulighet for å aktivere kun nødvendig funksjonalitet). b) Produkter bør følge bransjestandarder mest mulig mht. sikkerhetsfunksjoner som tilgangskontroll, logging, drift, kodekontroll, ressursstyring og tilgjengelighetsfunksjoner. c) Produkter bør fungere godt sammen sikkerhetsmessig. Spesielt bør IKT-produkter gjenbruke identiteter (til brukere og enheter) hentet fra en felles kilde av virksomhetens identiteter, i stedet for å implementere egne produkt- eller applikasjonsspesifikke identiteter.",
       "source_reference": "NSM GP 2.2.2",
       "sort_order": 32
     },
@@ -436,7 +437,7 @@
       "name_en": "Segment the organisation's network according to risk profile",
       "name_nb": "Del opp virksomhetens nettverk etter virksomhetens risikoprofil",
       "definition_en": "Segment the organisation's network according to risk profile",
-      "definition_nb": "Del opp virksomhetens nettverk etter virksomhetens risikoprofil",
+      "definition_nb": "Del opp virksomhetens nettverk etter virksomhetens risikoprofil. Etabler oppdeling i soner med ulike behov for kommunikasjon, eksponering, funksjon og roller. Eksempelvis kan man vurdere egne soner for system-administrasjon, applikasjons-servere, virksomhets-driftede klienter, industri-produksjon (f.eks. SCADA og industrielle kontrollsystemer), internett-aksess, trådløse nett, gjeste-klienter og eksternt tilgjengelige tjenester. Drift av soner bør skje sentralt, ikke lokalt på hver svitsj. Bruk den valgte soneoppdelingen til å styre dataflyt, se prinsipp 2.5 - Kontroller dataflyt.",
       "source_reference": "NSM GP 2.2.3",
       "sort_order": 33
     },
@@ -449,7 +450,7 @@
       "name_en": "Physically separate the most critical sub-networks",
       "name_nb": "Skill fysisk de mest kritiske del-nettverkene",
       "definition_en": "Physically separate the most critical sub-networks",
-      "definition_nb": "Skill fysisk de mest kritiske del-nettverkene",
+      "definition_nb": "Skill fysisk de mest kritiske del-nettverkene. Særskilt sensitive del-nettverk bør vurderes å bli fysisk adskilt fra resten av virksomhetens nettverk («air gap»).",
       "source_reference": "NSM GP 2.2.4",
       "sort_order": 34
     },
@@ -462,7 +463,7 @@
       "name_en": "Segment the domain architecture per organisational needs",
       "name_nb": "Del opp domenearkitekturen iht. virksomhetens behov",
       "definition_en": "Segment the domain architecture per organisational needs",
-      "definition_nb": "Del opp domenearkitekturen iht. virksomhetens behov",
+      "definition_nb": "Del opp domenearkitekturen iht. virksomhetens behov. Som minimum bør klienter holdes adskilt fra virksomhetens servere.",
       "source_reference": "NSM GP 2.2.5",
       "sort_order": 35
     },
@@ -475,7 +476,7 @@
       "name_en": "Regulate access to services based on knowledge of both users and devices",
       "name_nb": "Reguler tilgang til tjenester basert på kjennskap til både brukere og enhet",
       "definition_en": "Regulate access to services based on knowledge of both users and devices",
-      "definition_nb": "Reguler tilgang til tjenester basert på kjennskap til både brukere og enhet",
+      "definition_nb": "Reguler tilgang til tjenester basert på kjennskap til både brukere og enhet. Et eksempel er at en bruker som logger seg på via en ikke-forvaltet enhet (virksomheten stoler på bruker, men kontrollerer ikke enheten) får tilgang til færre tjenester enn en bruker som logger seg på via en virksomhets-forvaltet enhet (virksomheten kjenner både bruker og enhet).",
       "source_reference": "NSM GP 2.2.6",
       "sort_order": 36
     },
@@ -488,7 +489,7 @@
       "name_en": "Establish a robust and resilient ICT architecture for critical functions",
       "name_nb": "Etabler en robust og motstandsdyktig IKT-arkitektur som ivaretar tilgjengelighet til kritiske funksjoner og leveranser",
       "definition_en": "Establish a robust and resilient ICT architecture for critical functions",
-      "definition_nb": "Etabler en robust og motstandsdyktig IKT-arkitektur som ivaretar tilgjengelighet til kritiske funksjoner og leveranser",
+      "definition_nb": "Etabler en robust og motstandsdyktig IKT-arkitektur som ivaretar tilgjengelighet til kritiske funksjoner og leveranser. a) Gjennomfør risikovurderinger for maskinvare-feil, menneskelige drifts-feil, data-angrep, internett-tilgjengelighet (bl.a. tjenestenekt-angrep), tjenesteleverandørtilgjengelighet, elektrisitet-tilgjengelighet, naturskade og geopolitisk situasjon. b) Ut i fra resultatene fra risikovurdering og kritikalitet kan deler av IT-løsningen gjøres mer robust gjennom duplisering av internett-forbindelse, duplisert datasenter, duplisering av domenekontrollere, robust strømforsyning, lager av kritiske reservedeler, mm.",
       "source_reference": "NSM GP 2.2.7",
       "sort_order": 37
     },
@@ -514,7 +515,7 @@
       "name_en": "Establish a centrally managed regime for security patching",
       "name_nb": "Etabler et sentralt styrt regime for sikkerhetsoppdatering",
       "definition_en": "Establish a centrally managed regime for security patching",
-      "definition_nb": "Etabler et sentralt styrt regime for sikkerhetsoppdatering",
+      "definition_nb": "Etabler et sentralt styrt regime for sikkerhetsoppdatering. Installer sikkerhetsoppdateringer så fort som mulig. a) Etabler en prioriteringsliste for oppdateringer. Operativsystem og applikasjoner på de ansattes klienter bør prioriteres. b) Etabler en rutine med klare ansvarsforhold for i) hvor ofte oppdateringer skal utføres og ii) ansvarlig rolle for oppfølging hvis en oppdatering ikke kan gjennomføres eller må utsettes. c) Isoler servere og annet som oppleves som vanskelig å holde oppdatert, se 2.5.4. d) Virksomheter bør automatisere og forenkle prosessen for å implementere nye sikkerhetsoppdateringer.",
       "source_reference": "NSM GP 2.3.1",
       "sort_order": 39
     },
@@ -527,7 +528,7 @@
       "name_en": "Configure clients so that only known software can run",
       "name_nb": "Konfigurer klienter slik at kun kjent programvare kjører på dem",
       "definition_en": "Configure clients so that only known software can run",
-      "definition_nb": "Konfigurer klienter slik at kun kjent programvare kjører på dem",
+      "definition_nb": "Konfigurer klienter slik at kun kjent programvare kjører på dem. a) På ansattes klienter bør man eksplisitt godkjentliste alle programmer som skal kjøre på enheten, fortrinnsvis ved at den tillatte programkoden er signert av en tiltrodd part. b) Hvis man ikke knytter applikasjoner til en applikasjonsbutikk bør man benytte applikasjons godkjentlisting. Benytt filmappe-basert godkjentlisting. c) Ved behov, kan godkjentlistingen finkornes ytterligere ved at applikasjonsgodkjentlistingen også eksplisitt sperrer uønskede leverandør-signerte programmer for gitte brukergrupper. d) Programkode som følger med dokumenter (f.eks. makroer) utgjør også en stor angrepsflate og bør håndteres tilsvarende.",
       "source_reference": "NSM GP 2.3.2",
       "sort_order": 40
     },
@@ -540,7 +541,7 @@
       "name_en": "Deactivate unnecessary functionality",
       "name_nb": "Deaktiver unødvendig funksjonalitet",
       "definition_en": "Deactivate unnecessary functionality",
-      "definition_nb": "Deaktiver unødvendig funksjonalitet",
+      "definition_nb": "Deaktiver unødvendig funksjonalitet. Innebygget funksjonalitet (både i operativsystemer og i applikasjoner) i klienter, servere og nettverksutstyr som ikke er nødvendig for virksomheten bør vurderes deaktivert, for dermed å redusere angrepsflate. Det kan gjelde f.eks. i) eldre eller ubrukte protokoller, ii) innebygd støtte for bl.a. personlige sky-tjenester, iii) andre innebygde tjenester virksomheten ikke kommer til å benytte.",
       "source_reference": "NSM GP 2.3.3",
       "sort_order": 41
     },
@@ -553,7 +554,7 @@
       "name_en": "Establish and maintain standard security configurations",
       "name_nb": "Etabler og vedlikehold standard sikkerhetskonfigurasjoner",
       "definition_en": "Establish and maintain standard security configurations",
-      "definition_nb": "Etabler og vedlikehold standard sikkerhetskonfigurasjoner",
+      "definition_nb": "Etabler og vedlikehold standard sikkerhetskonfigurasjoner, dvs. ideelt sett en standard pr. type enhet i virksomheten. Dette gjelder operativsystemer (klient og server), brannmurer, nettverksutstyr, applikasjoner og maskinvare. a) All drift av sikkerhetskonfigurasjon bør være sentralisert og standardisert pr. type enhet. b) Konfigurasjonen bør gjennomgås og oppdateres med jevne mellomrom. c) Endring av konfigurasjoner bør følge virksomhetens prosess for endringshåndtering. d) Sikkerhetskonfigurasjon skal kun endres av autorisert driftspersonale.",
       "source_reference": "NSM GP 2.3.4",
       "sort_order": 42
     },
@@ -566,7 +567,7 @@
       "name_en": "Verify that active security configuration matches approved configuration",
       "name_nb": "Verifiser at aktivert sikkerhetskonfigurasjon er i henhold til virksomhetens godkjente sikkerhetskonfigurasjon",
       "definition_en": "Verify that active security configuration matches approved configuration",
-      "definition_nb": "Verifiser at aktivert sikkerhetskonfigurasjon er i henhold til virksomhetens godkjente sikkerhetskonfigurasjon",
+      "definition_nb": "Verifiser at aktivert sikkerhetskonfigurasjon er i henhold til virksomhetens godkjente sikkerhetskonfigurasjon. a) Sammenlign regelmessig aktivert konfigurasjon på systemkomponenter mot den godkjente/vedtatte konfigurasjonen som er definert for hver type enhet. b) Uautorisert endring av konfigurasjonen bør undersøkes, rapporteres og håndteres. c) Den vedtatte/godkjente konfigurasjonen bør integritets-beskyttes. d) Automatiser verifikasjonsprosessen mest mulig, og kjør det regelmessig.",
       "source_reference": "NSM GP 2.3.5",
       "sort_order": 43
     },
@@ -579,7 +580,7 @@
       "name_en": "Perform all configuration, installation, and operations securely",
       "name_nb": "Utfør all konfigurasjon, installasjon, og drift for øvrig på en trygg måte",
       "definition_en": "Perform all configuration, installation, and operations securely",
-      "definition_nb": "Utfør all konfigurasjon, installasjon, og drift for øvrig på en trygg måte",
+      "definition_nb": "Utfør all konfigurasjon, installasjon, og drift for øvrig på en trygg måte. a) Utfør driftsoppgaver over tiltrodde kanaler. Vurder bl.a. å i) installere betrodde TLS sertifikater på flest mulig administrative grensesnitt og ii) unngå å eksponere administrative grensesnitt på internett. b) Bruk tiltrodde og dedikerte klienter til driftsoppgaver. c) Reduser interaktiv pålogging direkte på servere og klienter ifm. driftsoppgaver til et minimum.",
       "source_reference": "NSM GP 2.3.6",
       "sort_order": 44
     },
@@ -592,7 +593,7 @@
       "name_en": "Change all default passwords before production deployment",
       "name_nb": "Endre alle standardpassord på IKT-produktene før produksjonssetting",
       "definition_en": "Change all default passwords before production deployment",
-      "definition_nb": "Endre alle standardpassord på IKT-produktene før produksjonssetting",
+      "definition_nb": "Endre alle standardpassord på IKT-produktene før produksjonssetting. Dette inkluderer applikasjoner, operativsystemer, rutere, brannmurer, skrivere og aksesspunkter. I den grad IKT-produktene støtter det, bør man benytte sertifikatbasert autentisering og redusere mulighet for passordbasert autentisering over nettverket.",
       "source_reference": "NSM GP 2.3.7",
       "sort_order": 45
     },
@@ -605,7 +606,7 @@
       "name_en": "Do not deactivate code protection functions",
       "name_nb": "Ikke deaktiver kodebeskyttelsesfunksjoner",
       "definition_en": "Do not deactivate code protection functions",
-      "definition_nb": "Ikke deaktiver kodebeskyttelsesfunksjoner",
+      "definition_nb": "Ikke deaktiver kodebeskyttelsesfunksjoner. Nyere operativsystemer har aktivert kodebeskyttelsesfunksjoner («exploit protection») som f.eks. DEP, SEHOP og ASLR. Dette vanskeliggjør angripers utnyttelse av sårbarheter selv når det ikke finnes en oppdatering eller oppdateringen utføres for sent. Lag unntaksregler for eldre applikasjoner som ikke fungerer med bra kodebeskyttelse, slik at man slipper å deaktivere beskyttelsen helt.",
       "source_reference": "NSM GP 2.3.8",
       "sort_order": 46
     },
@@ -618,7 +619,7 @@
       "name_en": "Establish secure time in the organisation",
       "name_nb": "Etabler sikker tid i virksomheten",
       "definition_en": "Establish secure time in the organisation",
-      "definition_nb": "Etabler sikker tid i virksomheten",
+      "definition_nb": "Etabler sikker tid i virksomheten. Vurder valg av tidskilder med høyere tillit og kontroller at alle enheter benytter tid med ønsket kvalitet.",
       "source_reference": "NSM GP 2.3.9",
       "sort_order": 47
     },
@@ -631,7 +632,7 @@
       "name_en": "Reduce risk with IoT devices",
       "name_nb": "Reduser risiko med IoT-enheter",
       "definition_en": "Reduce risk with IoT devices",
-      "definition_nb": "Reduser risiko med IoT-enheter",
+      "definition_nb": "Reduser risiko med IoT-enheter. a) Lag en plan for innføring av slike enheter som inkluderer sikkerhetsaspekter med risikovurdering. b) Kjøp kun enheter som har innebygd sikkerhetsfunksjonalitet, dvs. som kan i) sikkerhetsoppdateres, ii) bytte alle standard-passord, iii) tvinges til å kun benytte nettverk virksomheten har kontroll over. c) Monitorer trafikken fra enhetene, d) isoler enhetene i egne nettverkssoner og e) vurder plassering mht. om uvedkommende kan få fysisk tilgang til enhetene.",
       "source_reference": "NSM GP 2.3.10",
       "sort_order": 48
     },
@@ -657,7 +658,7 @@
       "name_en": "Establish access control on as many network ports as possible",
       "name_nb": "Etabler tilgangskontroll på flest mulige nettverksporter",
       "definition_en": "Establish access control on as many network ports as possible",
-      "definition_nb": "Etabler tilgangskontroll på flest mulige nettverksporter",
+      "definition_nb": "Etabler tilgangskontroll på flest mulige nettverksporter. Vær oppmerksom på at porter kan være fysiske, trådløse eller virtuelle. a) Nettverkstrafikk bør kun tillates på virksomhetsgodkjente porter (godkjentlisting). b) Tillat kun adgang for forvaltede enheter. c) Ikke-forvaltede enheter bør kun ha tilgang til eget gjeste-nett eller lignende.",
       "source_reference": "NSM GP 2.4.1",
       "sort_order": 50
     },
@@ -670,7 +671,7 @@
       "name_en": "Encrypt all wireless and wired connections",
       "name_nb": "Krypter alle trådløse og kablede forbindelser",
       "definition_en": "Encrypt all wireless and wired connections",
-      "definition_nb": "Krypter alle trådløse og kablede forbindelser",
+      "definition_nb": "Krypter alle trådløse og kablede forbindelser. a) Krypter alle trådløse forbindelser. Bruk tidsriktige protokoller som WPA2/WPA3 i «enterprise-modus». b) Krypter alle kablede forbindelser i egne nettverk, som minimum de som ikke er fysisk kontrollert av virksomheten.",
       "source_reference": "NSM GP 2.4.2",
       "sort_order": 51
     },
@@ -683,7 +684,7 @@
       "name_en": "Map physical accessibility for switches and cables",
       "name_nb": "Kartlegg fysisk tilgjengelighet for svitsjer og kabler",
       "definition_en": "Map physical accessibility for switches and cables",
-      "definition_nb": "Kartlegg fysisk tilgjengelighet for svitsjer og kabler",
+      "definition_nb": "Kartlegg fysisk tilgjengelighet for svitsjer og kabler. Virksomheter har ofte manglende oversikt over hvor egne kabler går og om uvedkommende har fysisk adgang. Hvis man ikke autentiserer og krypterer alle forbindelser, bør man kartlegge beliggenhet til kablede nettverk med tanke på om uvedkommende har fysisk adgang (mellom egne bygninger, mellom etasjer i bygning delt med andre virksomheter, mellom forskjellige geografiske lokasjoner, resepsjoner, mm.).",
       "source_reference": "NSM GP 2.4.3",
       "sort_order": 52
     },
@@ -696,7 +697,7 @@
       "name_en": "Enable firewall on all clients and servers",
       "name_nb": "Aktiver brannmur på alle klienter og servere",
       "definition_en": "Enable firewall on all clients and servers",
-      "definition_nb": "Aktiver brannmur på alle klienter og servere",
+      "definition_nb": "Aktiver brannmur på alle klienter og servere. Brannmurer er som regel innbygget i operativsystemer og kan brukes til trafikkstyring eller logging. Benytt brannmurer til å a) regulere innkommende/utgående trafikk, b) logge sikkerhetsrelevante hendelser og c) integrere klient/server-logging med sentralisert virksomhets-logging.",
       "source_reference": "NSM GP 2.4.4",
       "sort_order": 53
     },
@@ -722,7 +723,7 @@
       "name_en": "Control data flow between network zones",
       "name_nb": "Styr dataflyt mellom nettverks-soner",
       "definition_en": "Control data flow between network zones",
-      "definition_nb": "Styr dataflyt mellom nettverks-soner",
+      "definition_nb": "Styr dataflyt mellom nettverks-soner. a) Bruk oppdelingen i prinsipp 2.2 - Etabler en sikker IKT-arkitektur til å filtrere ønsket (godkjentlistet) nettverkstrafikk mellom soner og mot Internett. Filtrering kan være basert på kriterier som IP-adresse, sone-identifikator, protokoll, applikasjon, bruker, mm. b) Reglene (inkl. endringer) for trafikken mellom sonene bør dokumenteres og begrunnes. c) Sjekk regelmessig at den faktiske konfigurasjonen for dataflyt er i tråd med ønsket dataflyt.",
       "source_reference": "NSM GP 2.5.1",
       "sort_order": 55
     },
@@ -735,7 +736,7 @@
       "name_en": "Restrict access to internal services from external locations",
       "name_nb": "Begrens tilgangen til interne tjenester fra eksterne lokasjoner",
       "definition_en": "Restrict access to internal services from external locations",
-      "definition_nb": "Begrens tilgangen til interne tjenester fra eksterne lokasjoner",
+      "definition_nb": "Begrens tilgangen til interne tjenester fra eksterne lokasjoner. a) Tillat kun bruk av virksomhetsforvaltede enheter for å nå kritiske interne tjenester. b) Tilgang til interne tjenester fra ikke-forvaltede og private enheter bør kun tillates etter en kritikalitetsvurdering av tjenesten. I slike tilfeller bør risikoreduserende tiltak vurderes, for eksempel ved å tilby mindre funksjonalitet, kortere søkehistorikk, ett ekstra lag med autentisering osv.",
       "source_reference": "NSM GP 2.5.2",
       "sort_order": 56
     },
@@ -748,7 +749,7 @@
       "name_en": "Block all direct traffic between clients",
       "name_nb": "Sperr all direkte-trafikk mellom klienter",
       "definition_en": "Block all direct traffic between clients",
-      "definition_nb": "Sperr all direkte-trafikk mellom klienter",
+      "definition_nb": "Sperr all direkte-trafikk mellom klienter. Applikasjoner som har behov for «peer-to-peer» bør i stedet benytte en server-tjeneste. Alternativt reduser direkte trafikk mellom klienter til et absolutt minimum og basert på tjenstlig behov.",
       "source_reference": "NSM GP 2.5.3",
       "sort_order": 57
     },
@@ -761,7 +762,7 @@
       "name_en": "Isolate vulnerable equipment with low trust",
       "name_nb": "Isoler utstyr som er sårbart og har lav tillitt",
       "definition_en": "Isolate vulnerable equipment with low trust",
-      "definition_nb": "Isoler utstyr som er sårbart og har lav tillitt",
+      "definition_nb": "Isoler utstyr som er sårbart og har lav tillitt, eksempelvis: a) Utdaterte applikasjoner og gamle servere med ikke-støttede operativsystemer bør isoleres slik at kun én godt sikret server/proxy har direkte tilgang. b) Skrivere med svak sikkerhetskonfigurasjon og manglende sikkerhetsoppdatering.",
       "source_reference": "NSM GP 2.5.4",
       "sort_order": 58
     },
@@ -774,7 +775,7 @@
       "name_en": "Control data flow to particularly exposed services",
       "name_nb": "Styr dataflyten til spesielt eksponerte tjenester",
       "definition_en": "Control data flow to particularly exposed services",
-      "definition_nb": "Styr dataflyten til spesielt eksponerte tjenester",
+      "definition_nb": "Styr dataflyten til spesielt eksponerte tjenester. a) Eksponerte tjenester som web og epost med eksternt innhold til brukerne bør kontrolleres spesielt. b) Det bør ikke være mulighet for direkte dataflyt mellom slike eksponerte tjenester og virksomhetens mest kritiske tjenester.",
       "source_reference": "NSM GP 2.5.5",
       "sort_order": 59
     },
@@ -787,7 +788,7 @@
       "name_en": "Protect particularly critical services with dedicated data flow",
       "name_nb": "Beskytt spesielt kritiske tjenester med egen dataflyt",
       "definition_en": "Protect particularly critical services with dedicated data flow",
-      "definition_nb": "Beskytt spesielt kritiske tjenester med egen dataflyt",
+      "definition_nb": "Beskytt spesielt kritiske tjenester med egen dataflyt. a) Vurder hvilke tjenester som er spesielt kritiske og som bør ha egne regler for dataflyt. Tjenesten for sikkerhetskopiering kan være et eksempel. b) Vurder validering av kritiske tjenester på applikasjonslaget, f.eks. med en applikasjonsbrannmur.",
       "source_reference": "NSM GP 2.5.6",
       "sort_order": 60
     },
@@ -800,7 +801,7 @@
       "name_en": "Control traffic between the organisation and partners",
       "name_nb": "Ha kontroll på trafikk mellom virksomheten og samarbeidspartnere",
       "definition_en": "Control traffic between the organisation and partners",
-      "definition_nb": "Ha kontroll på trafikk mellom virksomheten og samarbeidspartnere",
+      "definition_nb": "Ha kontroll på trafikk mellom virksomheten og samarbeidspartnere/tjenesteleverandører. Angrep kan treffe virksomheten via systemene til samarbeidspartnere eller tjenesteleverandører. Trafikken til og fra disse bør styres til kun de relevante delene av virksomhetens system.",
       "source_reference": "NSM GP 2.5.7",
       "sort_order": 61
     },
@@ -813,7 +814,7 @@
       "name_en": "Route all traffic to and from managed mobile clients via organisation's network",
       "name_nb": "Styr all trafikk til og fra forvaltede mobile klienter via virksomhetens nett",
       "definition_en": "Route all traffic to and from managed mobile clients via organisation's network",
-      "definition_nb": "Styr all trafikk til og fra forvaltede mobile klienter via virksomhetens nett",
+      "definition_nb": "Styr all trafikk (ikke bare interne tjenester) til og fra forvaltede mobile klienter via virksomhetens nett, og ikke direkte til internett. Forvaltede mobile klienter bør alltid (uansett hvor de befinner seg) underlegges sikkerhetsfunksjonalitet i virksomhetens systemer, bl.a. for å hindre og detektere datalekkasje fra kompromitterte klienter.",
       "source_reference": "NSM GP 2.5.8",
       "sort_order": 62
     },
@@ -839,7 +840,7 @@
       "name_en": "Establish guidelines for access control",
       "name_nb": "Etabler retningslinjer for tilgangskontroll",
       "definition_en": "Establish guidelines for access control",
-      "definition_nb": "Etabler retningslinjer for tilgangskontroll",
+      "definition_nb": "Etabler retningslinjer for tilgangskontroll. a) Retningslinjene bør dekke flest mulig av ressursene i virksomheten: brukere, klienter, felles-mapper, server-applikasjoner, servere, nettverksenheter, sikkerhetsenheter og databaser. b) Retningslinjene bør følge minste privilegiums prinsipp. c) Alle kontoer bør kunne spores til en ansvarlig bruker. d) Alle kontoer, tilganger og rettigheter bør spores til en ansvarlig rolle og person. e) Kontoer, tilganger og rettigheter bør revideres jevnlig. f) Gjenbruk identiteter mest mulig på tvers av systemer (ideelt «Single sign on»). g) Ansvarliggjør brukere mht. at passord er personlige og hemmelige og aldri skal deles.",
       "source_reference": "NSM GP 2.6.1",
       "sort_order": 64
     },
@@ -852,7 +853,7 @@
       "name_en": "Establish a formal process for administration of accounts, access, and rights",
       "name_nb": "Etabler en formell prosess for administrasjon av kontoer, tilganger og rettigheter",
       "definition_en": "Establish a formal process for administration of accounts, access, and rights",
-      "definition_nb": "Etabler en formell prosess for administrasjon av kontoer, tilganger og rettigheter",
+      "definition_nb": "Etabler en formell prosess for administrasjon av kontoer, tilganger og rettigheter. a) Prosessen bør omhandle i) kontoer til brukere, enheter og systemprosesser, ii) tilganger til systemer og applikasjoner, iii) samt rettigheter mht. operativsystemer og virksomhetens felles brukerdatabase. b) Prosessen bør omfatte hele livssyklusen og omfatte opprettelse, vedlikehold og deaktivering. Deaktiver fremfor å slette kontoer og tilganger slik at revisjonsspor bevares. c) Retningslinjer for tilgangskontroll og prosess for administrasjon bør dokumenteres og være kjent i virksomheten.",
       "source_reference": "NSM GP 2.6.2",
       "sort_order": 65
     },
@@ -865,7 +866,7 @@
       "name_en": "Use a centralised and automatable tool for managing accounts, access, and rights",
       "name_nb": "Benytt et sentralisert og automatiserbart verktøy for å styre kontoer, tilganger og rettigheter",
       "definition_en": "Use a centralised and automatable tool for managing accounts, access, and rights",
-      "definition_nb": "Benytt et sentralisert og automatiserbart verktøy for å styre kontoer, tilganger og rettigheter",
+      "definition_nb": "Benytt et sentralisert og automatiserbart verktøy for å styre kontoer, tilganger og rettigheter. a) Styr kontoer, tilganger og rettigheter til flest mulig av ressurser i virksomheten med helst ett verktøy. b) Bruk verktøyet til å holde oversikt over alle kontoer, tilganger og rettigheter. c) Ved opprettelse av enkeltkontoer bør man sette foreløpige utløpsdatoer for deaktivering. d) Detekter og følg opp kontoer som ikke har blitt brukt på lenge. e) Bruk et sentralt verktøy til å kontrollere passord-kvaliteten opp mot virksomhetens sikkerhetskrav.",
       "source_reference": "NSM GP 2.6.3",
       "sort_order": 66
     },
@@ -878,7 +879,7 @@
       "name_en": "Minimise rights for end users and special users",
       "name_nb": "Minimer rettigheter til sluttbrukere og spesialbrukere",
       "definition_en": "Minimise rights for end users and special users",
-      "definition_nb": "Minimer rettigheter til sluttbrukere og spesialbrukere",
+      "definition_nb": "Minimer rettigheter til sluttbrukere og spesialbrukere. a) Ikke tildel administrator-rettigheter til sluttbrukere. b) Håndter spesialbrukere (f.eks. utviklere) som unntaksvis kan ha et faktisk behov for utvidede systemrettigheter. Oppgavene bør skilles i to kontoer: én for vanlig kontorbruk og én for oppgaver som krever forhøyede rettigheter. Disse kontoene bør ha tilstrekkelig sikkerhetsskille.",
       "source_reference": "NSM GP 2.6.4",
       "sort_order": 67
     },
@@ -891,7 +892,7 @@
       "name_en": "Minimise rights on operational accounts",
       "name_nb": "Minimer rettigheter på drifts-kontoer",
       "definition_en": "Minimise rights on operational accounts",
-      "definition_nb": "Minimer rettigheter på drifts-kontoer",
+      "definition_nb": "Minimer rettigheter på drifts-kontoer. a) Etabler ulike kontoer til de ulike drifts-operasjonene, slik at kompromittering av en konto ikke gir fulle rettigheter til hele systemet. b) Begrens bruken av kontoer med domeneadmin rettigheter til kun et minimum av virksomhetens drifts-operasjoner. c) Unngå bruk av upersonlige kontoer slik at man har god sporbarhet og lettere kan deaktivere kontoer når noen slutter.",
       "source_reference": "NSM GP 2.6.5",
       "sort_order": 68
     },
@@ -904,7 +905,7 @@
       "name_en": "Control access to devices",
       "name_nb": "Styr tilganger til enheter",
       "definition_en": "Control access to devices",
-      "definition_nb": "Styr tilganger til enheter",
+      "definition_nb": "Styr tilganger til enheter. a) Identifiser enheter sikkert og unikt med f.eks. sertifikater. Dette er ikke minst viktig for de ansattes klienter. b) Ha klare regler om hvilke nettverks-soner, ressurser og tjenester som enheter skal ha tilgang til.",
       "source_reference": "NSM GP 2.6.6",
       "sort_order": 69
     },
@@ -917,7 +918,7 @@
       "name_en": "Use multi-factor authentication",
       "name_nb": "Bruk multi-faktor autentisering",
       "definition_en": "Use multi-factor authentication",
-      "definition_nb": "Bruk multi-faktor autentisering",
+      "definition_nb": "Bruk multi-faktor autentisering, som smartkort, sertifikater eller engangspassord, for å autentisere brukere. a) Implementer som et minimum multi-faktor på brukerkontoer som har tilgang til kritiske data eller systemer, samt brukere med driftsoppgaver. Der multi-faktor autentisering ikke støttes, bør brukerkontoer bli pålagt å bruke sterke passord. b) Benytt biometri (f.eks. fingeravtrykk) på klienter som benyttes mye i det offentlige rom.",
       "source_reference": "NSM GP 2.6.7",
       "sort_order": 70
     },
@@ -943,7 +944,7 @@
       "name_en": "Establish a strategy for cryptography management",
       "name_nb": "Etabler en strategi for håndtering av kryptografi i virksomheten",
       "definition_en": "Establish a strategy for cryptography management",
-      "definition_nb": "Etabler en strategi for håndtering av kryptografi i virksomheten",
+      "definition_nb": "Etabler en strategi for håndtering av kryptografi i virksomheten. Strategien bør inneholde valg av kryptografiske verktøy, håndtering av sertifikater, hvordan utøve sikker nøkkelgenerering, hvordan nøkler/passord oppbevares, sikkerhetskopiering av nøkler, fornyelse av nøkler og hvordan håndtere kompromittering av nøkler. For nøkkelhåndtering bør det skilles på langtidsnøkler og sesjonsnøkler, der langtidsnøkler bør beskyttes særskilt.",
       "source_reference": "NSM GP 2.7.1",
       "sort_order": 72
     },
@@ -956,7 +957,7 @@
       "name_en": "Enable encryption in services that offer such functionality",
       "name_nb": "Aktiver kryptering i de tjenestene som tilbyr slik funksjonalitet og sikre at kun anbefalte algoritmer og nøkkellengder benyttes",
       "definition_en": "Enable encryption in services that offer such functionality",
-      "definition_nb": "Aktiver kryptering i de tjenestene som tilbyr slik funksjonalitet og sikre at kun anbefalte algoritmer og nøkkellengder benyttes",
+      "definition_nb": "Aktiver kryptering i de tjenestene som tilbyr slik funksjonalitet og sikre at kun anbefalte algoritmer og nøkkellengder benyttes.",
       "source_reference": "NSM GP 2.7.2",
       "sort_order": 73
     },
@@ -969,7 +970,7 @@
       "name_en": "Encrypt storage media holding confidential data that can be lost or compromised",
       "name_nb": "Krypter lagringsmedier som holder konfidensiell data og som lett kan mistes eller kompromitteres",
       "definition_en": "Encrypt storage media holding confidential data that can be lost or compromised",
-      "definition_nb": "Krypter lagringsmedier som holder konfidensiell data og som lett kan mistes eller kompromitteres",
+      "definition_nb": "Krypter lagringsmedier som holder konfidensiell data og som lett kan mistes eller kompromitteres, eksempelvis mobile klienter. Definer hvordan ulike typer data skal beskyttes, eksempelvis med kryptering av enkeltfiler, partisjoner eller hele disker.",
       "source_reference": "NSM GP 2.7.3",
       "sort_order": 74
     },
@@ -982,7 +983,7 @@
       "name_en": "Use encryption when transferring confidential information or when trust in channel is low",
       "name_nb": "Benytt kryptering når konfidensiell informasjon overføres eller når tilliten til informasjonskanalen er lav",
       "definition_en": "Use encryption when transferring confidential information or when trust in channel is low",
-      "definition_nb": "Benytt kryptering når konfidensiell informasjon overføres eller når tilliten til informasjonskanalen er lav",
+      "definition_nb": "Benytt kryptering når konfidensiell informasjon overføres eller når tilliten til informasjonskanalen er lav. For de ulike kanalene må det bestemmes på hvilket nivå krypteringen gjennomføres, for eksempel i applikasjonen (TLS), på nettverkslaget (IPsec) eller på datalinklaget (MACsec).",
       "source_reference": "NSM GP 2.7.4",
       "sort_order": 75
     },
@@ -995,7 +996,7 @@
       "name_en": "Define requirements for security levels for different types of information",
       "name_nb": "Definer krav til sikringsnivå for ulike typer informasjon med ulikt behov for konfidensialitetsbeskyttelse",
       "definition_en": "Define requirements for security levels for different types of information",
-      "definition_nb": "Definer krav til sikringsnivå for ulike typer informasjon med ulikt behov for konfidensialitetsbeskyttelse",
+      "definition_nb": "Definer krav til sikringsnivå for ulike typer informasjon med ulikt behov for konfidensialitetsbeskyttelse. Definer både for informasjon som lagres på ulike medier og for informasjon som overføres over ulike informasjonskanaler.",
       "source_reference": "NSM GP 2.7.5",
       "sort_order": 76
     },
@@ -1021,7 +1022,7 @@
       "name_en": "Verify that incoming email is from a legitimate sender address",
       "name_nb": "Verifiser at innkommende e-post er fra en legitim avsender-adresse",
       "definition_en": "Verify that incoming email is from a legitimate sender address",
-      "definition_nb": "Verifiser at innkommende e-post er fra en legitim avsender-adresse",
+      "definition_nb": "Verifiser at innkommende e-post er fra en legitim avsender-adresse (avslør «spoofing»). Gjør dette ved bruk av DMARC, DKIM, SPF og DNSSEC.",
       "source_reference": "NSM GP 2.8.1",
       "sort_order": 78
     },
@@ -1034,7 +1035,7 @@
       "name_en": "Enable STARTTLS on the organisation's email server",
       "name_nb": "Aktiver STARTTLS på virksomhetens e-postserver for autentisering og konfidensialitetssikring",
       "definition_en": "Enable STARTTLS on the organisation's email server",
-      "definition_nb": "Aktiver STARTTLS på virksomhetens e-postserver for autentisering og konfidensialitetssikring",
+      "definition_nb": "Aktiver STARTTLS på virksomhetens e-postserver for autentisering og konfidensialitetssikring av all e-post mellom virksomheten og andre samarbeidende virksomheter som har aktivert STARTTLS.",
       "source_reference": "NSM GP 2.8.2",
       "sort_order": 79
     },
@@ -1047,7 +1048,7 @@
       "name_en": "Use only supported email clients, browsers, and plugins",
       "name_nb": "Bruk kun støttede e-postklienter, nettlesere og programtillegg i virksomheten",
       "definition_en": "Use only supported email clients, browsers, and plugins",
-      "definition_nb": "Bruk kun støttede e-postklienter, nettlesere og programtillegg i virksomheten",
+      "definition_nb": "Bruk kun støttede e-postklienter, nettlesere og programtillegg («plugins») i virksomheten. Bruk kun siste versjoner med den nyeste sikkerhetsfunksjonaliteten og de siste sikkerhetsoppdateringene. Avinstaller/deaktiver nettlesere som er inkludert i operativsystemet og som ikke lenger støttes.",
       "source_reference": "NSM GP 2.8.3",
       "sort_order": 80
     },
@@ -1060,7 +1061,7 @@
       "name_en": "Allow only organisation-approved plugins",
       "name_nb": "Tillat kun virksomhetsgodkjente programtillegg",
       "definition_en": "Allow only organisation-approved plugins",
-      "definition_nb": "Tillat kun virksomhetsgodkjente programtillegg",
+      "definition_nb": "Tillat kun virksomhetsgodkjente programtillegg. For mange virksomheter er nødvendige programtillegg («plugins») kun de som integrerer epostleser og nettleser mot for eksempel saks- og arkivsystemer. Tillegg som ikke er nødvendige for virksomheten kan utgjøre en sårbarhet, og bør derfor ikke tillates.",
       "source_reference": "NSM GP 2.8.4",
       "sort_order": 81
     },
@@ -1086,7 +1087,7 @@
       "name_en": "Plan regular backup of all business data",
       "name_nb": "Legg en plan for regelmessig sikkerhetskopiering av alle virksomhetsdata",
       "definition_en": "Plan regular backup of all business data",
-      "definition_nb": "Legg en plan for regelmessig sikkerhetskopiering av alle virksomhetsdata",
+      "definition_nb": "Legg en plan for regelmessig sikkerhetskopiering av alle virksomhetsdata. En slik plan bør som minimum beskrive: a) Hvilke data som skal sikkerhetskopieres. b) Regelmessighet på sikkerhetskopiering av ulike data. c) Ansvar for sikkerhetskopiering av ulike data. d) Prosedyrer ved feilet sikkerhetskopiering. e) Oppbevaringsperiode for sikkerhetskopier. f) Logiske og fysiske krav til sikring av sikkerhetskopier. g) Krav til gjenopprettingstid for virksomhetens ulike systemer og data. h) Godkjenningsansvarlig(e) for planen.",
       "source_reference": "NSM GP 2.9.1",
       "sort_order": 83
     },
@@ -1099,7 +1100,7 @@
       "name_en": "Include software backups to ensure recovery capability",
       "name_nb": "Inkluder sikkerhetskopier av programvare for å sikre gjenoppretting",
       "definition_en": "Include software backups to ensure recovery capability",
-      "definition_nb": "Inkluder sikkerhetskopier av programvare for å sikre gjenoppretting",
+      "definition_nb": "Inkluder sikkerhetskopier av programvare for å sikre gjenoppretting. Dette inkluderer (som minimum) a) sikkerhetskonfigurasjon, b) maler for virtuelle maskiner og «master-images» av operativsystemer og c) installasjonsprogramvare.",
       "source_reference": "NSM GP 2.9.2",
       "sort_order": 84
     },
@@ -1112,7 +1113,7 @@
       "name_en": "Test backups regularly by performing recovery tests",
       "name_nb": "Test sikkerhetskopier regelmessig ved å utføre gjenopprettingstest",
       "definition_en": "Test backups regularly by performing recovery tests",
-      "definition_nb": "Test sikkerhetskopier regelmessig ved å utføre gjenopprettingstest",
+      "definition_nb": "Test sikkerhetskopier regelmessig ved å utføre gjenopprettingstest for å verifisere at sikkerhetskopien fungerer.",
       "source_reference": "NSM GP 2.9.3",
       "sort_order": 85
     },
@@ -1125,7 +1126,7 @@
       "name_en": "Protect backups against intentional and unintentional deletion, manipulation, and reading",
       "name_nb": "Beskytt sikkerhetskopier mot tilsiktet og utilsiktet sletting, manipulering og avlesning",
       "definition_en": "Protect backups against intentional and unintentional deletion, manipulation, and reading",
-      "definition_nb": "Beskytt sikkerhetskopier mot tilsiktet og utilsiktet sletting, manipulering og avlesning",
+      "definition_nb": "Beskytt sikkerhetskopier mot tilsiktet og utilsiktet sletting, manipulering og avlesning. a) Sikkerhetskopier bør være separert fra virksomhetens produksjonsmiljø. b) Tilgangsrettigheter til sikkerhetskopier bør begrenses. c) Det bør jevnlig tas offline sikkerhetskopier som ikke kan nås via virksomhetens nettverk. d) Sikkerhetskopier bør beskyttes med kryptering når de lagres eller flyttes over nettverket.",
       "source_reference": "NSM GP 2.9.4",
       "sort_order": 86
     },
@@ -1151,7 +1152,7 @@
       "name_en": "Integrate security in the organisation's change management process",
       "name_nb": "Integrer sikkerhet i virksomhetens prosess for endringshåndtering",
       "definition_en": "Integrate security in the organisation's change management process",
-      "definition_nb": "Integrer sikkerhet i virksomhetens prosess for endringshåndtering",
+      "definition_nb": "Integrer sikkerhet i virksomhetens prosess for endringshåndtering. Prosess for endringshåndtering bør inkludere: a) Vurdering av endringsforslag for å identifisere påvirkning på etablerte sikkerhetstiltak. b) Krav til testing av endringer før og etter idriftsetting. c) Informasjon til og nødvendig involvering av interesseparter som blir påvirket av endringen. d) Dokumentering av vurderinger, anbefalinger, avgjørelser og gjennomganger/tester med relevans for sikkerhetstilstanden.",
       "source_reference": "NSM GP 2.10.1",
       "sort_order": 88
     },
@@ -1164,7 +1165,7 @@
       "name_en": "Involve necessary ICT security personnel in connection with changes",
       "name_nb": "Involver nødvendig IKT-sikkerhetspersonell i forbindelse med endringer",
       "definition_en": "Involve necessary ICT security personnel in connection with changes",
-      "definition_nb": "Involver nødvendig IKT-sikkerhetspersonell i forbindelse med endringer",
+      "definition_nb": "Involver nødvendig IKT-sikkerhetspersonell i forbindelse med endringer. Det kan være i forbindelse med overordnede eller tekniske vurderinger og gjennomganger, testing, godkjenning/signering eller varsling.",
       "source_reference": "NSM GP 2.10.2",
       "sort_order": 89
     },
@@ -1177,7 +1178,7 @@
       "name_en": "Conduct necessary change, configuration, and testing of affected security functions",
       "name_nb": "Gjennomfør nødvendig endring, konfigurering og testing av påvirkede sikkerhetsfunksjoner",
       "definition_en": "Conduct necessary change, configuration, and testing of affected security functions",
-      "definition_nb": "Gjennomfør nødvendig endring, konfigurering og testing av påvirkede sikkerhetsfunksjoner",
+      "definition_nb": "Gjennomfør nødvendig endring, konfigurering og testing av påvirkede sikkerhetsfunksjoner før og etter idriftsetting for å opprettholde etablert sikkerhetstilstand.",
       "source_reference": "NSM GP 2.10.3",
       "sort_order": 90
     },
@@ -1190,7 +1191,7 @@
       "name_en": "Integrate security in the organisation's emergency change process",
       "name_nb": "Integrer sikkerhet i virksomhetens prosess for hasteendringer",
       "definition_en": "Integrate security in the organisation's emergency change process",
-      "definition_nb": "Integrer sikkerhet i virksomhetens prosess for hasteendringer",
+      "definition_nb": "Integrer sikkerhet i virksomhetens prosess for hasteendringer. Fastsett minimumskrav til involvering av personell, sikkerhetsvurderinger, testing og dokumentasjon både før og etter idriftsetting.",
       "source_reference": "NSM GP 2.10.4",
       "sort_order": 91
     },
@@ -1229,7 +1230,7 @@
       "name_en": "Conduct regular vulnerability scanning using automated tools",
       "name_nb": "Gjennomfør jevnlig sårbarhetskartlegging i informasjonssystemet ved hjelp av automatiserte verktøy",
       "definition_en": "Conduct regular vulnerability scanning using automated tools",
-      "definition_nb": "Gjennomfør jevnlig sårbarhetskartlegging i informasjonssystemet ved hjelp av automatiserte verktøy",
+      "definition_nb": "Gjennomfør jevnlig sårbarhetskartlegging i informasjonssystemet ved hjelp av automatiserte verktøy. Kartleggingen bør dekke klienter, servere og nettverk. a) Prioriter funn og verifiser at oppdagede sårbarheter blir håndtert. b) Sørg for at verktøy benyttet til sårbarhetskartlegging jevnlig blir oppdatert med informasjon om alle relevante sikkerhetssårbarheter.",
       "source_reference": "NSM GP 3.1.1",
       "sort_order": 94
     },
@@ -1242,7 +1243,7 @@
       "name_en": "Subscribe to vulnerability intelligence services",
       "name_nb": "Abonner på tjenester relatert til sårbarhetsetterretning for å være oppdatert på nye og kommende sårbarheter",
       "definition_en": "Subscribe to vulnerability intelligence services",
-      "definition_nb": "Abonner på tjenester relatert til sårbarhetsetterretning for å være oppdatert på nye og kommende sårbarheter",
+      "definition_nb": "Abonner på tjenester relatert til sårbarhetsetterretning for å være oppdatert på nye og kommende sårbarheter. Bruk denne informasjonen som input til verktøyene for sårbarhetskartlegging.",
       "source_reference": "NSM GP 3.1.2",
       "sort_order": 95
     },
@@ -1255,7 +1256,7 @@
       "name_en": "Use automated and centralised tools to handle known threats",
       "name_nb": "Benytt automatisert og sentralisert verktøy for å håndtere kjente trusler",
       "definition_en": "Use automated and centralised tools to handle known threats",
-      "definition_nb": "Benytt automatisert og sentralisert verktøy for å håndtere kjente trusler",
+      "definition_nb": "Benytt automatisert og sentralisert verktøy for å håndtere kjente trusler (som skadevare). a) Bruk antivirus/antiskadevare, fortrinnsvis en sentralisert styrt løsning, for å oppdage og blokkere kjent skadevare. b) Benytt også IDS/IPS-funksjonalitet på klienter og servere. c) Hendelser fra disse verktøyene bør logges, se prinsipp 3.2 - Etabler sikkerhetsovervåkning.",
       "source_reference": "NSM GP 3.1.3",
       "sort_order": 96
     },
@@ -1281,7 +1282,7 @@
       "name_en": "Determine the organisation's strategy and guidelines for security monitoring",
       "name_nb": "Fastsett virksomhetens strategi og retningslinjer for sikkerhetsovervåkning",
       "definition_en": "Determine the organisation's strategy and guidelines for security monitoring",
-      "definition_nb": "Fastsett virksomhetens strategi og retningslinjer for sikkerhetsovervåkning",
+      "definition_nb": "Fastsett virksomhetens strategi og retningslinjer for sikkerhetsovervåkning. Følgende bør beskrives: a) Formål med og bruksområdet til innsamlet data. b) Hvilke data som skal samles inn. c) Sikker oppbevaring av data. d) Kapasitetsplanlegging for lagring av innsamlet data. e) Tilgangsstyring til innsamlet data. f) Sammenstilling av logger fra virksomhetens forskjellige enheter og tjenester. g) Sletting av data. h) Revisjonsintervall for strategien (minst en gang i året og ved spesielle hendelser).",
       "source_reference": "NSM GP 3.2.1",
       "sort_order": 98
     },
@@ -1294,7 +1295,7 @@
       "name_en": "Follow up on laws and the organisation's guidelines",
       "name_nb": "Oppfølging av lover og virksomhetens retningslinjer",
       "definition_en": "Follow up on laws and the organisation's guidelines",
-      "definition_nb": "Oppfølging av lover og virksomhetens retningslinjer",
+      "definition_nb": "Følg lover, reguleringer og virksomhetens retningslinjer for sikkerhetsovervåkning. a) Undersøk hvilke lover og regler virksomheten må forholde seg til. b) Ta stilling til hvor lenge innsamlet data skal og kan lagres. c) Informer ansatte om hva som samles inn, hva det skal benyttes til og hvordan data skal behandles.",
       "source_reference": "NSM GP 3.2.2",
       "sort_order": 99
     },
@@ -1307,7 +1308,7 @@
       "name_en": "Determine which parts of the ICT system to monitor",
       "name_nb": "Avgjør hvilke deler av IKT-systemet som skal overvåkes",
       "definition_en": "Determine which parts of the ICT system to monitor",
-      "definition_nb": "Avgjør hvilke deler av IKT-systemet som skal overvåkes",
+      "definition_nb": "Avgjør hvilke deler av IKT-systemet som skal overvåkes, bl.a. følgende: a) Deler av systemet som er mest kritisk eller inneholder den mest konfidensielle informasjonen. b) Enheters operativsystemer. c) Interne nøkkelpunkt hvor data flyter gjennom. d) Nøkkelpunkt mellom interne og eksterne systemer. e) Sikkerhetsprodukter (AVS, IDS, IPS, FW, mm.) i informasjonssystemene. f) System for sikkerhetskopiering og gjenoppretting.",
       "source_reference": "NSM GP 3.2.3",
       "sort_order": 100
     },
@@ -1320,7 +1321,7 @@
       "name_en": "Security-relevant data",
       "name_nb": "Sikkerhetsrelevante data",
       "definition_en": "Security-relevant data",
-      "definition_nb": "Sikkerhetsrelevante data",
+      "definition_nb": "Beslutt hvilke data som er sikkerhetsrelevant og bør samles inn. For delene nevnte i 3.2.3 bør man som minimum samle inn a) data relatert til tilgangskontroll (vellykkede og mislykkede pålogginger) på enheter og tjenester og b) administrasjons- og sikkerhetslogger fra enheter og tjenester. For klienter bør man i tillegg registrere c) forsøk på kjøring av ukjent programvare og d) forsøk på å få forhøyede systemrettigheter.",
       "source_reference": "NSM GP 3.2.4",
       "sort_order": 101
     },
@@ -1333,7 +1334,7 @@
       "name_en": "Verification of collection",
       "name_nb": "Verifikasjon av innsamling",
       "definition_en": "Verification of collection",
-      "definition_nb": "Verifikasjon av innsamling",
+      "definition_nb": "Verifiser at innsamling fungerer etter hensikt. a) Kontroller at logginnstillinger fungerer og at det som skal innhentes blir innhentet. b) Sørg for at alle systemer har tilstrekkelig lagringsplass slik at nødvendig data ikke går tapt. c) Benytt et standardisert format slik at data enkelt kan leses av tredjeparts logganalyseverktøy.",
       "source_reference": "NSM GP 3.2.5",
       "sort_order": 102
     },
@@ -1346,7 +1347,7 @@
       "name_en": "Data integrity",
       "name_nb": "Dataintegritet",
       "definition_en": "Data integrity",
-      "definition_nb": "Dataintegritet",
+      "definition_nb": "Påse at innsamlet data ikke kan manipuleres. a) Arkiver og signer loggene digitalt med jevne mellomrom for å sikre loggintegritet. b) Sørg for tilstrekkelig tilgangsstyring på logger og implementer funksjonalitet som oppdager forsøk på manipulering eller sletting. c) Påse at alle komponenter er synkronisert mot en og samme tidskilde. d) Samle relevante data og konsolider dem til en database slik at de er tilgjengelige for analyse.",
       "source_reference": "NSM GP 3.2.6",
       "sort_order": 103
     },
@@ -1359,7 +1360,7 @@
       "name_en": "Ongoing review",
       "name_nb": "Løpende gjennomgang",
       "definition_en": "Ongoing review",
-      "definition_nb": "Løpende gjennomgang",
+      "definition_nb": "Gjennomgå og konfigurer innhenting av sikkerhetsrelevant data og den sentrale loggdatabasen jevnlig slik at det kun innhentes og tas vare på relevante data. Fjern innsamlede data som ikke lenger har noen operasjonell eller sikkerhetsmessig relevans.",
       "source_reference": "NSM GP 3.2.7",
       "sort_order": 104
     },
@@ -1385,7 +1386,7 @@
       "name_en": "Create a plan for analysis of security monitoring data",
       "name_nb": "Lage en plan for analyse av data fra sikkerhetsovervåkning",
       "definition_en": "Create a plan for analysis of security monitoring data",
-      "definition_nb": "Lage en plan for analyse av data fra sikkerhetsovervåkning",
+      "definition_nb": "Lage en plan for analyse av data fra sikkerhetsovervåkning, herunder: Avgjøre om virksomheten selv skal bygge opp analysekompetanse, eller om dette skal kjøpes. a) Prioritet, frekvens og ressursbruk på analysearbeidet. b) Verktøy, tjenester og mekanismer for søk, prosessering og analyser. c) Forvaltning og videreutvikling av fagområdet. d) Rapportering. e) Hendelseshåndtering.",
       "source_reference": "NSM GP 3.3.1",
       "sort_order": 106
     },
@@ -1398,7 +1399,7 @@
       "name_en": "Establish and maintain knowledge of the normal state of information systems",
       "name_nb": "Etabler og vedlikehold kompetanse om normaltilstanden i virksomhetens informasjonssystemer",
       "definition_en": "Establish and maintain knowledge of the normal state of information systems",
-      "definition_nb": "Etabler og vedlikehold kompetanse om normaltilstanden i virksomhetens informasjonssystemer",
+      "definition_nb": "Etabler og vedlikehold kompetanse om normaltilstanden i virksomhetens informasjonssystemer for å kunne oppdage endringer eller unormaliteter som kan indikere uautoriserte handlinger. Normaltilstanden må forvaltes over tid og gjenspeiles av omstillinger og omorganiseringer. Kunnskapen om informasjonssystemene bør være så god at det er mulig å identifisere avvik som representerer trusler.",
       "source_reference": "NSM GP 3.3.2",
       "sort_order": 107
     },
@@ -1411,7 +1412,7 @@
       "name_en": "Adopt tools enabling manual and automatic searches and alerting",
       "name_nb": "Ta i bruk verktøy som muliggjør manuelle og automatiske søk, samt alarmering basert på kriterier",
       "definition_en": "Adopt tools enabling manual and automatic searches and alerting",
-      "definition_nb": "Ta i bruk verktøy som muliggjør manuelle og automatiske søk, samt alarmering basert på kriterier",
+      "definition_nb": "Ta i bruk verktøy som muliggjør manuelle og automatiske søk, samt alarmering basert på kriterier, i all innsamlet sikkerhetsrelevant data. Verktøyet bør automatisk kunne sammenstille data fra forskjellige kilder for å lettere kunne avgjøre om hendelsen er reell samt omfang og karakter. Benytt kunnskap om normaltilstanden og trusler til å forbedre søk og kriterier for alarmering.",
       "source_reference": "NSM GP 3.3.3",
       "sort_order": 108
     },
@@ -1424,7 +1425,7 @@
       "name_en": "Obtain and process threat information from relevant sources",
       "name_nb": "Innhent og bearbeid trusselinformasjon fra relevante kilder",
       "definition_en": "Obtain and process threat information from relevant sources",
-      "definition_nb": "Innhent og bearbeid trusselinformasjon fra relevante kilder",
+      "definition_nb": "Innhent og bearbeid trusselinformasjon fra relevante kilder slik at denne kan benyttes ved vurdering av potensielle sikkerhetshendelser. Dette kan være data fra tidligere angrep eller trusselinformasjon fra myndigheter, sektor-CERT-er, sammenliknbare virksomheter eller åpne kilder.",
       "source_reference": "NSM GP 3.3.4",
       "sort_order": 109
     },
@@ -1437,7 +1438,7 @@
       "name_en": "Continuously assess whether collected data is sufficiently relevant and detailed",
       "name_nb": "Vurder fortløpende om innhentet data er tilstrekkelig relevant og detaljert",
       "definition_en": "Continuously assess whether collected data is sufficiently relevant and detailed",
-      "definition_nb": "Vurder fortløpende om innhentet data er tilstrekkelig relevant og detaljert",
+      "definition_nb": "Vurder fortløpende om innhentet data er tilstrekkelig relevant og detaljert.",
       "source_reference": "NSM GP 3.3.5",
       "sort_order": 110
     },
@@ -1450,7 +1451,7 @@
       "name_en": "Establish routine for escalation of alarms",
       "name_nb": "Etabler rutine for eskalering av alarmer",
       "definition_en": "Establish routine for escalation of alarms",
-      "definition_nb": "Etabler rutine for eskalering av alarmer",
+      "definition_nb": "Etabler rutine for eskalering av alarmer, hvem det skal rapporteres til, samt hvilke data som skal tilgjengeliggjøres og hvem det skal tilgjengeliggjøres for i forbindelse med hendelseshåndtering.",
       "source_reference": "NSM GP 3.3.6",
       "sort_order": 111
     },
@@ -1463,7 +1464,7 @@
       "name_en": "Use analysis tools, technology, and algorithms for detecting unknown threats",
       "name_nb": "Benytt analyseverktøy, teknologi og algoritmer for oppdagelse av ukjente trusler",
       "definition_en": "Use analysis tools, technology, and algorithms for detecting unknown threats",
-      "definition_nb": "Benytt analyseverktøy, teknologi og algoritmer for oppdagelse av ukjente trusler",
+      "definition_nb": "Benytt analyseverktøy, teknologi og algoritmer (også kalt anvendt maskinlæring) som bidrar til å oppdage og formidle ukjente trusler og unormaliteter i de sikkerhetsrelevante dataene.",
       "source_reference": "NSM GP 3.3.7",
       "sort_order": 112
     },
@@ -1489,7 +1490,7 @@
       "name_en": "Plan penetration tests with clear objectives and scope",
       "name_nb": "Planlegg inntrengingstester med tydelig mål og omfang",
       "definition_en": "Plan penetration tests with clear objectives and scope",
-      "definition_nb": "Planlegg inntrengingstester med tydelig mål og omfang",
+      "definition_nb": "Planlegg inntrengingstester med tydelig mål og omfang. a) Identifiser viktige deler av informasjonssystemet som bør vektlegges i testingen. b) Identifiser enkeltsystemer eller -komponenter som er så kritiske at de må unntas fra testingen.",
       "source_reference": "NSM GP 3.4.1",
       "sort_order": 114
     },
@@ -1502,7 +1503,7 @@
       "name_en": "Involve relevant stakeholders in advance",
       "name_nb": "Involver relevante interesseparter i forkant",
       "definition_en": "Involve relevant stakeholders in advance",
-      "definition_nb": "Involver relevante interesseparter i forkant",
+      "definition_nb": "Involver relevante interesseparter i forkant. Tilpass hva slags informasjon som gis ut og til hvem basert på mål og omfang for testen. Eksempelvis vil det ofte være naturlig å informere ekstern driftsovervåkning i forkant av en test, men ikke nødvendigvis brukere og driftspersonell.",
       "source_reference": "NSM GP 3.4.2",
       "sort_order": 115
     },
@@ -1515,7 +1516,7 @@
       "name_en": "Use vulnerability scanning and attack tools",
       "name_nb": "Benytt verktøy for sårbarhetskartlegging og angrepsverktøy",
       "definition_en": "Use vulnerability scanning and attack tools",
-      "definition_nb": "Benytt verktøy for sårbarhetskartlegging og angrepsverktøy",
+      "definition_nb": "Benytt verktøy for sårbarhetskartlegging og angrepsverktøy. Sårbarhetskartlegging kan benyttes som et utgangspunkt for testen, mens angrepsverktøy benyttes for å utnytte kartlagte sårbarheter.",
       "source_reference": "NSM GP 3.4.3",
       "sort_order": 116
     },
@@ -1528,7 +1529,7 @@
       "name_en": "Conduct regular penetration tests (at least annually)",
       "name_nb": "Gjennomfør jevnlige inntrengingstester",
       "definition_en": "Conduct regular penetration tests (at least annually)",
-      "definition_nb": "Gjennomfør jevnlige inntrengingstester",
+      "definition_nb": "Gjennomfør jevnlige inntrengingstester (minst årlige) for å identifisere sårbarheter. Inntrengingstestingen bør gjennomføres a) fra utsiden av virksomhetens nettverksbarrierer for å simulere eksterne angrep og b) fra innsiden av barrierer for å simulere interne angrep fra kompromittert klient/server eller utro tjenere.",
       "source_reference": "NSM GP 3.4.4",
       "sort_order": 117
     },
@@ -1541,7 +1542,7 @@
       "name_en": "Test detection and preparedness routines",
       "name_nb": "Test rutiner for deteksjon og beredskap",
       "definition_en": "Test detection and preparedness routines",
-      "definition_nb": "Test rutiner for deteksjon og beredskap",
+      "definition_nb": "Test rutiner for deteksjon og beredskap. Hyppigheten vil avhenge av virksomhetens behov, men det bør gjøres minst annethvert år for å opprettholde tilstrekkelige ferdigheter hos involvert personell.",
       "source_reference": "NSM GP 3.4.5",
       "sort_order": 118
     },
@@ -1554,7 +1555,7 @@
       "name_en": "Communicate penetration test results to relevant stakeholders",
       "name_nb": "Kommuniser resultater fra inntrengingstester til relevante interesseparter",
       "definition_en": "Communicate penetration test results to relevant stakeholders",
-      "definition_nb": "Kommuniser resultater fra inntrengingstester til relevante interesseparter",
+      "definition_nb": "Kommuniser resultater fra inntrengingstester til relevante interesseparter. a) Rapportering fra inntrengingstester og IKT-beredskapsøvelser bør dekke virksomhetens behov. b) Testene bør dokumenteres med en oppsummering (ledelsesoppsummering), oversikt over funn og forslag til forbedringstiltak.",
       "source_reference": "NSM GP 3.4.6",
       "sort_order": 119
     },
@@ -1593,7 +1594,7 @@
       "name_en": "Establish planning framework for incident handling",
       "name_nb": "Etabler planverk for hendelseshåndtering",
       "definition_en": "Establish planning framework for incident handling",
-      "definition_nb": "Etabler planverk for hendelseshåndtering",
+      "definition_nb": "Etabler et planverk for hendelseshåndtering som ivaretar behovet for virksomhetskontinuitet ved beredskap og krise. Dette bør inkludere a) en oversikt over krav til gjenopprettelse av IKT-funksjoner, IKT-tjenester og IKT-systemer basert på en analyse av konsekvenser for virksomheten (BIA), b) rolle- og ansvarsbeskrivelser for relevant personell, c) krav til opplæring, d) klassifiseringsregime for hendelser og grenseverdier for å aktivere krisestab, e) krav til testing og øving. f) Revider og oppdater planverket jevnlig, minst en gang i året og i etterkant av øvelser og større hendelser.",
       "source_reference": "NSM GP 4.1.1",
       "sort_order": 122
     },
@@ -1606,7 +1607,7 @@
       "name_en": "Conduct analysis of business-critical effects",
       "name_nb": "Gjennomfør analyse av virksomhetskritiske effekter",
       "definition_en": "Conduct analysis of business-critical effects",
-      "definition_nb": "Gjennomfør analyse av virksomhetskritiske effekter",
+      "definition_nb": "Gjennomfør en analyse av virksomhetskritiske effekter. Denne bør inkludere: a) prioritering av vitale forretningsfunksjoner og krav til sikkerhetsnivå for disse, b) identifiserte avhengigheter til IKT-funksjoner, IKT-tjenester, IKT-systemer, c) krav til gjenopprettelsestid, tap av data og tjenestenivå.",
       "source_reference": "NSM GP 4.1.2",
       "sort_order": 123
     },
@@ -1619,7 +1620,7 @@
       "name_en": "Develop role and responsibility descriptions",
       "name_nb": "Utarbeid rolle- og ansvarsbeskrivelse",
       "definition_en": "Develop role and responsibility descriptions",
-      "definition_nb": "Utarbeid rolle- og ansvarsbeskrivelse",
+      "definition_nb": "Utarbeid rolle- og ansvarsbeskrivelse for personell som skal involveres i hendelseshåndtering. Dette inkluderer: a) Personell med sentrale oppgaver, f.eks. IT-sjef, applikasjonsansvarlig, plattformansvarlig mm. b) Ledere med beslutningsansvar på ulike nivåer. c) Beredskapsvakter som er tilgjengelig utenom normal arbeidstid og i ferieperioder. d) Sørg for tilstrekkelig opplæring og øving av personell.",
       "source_reference": "NSM GP 4.1.3",
       "sort_order": 124
     },
@@ -1632,7 +1633,7 @@
       "name_en": "Develop agreements with relevant third parties",
       "name_nb": "Utarbeid avtaler med relevante tredjeparter",
       "definition_en": "Develop agreements with relevant third parties",
-      "definition_nb": "Utarbeid avtaler med relevante tredjeparter",
+      "definition_nb": "Utarbeid avtaler med relevante tredjeparter slik at disse er klare til å yte støtte dersom det kreves ved en hendelse. Dette kan være sektorvise responsmiljøer, IT-spesialister innen ulike fagfelt, leverandører av utstyr og programvare mm.",
       "source_reference": "NSM GP 4.1.4",
       "sort_order": 125
     },
@@ -1645,7 +1646,7 @@
       "name_en": "Determine communication channels",
       "name_nb": "Fastsett kommunikasjonskanaler",
       "definition_en": "Determine communication channels",
-      "definition_nb": "Fastsett kommunikasjonskanaler",
+      "definition_nb": "Fastsett hvilke kommunikasjonskanaler som skal benyttes i forbindelse med hendelser. a) Distribuer kontaktinformasjon for relevant personell. b) Lag en plan for alternative kommunikasjonskanaler. c) Etabler en plan for intern og ekstern kommunikasjon rundt hendelser.",
       "source_reference": "NSM GP 4.1.5",
       "sort_order": 126
     },
@@ -1658,7 +1659,7 @@
       "name_en": "Test and exercise plans regularly",
       "name_nb": "Test og øv på planer jevnlig",
       "definition_en": "Test and exercise plans regularly",
-      "definition_nb": "Test og øv på planer jevnlig",
+      "definition_nb": "Test og øv på planer jevnlig slik at disse er godt innøvd. a) Øvelser bør inkludere relevante underleverandører. b) Øvelser bør inkludere testing av rutiner for deteksjon og beredskap, se 3.4.5.",
       "source_reference": "NSM GP 4.1.6",
       "sort_order": 127
     },
@@ -1684,7 +1685,7 @@
       "name_en": "Review log data and gather relevant incident data",
       "name_nb": "Gjennomgå loggdata og samle relevante data om hendelsen for å oppnå et godt beslutningsgrunnlag",
       "definition_en": "Review log data and gather relevant incident data",
-      "definition_nb": "Gjennomgå loggdata og samle relevante data om hendelsen for å oppnå et godt beslutningsgrunnlag",
+      "definition_nb": "Gjennomgå loggdata og samle relevante data om hendelsen for å oppnå et godt beslutningsgrunnlag. Dette kan innebære innhenting og sammenstilling av data fra flere kilder, gjennomføre tester eller målinger for å verifisere eller avkrefte en hendelse. Metode og omfang vil avhenge av type hendelse som har oppstått.",
       "source_reference": "NSM GP 4.2.1",
       "sort_order": 129
     },
@@ -1697,7 +1698,7 @@
       "name_en": "Determine incident severity according to established planning",
       "name_nb": "Avgjør alvorlighetsgrad for hendelsen iht. etablert planverk",
       "definition_en": "Determine incident severity according to established planning",
-      "definition_nb": "Avgjør alvorlighetsgrad for hendelsen iht. etablert planverk",
+      "definition_nb": "Avgjør alvorlighetsgrad for hendelsen iht. etablert planverk, se 4.1.1. a) Vurder om hendelsen er en mulig eller bekreftet sikkerhetshendelse eller en falsk alarm. b) Klassifiser hendelsen i henhold til virksomhetens klassifiseringsregimet. c) Involver relevante roller (4.1.3). d) Iverksett beredskapsplan dersom hendelsen tilsier dette.",
       "source_reference": "NSM GP 4.2.2",
       "sort_order": 130
     },
@@ -1710,7 +1711,7 @@
       "name_en": "Inform relevant stakeholders",
       "name_nb": "Informer relevante interesseparter",
       "definition_en": "Inform relevant stakeholders",
-      "definition_nb": "Informer relevante interesseparter",
+      "definition_nb": "Informer relevante interesseparter. Dette kan være sektorvise responsmiljøer, IT-spesialister innen ulike fagfelt, leverandører av utstyr og programvare, ledelsen, sluttbrukere, media mm. Se 4.1.3-4.1.4.",
       "source_reference": "NSM GP 4.2.3",
       "sort_order": 131
     },
@@ -1736,7 +1737,7 @@
       "name_en": "Map scope and impact on business processes",
       "name_nb": "Kartlegg omfang og påvirkning på forretningsprosesser",
       "definition_en": "Map scope and impact on business processes",
-      "definition_nb": "Kartlegg omfang og påvirkning på forretningsprosesser",
+      "definition_nb": "Kartlegg omfang og påvirkning på forretningsprosesser. Kartlegg hendelsens påvirkning på underliggende IKT-funksjoner, IKT-tjenester og IKT-systemer. Se 4.1.2.",
       "source_reference": "NSM GP 4.3.1",
       "sort_order": 133
     },
@@ -1749,7 +1750,7 @@
       "name_en": "Investigate if incident is under control and implement reactive measures",
       "name_nb": "Undersøk om hendelsen er under kontroll og gjennomfør nødvendige reaktive tiltak",
       "definition_en": "Investigate if incident is under control and implement reactive measures",
-      "definition_nb": "Undersøk om hendelsen er under kontroll og gjennomfør nødvendige reaktive tiltak",
+      "definition_nb": "Undersøk om hendelsen er under kontroll og gjennomfør nødvendige reaktive tiltak. Dersom omfanget øker og ser ut til å få alvorlige konsekvenser bør kriseresponsaktiviteter iverksettes. Eksempler på reaktive tiltak er: a) Allokering av internt og eksternt personell. b) Innkapsling og blokkering av inntrenger for å hindre spredning. c) Terminering av truende eller kompromitterende aktiviteter i systemer.",
       "source_reference": "NSM GP 4.3.2",
       "sort_order": 134
     },
@@ -1762,7 +1763,7 @@
       "name_en": "Log all activities, results, and relevant decisions",
       "name_nb": "Loggfør alle aktiviteter, resultater og relevante avgjørelser for senere analyse",
       "definition_en": "Log all activities, results, and relevant decisions",
-      "definition_nb": "Loggfør alle aktiviteter, resultater og relevante avgjørelser for senere analyse",
+      "definition_nb": "Loggfør alle aktiviteter, resultater og relevante avgjørelser for senere analyse. a) Etabler en tidslinje for egne og trusselaktørens aktiviteter. b) Oppdater hendelsesdata og situasjonsbilde underveis for best håndtering av hendelsen. c) Sikre elektroniske bevis for skadevareanalyse og eventuelle rettslige prosesser.",
       "source_reference": "NSM GP 4.3.3",
       "sort_order": 135
     },
@@ -1775,7 +1776,7 @@
       "name_en": "Implement recovery plan during or after the incident",
       "name_nb": "Iverksett gjenopprettingsplan i løpet av, eller i etterkant av hendelsen",
       "definition_en": "Implement recovery plan during or after the incident",
-      "definition_nb": "Iverksett gjenopprettingsplan i løpet av, eller i etterkant av hendelsen",
+      "definition_nb": "Iverksett gjenopprettingsplan i løpet av, eller i etterkant av hendelsen. Tiltakene vil variere avhengig av type hendelse, men kan inkludere: a) Reaktivere redundante ressurser. b) Reinstallere maskin- og programvare på rammede komponenter. c) Gjenopprette konfigurasjonsinnstillinger. d) Gjenopprette tjenester som ble stoppet under hendelsesforløpet. IKT-systemene bør bygges opp til en bedre forfatning enn de var i før hendelsen inntraff («build back better»).",
       "source_reference": "NSM GP 4.3.4",
       "sort_order": 136
     },
@@ -1788,7 +1789,7 @@
       "name_en": "Coordinate and communicate with internal and external stakeholders",
       "name_nb": "Koordiner og kommuniser med interne og eksterne interessenter underveis i hendelseshåndteringen",
       "definition_en": "Coordinate and communicate with internal and external stakeholders",
-      "definition_nb": "Koordiner og kommuniser med interne og eksterne interessenter underveis i hendelseshåndteringen",
+      "definition_nb": "Koordiner og kommuniser med interne og eksterne interessenter underveis i hendelseshåndteringen. Dette kan være intern drift, ledelsen, interne avdelinger og andre virksomheter som kan bli påvirket av hendelsen. Virksomheten bør også ha en klar mediestrategi ved hendelser som kan ha en interesse for medier og allmenheten.",
       "source_reference": "NSM GP 4.3.5",
       "sort_order": 137
     },
@@ -1801,7 +1802,7 @@
       "name_en": "Conduct necessary post-incident activities",
       "name_nb": "Gjennomfør nødvendige aktiviteter i etterkant av hendelsen",
       "definition_en": "Conduct necessary post-incident activities",
-      "definition_nb": "Gjennomfør nødvendige aktiviteter i etterkant av hendelsen",
+      "definition_nb": "Gjennomfør nødvendige aktiviteter i etterkant av hendelsen. Det kan være aktiviteter som: a) Etterforsking for å finne rotårsak til hendelsen, inkludert type skadevare, trusselaktør, angrepsvektor, verktøy og hvordan hendelsesforløpet utviklet seg. b) Oppsummerende rapport som ledelsen kan forstå og ta stilling til. c) Kommunikasjon med relevante parter, inkludert sektorvise responsmiljøer og/eller NSM NCSC.",
       "source_reference": "NSM GP 4.3.6",
       "sort_order": 138
     },
@@ -1827,7 +1828,7 @@
       "name_en": "Identify lessons learned from incidents",
       "name_nb": "Identifiser erfaringer og læringspunkter fra hendelser, både det som virket og det som kan forbedres",
       "definition_en": "Identify lessons learned from incidents",
-      "definition_nb": "Identifiser erfaringer og læringspunkter fra hendelser, både det som virket og det som kan forbedres",
+      "definition_nb": "Identifiser erfaringer og læringspunkter («lessons learned») fra hendelser, både det som virket og det som kan forbedres.",
       "source_reference": "NSM GP 4.4.1",
       "sort_order": 140
     },
@@ -1840,7 +1841,7 @@
       "name_en": "Review and update compromised security measures",
       "name_nb": "Kartlegg og gjennomgå identifiserte, kompromitterte sikkerhetstiltak og oppdater eller forny disse for å hindre at en tilsvarende hendelse gjenoppstår",
       "definition_en": "Review and update compromised security measures",
-      "definition_nb": "Kartlegg og gjennomgå identifiserte, kompromitterte sikkerhetstiltak og oppdater eller forny disse for å hindre at en tilsvarende hendelse gjenoppstår",
+      "definition_nb": "Kartlegg og gjennomgå identifiserte, kompromitterte sikkerhetstiltak og oppdater eller forny disse for å hindre at en tilsvarende hendelse gjenoppstår. Vurder om etablerte tiltak er dekkende for virksomheten risikobilde.",
       "source_reference": "NSM GP 4.4.2",
       "sort_order": 141
     },
@@ -1853,7 +1854,7 @@
       "name_en": "Assess effectiveness of incident response processes",
       "name_nb": "Vurdere effektiviteten av prosesser, prosedyrer, rapporteringsformater og organisatoriske strukturer med tanke på å respondere på hendelser",
       "definition_en": "Assess effectiveness of incident response processes",
-      "definition_nb": "Vurdere effektiviteten av prosesser, prosedyrer, rapporteringsformater og organisatoriske strukturer med tanke på å respondere på hendelser",
+      "definition_nb": "Vurdere effektiviteten av prosesser, prosedyrer, rapporteringsformater og organisatoriske strukturer med tanke på å respondere på hendelser. Gjennomgå disse regelmessig, og etter hendelser, og oppdater basert på eventuelle læringspunktene.",
       "source_reference": "NSM GP 4.4.3",
       "sort_order": 142
     },
@@ -1866,7 +1867,7 @@
       "name_en": "Communicate and share lessons learned with stakeholders",
       "name_nb": "Kommuniser og del erfaringsresultatene med relevante interessenter og bruk reelle historier fra hendelseshåndtering i opplæring og bevisstgjøring av ansatte",
       "definition_en": "Communicate and share lessons learned with stakeholders",
-      "definition_nb": "Kommuniser og del erfaringsresultatene med relevante interessenter og bruk reelle historier fra hendelseshåndtering i opplæring og bevisstgjøring av ansatte",
+      "definition_nb": "Kommuniser og del erfaringsresultatene med (relevante) interessenter og bruk reelle historier fra hendelseshåndtering i opplæring og bevisstgjøring av ansatte.",
       "source_reference": "NSM GP 4.4.4",
       "sort_order": 143
     }

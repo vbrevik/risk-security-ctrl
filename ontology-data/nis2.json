@@ -8,7 +8,8 @@
     "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj",
-    "verification_notes": "verified"
+    "verification_notes": "verified",
+    "source_trust_tier": 1
   },
   "concepts": [
     {

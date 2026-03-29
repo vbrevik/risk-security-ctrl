@@ -8,7 +8,8 @@
     "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.nist.gov/cyberframework",
-    "verification_notes": "All 106 official subcategories verified against NIST CSF 2.0 (CSWP.29, February 2024). Three legacy/erroneous codes removed (RS.COM-01, RS.COM-02, RC.IMPROVE-01 from CSF 1.x)."
+    "verification_notes": "All 106 official subcategories verified against NIST CSF 2.0 (CSWP.29, February 2024). Three legacy/erroneous codes removed (RS.COM-01, RS.COM-02, RC.IMPROVE-01 from CSF 1.x).",
+    "source_trust_tier": 1
   },
   "concepts": [
     {

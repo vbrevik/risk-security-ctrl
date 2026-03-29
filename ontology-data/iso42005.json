@@ -8,7 +8,8 @@
     "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.iso.org/standard/44545.html",
-    "verification_notes": "Rebuilt from actual ISO/IEC 42005:2025 standard (May 2025, First Edition). Real structure: Clause 5 (process, 5.2-5.12) and Clause 6 (documentation, 6.2-6.9). Impact dimensions moved to Annex C (Harms and benefits taxonomy, informative). Previous fabricated codes (IAP.x, ID.x, SE.x, LC.x) replaced with actual clause references. 50 concepts total."
+    "verification_notes": "Rebuilt from actual ISO/IEC 42005:2025 standard (May 2025, First Edition). Real structure: Clause 5 (process, 5.2-5.12) and Clause 6 (documentation, 6.2-6.9). Impact dimensions moved to Annex C (Harms and benefits taxonomy, informative). Previous fabricated codes (IAP.x, ID.x, SE.x, LC.x) replaced with actual clause references. 50 concepts total.",
+    "source_trust_tier": 2
   },
   "concepts": [
     {

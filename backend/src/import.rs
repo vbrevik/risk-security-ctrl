@@ -16,6 +16,7 @@ pub struct FrameworkData {
     pub verification_date: Option<String>,
     pub verification_source: Option<String>,
     pub verification_notes: Option<String>,
+    pub source_trust_tier: Option<i64>,
 }
 
 /// Concept definition from JSON
@@ -118,8 +119,9 @@ pub async fn import_ontology_file(
     sqlx::query!(
         r#"
         INSERT INTO frameworks (id, name, version, description, source_url,
-            verification_status, verification_date, verification_source, verification_notes)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            verification_status, verification_date, verification_source, verification_notes,
+            source_trust_tier)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(id) DO UPDATE SET
             name = excluded.name,
             version = excluded.version,
@@ -129,6 +131,7 @@ pub async fn import_ontology_file(
             verification_date = excluded.verification_date,
             verification_source = excluded.verification_source,
             verification_notes = excluded.verification_notes,
+            source_trust_tier = excluded.source_trust_tier,
             updated_at = datetime('now')
         "#,
         ontology.framework.id,
@@ -139,7 +142,8 @@ pub async fn import_ontology_file(
         ontology.framework.verification_status,
         ontology.framework.verification_date,
         ontology.framework.verification_source,
-        ontology.framework.verification_notes
+        ontology.framework.verification_notes,
+        ontology.framework.source_trust_tier
     )
     .execute(db)
     .await?;
@@ -463,6 +467,9 @@ pub async fn import_all_ontologies(
         "iso24028.json",
         "nsl-sikkerhetsloven.json",
         "nsm-grunnprinsipper.json",
+        "nist-privacy-framework.json",
+        "nist-ssdf.json",
+        "nist-c-scrm.json",
     ];
 
     for file_name in &framework_files {

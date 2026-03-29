@@ -46,6 +46,9 @@ export function ProofPanel({ frameworkId }: ProofPanelProps) {
       {/* Metadata row */}
       <div className="flex flex-wrap items-center gap-3">
         <VerificationBadge status={data.verification_status} />
+        {data.source_trust_tier != null && (
+          <SourceTrustBadge tier={data.source_trust_tier} />
+        )}
         {formattedDate && (
           <span className="text-muted-foreground">
             {t("proof.date", "Verified")}: {formattedDate}
@@ -81,6 +84,48 @@ export function ProofPanel({ frameworkId }: ProofPanelProps) {
         </p>
       )}
     </div>
+  );
+}
+
+const TRUST_CONFIG: Record<
+  1 | 2 | 3,
+  { label: string; i18nKey: string; colorClasses: string; title: string }
+> = {
+  1: {
+    label: "Primary Source",
+    i18nKey: "proof.trustTier.primary",
+    colorClasses:
+      "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+    title: "Verified against official primary source (EUR-Lex, NIST, MITRE, ISO, government sites)",
+  },
+  2: {
+    label: "Secondary Source",
+    i18nKey: "proof.trustTier.secondary",
+    colorClasses:
+      "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+    title: "Verified via legitimate secondary source (official distributors, structured readers)",
+  },
+  3: {
+    label: "Unofficial Source",
+    i18nKey: "proof.trustTier.unofficial",
+    colorClasses:
+      "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200",
+    title: "Verified using unofficial source (unauthorized PDF copy or compliance vendor summary)",
+  },
+};
+
+function SourceTrustBadge({ tier }: { tier: number }) {
+  const { t } = useTranslation("ontology");
+  const config = TRUST_CONFIG[tier as 1 | 2 | 3];
+  if (!config) return null;
+  return (
+    <span
+      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${config.colorClasses}`}
+      title={config.title}
+      aria-label={t(config.i18nKey, config.label)}
+    >
+      {t(config.i18nKey, config.label)}
+    </span>
   );
 }
 

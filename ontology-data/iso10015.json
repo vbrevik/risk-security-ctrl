@@ -8,7 +8,8 @@
     "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.iso.org/standard/69459.html",
-    "verification_notes": "Second correction pass 2026-03-28. Previous 'correction' still had wrong structure. Real ISO 10015:2019 has only Clauses 4-5 for substantive content (not 4-7). Rebuilt from actual standard PDF: Clause 4 (Competence management: 4.2, 4.2.1-4.2.3, 4.3), Clause 5 (Competence management and people development: 5.2-5.7). 13 concepts, all mapped to real clause numbers and titles."
+    "verification_notes": "Second correction pass 2026-03-28. Previous 'correction' still had wrong structure. Real ISO 10015:2019 has only Clauses 4-5 for substantive content (not 4-7). Rebuilt from actual standard PDF: Clause 4 (Competence management: 4.2, 4.2.1-4.2.3, 4.3), Clause 5 (Competence management and people development: 5.2-5.7). 13 concepts, all mapped to real clause numbers and titles.",
+    "source_trust_tier": 3
   },
   "concepts": [
     {

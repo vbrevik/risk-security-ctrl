@@ -157,6 +157,11 @@
       "unverified": "Ikke verifisert",
       "needs-correction": "Trenger korrigering",
       "unknown": "Ukjent"
+    },
+    "trustTier": {
+      "primary": "Primærkilde",
+      "secondary": "Sekundærkilde",
+      "unofficial": "Uoffisiell kilde"
     }
   }
 }

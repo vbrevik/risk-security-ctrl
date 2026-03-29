@@ -52,7 +52,7 @@ pub async fn list_frameworks(
     State(state): State<AppState>,
 ) -> Result<Json<Vec<Framework>>, StatusCode> {
     let frameworks = sqlx::query_as::<_, Framework>(
-        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, created_at, updated_at FROM frameworks ORDER BY name"#
+        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, source_trust_tier, created_at, updated_at FROM frameworks ORDER BY name"#
     )
     .fetch_all(&state.db)
     .await
@@ -79,7 +79,7 @@ pub async fn get_framework(
     Path(id): Path<String>,
 ) -> Result<Json<Framework>, StatusCode> {
     let framework = sqlx::query_as::<_, Framework>(
-        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, created_at, updated_at FROM frameworks WHERE id = ?"#
+        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, source_trust_tier, created_at, updated_at FROM frameworks WHERE id = ?"#
     )
     .bind(id)
     .fetch_optional(&state.db)
@@ -528,7 +528,7 @@ pub async fn get_framework_proof(
 ) -> Result<Json<ProofResponse>, StatusCode> {
     // Validate framework exists and get verification metadata
     let row = sqlx::query_as::<_, Framework>(
-        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, created_at, updated_at FROM frameworks WHERE id = ?"#
+        r#"SELECT id, name, version, description, source_url, verification_status, verification_date, verification_source, verification_notes, source_trust_tier, created_at, updated_at FROM frameworks WHERE id = ?"#
     )
     .bind(&id)
     .fetch_optional(&state.db)
@@ -546,6 +546,7 @@ pub async fn get_framework_proof(
         verification_date: row.verification_date,
         verification_source: row.verification_source,
         verification_notes: row.verification_notes,
+        source_trust_tier: row.source_trust_tier,
         proof_content,
     }))
 }

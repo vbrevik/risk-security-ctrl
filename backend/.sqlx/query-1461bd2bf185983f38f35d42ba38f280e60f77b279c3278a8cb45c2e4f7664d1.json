@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n        INSERT INTO frameworks (id, name, version, description, source_url,\n            verification_status, verification_date, verification_source, verification_notes,\n            source_trust_tier)\n        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n        ON CONFLICT(id) DO UPDATE SET\n            name = excluded.name,\n            version = excluded.version,\n            description = excluded.description,\n            source_url = excluded.source_url,\n            verification_status = excluded.verification_status,\n            verification_date = excluded.verification_date,\n            verification_source = excluded.verification_source,\n            verification_notes = excluded.verification_notes,\n            source_trust_tier = excluded.source_trust_tier,\n            updated_at = datetime('now')\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 10
+    },
+    "nullable": []
+  },
+  "hash": "1461bd2bf185983f38f35d42ba38f280e60f77b279c3278a8cb45c2e4f7664d1"
+}

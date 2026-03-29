@@ -8,7 +8,8 @@
     "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
-    "verification_notes": "Issues 1-5 from initial partial verification all resolved 2026-03-28. ART-28-4 code corrected to ART-29. Art 15, 16, 20, 23 added. Chapter III title and Art 12 title corrected to match official regulation text. 36 concepts total — all legitimate."
+    "verification_notes": "Issues 1-5 from initial partial verification all resolved 2026-03-28. ART-28-4 code corrected to ART-29. Art 15, 16, 20, 23 added. Chapter III title and Art 12 title corrected to match official regulation text. 36 concepts total — all legitimate.",
+    "source_trust_tier": 1
   },
   "concepts": [
     {

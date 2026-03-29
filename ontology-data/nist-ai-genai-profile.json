@@ -8,7 +8,8 @@
     "verification_status": "corrected",
     "verification_date": "2026-03-28",
     "verification_source": "https://doi.org/10.6028/NIST.AI.600-1",
-    "verification_notes": "corrected"
+    "verification_notes": "corrected",
+    "source_trust_tier": 1
   },
   "concepts": [
     {

@@ -8,7 +8,8 @@
     "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
-    "verification_notes": "All 8 Article 5 prohibited practices present (ART-5(1)(a)-(h)). Social scoring scope corrected to include private actors per Art 5(1)(c). Art 64 confirmed as correct reference for European AI Office. Art 8 standalone concept added. 22 concepts added covering Arts 1-2, 4, 18-21, 23-25, 54, 56-57, 65-68, 74, 87, 100-101, 113."
+    "verification_notes": "All 8 Article 5 prohibited practices present (ART-5(1)(a)-(h)). Social scoring scope corrected to include private actors per Art 5(1)(c). Art 64 confirmed as correct reference for European AI Office. Art 8 standalone concept added. 22 concepts added covering Arts 1-2, 4, 18-21, 23-25, 54, 56-57, 65-68, 74, 87, 100-101, 113.",
+    "source_trust_tier": 1
   },
   "concepts": [
     {

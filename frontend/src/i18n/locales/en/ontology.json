@@ -157,6 +157,11 @@
       "unverified": "Unverified",
       "needs-correction": "Needs Correction",
       "unknown": "Unknown"
+    },
+    "trustTier": {
+      "primary": "Primary Source",
+      "secondary": "Secondary Source",
+      "unofficial": "Unofficial Source"
     }
   }
 }

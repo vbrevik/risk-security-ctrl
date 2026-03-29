@@ -8,7 +8,8 @@
     "verification_status": "verified",
     "verification_date": "2026-03-28",
     "verification_source": "https://www.cisa.gov/zero-trust-maturity-model",
-    "verification_notes": "verified (corrections applied)"
+    "verification_notes": "verified (corrections applied)",
+    "source_trust_tier": 1
   },
   "concepts": [
     {
