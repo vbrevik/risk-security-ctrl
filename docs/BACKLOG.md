@@ -2,11 +2,11 @@
 
 ## Verification Status (2026-03-28)
 
-Splits 01-06 of ontology verification are **complete**. 30 framework JSON files verified, 29 proof files created, 585 cross-framework relationships validated. All backend tests pass (324).
+Splits 01-06 of ontology verification are **complete**. 33 framework JSON files, 32 proof files, 585 cross-framework relationships. All backend tests pass.
 
 | Status | Count | Frameworks |
 |--------|-------|------------|
-| verified | 16 | cisa-ztmm, cve-cwe, data-centric, eu-ai-act, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-csf, nist-rmf, nsl-sikkerhetsloven, nsm-grunnprinsipper, xai-dataops, zero-trust |
+| verified | 19 | cisa-ztmm, cve-cwe, data-centric, eu-ai-act, gdpr, google-saif, iso27000, mitre-atlas, nis2, nist-ai-rmf, nist-c-scrm, nist-csf, nist-privacy-framework, nist-rmf, nist-ssdf, nsl-sikkerhetsloven, nsm-grunnprinsipper, xai-dataops, zero-trust |
 | corrected | 8 | cer-directive, dora, iso10015, iso31010, iso42005, iso9000, nist-ai-genai, nist-sp-800-53 |
 | structure-verified | 5 | iso23894, iso24028, iso31000, iso42001, mitre-attack |
 | partially-verified | 1 | fmn |
@@ -28,9 +28,9 @@ Identified during verification as having unique structural concepts not covered 
 
 | # | Publication | Est. Concepts | Source | Notes |
 |---|------------|--------------|--------|-------|
-| 1 | **NIST Privacy Framework 1.1** | ~120 | nist.gov/privacy-framework | 5 functions (Identify-P, Govern-P, Control-P, Communicate-P, Protect-P), 18 categories, ~100 subcategories. Maps to GDPR. |
-| 2 | **NIST SP 800-218 (SSDF) v1.1** | ~40 | csrc.nist.gov | 4 practice groups (PO/PS/PW/RV). Secure software dev lifecycle. Complements CWE/MITRE. |
-| 3 | **NIST SP 800-161 Rev 1 (C-SCRM)** | ~50 | csrc.nist.gov | Supply chain risk management. Multi-tier framework. Bridges to NIS2/DORA supply chain requirements. |
+| ~~1~~ | ~~**NIST Privacy Framework 1.1**~~ | ~~DONE~~ | — | Built as v1.0 (124 concepts: 5 functions, 18 categories, 100 subcategories). v1.1 is IPD only (Apr 2025). |
+| ~~2~~ | ~~**NIST SP 800-218 (SSDF) v1.1**~~ | ~~DONE~~ | — | Built: 66 concepts (4 groups, 19 practices, 42 tasks). |
+| ~~3~~ | ~~**NIST SP 800-161 Rev 1 (C-SCRM)**~~ | ~~DONE~~ | — | Built: 35 concepts (3 org levels, 3 practice tiers, 8 key practices). |
 
 ## MEDIUM Priority
 
@@ -51,9 +51,9 @@ Identified during verification as having unique structural concepts not covered 
 | 11 | SP 800-160 Vol 1 Rev 1 | Systems engineering processes — implementation guidance |
 | 12 | SP 800-61 Rev 3 | Incident handling — already covered by CSF RS/RC + 800-53 IR |
 
-## Also: Complete NIST CSF 2.0 Subcategories
+## ~~Also: Complete NIST CSF 2.0 Subcategories~~ — DONE
 
-The current nist-csf.json has only 21 of 106 subcategories (~20% coverage). Adding the remaining 85 subcategories is a high priority task that should happen before or alongside the new framework builds.
+All 106 subcategories already present and verified (commit b5fad54). 3 erroneous CSF 1.x codes removed.
 
 ---
 

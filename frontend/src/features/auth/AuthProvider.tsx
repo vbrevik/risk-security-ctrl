@@ -36,7 +36,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     queryFn: fetchCurrentUser,
     staleTime: 5 * 60 * 1000,
     retry: false,
-    refetchOnWindowFocus: true,
   });
 
   const loginMutation = useMutation({
