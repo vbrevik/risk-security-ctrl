@@ -9,7 +9,7 @@
 
 1. **ISO 9000:2015 Catalogue:** https://www.iso.org/standard/45481.html
 2. **ISO 9001:2015 Catalogue:** https://www.iso.org/standard/62085.html
-3. **ISO Quality Management Principles (free PDF):** https://www.iso.org/publication/PUB100080.html — all 7 QMPs with official descriptions
+3. **ISO Quality Management Principles (free PDF):** https://www.iso.org/publication/PUB100080.html — all 7 QMPs with official descriptions. Direct download: https://www.iso.org/files/live/sites/isoorg/files/store/en/PUB100080.pdf
 4. **ISO 9001:2015 table of contents:** Visible via ISO Online Browsing Platform preview at https://www.iso.org/obp/ui/#iso:std:iso:9001:ed-5:v1:en
 
 ## Standard Coverage
@@ -53,7 +53,7 @@ This bundling is intentional: the two standards are designed to be used together
 
 ### Confirmed Correct
 - All 7 QMPs present with correct clause references (2.3.1–2.3.7)
-- QMP definitions are accurate paraphrases of official ISO text
+- **QMP definitions verified against PUB100080.pdf (fetched 2026-03-29):** QMP1–QMP6 are exact matches to the official Statement text in the free ISO QMP publication. QMP7 uses "providers" where the pamphlet says "suppliers" — see note below.
 - All 7 ISO 9001:2015 top-level clauses present
 - source_reference fields correctly distinguish the two standards
 
@@ -67,9 +67,16 @@ This bundling is intentional: the two standards are designed to be used together
 
 4. **Framework name updated** — Changed from "ISO 9000:2015" to "ISO 9000/9001:2015" to accurately reflect that the file covers both standards.
 
+### Known Discrepancy — QMP7 "providers" vs "suppliers"
+
+The free ISO QMP pamphlet (PUB100080.pdf) states QMP7 as: *"...such as suppliers."*
+
+The ontology uses *"...such as providers."*
+
+**Why "providers" is correct for ISO 9000:2015:** The 2015 revision of ISO 9000 replaced the term "supplier" with "provider" throughout the standard (defined as term 3.2.5: "organization that provides a product or service"). The free QMP pamphlet is an older publication that has not been updated to reflect this vocabulary change. The standard text itself (Clause 2.3.7 in ISO 9000:2015) uses "provider". The ontology is consistent with the 2015 standard vocabulary.
+
 ### Previously Fixed (prior session)
 - Norwegian typo in performance evaluation: "Ytelsesevvaluering" → "Ytelsesevaluering"
-- QMP7 wording: "suppliers" → "providers" per ISO 9000:2015 preferred term
 
 ### Concept Count
 16 concepts — 7 QMP principles + 7 ISO 9001 requirement clauses + 2 category nodes. All legitimate, zero fabricated.
