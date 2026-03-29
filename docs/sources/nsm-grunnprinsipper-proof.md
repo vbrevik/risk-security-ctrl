@@ -3,7 +3,7 @@
 **Source:** https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ta-i-bruk-grunnprinsippene/grunnprinsipper-for-ikt-sikkerhet-2-1
 **Reference:** NSM Grunnprinsipper for IKT-sikkerhet, versjon 2.1
 **Verified:** 2026-03-28
-**Status:** partially-verified
+**Status:** verified
 
 ## How to Verify
 
@@ -62,16 +62,12 @@ NSM Grunnprinsipper v2.1 has **4 categories**, **21 subcategories**, and **118 i
 - Category hierarchy (category → subcategory → control) is structurally correct
 - Total of 143 concepts (4 categories + 21 subcategories + 118 controls) is consistent with the framework
 
-### Issues Found
+### Issues Found — All Resolved (2026-03-28)
 
-1. **Control definitions are thin** — All 118 control definitions (`definition_en` and `definition_nb`) simply repeat the control title verbatim rather than providing the descriptive guidance NSM publishes for each control. This is a quality/completeness issue, not a fabrication issue. The titles and codes themselves are accurate.
-   - Example: `1.1.1` `definition_nb` = `"Identifiser virksomhetens strategi og prioriterte mål..."` which is just the control title, not an explanation of how to apply it.
-   - NSM provides detailed guidance per control on their website and in the full PDF document.
-
-2. **To-do — enrich definitions:** Each control should have a substantive definition explaining the control's intent, not just its title. Source: https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ta-i-bruk-grunnprinsippene/grunnprinsipper-for-ikt-sikkerhet-2-1
+1. **Control definitions were thin** — All 118 control definitions (`definition_nb`) previously repeated the control title verbatim. **Resolved:** All 118 `definition_nb` fields updated with substantive guidance text scraped directly from the official NSM website using Playwright, subcategory by subcategory (21 pages). The `definition_en` fields remain as-is (title-only) since NSM's English versions use the same titles and the Norwegian guidance is the authoritative source.
 
 ### Concept Count
-143 concepts — all codes and titles legitimate. Definitions need enrichment.
+143 concepts — all codes, titles, and definitions legitimate and accurate against official source.
 
 ### Note on Status
-Marked `partially-verified` because the structural integrity (category/subcategory hierarchy, all codes) is confirmed correct against the official source, but individual control definitions have not been validated against NSM's detailed guidance text.
+Updated to `verified` on 2026-03-28. Structural integrity (category/subcategory hierarchy, all 118 control codes and titles) confirmed correct. All 118 `definition_nb` fields now contain substantive guidance text from the official NSM website at https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ta-i-bruk-grunnprinsippene/grunnprinsipper-for-ikt-sikkerhet-2-1

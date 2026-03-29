@@ -38,7 +38,7 @@ function InnerApp() {
 
   useEffect(() => {
     router.invalidate();
-  }, [auth.user]);
+  }, [auth.isAuthenticated]);
 
   return <RouterProvider router={router} context={{ auth, queryClient }} />;
 }
